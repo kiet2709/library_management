@@ -25,6 +25,7 @@ namespace LibraryManagement
         {
             InitializeComponent();
             panel2.BackColor = Color.FromArgb(255, 207, 71);
+            button1.BackColor = Color.FromArgb(255, 207, 71);
             //this.FormBorderStyle = FormBorderStyle.None;
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
