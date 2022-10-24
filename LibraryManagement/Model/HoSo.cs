@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LibraryManagement.DTO
+namespace LibraryManagement.Model
 {
-    internal class LoginDTO
+    internal class HoSo
     {
     }
 }

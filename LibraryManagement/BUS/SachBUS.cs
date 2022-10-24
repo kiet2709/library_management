@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace LibraryManagement.Model
+namespace LibraryManagement.BUS
 {
-    internal class Book
+    internal class SachBUS
     {
     }
 }
