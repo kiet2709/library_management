@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement
 {
-    partial class frmDangNhap
+    partial class FrmDangNhap
     {
         /// <summary>
         /// Required designer variable.

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class frmDangNhap : Form
+    public partial class FrmDangNhap : Form
     {
-        public frmDangNhap()
+        public FrmDangNhap()
         {
             InitializeComponent();
             pnlDangNhap.BackColor = Color.FromArgb(255, 255, 255);

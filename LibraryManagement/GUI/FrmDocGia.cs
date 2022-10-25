@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
 {
-    public partial class FrmSach : Form
+    public partial class FrmDocGia : Form
     {
-        public FrmSach()
+        public FrmDocGia()
         {
             InitializeComponent();
-        }
-
-        private void FrmSach_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
