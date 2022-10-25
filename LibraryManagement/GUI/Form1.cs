@@ -24,10 +24,11 @@ namespace LibraryManagement
         public Form1()
         {
             InitializeComponent();
-            panel2.BackColor = Color.FromArgb(255, 207, 71);
-            button1.BackColor = Color.FromArgb(255, 207, 71);
+            //panel1.BackColor = Color.FromArgb(254, 151, 129);
+            btnLogin.BackColor = Color.FromArgb(255, 207, 71);
             //this.FormBorderStyle = FormBorderStyle.None;
             //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
