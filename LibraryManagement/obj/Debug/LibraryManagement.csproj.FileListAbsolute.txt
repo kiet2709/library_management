@@ -6,7 +6,6 @@ C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\ob
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.exe
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.pdb
-C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.Form1.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\bin\Debug\LibraryManagement.exe
 E:\HCMUTE\School_Project\library_management\LibraryManagement\bin\Debug\LibraryManagement.pdb
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
@@ -17,3 +16,5 @@ E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryM
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.exe
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.pdb
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSach.resources
+C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.frmDangNhap.resources
+C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSach.resources
