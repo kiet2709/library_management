@@ -1,0 +1,166 @@
+
+
+CREATE DATABASE QuanLyThuVien
+
+
+
+CREATE TABLE TheLoai
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(50) NOT NULL,
+  CONSTRAINT PK_TheLoai PRIMARY KEY(id),
+  CONSTRAINT CHK_TheLoai CHECK (ten NOT LIKE '%[^a-zA-Z ]%')
+);
+
+
+CREATE TABLE NgonNgu
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(20) NOT NULL,
+  CONSTRAINT PK_NgonNgu PRIMARY KEY(id),
+  CONSTRAINT CHK_NgonNgu CHECK (ten like '%[^a-zA-Z ]%')
+
+);
+
+
+CREATE TABLE TacGia
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(50) NOT NULL,
+  CONSTRAINT PK_TacGia PRIMARY KEY(id),
+  CONSTRAINT CHK_TacGia CHECK (ten NOT LIKE '%[^a-zA-Z ]%')
+);
+
+
+CREATE TABLE NhaXuatBan
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(50) NOT NULL,
+  CONSTRAINT PK_NhaXuatBan PRIMARY KEY(id)
+);
+
+
+CREATE TABLE VaiTro
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(20) NOT NULL,
+  mota NVARCHAR(200),
+  CONSTRAINT PK_VaiTro PRIMARY KEY(id)
+);
+
+
+CREATE TABLE DocGia
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(50) NOT NULL,
+  mssv NVARCHAR(10),
+  khoa NVARCHAR(30),
+  trangthai INT NOT NULL,
+  CONSTRAINT PK_DocGia PRIMARY KEY(id)
+);
+
+
+CREATE TABLE DauSach
+(
+  id INT AUTO_INCREMENT,
+  tieude NVARCHAR(30) NOT NULL,
+  mota NVARCHAR(200),
+  gia INT,
+  ngayxuatban DATE,
+  hinhanh NVARCHAR(100),
+  loai INT NOT NULL,
+  trangthai INT NOT NULL,
+  maNXB INT,
+  maNgonNgu INT,
+  maTheLoai INT,
+  CONSTRAINT PK_DauSach PRIMARY KEY(id),
+  CONSTRAINT FK_NhaXB_DauSach FOREIGN KEY (maNXB) REFERENCES NhaXuatBan(id),
+  CONSTRAINT FK_NgonNgu_DauSach FOREIGN KEY (maNgonNgu) REFERENCES NgonNgu(id),
+  CONSTRAINT FK_TheLoai_DauSach FOREIGN KEY (maTheLoai) REFERENCES TheLoai(id),
+  CONSTRAINT CHK_DauSach CHECK (gia>=0 AND (loai=0 OR loai=1))
+);
+
+
+CREATE TABLE HoSo
+(
+  id INT AUTO_INCREMENT,
+  ten NVARCHAR(20) NOT NULL,
+  ho NVARCHAR(20) NOT NULL,
+  diachi NVARCHAR(200),
+  soDT NVARCHAR(10),
+  hinhanh NVARCHAR(100),
+  email NVARCHAR(100) NOT NULL,
+  ngaysinh Date,
+  CONSTRAINT PK_HoSo PRIMARY KEY(id)
+);
+
+
+CREATE TABLE NhanVien
+(
+  id INT AUTO_INCREMENT,
+  tenDangNhap NVARCHAR(30) NOT NULL,
+  matkhau NVARCHAR(100) NOT NULL,
+  trangthai INT NOT NULL,
+  maHoSo INT NOT NULL,
+  luong INT,
+  CONSTRAINT PK_NhanVien PRIMARY KEY(id),
+  CONSTRAINT FK_HoSo_NhanVien FOREIGN KEY (maHoSo) REFERENCES HoSo(id)
+);
+
+ 
+CREATE TABLE Muon
+(
+  id INT AUTO_INCREMENT,
+  ngaymuon DATE NOT NULL,
+  ngaytra DATE,
+  trangthai INT NOT NULL,
+  tienphat INT,
+  maNhanVien INT NOT NULL,
+  maDocGia INT NOT NULL,
+  CONSTRAINT PK_Muon PRIMARY KEY(id),
+  CONSTRAINT FK_Muon_NhanVien FOREIGN KEY (maNhanVien) REFERENCES NhanVien(id),
+  CONSTRAINT FK_Muon_DocGia FOREIGN KEY (maDocGia) REFERENCES DocGia(id)
+);
+
+
+CREATE TABLE tacgia_sach
+(
+  maDauSach INT NOT NULL,
+  maTacGia INT NOT NULL,
+  CONSTRAINT PK_tacgia_sach PRIMARY KEY (maDauSach, maTacGia),
+  CONSTRAINT FK_DauSach FOREIGN KEY (maDauSach) REFERENCES DauSach(id),
+  CONSTRAINT FK_TacGia FOREIGN KEY (maTacGia) REFERENCES TacGia(id)
+);
+
+CREATE TABLE vaitro_nhanvien
+(
+  maNhanVien INT NOT NULL,
+  maVaiTro INT NOT NULL,
+  CONSTRAINT PK_VaiTroNhanVien PRIMARY KEY (maNhanVien, maVaiTro),
+  CONSTRAINT FK_VaiTro FOREIGN KEY (maVaiTro) REFERENCES VaiTro(id),
+  CONSTRAINT FK_NhanVien FOREIGN KEY (maNhanVien) REFERENCES NhanVien(id)
+);
+
+; 
+CREATE TABLE Sach
+(
+  id INT AUTO_INCREMENT,
+  trangthai INT NOT NULL,
+  vitri NVARCHAR(100),
+  maDauSach INT NOT NULL,
+  CONSTRAINT PK_Sach PRIMARY KEY (id),
+  CONSTRAINT FK_DauSach_Sach FOREIGN KEY (maDauSach) REFERENCES DauSach(id)
+);
+
+
+CREATE TABLE MuonSach
+(
+  ngayhethan DATE,
+  ngaytra INT NOT NULL,
+  maSach INT NOT NULL,
+  maMuon INT NOT NULL,
+  CONSTRAINT PK_MuonSach PRIMARY KEY (maSach, maMuon),
+  CONSTRAINT FK_Sach FOREIGN KEY (maSach) REFERENCES Sach(id),
+  CONSTRAINT FK_Muon FOREIGN KEY (maMuon) REFERENCES Muon(id)
+);
+
