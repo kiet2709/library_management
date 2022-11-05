@@ -46,6 +46,12 @@
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="DAL\SachDAO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
+    <Compile Include="GUI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="GUI\FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmPhieuMuon.Designer.cs">
+      <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmSach.cs">
       <SubType>Form</SubType>
@@ -75,11 +87,17 @@
     <Compile Include="Model\VaiTro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDocGia.resx">
       <DependentUpon>FrmDocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmPhieuMuon.resx">
+      <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmSach.resx">
       <DependentUpon>FrmSach.cs</DependentUpon>

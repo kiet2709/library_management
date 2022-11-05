@@ -37,30 +37,22 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.viewCarGrid = new System.Windows.Forms.DataGridView();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sellCarPanel = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -73,6 +65,15 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.backBtn = new System.Windows.Forms.Button();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).BeginInit();
             this.sellCarPanel.SuspendLayout();
@@ -182,7 +183,8 @@
             this.Price,
             this.Column2,
             this.Status,
-            this.Column1});
+            this.Column1,
+            this.edit});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -205,63 +207,6 @@
             this.viewCarGrid.Size = new System.Drawing.Size(1095, 425);
             this.viewCarGrid.TabIndex = 42;
             // 
-            // CAR_ID
-            // 
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            this.CAR_ID.Visible = false;
-            // 
-            // NameC
-            // 
-            this.NameC.HeaderText = "Tựa sách";
-            this.NameC.MinimumWidth = 6;
-            this.NameC.Name = "NameC";
-            this.NameC.ReadOnly = true;
-            // 
-            // Model
-            // 
-            this.Model.HeaderText = "Tác giả";
-            this.Model.MinimumWidth = 6;
-            this.Model.Name = "Model";
-            this.Model.ReadOnly = true;
-            // 
-            // company
-            // 
-            this.company.HeaderText = "Kho";
-            this.company.MinimumWidth = 6;
-            this.company.Name = "company";
-            this.company.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Thể loại";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Trạng thái";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Giá";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "NXB";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
             // sellCarPanel
             // 
             this.sellCarPanel.BackColor = System.Drawing.Color.DimGray;
@@ -274,21 +219,6 @@
             this.sellCarPanel.Name = "sellCarPanel";
             this.sellCarPanel.Size = new System.Drawing.Size(287, 120);
             this.sellCarPanel.TabIndex = 33;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(117, 42);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 32);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Sách";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -317,6 +247,21 @@
             this.label1.Text = "Sách";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(117, 42);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 32);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Sách";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
@@ -329,21 +274,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(296, 120);
             this.panel3.TabIndex = 38;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(117, 42);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 32);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Độc giả";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
@@ -372,6 +302,21 @@
             this.label2.Text = "Sách";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(117, 42);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 32);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Độc giả";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
@@ -384,21 +329,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(284, 120);
             this.panel5.TabIndex = 39;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(117, 42);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 32);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Cho Mượn";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel6
             // 
@@ -427,6 +357,21 @@
             this.label4.Text = "Sách";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(117, 42);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 32);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Cho Mượn";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Transparent;
@@ -439,21 +384,6 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(286, 120);
             this.panel7.TabIndex = 40;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(117, 42);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 32);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Phiếu Mượn";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel8
             // 
@@ -481,6 +411,21 @@
             this.label6.TabIndex = 30;
             this.label6.Text = "Sách";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(117, 42);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(166, 32);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Phiếu Mượn";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel1
             // 
@@ -628,6 +573,70 @@
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
+            // CAR_ID
+            // 
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            this.CAR_ID.Visible = false;
+            // 
+            // NameC
+            // 
+            this.NameC.HeaderText = "Tựa sách";
+            this.NameC.MinimumWidth = 6;
+            this.NameC.Name = "NameC";
+            this.NameC.ReadOnly = true;
+            // 
+            // Model
+            // 
+            this.Model.HeaderText = "Tác giả";
+            this.Model.MinimumWidth = 6;
+            this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
+            // 
+            // company
+            // 
+            this.company.HeaderText = "Kho";
+            this.company.MinimumWidth = 6;
+            this.company.Name = "company";
+            this.company.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Thể loại";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Trạng thái";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Giá";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "NXB";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            // 
             // FrmSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -687,14 +696,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView viewCarGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
-        private System.Windows.Forms.DataGridViewTextBoxColumn company;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Panel sellCarPanel;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -721,5 +722,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn company;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewButtonColumn edit;
     }
 }
