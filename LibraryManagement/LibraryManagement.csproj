@@ -67,8 +67,13 @@
     <Compile Include="GUI\FrmPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmPhieuMuon.Designer.cs">
-      <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
+    <Compile Include="GUI\FrmPhieuMuon.Designer.cs"> 
+      <DependentUpon>FrmPhieuMuon.cs</DependentUpon></Compile>
+    <Compile Include="GUI\FrmXemChiTietDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmXemChiTietDocGia.Designer.cs">
+      <DependentUpon>FrmXemChiTietDocGia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmSach.cs">
       <SubType>Form</SubType>
@@ -101,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmSach.resx">
       <DependentUpon>FrmSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmXemChiTietDocGia.resx">
+      <DependentUpon>FrmXemChiTietDocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
