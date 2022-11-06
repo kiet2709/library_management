@@ -46,11 +46,11 @@
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="DAL\SachDAO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
-    <Compile Include="GUI\Form1.cs">
+    <Compile Include="GUI\FrmTheLoai.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GUI\FrmTheLoai.Designer.cs">
+      <DependentUpon>FrmTheLoai.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmDocGia.cs">
       <SubType>Form</SubType>
@@ -67,8 +67,9 @@
     <Compile Include="GUI\FrmPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FrmPhieuMuon.Designer.cs"> 
-      <DependentUpon>FrmPhieuMuon.cs</DependentUpon></Compile>
+    <Compile Include="GUI\FrmPhieuMuon.Designer.cs">
+      <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmXemChiTietDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,8 +93,8 @@
     <Compile Include="Model\VaiTro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GUI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\FrmTheLoai.resx">
+      <DependentUpon>FrmTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDocGia.resx">
       <DependentUpon>FrmDocGia.cs</DependentUpon>

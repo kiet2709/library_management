@@ -1,10 +1,10 @@
 ﻿--=============== CREATE DATABASE ===============--
 
-/*
+
 DROP DATABASE IF EXISTS QuanLyThuVien
 CREATE DATABASE QuanLyThuVien
 GO
-*/
+
 
 USE QuanLyThuVien
 GO
@@ -296,9 +296,6 @@ CREATE TABLE HoSo
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
-  CONSTRAINT CHK_HoSo CHECK (DATALENGTH(soDT) = 10 AND(soDT NOT LIKE  '%[^0-9]%' 
-							AND ten NOT LIKE '%[^a-zA-Z ]%'
-							AND ho NOT LIKE '%[^a-zA-Z ]%'))
 );
 GO
 
@@ -313,7 +310,7 @@ CREATE TABLE NhanVien
   maHoSo INT NOT NULL,
   CONSTRAINT PK_NhanVien PRIMARY KEY(id),
   CONSTRAINT FK_HoSo_NhanVien FOREIGN KEY (maHoSo) REFERENCES HoSo(id),
-  CONSTRAINT CHK_NhanVien CHECK (DATALENGTH(matkhau) >= 8 AND (tenDangNhap NOT LIKE '%[^a-zA-Z ]%') 
+  CONSTRAINT CHK_NhanVien CHECK (DATALENGTH(matkhau) >= 8 AND (tenDangNhap LIKE '%[a-zA-Z ]%') 
 									AND (trangthai = 0 OR trangthai =1))
 );
 GO

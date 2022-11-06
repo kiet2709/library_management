@@ -19,3 +19,6 @@ E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryM
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.frmDangNhap.resources
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSach.resources
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDocGia.resources
+C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmPhieuMuon.resources
+C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmXemChiTietDocGia.resources
+C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTheLoai.resources

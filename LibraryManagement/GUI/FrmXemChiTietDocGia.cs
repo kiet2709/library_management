@@ -16,6 +16,9 @@ namespace LibraryManagement.GUI
             InitializeComponent();
         }
 
-      
+        private void mskNgaySinh_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

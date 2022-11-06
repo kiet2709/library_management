@@ -188,7 +188,7 @@ namespace LibraryManagement.GUI
             "Khoa Ngoại ngữ"});
             this.comboBox1.Location = new System.Drawing.Point(493, 199);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(309, 43);
+            this.comboBox1.Size = new System.Drawing.Size(380, 43);
             this.comboBox1.TabIndex = 13;
             // 
             // textBox1
@@ -196,7 +196,7 @@ namespace LibraryManagement.GUI
             this.textBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(493, 81);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(309, 42);
+            this.textBox1.Size = new System.Drawing.Size(380, 42);
             this.textBox1.TabIndex = 14;
             // 
             // textBox2
@@ -204,7 +204,7 @@ namespace LibraryManagement.GUI
             this.textBox2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(493, 137);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(309, 42);
+            this.textBox2.Size = new System.Drawing.Size(380, 42);
             this.textBox2.TabIndex = 15;
             // 
             // mskNgaySinh
@@ -216,6 +216,7 @@ namespace LibraryManagement.GUI
             this.mskNgaySinh.Name = "mskNgaySinh";
             this.mskNgaySinh.Size = new System.Drawing.Size(177, 42);
             this.mskNgaySinh.TabIndex = 16;
+            this.mskNgaySinh.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.mskNgaySinh_MaskInputRejected);
             // 
             // maskedTextBox1
             // 
@@ -242,7 +243,7 @@ namespace LibraryManagement.GUI
             this.textBox3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(493, 387);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(309, 42);
+            this.textBox3.Size = new System.Drawing.Size(380, 42);
             this.textBox3.TabIndex = 19;
             // 
             // textBox4
@@ -250,7 +251,7 @@ namespace LibraryManagement.GUI
             this.textBox4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(493, 449);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(309, 42);
+            this.textBox4.Size = new System.Drawing.Size(380, 42);
             this.textBox4.TabIndex = 20;
             // 
             // label10
@@ -295,7 +296,7 @@ namespace LibraryManagement.GUI
             this.backBtn.Location = new System.Drawing.Point(22, 16);
             this.backBtn.Margin = new System.Windows.Forms.Padding(4);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(108, 58);
+            this.backBtn.Size = new System.Drawing.Size(108, 75);
             this.backBtn.TabIndex = 38;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
@@ -303,7 +304,7 @@ namespace LibraryManagement.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 655);
+            this.ClientSize = new System.Drawing.Size(922, 655);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);

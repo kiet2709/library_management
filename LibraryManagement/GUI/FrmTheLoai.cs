@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
 {
-    public partial class Form1 : Form
+    public partial class FrmTheLoai : Form
     {
-        public Form1()
+        public FrmTheLoai()
         {
             InitializeComponent();
         }
