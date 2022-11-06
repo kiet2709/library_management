@@ -209,7 +209,7 @@ CREATE TABLE NgonNgu
   id INT IDENTITY(1,1),
   ten NVARCHAR(20) NOT NULL,
   CONSTRAINT PK_NgonNgu PRIMARY KEY(id),
-  CONSTRAINT CHK_NgonNgu CHECK (ten like '%[^a-zA-Z ]%')
+  CONSTRAINT CHK_NgonNgu CHECK (ten NOT LIKE '%[^a-zA-Z ]%')
 
 );
 GO
@@ -269,7 +269,7 @@ CREATE TABLE DauSach
   gia INT,
   ngayxuatban DATE,
   hinhanh NVARCHAR(100),
-  loai INT NOT NULL,
+  loai INT NOT NULL, -- 1 = Giáo khoa | 0: Tham khảo
   trangthai INT NOT NULL,
   maNXB INT,
   maNgonNgu INT,
@@ -299,6 +299,8 @@ CREATE TABLE HoSo
 );
 GO
 
+
+
 IF OBJECT_ID(N'NhanVien', N'U') IS NOT NULL  
 	DROP TABLE [dbo].[NhanVien]; 
 CREATE TABLE NhanVien
@@ -322,7 +324,8 @@ CREATE TABLE Muon
   id INT IDENTITY(1,1),
   ngaymuon DATE NOT NULL,
   ngaytra DATE,
-  trangthai INT NOT NULL,
+  ngayhethan DATE,
+  trangthai INT NOT NULL, -- 1: Đang mượn | 0: Trả rồi
   tienphat INT,
   maNhanVien INT NOT NULL,
   maDocGia INT NOT NULL,
@@ -332,6 +335,7 @@ CREATE TABLE Muon
   CONSTRAINT CHK_Muon CHECK (tienphat >= 0 AND (trangthai = 0 OR trangthai =1))
 );
 GO
+
 
 IF OBJECT_ID(N'tacgia_sach', N'U') IS NOT NULL  
 	DROP TABLE [dbo].[tacgia_sach]; 
@@ -344,38 +348,41 @@ CREATE TABLE tacgia_sach
   CONSTRAINT FK_TacGia FOREIGN KEY (maTacGia) REFERENCES TacGia(id)
 );
 
+
+
 IF OBJECT_ID(N'vaitro_NhanVien', N'U') IS NOT NULL  
 	DROP TABLE [dbo].[vaitro_nhanVien]; 
 CREATE TABLE vaitro_nhanVien
 (
   maNhanVien INT NOT NULL,
-  maVaiTro INT NOT NULL,
+  maVaiTro INT NOT NULL, -- 1: Quản lý | 0: Nhân viên
   CONSTRAINT PK_VaiTroNhanVien PRIMARY KEY (maNhanVien, maVaiTro),
   CONSTRAINT FK_VaiTro FOREIGN KEY (maVaiTro) REFERENCES VaiTro(id),
   CONSTRAINT FK_NhanVien FOREIGN KEY (maNhanVien) REFERENCES NhanVien(id)
 );
 GO
 
+
 IF OBJECT_ID(N'Sach', N'U') IS NOT NULL  
 	DROP TABLE [dbo].[Sach]; 
 CREATE TABLE Sach
 (
   id INT IDENTITY(1,1),
-  trangthai INT NOT NULL,
+  trangthai INT NOT NULL, --  -1: Mất  1: Còn cho mượn | 0: Không cho mượn
   vitri NVARCHAR(100),
   maDauSach INT NOT NULL,
   CONSTRAINT PK_Sach PRIMARY KEY (id),
   CONSTRAINT FK_DauSach_Sach FOREIGN KEY (maDauSach) REFERENCES DauSach(id),
-  CONSTRAINT CHK_Sach CHECK (trangthai = 0 OR trangthai = 1)
+  CONSTRAINT CHK_Sach CHECK (trangthai = 0 OR trangthai = 1 OR trangthai = -1)
 );
 GO
+
+
 
 IF OBJECT_ID(N'MuonSach', N'U') IS NOT NULL  
 	DROP TABLE [dbo].[MuonSach]; 
 CREATE TABLE MuonSach
 (
-  ngayhethan DATE,
-  ngaytra INT NOT NULL,
   maSach INT NOT NULL,
   maMuon INT NOT NULL,
   CONSTRAINT PK_MuonSach PRIMARY KEY (maSach, maMuon),
@@ -383,6 +390,7 @@ CREATE TABLE MuonSach
   CONSTRAINT FK_Muon FOREIGN KEY (maMuon) REFERENCES Muon(id)
 );
 GO
+
 
 --=============== CREATE TRIGGER ===============--
 
@@ -753,13 +761,14 @@ GO
 CREATE proc usp_Them_Thong_Tin_Phieu_Muon
   @ngaymuon DATE,
   @ngaytra DATE,
+  @ngayhethan DATE,
   @trangthai INT,
   @tienphat INT,
   @maNhanVien INT,
   @maDocGia INT
 AS
 BEGIN
-	INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @trangthai, @tienphat,@maNhanVien,@maDocGia)
+	INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @trangthai, @tienphat ,@maNhanVien, @maDocGia)
 END;
 
 GO
@@ -844,3 +853,100 @@ ELSE
     SELECT -1
 
 END
+
+GO
+
+
+--================ INSERT DATA ====================================
+
+INSERT INTO TheLoai VALUES(N'Công nghệ thông tin');
+INSERT INTO TheLoai VALUES(N'Kỹ thuật dữ liệu');
+INSERT INTO TheLoai VALUES(N'Ngôn ngữ anh');
+INSERT INTO TheLoai VALUES(N'Sư phạm');
+INSERT INTO TheLoai VALUES(N'Công nghệ thực phẩm');
+INSERT INTO TheLoai VALUES(N'Công nghệ hóa học');
+INSERT INTO TheLoai VALUES(N'Xây dựng');
+INSERT INTO TheLoai VALUES(N'Thương mại điện tử');
+
+
+INSERT INTO NgonNgu VALUES(N'Tiếng việt');
+INSERT INTO NgonNgu VALUES(N'Tiếng anh');
+INSERT INTO NgonNgu VALUES(N'Tiếng trung');
+INSERT INTO NgonNgu VALUES(N'Tiếng nhật');
+INSERT INTO NgonNgu VALUES(N'Tiếng hàn');
+INSERT INTO NgonNgu VALUES(N'Song ngữ');
+
+INSERT INTO TacGia VALUES(N'Nguyễn Trường Thịnh');
+INSERT INTO TacGia VALUES(N'Nguyễn Nhật Ánh');
+INSERT INTO TacGia VALUES(N'Lê Công Tú');
+INSERT INTO TacGia VALUES(N'Nguyễn Văn Ngọc');
+
+INSERT INTO NhaXuatBan VALUES(N'Kim Đồng');
+INSERT INTO NhaXuatBan VALUES(N'Lao động');
+INSERT INTO NhaXuatBan VALUES(N'Trẻ');
+
+INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
+INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
+
+
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123','Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345','Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678','Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912','Kỹ thuật dữ liệu',1);
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722','Công nghệ hóa học',1);
+
+INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,1,1,1,1);
+INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,2,2,2,2);
+INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','None',0,3,3,3,3);
+INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','None',0,4,3,4,4);
+
+INSERT INTO HoSo VALUES(N'Khải', N'Nguyễn',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','none','20110655@student.hcmute.edu.vn','06-06-2002',null);
+INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','none','20110234@student.hcmute.edu.vn','09-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','none','20110211@student.hcmute.edu.vn','12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','none','201102221@student.hcmute.edu.vn','12-17-2002',2000000);
+
+INSERT INTO NhanVien VALUES(N'khainguyen','12345678',1,1);
+INSERT INTO NhanVien VALUES(N'kietnguyen','12345678',1,2);
+INSERT INTO NhanVien VALUES(N'vikhang','12345678',1,3);
+INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
+
+
+INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',1,null,1,1);
+INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',1,null,2,2);
+INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',1,null,3,3);
+INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',1,null,4,4);
+
+INSERT INTO tacgia_sach VALUES(1,1);
+INSERT INTO tacgia_sach VALUES(2,1);
+INSERT INTO tacgia_sach VALUES(3,2);
+INSERT INTO tacgia_sach VALUES(4,3);
+
+INSERT INTO vaitro_nhanVien VALUES(1,1);
+INSERT INTO vaitro_nhanVien VALUES(2,2);
+INSERT INTO vaitro_nhanVien VALUES(3,2);
+INSERT INTO vaitro_nhanVien VALUES(4,2);
+
+INSERT INTO Sach VALUES(1,'Kệ 1',1);
+INSERT INTO Sach VALUES(-1,'Kệ 1',1);
+INSERT INTO Sach VALUES(0,'Kệ 1',1);
+INSERT INTO Sach VALUES(1,'Kệ 1',1);
+INSERT INTO Sach VALUES(1,'Kệ 1',1);
+INSERT INTO Sach VALUES(1,'Kệ 2',2);
+INSERT INTO Sach VALUES(0,'Kệ 2',2);
+INSERT INTO Sach VALUES(-1,'Kệ 2',2);
+INSERT INTO Sach VALUES(1,'Kệ 2',2);
+INSERT INTO Sach VALUES(1,'Kệ 3',3);
+INSERT INTO Sach VALUES(0,'Kệ 3',3);
+INSERT INTO Sach VALUES(-1,'Kệ 3',3);
+INSERT INTO Sach VALUES(1,'Kệ 3',3);
+INSERT INTO Sach VALUES(1,'Kệ 2',4);
+INSERT INTO Sach VALUES(0,'Kệ 2',4);
+INSERT INTO Sach VALUES(-1,'Kệ 2',4);
+INSERT INTO Sach VALUES(1,'Kệ 2',4);
+
+
+INSERT INTO MuonSach VALUES(1,1);
+INSERT INTO MuonSach VALUES(2,1);
+INSERT INTO MuonSach VALUES(2,2);
+INSERT INTO MuonSach VALUES(3,3);
+INSERT INTO MuonSach VALUES(4,4);
