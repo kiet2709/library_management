@@ -270,7 +270,7 @@ namespace LibraryManagement.GUI
             this.button2.BackColor = System.Drawing.Color.LemonChiffon;
             this.button2.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(548, 561);
+            this.button2.Location = new System.Drawing.Point(567, 560);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 52);
             this.button2.TabIndex = 22;
