@@ -21,5 +21,12 @@ namespace LibraryManagement.DAL
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
             return Convert.ToInt32(result.Rows[0][0]);
         }
+
+        public int updatePasswordById(int accountID,String password)
+        {
+            string query = "usp_Sua_Mat_Khau_Nhan_Vien @ID , @MATKHAU ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { accountID,password });
+            return result;
+        }
     }
 }

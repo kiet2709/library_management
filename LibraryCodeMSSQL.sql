@@ -295,6 +295,7 @@ CREATE TABLE HoSo
   soDT NVARCHAR(10),
   hinhanh NVARCHAR(100),
   email NVARCHAR(100) NOT NULL,
+  gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
@@ -560,16 +561,34 @@ CREATE PROC usp_Sua_Thong_Tin_Nhan_Vien
 @ID INT,
 @TEN NVARCHAR(20),
 @HO NVARCHAR(20),
+@TENDANGNHAP NVARCHAR(30),
 @DIACHI NVARCHAR(20),
 @SODT NVARCHAR(10),
 @HINHANH NVARCHAR(100),
 @EMAIL NVARCHAR(100),
+@GIOITINH INT,
 @NGAYSINH DATE,
-@LUONG INT
+@LUONG INT,
+@TRANGTHAI INT
 AS
 BEGIN
-	UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, ngaysinh=@NGAYSINH, luong = @LUONG
+	UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 	WHERE id=@ID
+
+	UPDATE NhanVien SET tenDangNhap = @TENDANGNHAP, trangthai = @TRANGTHAI
+	WHERE id = @ID
+END;
+GO
+
+
+-- procedure Đổi mật khẩu nhân viên
+CREATE PROC usp_Sua_Mat_Khau_Nhan_Vien  
+@ID INT,
+@MATKHAU NVARCHAR(100)
+AS
+BEGIN
+	UPDATE NhanVien SET matkhau = @MATKHAU
+	WHERE id = @ID
 END;
 GO
 
@@ -610,12 +629,40 @@ END;
 
 GO
 
--- procedure Xem thông tin nhân viên
-CREATE PROC usp_Xem_Thong_Tin_Nhan_Vien
-@ID INT
+-- procedure Xem toàn bộ thông tin nhân viên
+CREATE PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
 AS
 BEGIN
-	SELECT * FROM HoSo WHERE id=@ID
+	SELECT HoSo.id,HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
+	FROM HoSo 
+	INNER JOIN NhanVien on HoSo.id = NhanVien.maHoSo
+		INNER JOIN vaitro_nhanVien ON vaitro_nhanVien.maNhanVien = NhanVien.id
+			INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro = VaiTro.id
+END;
+GO
+
+-- procedure Xem thông tin nhân viên theo id
+CREATE PROC usp_Xem_Thong_Tin_Nhan_Vien
+@id INT
+AS
+BEGIN
+	SELECT HoSo.id,HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap, ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
+	FROM HoSo 
+	INNER JOIN NhanVien on HoSo.id = NhanVien.maHoSo
+		INNER JOIN vaitro_nhanVien ON vaitro_nhanVien.maNhanVien = NhanVien.id
+			INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro = VaiTro.id
+	WHERE HoSo.id = @id;
+END;
+GO
+
+-- procedure Xem mật khẩu nhân viên theo id
+CREATE PROC usp_Xem_Mat_Khau_Nhan_Vien
+@id INT
+AS
+BEGIN
+	SELECT matKhau
+	FROM NhanVien
+	WHERE NhanVien.id = @id;
 END;
 GO
 
@@ -949,10 +996,10 @@ INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giớ
 INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','None',0,3,3,3,3);
 INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','None',0,4,3,4,4);
 
-INSERT INTO HoSo VALUES(N'Khải', N'Nguyễn',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','none','20110655@student.hcmute.edu.vn','06-06-2002',null);
-INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','none','20110234@student.hcmute.edu.vn','09-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','none','20110211@student.hcmute.edu.vn','12-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','none','201102221@student.hcmute.edu.vn','12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Khải', N'Nguyễn',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','none','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
+INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','none','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','none','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','none','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 
 INSERT INTO NhanVien VALUES(N'khainguyen','12345678',1,1);
 INSERT INTO NhanVien VALUES(N'kietnguyen','12345678',1,2);
@@ -1000,3 +1047,4 @@ INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
 
+select * from hoso

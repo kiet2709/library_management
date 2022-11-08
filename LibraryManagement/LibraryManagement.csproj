@@ -43,13 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\HoSoBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\HoSoDAO.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\SachDAO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
+    <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="GUI\FrmCapNhatTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCapNhatTaiKhoan.Designer.cs">
+      <DependentUpon>FrmCapNhatTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmXemChiTietTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmXemChiTietTaiKhoan.Designer.cs">
+      <DependentUpon>FrmXemChiTietTaiKhoan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +123,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\FrmCapNhatTaiKhoan.resx">
+      <DependentUpon>FrmCapNhatTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmXemChiTietTaiKhoan.resx">
+      <DependentUpon>FrmXemChiTietTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>

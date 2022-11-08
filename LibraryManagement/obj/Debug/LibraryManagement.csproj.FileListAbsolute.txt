@@ -9,7 +9,6 @@ C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\ob
 E:\HCMUTE\School_Project\library_management\LibraryManagement\bin\Debug\LibraryManagement.exe
 E:\HCMUTE\School_Project\library_management\LibraryManagement\bin\Debug\LibraryManagement.pdb
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
-E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.Form1.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
@@ -24,3 +23,12 @@ C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\ob
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTheLoai.resources
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\bin\Debug\LibraryManagement.exe.config
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTaiKhoan.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTaiKhoan.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTheLoai.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDocGia.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.FrmDangNhap.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmPhieuMuon.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmXemChiTietDocGia.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmXemChiTietTaiKhoan.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmCapNhatTaiKhoan.resources

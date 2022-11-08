@@ -28,5 +28,10 @@ namespace LibraryManagement.BUS
         {
             return nhanVienDAO.getRole(id);
         }
+
+        public int updatePasswordById(int accountID, String password)
+        {
+            return nhanVienDAO.updatePasswordById(accountID,password);
+        }
     }
 }
