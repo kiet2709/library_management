@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\DangNhapBUS.cs" />
     <Compile Include="BUS\SachBUS.cs" />
+    <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\SachDAO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
     <Compile Include="GUI\FrmTaiKhoan.cs">
@@ -99,6 +101,11 @@
     <Compile Include="Model\VaiTro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuanLyThuVienDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +137,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,6 +147,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="QuanLyThuVienDataSet.xsc">
+      <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanLyThuVienDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanLyThuVienDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanLyThuVienDataSet.xss">
+      <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="images\User.PNG" />

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LibraryManagement.BUS;
+using LibraryManagement.DTO;
+using LibraryManagement.GUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,12 +9,14 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LibraryManagement
 {
     public partial class FrmDangNhap : Form
     {
+        private DangNhapBUS dangNhapBUS = new DangNhapBUS();
         public FrmDangNhap()
         {
             InitializeComponent();
@@ -20,6 +25,25 @@ namespace LibraryManagement
             pnlDuongTrongDangNhap.BackColor = Color.FromArgb(255, 207, 71);
         }
 
-       
+        private void btnDangNhapp_Click(object sender, EventArgs e)
+        {
+            DangNhapDTO dangNhap = new DangNhapDTO(txtTenDangNhap.Text, txtMatKhau.Text);
+            int result = dangNhapBUS.dangNhap(dangNhap);
+            if (result == -1)
+            {
+                MessageBox.Show("Không tồn tại tài khoản hoặc tài khoản nhập sai, vui lòng đăng nhập lại!!!");
+            } else if (result == 1)
+            {
+                this.Close();
+                Thread thread = new Thread(OpenFrmSach);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+        }
+        void OpenFrmSach(object obj)
+        {
+            Application.Run(new FrmSach());
+
+        }
     }
 }

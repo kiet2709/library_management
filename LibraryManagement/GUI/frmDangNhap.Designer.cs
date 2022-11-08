@@ -31,18 +31,18 @@
             this.pnlAnhDangNhap = new System.Windows.Forms.Panel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnlDangNhap = new System.Windows.Forms.Panel();
+            this.btnDangNhapp = new System.Windows.Forms.Button();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.panel22 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel23 = new System.Windows.Forms.Panel();
+            this.pnlDuongTrongDangNhap = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.btnDangNhapp = new System.Windows.Forms.Button();
-            this.pnlDuongTrongDangNhap = new System.Windows.Forms.Panel();
             this.pnlAnhDangNhap.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.pnlDangNhap.SuspendLayout();
@@ -89,6 +89,45 @@
             this.pnlDangNhap.Size = new System.Drawing.Size(554, 454);
             this.pnlDangNhap.TabIndex = 1;
             // 
+            // btnDangNhapp
+            // 
+            this.btnDangNhapp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDangNhapp.Location = new System.Drawing.Point(221, 365);
+            this.btnDangNhapp.Name = "btnDangNhapp";
+            this.btnDangNhapp.Size = new System.Drawing.Size(134, 50);
+            this.btnDangNhapp.TabIndex = 10;
+            this.btnDangNhapp.Text = "Đăng nhập";
+            this.btnDangNhapp.UseVisualStyleBackColor = true;
+            this.btnDangNhapp.Click += new System.EventHandler(this.btnDangNhapp_Click);
+            // 
+            // panel26
+            // 
+            this.panel26.Location = new System.Drawing.Point(429, 243);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(20, 86);
+            this.panel26.TabIndex = 9;
+            // 
+            // panel25
+            // 
+            this.panel25.Location = new System.Drawing.Point(429, 123);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(20, 86);
+            this.panel25.TabIndex = 8;
+            // 
+            // panel24
+            // 
+            this.panel24.Location = new System.Drawing.Point(158, 243);
+            this.panel24.Name = "panel24";
+            this.panel24.Size = new System.Drawing.Size(275, 42);
+            this.panel24.TabIndex = 7;
+            // 
+            // panel22
+            // 
+            this.panel22.Location = new System.Drawing.Point(158, 123);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(274, 42);
+            this.panel22.TabIndex = 6;
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::LibraryManagement.Properties.Resources.Password;
@@ -119,6 +158,15 @@
             this.panel23.Size = new System.Drawing.Size(554, 100);
             this.panel23.TabIndex = 3;
             // 
+            // pnlDuongTrongDangNhap
+            // 
+            this.pnlDuongTrongDangNhap.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.pnlDuongTrongDangNhap.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pnlDuongTrongDangNhap.Location = new System.Drawing.Point(0, 97);
+            this.pnlDuongTrongDangNhap.Name = "pnlDuongTrongDangNhap";
+            this.pnlDuongTrongDangNhap.Size = new System.Drawing.Size(554, 3);
+            this.pnlDuongTrongDangNhap.TabIndex = 3;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -147,59 +195,12 @@
             this.txtTenDangNhap.Size = new System.Drawing.Size(275, 45);
             this.txtTenDangNhap.TabIndex = 0;
             // 
-            // panel22
-            // 
-            this.panel22.Location = new System.Drawing.Point(158, 123);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(274, 42);
-            this.panel22.TabIndex = 6;
-            // 
-            // panel24
-            // 
-            this.panel24.Location = new System.Drawing.Point(158, 243);
-            this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(275, 42);
-            this.panel24.TabIndex = 7;
-            // 
-            // panel25
-            // 
-            this.panel25.Location = new System.Drawing.Point(429, 123);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(20, 86);
-            this.panel25.TabIndex = 8;
-            // 
-            // panel26
-            // 
-            this.panel26.Location = new System.Drawing.Point(429, 243);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(20, 86);
-            this.panel26.TabIndex = 9;
-            // 
-            // btnDangNhapp
-            // 
-            this.btnDangNhapp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangNhapp.Location = new System.Drawing.Point(221, 365);
-            this.btnDangNhapp.Name = "btnDangNhapp";
-            this.btnDangNhapp.Size = new System.Drawing.Size(134, 50);
-            this.btnDangNhapp.TabIndex = 10;
-            this.btnDangNhapp.Text = "Đăng nhập";
-            this.btnDangNhapp.UseVisualStyleBackColor = true;
-            // 
-            // pnlDuongTrongDangNhap
-            // 
-            this.pnlDuongTrongDangNhap.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnlDuongTrongDangNhap.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlDuongTrongDangNhap.Location = new System.Drawing.Point(0, 97);
-            this.pnlDuongTrongDangNhap.Name = "pnlDuongTrongDangNhap";
-            this.pnlDuongTrongDangNhap.Size = new System.Drawing.Size(554, 3);
-            this.pnlDuongTrongDangNhap.TabIndex = 3;
-            // 
-            // frmDangNhap
+            // FrmDangNhap
             // 
             this.ClientSize = new System.Drawing.Size(862, 454);
             this.Controls.Add(this.pnlDangNhap);
             this.Controls.Add(this.pnlAnhDangNhap);
-            this.Name = "frmDangNhap";
+            this.Name = "FrmDangNhap";
             this.Text = "Đăng nhập";
             this.pnlAnhDangNhap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

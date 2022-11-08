@@ -1,7 +1,9 @@
 ﻿--=============== CREATE DATABASE ===============--
 
-
+USE master;
+GO
 DROP DATABASE IF EXISTS QuanLyThuVien
+GO
 CREATE DATABASE QuanLyThuVien
 GO
 
@@ -828,18 +830,25 @@ END;
 GO
 
 -- function trả về vai trò theo nhân viên
-CREATE FUNCTION fn_Vai_Tro_Nhan_Vien()
-RETURNS NVARCHAR AS
+CREATE OR ALTER FUNCTION fn_Vai_Tro_Nhan_Vien( @id INT)
+RETURNS INT AS
 BEGIN
-   DECLARE @vaitro NVARCHAR;
-   SELECT @vaitro = VaiTro.ten FROM NhanVien
-	INNER JOIN vaitro_nhanVien ON NhanVien.id = vaitro_nhanVien.maNhanVien
+   DECLARE @vaitro INT;
+   SELECT @vaitro = VaiTro.id FROM NhanVien
+	INNER JOIN vaitro_nhanVien ON @id = vaitro_nhanVien.maNhanVien
 		INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id;
    RETURN @vaitro;
 END;
 GO
+USE QuanLyThuVien;
+SELECT * FROM VaiTro;
+SELECT * FROM NhanVien;
+SELECT * FROM vaitro_nhanVien;
+SELECT dbo.fn_Vai_Tro_Nhan_Vien (1) AS abc;
+
+GO
 -- function kiểm tra đăng nhập 
-CREATE PROC usp_Kiem_Tra_Dang_Nhap
+CREATE PROC usp_Kiem_Tra_Dang_Nhap 
     @tenDangNhap NVARCHAR(40),
     @matKhau Nvarchar(100)
 AS
@@ -854,7 +863,26 @@ ELSE
 
 END
 
+
+
 GO
+
+CREATE FUNCTION fn_Kiem_Tra_Dang_Nhap (
+    @tenDangNhap NVARCHAR(40),
+    @matKhau Nvarchar(100) )
+RETURNS INT
+AS
+BEGIN
+
+DECLARE @maNhanVien INT
+SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND NhanVien.matkhau = @matKhau
+IF (@maNhanVien IS NOT NULL)
+   RETURN @maNhanVien
+ELSE 
+   RETURN -1;
+END
+GO
+
 
 
 --================ INSERT DATA ====================================
@@ -950,3 +978,4 @@ INSERT INTO MuonSach VALUES(2,1);
 INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
+
