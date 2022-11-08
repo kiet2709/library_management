@@ -2,9 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\LibraryManagement",
+    "\\LibraryManagement\\BUS",
     "\\LibraryManagement\\GUI",
     "\\LibraryManagement\\Model"
   ],
-  "SelectedNode": "\\LibraryManagement\\GUI\\frmDangNhap.cs",
+  "SelectedNode": "\\LibraryManagement\\BUS\\NhanVienBUS.cs",
   "PreviewInSolutionExplorer": false
 }

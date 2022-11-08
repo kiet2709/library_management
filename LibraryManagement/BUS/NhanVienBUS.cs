@@ -8,8 +8,9 @@ using System.Text;
 
 namespace LibraryManagement.BUS
 {
-    public class DangNhapBUS
+    public class NhanVienBUS
     {
+        NhanVienDAO nhanVienDAO = new NhanVienDAO();
         internal int dangNhap(DangNhapDTO dangNhapDTO)
         {
             int isAccountExist = checkExistAccount(dangNhapDTO);
@@ -21,15 +22,11 @@ namespace LibraryManagement.BUS
         }
         int checkExistAccount(DangNhapDTO dangNhapDTO)
         {
-            string query = "usp_Kiem_Tra_Dang_Nhap  @tenDangNhap , @matKhau  ";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { dangNhapDTO.Taikhoan, dangNhapDTO.Matkhau });
-            return Convert.ToInt32(result.Rows[0][0]);
+            return nhanVienDAO.checkExistAccount(dangNhapDTO);
         }
         int getRole(int id)
         {
-            string query = "SELECT dbo.fn_Vai_Tro_Nhan_Vien ( @id ) ";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
-            return Convert.ToInt32(result.Rows[0][0]);
+            return nhanVienDAO.getRole(id);
         }
     }
 }

@@ -29,15 +29,21 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSach));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.viewCarGrid = new System.Windows.Forms.DataGridView();
+            this.dtgSach = new System.Windows.Forms.DataGridView();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
@@ -64,22 +70,16 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.sellCarPanel = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.btnFormSach = new System.Windows.Forms.Panel();
+            this.picFormSach = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblFormSach = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
@@ -98,8 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.sellCarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.btnFormSach.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFormSach)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -172,55 +172,103 @@
             this.label11.TabIndex = 43;
             this.label11.Text = "Thông tin sách";
             // 
-            // viewCarGrid
+            // dtgSach
             // 
-            this.viewCarGrid.AllowUserToAddRows = false;
-            this.viewCarGrid.AllowUserToDeleteRows = false;
-            this.viewCarGrid.AllowUserToResizeColumns = false;
-            this.viewCarGrid.AllowUserToResizeRows = false;
-            this.viewCarGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.viewCarGrid.BackgroundColor = System.Drawing.Color.White;
-            this.viewCarGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.viewCarGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.viewCarGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewCarGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgSach.AllowUserToAddRows = false;
+            this.dtgSach.AllowUserToDeleteRows = false;
+            this.dtgSach.AllowUserToResizeColumns = false;
+            this.dtgSach.AllowUserToResizeRows = false;
+            this.dtgSach.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgSach.BackgroundColor = System.Drawing.Color.White;
+            this.dtgSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgSach.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dtgSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
             this.NameC,
             this.company,
             this.Price,
             this.Status,
             this.edit});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle4;
-            this.viewCarGrid.EnableHeadersVisualStyles = false;
-            this.viewCarGrid.GridColor = System.Drawing.Color.White;
-            this.viewCarGrid.Location = new System.Drawing.Point(302, 188);
-            this.viewCarGrid.Margin = new System.Windows.Forms.Padding(4);
-            this.viewCarGrid.Name = "viewCarGrid";
-            this.viewCarGrid.ReadOnly = true;
-            this.viewCarGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.viewCarGrid.RowHeadersVisible = false;
-            this.viewCarGrid.RowHeadersWidth = 51;
-            this.viewCarGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.viewCarGrid.Size = new System.Drawing.Size(1121, 592);
-            this.viewCarGrid.TabIndex = 42;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgSach.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dtgSach.EnableHeadersVisualStyles = false;
+            this.dtgSach.GridColor = System.Drawing.Color.White;
+            this.dtgSach.Location = new System.Drawing.Point(302, 188);
+            this.dtgSach.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgSach.Name = "dtgSach";
+            this.dtgSach.ReadOnly = true;
+            this.dtgSach.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtgSach.RowHeadersVisible = false;
+            this.dtgSach.RowHeadersWidth = 51;
+            this.dtgSach.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgSach.Size = new System.Drawing.Size(1121, 592);
+            this.dtgSach.TabIndex = 42;
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.FillWeight = 42.04055F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // NameC
+            // 
+            this.NameC.FillWeight = 144.385F;
+            this.NameC.HeaderText = "Tựa sách";
+            this.NameC.MinimumWidth = 6;
+            this.NameC.Name = "NameC";
+            this.NameC.ReadOnly = true;
+            // 
+            // company
+            // 
+            this.company.FillWeight = 112.5393F;
+            this.company.HeaderText = "Kho";
+            this.company.MinimumWidth = 6;
+            this.company.Name = "company";
+            this.company.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.FillWeight = 112.5393F;
+            this.Price.HeaderText = "Thể loại";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.FillWeight = 112.5393F;
+            this.Status.HeaderText = "Giá";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.FillWeight = 75.95646F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
             // 
             // pictureBox10
             // 
@@ -240,7 +288,7 @@
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.sellCarPanel);
+            this.panel1.Controls.Add(this.btnFormSach);
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -564,30 +612,31 @@
             this.label3.Text = "Độc giả";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // sellCarPanel
+            // btnFormSach
             // 
-            this.sellCarPanel.BackColor = System.Drawing.Color.DimGray;
-            this.sellCarPanel.Controls.Add(this.pictureBox6);
-            this.sellCarPanel.Controls.Add(this.panel2);
-            this.sellCarPanel.Controls.Add(this.label9);
-            this.sellCarPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sellCarPanel.Location = new System.Drawing.Point(10, 135);
-            this.sellCarPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.sellCarPanel.Name = "sellCarPanel";
-            this.sellCarPanel.Size = new System.Drawing.Size(287, 120);
-            this.sellCarPanel.TabIndex = 33;
+            this.btnFormSach.BackColor = System.Drawing.Color.DimGray;
+            this.btnFormSach.Controls.Add(this.picFormSach);
+            this.btnFormSach.Controls.Add(this.panel2);
+            this.btnFormSach.Controls.Add(this.lblFormSach);
+            this.btnFormSach.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormSach.Location = new System.Drawing.Point(10, 135);
+            this.btnFormSach.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormSach.Name = "btnFormSach";
+            this.btnFormSach.Size = new System.Drawing.Size(287, 120);
+            this.btnFormSach.TabIndex = 33;
+            this.btnFormSach.Click += new System.EventHandler(this.btnFormSach_Click);
             // 
-            // pictureBox6
+            // picFormSach
             // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox6.TabIndex = 29;
-            this.pictureBox6.TabStop = false;
+            this.picFormSach.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFormSach.BackgroundImage")));
+            this.picFormSach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picFormSach.Enabled = false;
+            this.picFormSach.Location = new System.Drawing.Point(16, 17);
+            this.picFormSach.Margin = new System.Windows.Forms.Padding(4);
+            this.picFormSach.Name = "picFormSach";
+            this.picFormSach.Size = new System.Drawing.Size(92, 86);
+            this.picFormSach.TabIndex = 29;
+            this.picFormSach.TabStop = false;
             // 
             // panel2
             // 
@@ -628,20 +677,21 @@
             this.label1.Text = "Sách";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // lblFormSach
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(117, 42);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 32);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Sách";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFormSach.AutoSize = true;
+            this.lblFormSach.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFormSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormSach.ForeColor = System.Drawing.Color.White;
+            this.lblFormSach.Location = new System.Drawing.Point(117, 42);
+            this.lblFormSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFormSach.Name = "lblFormSach";
+            this.lblFormSach.Size = new System.Drawing.Size(79, 32);
+            this.lblFormSach.TabIndex = 30;
+            this.lblFormSach.Text = "Sách";
+            this.lblFormSach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFormSach.Click += new System.EventHandler(this.lblFormSach_Click);
             // 
             // backBtn
             // 
@@ -658,54 +708,6 @@
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
-            // CAR_ID
-            // 
-            this.CAR_ID.FillWeight = 42.04055F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // NameC
-            // 
-            this.NameC.FillWeight = 144.385F;
-            this.NameC.HeaderText = "Tựa sách";
-            this.NameC.MinimumWidth = 6;
-            this.NameC.Name = "NameC";
-            this.NameC.ReadOnly = true;
-            // 
-            // company
-            // 
-            this.company.FillWeight = 112.5393F;
-            this.company.HeaderText = "Kho";
-            this.company.MinimumWidth = 6;
-            this.company.Name = "company";
-            this.company.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.FillWeight = 112.5393F;
-            this.Price.HeaderText = "Thể loại";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.FillWeight = 112.5393F;
-            this.Status.HeaderText = "Giá";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.FillWeight = 75.95646F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            // 
             // FrmSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -715,7 +717,7 @@
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.viewCarGrid);
+            this.Controls.Add(this.dtgSach);
             this.Controls.Add(this.panel9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmSach";
@@ -724,7 +726,7 @@
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgSach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
@@ -751,9 +753,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.sellCarPanel.ResumeLayout(false);
-            this.sellCarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.btnFormSach.ResumeLayout(false);
+            this.btnFormSach.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFormSach)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -770,7 +772,7 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView viewCarGrid;
+        private System.Windows.Forms.DataGridView dtgSach;
         private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameC;
         private System.Windows.Forms.DataGridViewTextBoxColumn company;
@@ -802,12 +804,12 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel sellCarPanel;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel btnFormSach;
+        private System.Windows.Forms.PictureBox picFormSach;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblFormSach;
         private System.Windows.Forms.Button backBtn;
     }
 }

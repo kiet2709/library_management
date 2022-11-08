@@ -636,9 +636,17 @@ AS
 BEGIN
    SELECT * FROM DauSach;
 END;
-
 GO
 
+-- procedure Xem thông tin đầu sách
+CREATE OR ALTER PROCEDURE usp_Xem_DauSachDTO
+AS
+BEGIN
+SELECT DauSach.id, DauSach.tieude, TheLoai.ten as 'theloai', DauSach.gia
+FROM DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id;
+END;
+
+GO
 -- procedure Thêm thông tin đầu sách
 CREATE PROCEDURE usp_Them_Dau_Sach
    @tieude NVARCHAR(30),
@@ -827,6 +835,19 @@ BEGIN
 	SELECT @NUMBER=COUNT(*) FROM Sach WHERE maDauSach=@ID_DAU_SACH and trangthai=@TRANG_THAI;
 	RETURN @NUMBER
 END;
+GO
+-- function trả về tổng số cuốn sách
+CREATE OR ALTER FUNCTION fn_Tong_Sach(
+@ID_DAU_SACH INT
+)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @NUMBER INT;
+	SELECT @NUMBER=COUNT(*) FROM Sach WHERE maDauSach=@ID_DAU_SACH;
+	RETURN @NUMBER
+END;
+
 GO
 
 -- function trả về vai trò theo nhân viên

@@ -16,7 +16,7 @@ namespace LibraryManagement
 {
     public partial class FrmDangNhap : Form
     {
-        private DangNhapBUS dangNhapBUS = new DangNhapBUS();
+        private NhanVienBUS dangNhapBUS = new NhanVienBUS();
         public FrmDangNhap()
         {
             InitializeComponent();
