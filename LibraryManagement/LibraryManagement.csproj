@@ -53,11 +53,23 @@
     <Compile Include="DTO\DangNhapDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietPhieuMuon.Designer.cs">
+      <DependentUpon>FrmChiTietPhieuMuon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmCapNhatTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FrmCapNhatTaiKhoan.Designer.cs">
       <DependentUpon>FrmCapNhatTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietDauSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietDauSach.Designer.cs">
+      <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -88,6 +100,12 @@
     </Compile>
     <Compile Include="GUI\FrmPhieuMuon.Designer.cs">
       <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmThemDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemDocGia.Designer.cs">
+      <DependentUpon>FrmThemDocGia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmThemNhanVien.cs">
       <SubType>Form</SubType>
@@ -123,8 +141,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GUI\FrmChiTietPhieuMuon.resx">
+      <DependentUpon>FrmChiTietPhieuMuon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmCapNhatTaiKhoan.resx">
       <DependentUpon>FrmCapNhatTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmChiTietDauSach.resx">
+      <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
@@ -143,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmSach.resx">
       <DependentUpon>FrmSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemDocGia.resx">
+      <DependentUpon>FrmThemDocGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemNhanVien.resx">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
