@@ -1,5 +1,4 @@
-﻿
-namespace LibraryManagement.GUI
+﻿namespace LibraryManagement.GUI
 {
     partial class FrmChiTietPhieuMuon
     {
@@ -76,7 +75,7 @@ namespace LibraryManagement.GUI
             this.label10.Size = new System.Drawing.Size(293, 38);
             this.label10.TabIndex = 58;
             this.label10.Text = "Phiếu mượn sách";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+
             // 
             // maskedTextBox2
             // 
