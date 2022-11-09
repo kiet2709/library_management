@@ -27,20 +27,20 @@ namespace LibraryManagement.GUI
 
         private void loadData(int profileId)
         {
-            HoSoQuanLyDTO hoSo = hoSoBUS.getProfileById(profileId);
-            this.txtHo.Text = hoSo.Ho;
-            this.txtTen.Text = hoSo.Ten;
-            this.txtTenDangNhap.Text = hoSo.TenDangNhap;
-            this.txtDiaChi.Text = hoSo.Diachi;
-            this.txtEmail.Text = hoSo.Email;
-            this.txtSDT.Text = hoSo.SoDT;
-            this.txtLuong.Text = hoSo.Luong.ToString();
+            hoSoQuanLyDTO = hoSoBUS.getProfileById(profileId);
+            this.txtHo.Text = hoSoQuanLyDTO.Ho;
+            this.txtTen.Text = hoSoQuanLyDTO.Ten;
+            this.txtTenDangNhap.Text = hoSoQuanLyDTO.TenDangNhap;
+            this.txtDiaChi.Text = hoSoQuanLyDTO.Diachi;
+            this.txtEmail.Text = hoSoQuanLyDTO.Email;
+            this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
+            this.txtLuong.Text = hoSoQuanLyDTO.Luong.ToString();
             String matKhau = hoSoBUS.getPasswordById(profileId);
             this.txtMatKhau.Text = matKhau;
 
 
             // set trangThai
-            if (hoSo.TrangThai == 1)
+            if (hoSoQuanLyDTO.TrangThai == 1)
             {
                 this.rbHoatDong.Checked = true;
             }
@@ -50,11 +50,11 @@ namespace LibraryManagement.GUI
             }
 
             // set gioiTinh
-            if (hoSo.GioiTinh == 0)
+            if (hoSoQuanLyDTO.GioiTinh == 0)
             {
                 this.rbKhac.Checked = true;
             }
-            else if (hoSo.GioiTinh == 1)
+            else if (hoSoQuanLyDTO.GioiTinh == 1)
             {
                 this.rbNam.Checked = true;
             }
@@ -64,7 +64,7 @@ namespace LibraryManagement.GUI
             }
 
             // set ngaySinh
-            this.dtpNgaySinh.Value = hoSo.Ngaysinh;
+            this.dtpNgaySinh.Value = hoSoQuanLyDTO.Ngaysinh;
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -113,23 +113,23 @@ namespace LibraryManagement.GUI
                 hoSoQuanLyDTO.TrangThai = 0;
             }
 
-
-            int error = 0;
-            error = hoSoBUS.updateProfileById(hoSoQuanLyDTO);
-
-            error = nhanVienBUS.updatePasswordById(hoSoQuanLyDTO.Id, this.txtMatKhau.Text);
-       
-            if(error == 1)
+            hoSoQuanLyDTO.TenDangNhap = txtTenDangNhap.Text;
+            hoSoQuanLyDTO.MatKhau = txtMatKhau.Text;
+            Console.WriteLine(hoSoQuanLyDTO.ToString());
+            int result;
+            result = hoSoBUS.updateInfo(hoSoQuanLyDTO);
+           
+            if(result == 0)
+            {
+                MessageBox.Show("Lỗi");
+            }
+            else
             {
                 MessageBox.Show("Sửa thành công");
                 this.Close();
                 Thread thread = new Thread(OpenFrmTaiKhoan);
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
-            }
-            else
-            {
-                MessageBox.Show("Lỗi");
             }
         
         }

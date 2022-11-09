@@ -59,12 +59,6 @@
     <Compile Include="GUI\FrmCapNhatTaiKhoan.Designer.cs">
       <DependentUpon>FrmCapNhatTaiKhoan.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmXemChiTietTaiKhoan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmXemChiTietTaiKhoan.Designer.cs">
-      <DependentUpon>FrmXemChiTietTaiKhoan.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +88,12 @@
     </Compile>
     <Compile Include="GUI\FrmPhieuMuon.Designer.cs">
       <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemNhanVien.Designer.cs">
+      <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmXemChiTietDocGia.cs">
       <SubType>Form</SubType>
@@ -126,9 +126,6 @@
     <EmbeddedResource Include="GUI\FrmCapNhatTaiKhoan.resx">
       <DependentUpon>FrmCapNhatTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmXemChiTietTaiKhoan.resx">
-      <DependentUpon>FrmXemChiTietTaiKhoan.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmSach.resx">
       <DependentUpon>FrmSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemNhanVien.resx">
+      <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmXemChiTietDocGia.resx">
       <DependentUpon>FrmXemChiTietDocGia.cs</DependentUpon>

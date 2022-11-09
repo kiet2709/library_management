@@ -63,11 +63,13 @@
             this.rbNu = new System.Windows.Forms.RadioButton();
             this.rbNam = new System.Windows.Forms.RadioButton();
             this.rbKhac = new System.Windows.Forms.RadioButton();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDiaChi
@@ -377,7 +379,7 @@
             // 
             this.rbNu.AutoSize = true;
             this.rbNu.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNu.Location = new System.Drawing.Point(637, 395);
+            this.rbNu.Location = new System.Drawing.Point(143, 10);
             this.rbNu.Name = "rbNu";
             this.rbNu.Size = new System.Drawing.Size(70, 39);
             this.rbNu.TabIndex = 99;
@@ -389,7 +391,7 @@
             // 
             this.rbNam.AutoSize = true;
             this.rbNam.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNam.Location = new System.Drawing.Point(504, 395);
+            this.rbNam.Location = new System.Drawing.Point(10, 10);
             this.rbNam.Name = "rbNam";
             this.rbNam.Size = new System.Drawing.Size(88, 39);
             this.rbNam.TabIndex = 98;
@@ -401,7 +403,7 @@
             // 
             this.rbKhac.AutoSize = true;
             this.rbKhac.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbKhac.Location = new System.Drawing.Point(738, 395);
+            this.rbKhac.Location = new System.Drawing.Point(244, 10);
             this.rbKhac.Name = "rbKhac";
             this.rbKhac.Size = new System.Drawing.Size(92, 39);
             this.rbKhac.TabIndex = 100;
@@ -409,14 +411,22 @@
             this.rbKhac.Text = "Khác";
             this.rbKhac.UseVisualStyleBackColor = true;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.rbKhac);
+            this.panel5.Controls.Add(this.rbNam);
+            this.panel5.Controls.Add(this.rbNu);
+            this.panel5.Location = new System.Drawing.Point(504, 383);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(339, 52);
+            this.panel5.TabIndex = 101;
+            // 
             // FrmCapNhatTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 853);
-            this.Controls.Add(this.rbKhac);
-            this.Controls.Add(this.rbNu);
-            this.Controls.Add(this.rbNam);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.rbKhongHoatDong);
             this.Controls.Add(this.rbHoatDong);
             this.Controls.Add(this.label13);
@@ -452,6 +462,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -493,5 +505,6 @@
         private System.Windows.Forms.RadioButton rbNu;
         private System.Windows.Forms.RadioButton rbNam;
         private System.Windows.Forms.RadioButton rbKhac;
+        private System.Windows.Forms.Panel panel5;
     }
 }

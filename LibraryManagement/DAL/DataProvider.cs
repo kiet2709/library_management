@@ -27,79 +27,99 @@ namespace LibraryManagement.DAL
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
-            DataTable data = new DataTable();
 
-            using (SqlConnection conn = new SqlConnection(strConnectionString))
+            try
             {
-                conn.Open();
+                DataTable data = new DataTable();
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-
-                if (parameter != null)
+                using (SqlConnection conn = new SqlConnection(strConnectionString))
                 {
-                    string[] listPara = query.Split(' ');
+                    conn.Open();
 
-                    int i = 0;
+                    SqlCommand cmd = new SqlCommand(query, conn);
 
-                    foreach (string item in listPara)
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+
+                        int i = 0;
+
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+
+                    da.Fill(data);
+
+                    conn.Close();
+
                 }
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-
-                da.Fill(data);
-
-                conn.Close();
-
+                return data;
+            }
+            catch
+            {
+                return null;
             }
 
-            return data;
+            
 
         }
 
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
 
+
             int data = 0;
 
-            using (SqlConnection conn = new SqlConnection(strConnectionString))
+            try
             {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                
-
-                if (parameter != null)
+                using (SqlConnection conn = new SqlConnection(strConnectionString))
                 {
-                    string[] listPara = query.Split(' ');
+                    conn.Open();
 
-                    int i = 0;
+                    SqlCommand cmd = new SqlCommand(query, conn);
 
-                    foreach (string item in listPara)
+
+                    if (parameter != null)
                     {
-                        if (item.Contains('@'))
+                        string[] listPara = query.Split(' ');
+
+                        int i = 0;
+
+                        foreach (string item in listPara)
                         {
-                            cmd.Parameters.AddWithValue(item, parameter[i]);
-                            i++;
+                            if (item.Contains('@'))
+                            {
+                                cmd.Parameters.AddWithValue(item, parameter[i]);
+                                i++;
+                            }
                         }
                     }
-                }
-                
-                data = cmd.ExecuteNonQuery();
-                Console.WriteLine(data);
-                conn.Close();
 
+                    data = cmd.ExecuteNonQuery();
+                    Console.WriteLine(data);
+                    conn.Close();
+
+                }
+
+                return data;
+            }
+            catch
+            {
+                return 0;
             }
 
-            return data;
+           
 
         }
 

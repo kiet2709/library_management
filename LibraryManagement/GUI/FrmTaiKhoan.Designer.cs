@@ -47,6 +47,17 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dtgvHoSo = new System.Windows.Forms.DataGridView();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -71,18 +82,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.show = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnThemNhanVien = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
@@ -339,7 +339,6 @@
             this.Column2,
             this.NameC,
             this.Column4,
-            this.show,
             this.edit});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
@@ -363,6 +362,111 @@
             this.dtgvHoSo.Size = new System.Drawing.Size(1245, 592);
             this.dtgvHoSo.TabIndex = 49;
             this.dtgvHoSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvHoSo_CellContentClick);
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CAR_ID.FillWeight = 42.04055F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            this.CAR_ID.Width = 63;
+            // 
+            // company
+            // 
+            this.company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.company.FillWeight = 112.5393F;
+            this.company.HeaderText = "Vai trò";
+            this.company.MinimumWidth = 6;
+            this.company.Name = "company";
+            this.company.ReadOnly = true;
+            this.company.Width = 110;
+            // 
+            // Price
+            // 
+            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Price.FillWeight = 112.5393F;
+            this.Price.HeaderText = "Tên";
+            this.Price.MinimumWidth = 6;
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 80;
+            // 
+            // Status
+            // 
+            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Status.FillWeight = 112.5393F;
+            this.Status.HeaderText = "Họ";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 68;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Email";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 97;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column3.HeaderText = "SĐT";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 79;
+            // 
+            // gender
+            // 
+            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.gender.HeaderText = "Giới tính";
+            this.gender.MinimumWidth = 6;
+            this.gender.Name = "gender";
+            this.gender.ReadOnly = true;
+            this.gender.Width = 128;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "Ngày sinh";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 147;
+            // 
+            // NameC
+            // 
+            this.NameC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.NameC.FillWeight = 144.385F;
+            this.NameC.HeaderText = "Lương";
+            this.NameC.MinimumWidth = 6;
+            this.NameC.Name = "NameC";
+            this.NameC.ReadOnly = true;
+            this.NameC.Width = 101;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "Trạng thái";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 146;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.FillWeight = 30F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Width = 53;
             // 
             // panel9
             // 
@@ -671,120 +775,18 @@
             this.pictureBox10.TabIndex = 52;
             this.pictureBox10.TabStop = false;
             // 
-            // CAR_ID
+            // btnThemNhanVien
             // 
-            this.CAR_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CAR_ID.FillWeight = 42.04055F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            this.CAR_ID.Width = 63;
-            // 
-            // company
-            // 
-            this.company.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.company.FillWeight = 112.5393F;
-            this.company.HeaderText = "Vai trò";
-            this.company.MinimumWidth = 6;
-            this.company.Name = "company";
-            this.company.ReadOnly = true;
-            this.company.Width = 110;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Price.FillWeight = 112.5393F;
-            this.Price.HeaderText = "Tên";
-            this.Price.MinimumWidth = 6;
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 80;
-            // 
-            // Status
-            // 
-            this.Status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Status.FillWeight = 112.5393F;
-            this.Status.HeaderText = "Họ";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 68;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "Email";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 97;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column3.HeaderText = "SĐT";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 79;
-            // 
-            // gender
-            // 
-            this.gender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.gender.HeaderText = "Giới tính";
-            this.gender.MinimumWidth = 6;
-            this.gender.Name = "gender";
-            this.gender.ReadOnly = true;
-            this.gender.Width = 128;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "Ngày sinh";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 147;
-            // 
-            // NameC
-            // 
-            this.NameC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.NameC.FillWeight = 144.385F;
-            this.NameC.HeaderText = "Lương";
-            this.NameC.MinimumWidth = 6;
-            this.NameC.Name = "NameC";
-            this.NameC.ReadOnly = true;
-            this.NameC.Width = 101;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column4.HeaderText = "Trạng thái";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 146;
-            // 
-            // show
-            // 
-            this.show.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.show.FillWeight = 30F;
-            this.show.HeaderText = "Xem";
-            this.show.MinimumWidth = 6;
-            this.show.Name = "show";
-            this.show.ReadOnly = true;
-            this.show.Width = 65;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.FillWeight = 30F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Width = 53;
+            this.btnThemNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.btnThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemNhanVien.ForeColor = System.Drawing.Color.White;
+            this.btnThemNhanVien.Location = new System.Drawing.Point(1195, 118);
+            this.btnThemNhanVien.Name = "btnThemNhanVien";
+            this.btnThemNhanVien.Size = new System.Drawing.Size(317, 49);
+            this.btnThemNhanVien.TabIndex = 54;
+            this.btnThemNhanVien.Text = "Thêm nhân viên";
+            this.btnThemNhanVien.UseVisualStyleBackColor = false;
+            this.btnThemNhanVien.Click += new System.EventHandler(this.btnThemNhanVien_Click);
             // 
             // FrmTaiKhoan
             // 
@@ -792,6 +794,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1554, 780);
+            this.Controls.Add(this.btnThemNhanVien);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.dtgvHoSo);
             this.Controls.Add(this.panel9);
@@ -801,7 +804,6 @@
             this.Name = "FrmTaiKhoan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTaiKhoan";
-            this.Load += new System.EventHandler(this.FrmTaiKhoan_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -885,6 +887,7 @@
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnThemNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn company;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
@@ -895,7 +898,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameC;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewButtonColumn show;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
     }
 }

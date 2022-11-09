@@ -72,24 +72,13 @@ namespace LibraryManagement.GUI
         }
     
 
-        private void FrmTaiKhoan_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void dtgvHoSo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = this.dtgvHoSo.Rows[e.RowIndex];
                 hoSoQuanLyDTO.Id = Convert.ToInt32(row.Cells[0].Value);
-                if (e.ColumnIndex == this.show.Index)
-                {
-                    this.Close();
-                    Thread thread = new Thread(OpenFrmXemChiTietTaiKhoan);
-                    thread.SetApartmentState(ApartmentState.STA);
-                    thread.Start();
-                }else if (e.ColumnIndex == this.edit.Index)
+                if (e.ColumnIndex == this.edit.Index)
                 {
                     this.Close();
                     Thread thread = new Thread(OpenFrmCapNhatTaiKhoan);
@@ -100,14 +89,22 @@ namespace LibraryManagement.GUI
             }
         }
 
-        private void OpenFrmXemChiTietTaiKhoan()
-        {
-            Application.Run(new FrmXemChiTietTaiKhoan(hoSoQuanLyDTO.Id));
-        }
-
         private void OpenFrmCapNhatTaiKhoan()
         {
             Application.Run(new FrmCapNhatTaiKhoan(hoSoQuanLyDTO.Id));
+        }
+
+        private void OpenFrmThemTaiKhoan()
+        {
+            Application.Run(new FrmThemNhanVien());
+        }
+
+        private void btnThemNhanVien_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThemTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
     }
 }

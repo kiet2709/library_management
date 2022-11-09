@@ -553,15 +553,13 @@ BEGIN
    	DauSach INNER JOIN NgonNgu ON DauSach.maNgonNgu = NgonNgu.id
 	WHERE NgonNgu.id=@id
 END;
-
 GO
 
 -- procedure Sửa thông tin nhân viên
-CREATE PROC usp_Sua_Thong_Tin_Nhan_Vien  
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien  
 @ID INT,
 @TEN NVARCHAR(20),
 @HO NVARCHAR(20),
-@TENDANGNHAP NVARCHAR(30),
 @DIACHI NVARCHAR(20),
 @SODT NVARCHAR(10),
 @HINHANH NVARCHAR(100),
@@ -569,71 +567,71 @@ CREATE PROC usp_Sua_Thong_Tin_Nhan_Vien
 @GIOITINH INT,
 @NGAYSINH DATE,
 @LUONG INT,
+@TENTK NVARCHAR(30),
+@MK NVARCHAR(100),
 @TRANGTHAI INT
 AS
 BEGIN
-	UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
-	WHERE id=@ID
+	BEGIN TRY
+		BEGIN TRAN
+			DECLARE @MANV INT;
+			SET @MANV = (SELECT id FROM NhanVien WHERE maHoSo = @ID)
 
-	UPDATE NhanVien SET tenDangNhap = @TENDANGNHAP, trangthai = @TRANGTHAI
-	WHERE id = @ID
+			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
+			WHERE id=@ID
+
+			UPDATE NhanVien SET tenDangNhap = @TENTK , matkhau = @MK, trangthai = @TRANGTHAI
+			WHERE id = @MANV
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
 END;
 GO
 
-
--- procedure Đổi mật khẩu nhân viên
-CREATE PROC usp_Sua_Mat_Khau_Nhan_Vien  
-@ID INT,
-@MATKHAU NVARCHAR(100)
-AS
-BEGIN
-	UPDATE NhanVien SET matkhau = @MATKHAU
-	WHERE id = @ID
-END;
-GO
 
 -- procedure Thêm thông tin nhân viên
-/*
-CREATE PROC THEM_THONG_TIN_NHAN_VIEN  
-@ID INT OUT,
+CREATE OR ALTER PROC usp_Them_Thong_Tin_Nhan_Vien
 @TEN NVARCHAR(20),
 @HO NVARCHAR(20),
 @DIACHI NVARCHAR(20),
 @SODT NVARCHAR(10),
 @HINHANH NVARCHAR(100),
 @EMAIL NVARCHAR(100),
+@GIOITINH INT,
 @NGAYSINH DATE,
-@LUONG INT
-AS
-BEGIN
-	DECLARE @TEMP table([id] uniqueidentifier);
-	INSERT INTO HoSo OUTPUT INSERTED.id INTO @TEMP VALUES(@TEN, @HO, @DIACHI, @SODT, @HINHANH, @EMAIL, @NGAYSINH,@LUONG);
-	SELECT @ID=H.[id]
-	FROM @TEMP AS T
-	JOIN HoSo AS H 
-	ON T.id = H.id
-	WHERE @@ROWCOUNT > 0
-END;
-GO
-*/
--- procedure Thêm tài khoản nhân viên
-CREATE PROC usp_Them_Tai_Khoan_Nhan_Vien  
+@LUONG INT,
 @TENTK NVARCHAR(30),
 @MK NVARCHAR(100),
-@TRANGTHAI INT,
-@MAHS INT
+@TRANGTHAI INT
 AS
 BEGIN
-	INSERT INTO NhanVien VALUES(@TENTK, @MK, @TRANGTHAI, @MAHS)
-END;
+	BEGIN TRY
+		BEGIN TRAN
+			DECLARE @MAHS INT;
+			INSERT INTO HoSo VALUES(@TEN,@HO,@DIACHI,@SODT,@HINHANH,@EMAIL,@GIOITINH,@NGAYSINH,@LUONG)
+			SET @MAHS = SCOPE_IDENTITY();
+			INSERT INTO NhanVien VALUES(@TENTK, @MK, @TRANGTHAI, @MAHS)
+		COMMIT 
+	END TRY
 
-GO
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH
+	
+END;
+GO 
+
 
 -- procedure Xem toàn bộ thông tin nhân viên
 CREATE PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
 AS
 BEGIN
-	SELECT HoSo.id,HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
+	SELECT HoSo.id, HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 	FROM HoSo 
 	INNER JOIN NhanVien on HoSo.id = NhanVien.maHoSo
 		INNER JOIN vaitro_nhanVien ON vaitro_nhanVien.maNhanVien = NhanVien.id
@@ -646,7 +644,7 @@ CREATE PROC usp_Xem_Thong_Tin_Nhan_Vien
 @id INT
 AS
 BEGIN
-	SELECT HoSo.id,HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap, ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
+	SELECT NhanVien.id AS [maTaiKhoan], HoSo.id,HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap, ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 	FROM HoSo 
 	INNER JOIN NhanVien on HoSo.id = NhanVien.maHoSo
 		INNER JOIN vaitro_nhanVien ON vaitro_nhanVien.maNhanVien = NhanVien.id
@@ -835,16 +833,6 @@ CREATE PROC usp_Xoa_Phieu_Muon_Qua_Han
 AS
 BEGIN
 	DELETE FROM Muon WHERE DATEDIFF(day, GETDATE(), Muon.ngaytra) > 365
-END;
-GO
-
--- procedure đổi mật khẩu nhân viên
-CREATE PROC usp_Doi_Mat_Khau_Nhan_Vien
-@ID INT,
-@MATKHAU NVARCHAR(100)
-AS
-BEGIN
-	UPDATE NhanVien SET matkhau=@MATKHAU WHERE id=@ID
 END;
 GO
 
@@ -1046,5 +1034,3 @@ INSERT INTO MuonSach VALUES(2,1);
 INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
-
-select * from hoso

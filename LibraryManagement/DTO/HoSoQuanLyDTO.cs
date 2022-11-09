@@ -5,11 +5,12 @@ using System.Text;
 
 namespace LibraryManagement.DTO
 {
-    internal class HoSoQuanLyDTO
+    public class HoSoQuanLyDTO
     {
         private int id;
         private String tenDangNhap;
         private String vaiTro;
+        private String matKhau;
         private int trangThai;
         private int gioiTinh;
         private string ten;
@@ -35,5 +36,8 @@ namespace LibraryManagement.DTO
         
         public int GioiTinh { get => gioiTinh; set => gioiTinh = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
+        public string MatKhau { get => matKhau; set => matKhau = value; }
+
+
     }
 }

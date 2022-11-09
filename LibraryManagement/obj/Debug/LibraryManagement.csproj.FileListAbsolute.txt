@@ -30,5 +30,5 @@ E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryM
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.FrmDangNhap.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmPhieuMuon.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmXemChiTietDocGia.resources
-E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmXemChiTietTaiKhoan.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmCapNhatTaiKhoan.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhanVien.resources

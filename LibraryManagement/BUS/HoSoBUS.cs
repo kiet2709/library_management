@@ -14,14 +14,14 @@ namespace LibraryManagement.BUS
 
         private HoSoDAO hoSoDAO = new HoSoDAO();
 
-        internal ArrayList getAllProfile()
+        public ArrayList getAllProfile()
         {
             ArrayList hoSoQuanLyDTOs = new ArrayList();
             DataTable profiles = hoSoDAO.getAllProfile();
             foreach (DataRow dr in profiles.Rows)
             {
                 HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
-                hoSoQuanLyDTO.Id = Convert.ToInt32(dr["id"]);
+                hoSoQuanLyDTO.Id = Convert.ToInt32(dr["id"]);  
                 hoSoQuanLyDTO.TenDangNhap = dr["tenDangNhap"].ToString();
                 hoSoQuanLyDTO.VaiTro = dr["vaiTro"].ToString();
                 hoSoQuanLyDTO.Ten = dr["ten"].ToString();
@@ -43,7 +43,8 @@ namespace LibraryManagement.BUS
             return hoSoQuanLyDTOs;
         }
 
-        internal HoSoQuanLyDTO getProfileById(int profileId)
+
+        public HoSoQuanLyDTO getProfileById(int profileId)
         {
             DataTable profile = hoSoDAO.getProfileById(profileId);
             DataRow dr = profile.Rows[0];
@@ -78,7 +79,12 @@ namespace LibraryManagement.BUS
             return hoSoQuanLyDTO;
         }
 
-        internal String getPasswordById(int profileId)
+        public int saveTaiKhoan(HoSoQuanLyDTO hoSoQuanLyDTO, string password)
+        {
+            return hoSoDAO.saveTaiKhoan(hoSoQuanLyDTO, password);   
+        }
+
+        public String getPasswordById(int profileId)
         {
             DataTable profile = hoSoDAO.getPasswordById(profileId);
             DataRow dr = profile.Rows[0];
@@ -86,9 +92,15 @@ namespace LibraryManagement.BUS
         }
 
 
-        internal int updateProfileById(HoSoQuanLyDTO hoSoQuanLyDTO)
+        public int updateInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
         {
-            return hoSoDAO.updateProfileById(hoSoQuanLyDTO);
+            return hoSoDAO.updateInfo(hoSoQuanLyDTO);
         }
+
+        public int saveInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
+        {
+           return hoSoDAO.saveInfo(hoSoQuanLyDTO);
+        }
+
     }
 }
