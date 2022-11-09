@@ -499,6 +499,7 @@ AS
 BEGIN
    SELECT * FROM DocGia;
 END;
+Exec usp_Xem_Thong_Tin_Doc_gia
 
 GO
 
@@ -973,11 +974,11 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123','Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345','Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678','Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912','Kỹ thuật dữ liệu',1);
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722','Công nghệ hóa học',1);
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1);
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1);
 
 INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,1,1,1,1);
 INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,2,2,2,2);

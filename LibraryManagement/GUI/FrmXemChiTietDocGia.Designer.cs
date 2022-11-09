@@ -36,25 +36,25 @@ namespace LibraryManagement.GUI
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.cbcKhoa = new System.Windows.Forms.ComboBox();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.txtMssv = new System.Windows.Forms.TextBox();
+            this.txtSdt = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rbKhac = new System.Windows.Forms.RadioButton();
             this.rbNam = new System.Windows.Forms.RadioButton();
             this.rbNu = new System.Windows.Forms.RadioButton();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.rbKhongHoatDong = new System.Windows.Forms.RadioButton();
+            this.rbHoatDong = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +93,7 @@ namespace LibraryManagement.GUI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(320, 394);
+            this.label4.Location = new System.Drawing.Point(320, 445);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 35);
             this.label4.TabIndex = 3;
@@ -103,7 +103,7 @@ namespace LibraryManagement.GUI
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(320, 456);
+            this.label5.Location = new System.Drawing.Point(320, 503);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 35);
             this.label5.TabIndex = 4;
@@ -119,26 +119,6 @@ namespace LibraryManagement.GUI
             this.label6.TabIndex = 5;
             this.label6.Text = "Giới tính:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 533);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 35);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Ngày mượn:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(32, 599);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(136, 35);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Ngày trả:";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -149,11 +129,11 @@ namespace LibraryManagement.GUI
             this.label9.TabIndex = 8;
             this.label9.Text = "Khoa:";
             // 
-            // comboBox1
+            // cbcKhoa
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbcKhoa.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbcKhoa.FormattingEnabled = true;
+            this.cbcKhoa.Items.AddRange(new object[] {
             "Khoa Cơ khí Chế tạo máy",
             "Khoa Cơ khí Động lực",
             "Khoa Công nghệ Hóa học và Thực phẩm",
@@ -167,42 +147,43 @@ namespace LibraryManagement.GUI
             "Khoa Xây dựng",
             "Khoa Đào tạo Quốc tế",
             "Khoa Ngoại ngữ"});
-            this.comboBox1.Location = new System.Drawing.Point(493, 199);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(380, 43);
-            this.comboBox1.TabIndex = 13;
+            this.cbcKhoa.Location = new System.Drawing.Point(493, 199);
+            this.cbcKhoa.Name = "cbcKhoa";
+            this.cbcKhoa.Size = new System.Drawing.Size(380, 43);
+            this.cbcKhoa.TabIndex = 13;
             // 
-            // textBox1
+            // txtHoTen
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(493, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 42);
-            this.textBox1.TabIndex = 14;
+            this.txtHoTen.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.Location = new System.Drawing.Point(493, 81);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(380, 42);
+            this.txtHoTen.TabIndex = 14;
             // 
-            // textBox2
+            // txtMssv
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(493, 137);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(380, 42);
-            this.textBox2.TabIndex = 15;
+            this.txtMssv.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMssv.Location = new System.Drawing.Point(493, 137);
+            this.txtMssv.Name = "txtMssv";
+            this.txtMssv.Size = new System.Drawing.Size(380, 42);
+            this.txtMssv.TabIndex = 15;
             // 
-            // textBox3
+            // txtSdt
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(493, 387);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(380, 42);
-            this.textBox3.TabIndex = 19;
+            this.txtSdt.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSdt.Location = new System.Drawing.Point(493, 442);
+            this.txtSdt.Name = "txtSdt";
+            this.txtSdt.Size = new System.Drawing.Size(380, 42);
+            this.txtSdt.TabIndex = 19;
             // 
-            // textBox4
+            // txtEmail
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(493, 449);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(380, 42);
-            this.textBox4.TabIndex = 20;
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(493, 496);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(380, 42);
+            this.txtEmail.TabIndex = 20;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // label10
             // 
@@ -215,17 +196,18 @@ namespace LibraryManagement.GUI
             this.label10.TabIndex = 21;
             this.label10.Text = "Thông tin chi tiết";
             // 
-            // button2
+            // btnLuu
             // 
-            this.button2.BackColor = System.Drawing.Color.LemonChiffon;
-            this.button2.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(567, 560);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 52);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "Lưu";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnLuu.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnLuu.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnLuu.Location = new System.Drawing.Point(326, 580);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(122, 52);
+            this.btnLuu.TabIndex = 22;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // pictureBox1
             // 
@@ -235,20 +217,20 @@ namespace LibraryManagement.GUI
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // backBtn
+            // btnBack
             // 
-            this.backBtn.BackColor = System.Drawing.Color.DimGray;
-            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(22, 16);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(108, 75);
-            this.backBtn.TabIndex = 38;
-            this.backBtn.UseVisualStyleBackColor = false;
+            this.btnBack.BackColor = System.Drawing.Color.DimGray;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(22, 16);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(108, 75);
+            this.btnBack.TabIndex = 38;
+            this.btnBack.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -257,16 +239,16 @@ namespace LibraryManagement.GUI
             this.panel5.Controls.Add(this.rbNu);
             this.panel5.Location = new System.Drawing.Point(493, 265);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(339, 52);
+            this.panel5.Size = new System.Drawing.Size(350, 52);
             this.panel5.TabIndex = 102;
             // 
             // rbKhac
             // 
             this.rbKhac.AutoSize = true;
-            this.rbKhac.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbKhac.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbKhac.Location = new System.Drawing.Point(244, 10);
             this.rbKhac.Name = "rbKhac";
-            this.rbKhac.Size = new System.Drawing.Size(92, 39);
+            this.rbKhac.Size = new System.Drawing.Size(105, 39);
             this.rbKhac.TabIndex = 100;
             this.rbKhac.TabStop = true;
             this.rbKhac.Text = "Khác";
@@ -275,10 +257,10 @@ namespace LibraryManagement.GUI
             // rbNam
             // 
             this.rbNam.AutoSize = true;
-            this.rbNam.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNam.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbNam.Location = new System.Drawing.Point(10, 10);
             this.rbNam.Name = "rbNam";
-            this.rbNam.Size = new System.Drawing.Size(88, 39);
+            this.rbNam.Size = new System.Drawing.Size(99, 39);
             this.rbNam.TabIndex = 98;
             this.rbNam.TabStop = true;
             this.rbNam.Text = "Nam";
@@ -287,10 +269,10 @@ namespace LibraryManagement.GUI
             // rbNu
             // 
             this.rbNu.AutoSize = true;
-            this.rbNu.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNu.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbNu.Location = new System.Drawing.Point(143, 10);
             this.rbNu.Name = "rbNu";
-            this.rbNu.Size = new System.Drawing.Size(70, 39);
+            this.rbNu.Size = new System.Drawing.Size(78, 39);
             this.rbNu.TabIndex = 99;
             this.rbNu.TabStop = true;
             this.rbNu.Text = "Nữ";
@@ -305,51 +287,74 @@ namespace LibraryManagement.GUI
             this.dtpNgaySinh.Size = new System.Drawing.Size(176, 42);
             this.dtpNgaySinh.TabIndex = 103;
             // 
-            // dateTimePicker1
+            // rbKhongHoatDong
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(236, 526);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(176, 42);
-            this.dateTimePicker1.TabIndex = 104;
+            this.rbKhongHoatDong.AutoSize = true;
+            this.rbKhongHoatDong.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbKhongHoatDong.Location = new System.Drawing.Point(694, 383);
+            this.rbKhongHoatDong.Name = "rbKhongHoatDong";
+            this.rbKhongHoatDong.Size = new System.Drawing.Size(264, 39);
+            this.rbKhongHoatDong.TabIndex = 106;
+            this.rbKhongHoatDong.TabStop = true;
+            this.rbKhongHoatDong.Text = "Không hoạt động";
+            this.rbKhongHoatDong.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // rbHoatDong
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(236, 594);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(176, 42);
-            this.dateTimePicker2.TabIndex = 105;
+            this.rbHoatDong.AutoSize = true;
+            this.rbHoatDong.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbHoatDong.Location = new System.Drawing.Point(493, 383);
+            this.rbHoatDong.Name = "rbHoatDong";
+            this.rbHoatDong.Size = new System.Drawing.Size(173, 39);
+            this.rbHoatDong.TabIndex = 105;
+            this.rbHoatDong.TabStop = true;
+            this.rbHoatDong.Text = "Hoạt động";
+            this.rbHoatDong.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(320, 385);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(158, 35);
+            this.label7.TabIndex = 104;
+            this.label7.Text = "Trạng thái:";
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(485, 382);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(483, 54);
+            this.panel1.TabIndex = 107;
             // 
             // FrmXemChiTietDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(922, 655);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.ClientSize = new System.Drawing.Size(970, 656);
+            this.Controls.Add(this.rbKhongHoatDong);
+            this.Controls.Add(this.rbHoatDong);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.backBtn);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtSdt);
+            this.Controls.Add(this.txtMssv);
+            this.Controls.Add(this.txtHoTen);
+            this.Controls.Add(this.cbcKhoa);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Name = "FrmXemChiTietDocGia";
             this.Text = "FrmQuanLyDocGia";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -368,24 +373,24 @@ namespace LibraryManagement.GUI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cbcKhoa;
+        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.TextBox txtMssv;
+        private System.Windows.Forms.TextBox txtSdt;
+        private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.RadioButton rbKhac;
         private System.Windows.Forms.RadioButton rbNam;
         private System.Windows.Forms.RadioButton rbNu;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.RadioButton rbKhongHoatDong;
+        private System.Windows.Forms.RadioButton rbHoatDong;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel1;
     }
 }

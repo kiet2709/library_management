@@ -38,7 +38,13 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.viewCarGrid = new System.Windows.Forms.DataGridView();
+            this.dtgDocGia = new System.Windows.Forms.DataGridView();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -71,16 +77,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btnThemDocGia = new System.Windows.Forms.Button();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDocGia)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -124,7 +125,7 @@
             this.label8.Location = new System.Drawing.Point(587, 12);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 32);
+            this.label8.Size = new System.Drawing.Size(109, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
@@ -183,17 +184,17 @@
             this.label11.TabIndex = 50;
             this.label11.Text = "Thông tin sách";
             // 
-            // viewCarGrid
+            // dtgDocGia
             // 
-            this.viewCarGrid.AllowUserToAddRows = false;
-            this.viewCarGrid.AllowUserToDeleteRows = false;
-            this.viewCarGrid.AllowUserToResizeColumns = false;
-            this.viewCarGrid.AllowUserToResizeRows = false;
-            this.viewCarGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.viewCarGrid.BackgroundColor = System.Drawing.Color.White;
-            this.viewCarGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.viewCarGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtgDocGia.AllowUserToAddRows = false;
+            this.dtgDocGia.AllowUserToDeleteRows = false;
+            this.dtgDocGia.AllowUserToResizeColumns = false;
+            this.dtgDocGia.AllowUserToResizeRows = false;
+            this.dtgDocGia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgDocGia.BackgroundColor = System.Drawing.Color.White;
+            this.dtgDocGia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dtgDocGia.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dtgDocGia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -202,9 +203,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.viewCarGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewCarGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtgDocGia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgDocGia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgDocGia.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
             this.studentCode,
             this.falcuty,
@@ -219,19 +220,67 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.viewCarGrid.EnableHeadersVisualStyles = false;
-            this.viewCarGrid.GridColor = System.Drawing.Color.White;
-            this.viewCarGrid.Location = new System.Drawing.Point(309, 191);
-            this.viewCarGrid.Margin = new System.Windows.Forms.Padding(4);
-            this.viewCarGrid.Name = "viewCarGrid";
-            this.viewCarGrid.ReadOnly = true;
-            this.viewCarGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.viewCarGrid.RowHeadersVisible = false;
-            this.viewCarGrid.RowHeadersWidth = 51;
-            this.viewCarGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.viewCarGrid.Size = new System.Drawing.Size(1110, 588);
-            this.viewCarGrid.TabIndex = 53;
+            this.dtgDocGia.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgDocGia.EnableHeadersVisualStyles = false;
+            this.dtgDocGia.GridColor = System.Drawing.Color.White;
+            this.dtgDocGia.Location = new System.Drawing.Point(309, 191);
+            this.dtgDocGia.Margin = new System.Windows.Forms.Padding(4);
+            this.dtgDocGia.Name = "dtgDocGia";
+            this.dtgDocGia.ReadOnly = true;
+            this.dtgDocGia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtgDocGia.RowHeadersVisible = false;
+            this.dtgDocGia.RowHeadersWidth = 51;
+            this.dtgDocGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgDocGia.Size = new System.Drawing.Size(1110, 588);
+            this.dtgDocGia.TabIndex = 53;
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.FillWeight = 39.0792F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // studentCode
+            // 
+            this.studentCode.FillWeight = 103.8481F;
+            this.studentCode.HeaderText = "MSSV";
+            this.studentCode.MinimumWidth = 6;
+            this.studentCode.Name = "studentCode";
+            this.studentCode.ReadOnly = true;
+            // 
+            // falcuty
+            // 
+            this.falcuty.FillWeight = 139.5633F;
+            this.falcuty.HeaderText = "Khoa";
+            this.falcuty.MinimumWidth = 6;
+            this.falcuty.Name = "falcuty";
+            this.falcuty.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 150.8021F;
+            this.name.HeaderText = "Tên";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // state
+            // 
+            this.state.FillWeight = 79.95741F;
+            this.state.HeaderText = "Trạng thái";
+            this.state.MinimumWidth = 6;
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.FillWeight = 86.7499F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
             // 
             // panel1
             // 
@@ -322,7 +371,7 @@
             this.label13.Location = new System.Drawing.Point(117, 42);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 32);
+            this.label13.Size = new System.Drawing.Size(140, 32);
             this.label13.TabIndex = 30;
             this.label13.Text = "Tài khoản";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -401,7 +450,7 @@
             this.label7.Location = new System.Drawing.Point(117, 42);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 32);
+            this.label7.Size = new System.Drawing.Size(167, 32);
             this.label7.TabIndex = 30;
             this.label7.Text = "Phiếu Mượn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -480,7 +529,7 @@
             this.label5.Location = new System.Drawing.Point(117, 42);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 32);
+            this.label5.Size = new System.Drawing.Size(117, 32);
             this.label5.TabIndex = 30;
             this.label5.Text = "Thể loại";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -559,7 +608,7 @@
             this.label3.Location = new System.Drawing.Point(117, 42);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 32);
+            this.label3.Size = new System.Drawing.Size(111, 32);
             this.label3.TabIndex = 30;
             this.label3.Text = "Độc giả";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -638,7 +687,7 @@
             this.label9.Location = new System.Drawing.Point(117, 42);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 32);
+            this.label9.Size = new System.Drawing.Size(80, 32);
             this.label9.TabIndex = 30;
             this.label9.Text = "Sách";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -658,61 +707,26 @@
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
-            // CAR_ID
+            // btnThemDocGia
             // 
-            this.CAR_ID.FillWeight = 39.0792F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // studentCode
-            // 
-            this.studentCode.FillWeight = 103.8481F;
-            this.studentCode.HeaderText = "MSSV";
-            this.studentCode.MinimumWidth = 6;
-            this.studentCode.Name = "studentCode";
-            this.studentCode.ReadOnly = true;
-            // 
-            // falcuty
-            // 
-            this.falcuty.FillWeight = 139.5633F;
-            this.falcuty.HeaderText = "Khoa";
-            this.falcuty.MinimumWidth = 6;
-            this.falcuty.Name = "falcuty";
-            this.falcuty.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.FillWeight = 150.8021F;
-            this.name.HeaderText = "Tên";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // state
-            // 
-            this.state.FillWeight = 79.95741F;
-            this.state.HeaderText = "Trạng thái";
-            this.state.MinimumWidth = 6;
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.FillWeight = 86.7499F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
+            this.btnThemDocGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.btnThemDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemDocGia.ForeColor = System.Drawing.Color.White;
+            this.btnThemDocGia.Location = new System.Drawing.Point(1083, 123);
+            this.btnThemDocGia.Name = "btnThemDocGia";
+            this.btnThemDocGia.Size = new System.Drawing.Size(317, 49);
+            this.btnThemDocGia.TabIndex = 60;
+            this.btnThemDocGia.Text = "Thêm độc giả";
+            this.btnThemDocGia.UseVisualStyleBackColor = false;
             // 
             // FrmDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1427, 780);
+            this.Controls.Add(this.btnThemDocGia);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.viewCarGrid);
+            this.Controls.Add(this.dtgDocGia);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label11);
@@ -723,7 +737,7 @@
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgDocGia)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -768,7 +782,7 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView viewCarGrid;
+        private System.Windows.Forms.DataGridView dtgDocGia;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.PictureBox pictureBox11;
@@ -807,5 +821,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
+        private System.Windows.Forms.Button btnThemDocGia;
     }
 }

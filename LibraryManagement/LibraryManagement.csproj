@@ -43,14 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\DocGiaBUS.cs" />
     <Compile Include="BUS\HoSoBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\DocGiaDAO.cs" />
     <Compile Include="DAL\HoSoDAO.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\SachDAO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
+    <Compile Include="DTO\DocGiaDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">

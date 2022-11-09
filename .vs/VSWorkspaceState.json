@@ -3,9 +3,10 @@
     "",
     "\\LibraryManagement",
     "\\LibraryManagement\\BUS",
+    "\\LibraryManagement\\DAL",
     "\\LibraryManagement\\GUI",
     "\\LibraryManagement\\Model"
   ],
-  "SelectedNode": "\\LibraryManagement\\BUS\\NhanVienBUS.cs",
+  "SelectedNode": "\\LibraryManagement\\GUI\\FrmXemChiTietDocGia.cs",
   "PreviewInSolutionExplorer": false
 }

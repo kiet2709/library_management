@@ -20,5 +20,15 @@ namespace LibraryManagement.GUI
         {
 
         }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
