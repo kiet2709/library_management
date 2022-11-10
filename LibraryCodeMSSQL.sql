@@ -294,7 +294,7 @@ CREATE TABLE HoSo
   diachi NVARCHAR(200),
   soDT NVARCHAR(10),
   hinhanh NVARCHAR(100),
-  email NVARCHAR(100) NOT NULL,
+  email NVARCHAR(100) NOT NULL UNIQUE,
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
@@ -309,7 +309,7 @@ IF OBJECT_ID(N'NhanVien', N'U') IS NOT NULL
 CREATE TABLE NhanVien
 (
   id INT IDENTITY(1,1),
-  tenDangNhap NVARCHAR(30) NOT NULL,
+  tenDangNhap NVARCHAR(30) NOT NULL UNIQUE,
   matkhau NVARCHAR(100) NOT NULL,
   trangthai INT NOT NULL,
   maHoSo INT NOT NULL,
@@ -358,7 +358,7 @@ IF OBJECT_ID(N'vaitro_NhanVien', N'U') IS NOT NULL
 CREATE TABLE vaitro_nhanVien
 (
   maNhanVien INT NOT NULL,
-  maVaiTro INT NOT NULL, -- 1: Quản lý | 0: Nhân viên
+  maVaiTro INT NOT NULL, -- 1: Quản lý | 2: Nhân viên
   CONSTRAINT PK_VaiTroNhanVien PRIMARY KEY (maNhanVien, maVaiTro),
   CONSTRAINT FK_VaiTro FOREIGN KEY (maVaiTro) REFERENCES VaiTro(id),
   CONSTRAINT FK_NhanVien FOREIGN KEY (maNhanVien) REFERENCES NhanVien(id)
@@ -570,7 +570,8 @@ CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien
 @LUONG INT,
 @TENTK NVARCHAR(30),
 @MK NVARCHAR(100),
-@TRANGTHAI INT
+@TRANGTHAI INT,
+@VAITRO INT
 AS
 BEGIN
 	BEGIN TRY
@@ -583,6 +584,8 @@ BEGIN
 
 			UPDATE NhanVien SET tenDangNhap = @TENTK , matkhau = @MK, trangthai = @TRANGTHAI
 			WHERE id = @MANV
+
+			UPDATE vaitro_nhanVien SET maVaiTro = @VAITRO WHERE maNhanVien = @MANV;
 		COMMIT
 	END TRY
 		
@@ -607,15 +610,20 @@ CREATE OR ALTER PROC usp_Them_Thong_Tin_Nhan_Vien
 @LUONG INT,
 @TENTK NVARCHAR(30),
 @MK NVARCHAR(100),
-@TRANGTHAI INT
+@TRANGTHAI INT,
+@VAITRO INT
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRAN
 			DECLARE @MAHS INT;
+			DECLARE @MANV INT;
 			INSERT INTO HoSo VALUES(@TEN,@HO,@DIACHI,@SODT,@HINHANH,@EMAIL,@GIOITINH,@NGAYSINH,@LUONG)
 			SET @MAHS = SCOPE_IDENTITY();
-			INSERT INTO NhanVien VALUES(@TENTK, @MK, @TRANGTHAI, @MAHS)
+			INSERT INTO NhanVien VALUES(@TENTK, @MK, @TRANGTHAI, @MAHS);
+			SET @MANV = SCOPE_IDENTITY();
+			INSERT INTO vaitro_nhanVien VALUES (@MANV,@VAITRO); -- 2 cho thủ thư
+			SELECT @MAHS;
 		COMMIT 
 	END TRY
 
@@ -626,6 +634,34 @@ BEGIN
 	
 END;
 GO 
+
+/*
+select * from vaitro_nhanvien
+select * from hoso
+EXEC usp_Them_Thong_Tin_Nhan_Vien
+@TEN = 'a',
+@HO = 'a',
+@DIACHI = 'a',
+@SODT = 'a',
+@HINHANH = 'a',
+@EMAIL = 'a',
+@GIOITINH = 1,
+@NGAYSINH = '06-06-2002',
+@LUONG = 123,
+@TENTK = 'a',
+@MK = 'aaaaaaaaaaaaaaaaaaa',
+@TRANGTHAI = 1 
+*/
+-- procedure cập nhật ảnh nhân viên
+
+CREATE PROC usp_Them_Hinh_Anh_Nhan_Vien
+@ID INT,
+@HINHANH NVARCHAR(100)
+AS
+BEGIN
+	UPDATE HoSo SET hinhAnh = @HINHANH WHERE ID = @ID
+END;
+GO
 
 
 -- procedure Xem toàn bộ thông tin nhân viên
@@ -639,6 +675,7 @@ BEGIN
 			INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro = VaiTro.id
 END;
 GO
+
 
 -- procedure Xem thông tin nhân viên theo id
 CREATE PROC usp_Xem_Thong_Tin_Nhan_Vien
@@ -980,15 +1017,15 @@ INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông ti
 INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1);
 INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1);
 
-INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,1,1,1,1);
-INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,2,2,2,2);
-INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','None',0,3,3,3,3);
-INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','None',0,4,3,4,4);
+INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,1,1,1);
+INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,2,2,2,2);
+INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,3,3,3,3);
+INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','',0,4,3,4,4);
 
-INSERT INTO HoSo VALUES(N'Khải', N'Nguyễn',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','none','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
-INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','none','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','none','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','none','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Khải', N'Nguyễn',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
+INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 
 INSERT INTO NhanVien VALUES(N'khainguyen','12345678',1,1);
 INSERT INTO NhanVien VALUES(N'kietnguyen','12345678',1,2);

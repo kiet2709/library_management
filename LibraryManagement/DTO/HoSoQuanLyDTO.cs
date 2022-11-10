@@ -9,7 +9,7 @@ namespace LibraryManagement.DTO
     {
         private int id;
         private String tenDangNhap;
-        private String vaiTro;
+        private string vaiTro;
         private String matKhau;
         private int trangThai;
         private int gioiTinh;
@@ -32,12 +32,9 @@ namespace LibraryManagement.DTO
         public string Email { get => email; set => email = value; }
         public DateTime Ngaysinh { get => ngaysinh; set => ngaysinh = value; }
         public int Luong { get => luong; set => luong = value; }
-        public string VaiTro { get => vaiTro; set => vaiTro = value; }
-        
         public int GioiTinh { get => gioiTinh; set => gioiTinh = value; }
         public int TrangThai { get => trangThai; set => trangThai = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }
-
-
+        public string VaiTro { get => vaiTro; set => vaiTro = value; }
     }
 }

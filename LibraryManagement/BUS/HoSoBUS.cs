@@ -58,8 +58,8 @@ namespace LibraryManagement.BUS
             hoSoQuanLyDTO.Diachi = dr["diachi"].ToString();
             hoSoQuanLyDTO.SoDT = dr["SoDT"].ToString();
             hoSoQuanLyDTO.Email = dr["email"].ToString();
-
-            if(Convert.ToInt32(dr["trangThai"]) == 1)
+            hoSoQuanLyDTO.Hinhanh = dr["hinhanh"].ToString();
+            if (Convert.ToInt32(dr["trangThai"]) == 1)
             {
                 hoSoQuanLyDTO.TrangThai = 1;
             }
@@ -79,11 +79,12 @@ namespace LibraryManagement.BUS
             return hoSoQuanLyDTO;
         }
 
-        public int saveTaiKhoan(HoSoQuanLyDTO hoSoQuanLyDTO, string password)
+        internal int saveImage(string hinhanh, int id)
         {
-            return hoSoDAO.saveTaiKhoan(hoSoQuanLyDTO, password);   
+           return hoSoDAO.saveImage(hinhanh, id);
         }
 
+       
         public String getPasswordById(int profileId)
         {
             DataTable profile = hoSoDAO.getPasswordById(profileId);

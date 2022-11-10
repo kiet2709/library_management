@@ -50,7 +50,6 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLuu = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -64,12 +63,19 @@
             this.rbNam = new System.Windows.Forms.RadioButton();
             this.rbKhac = new System.Windows.Forms.RadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnThemAnh = new System.Windows.Forms.Button();
+            this.pbAnh = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.rbNhanVien = new System.Windows.Forms.RadioButton();
+            this.rbQuanLy = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDiaChi
@@ -275,14 +281,6 @@
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(64, 129);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(204, 305);
-            this.pictureBox1.TabIndex = 80;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnLuu
             // 
             this.btnLuu.BackColor = System.Drawing.Color.LemonChiffon;
@@ -421,11 +419,81 @@
             this.panel5.Size = new System.Drawing.Size(339, 52);
             this.panel5.TabIndex = 101;
             // 
+            // btnThemAnh
+            // 
+            this.btnThemAnh.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnThemAnh.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemAnh.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThemAnh.Location = new System.Drawing.Point(42, 373);
+            this.btnThemAnh.Name = "btnThemAnh";
+            this.btnThemAnh.Size = new System.Drawing.Size(234, 61);
+            this.btnThemAnh.TabIndex = 130;
+            this.btnThemAnh.Text = "Đổi ảnh";
+            this.btnThemAnh.UseVisualStyleBackColor = false;
+            this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
+            // 
+            // pbAnh
+            // 
+            this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAnh.Location = new System.Drawing.Point(42, 114);
+            this.pbAnh.Name = "pbAnh";
+            this.pbAnh.Size = new System.Drawing.Size(234, 243);
+            this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAnh.TabIndex = 129;
+            this.pbAnh.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.rbNhanVien);
+            this.panel6.Controls.Add(this.rbQuanLy);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Location = new System.Drawing.Point(12, 498);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(292, 146);
+            this.panel6.TabIndex = 131;
+            // 
+            // rbNhanVien
+            // 
+            this.rbNhanVien.AutoSize = true;
+            this.rbNhanVien.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNhanVien.Location = new System.Drawing.Point(140, 87);
+            this.rbNhanVien.Name = "rbNhanVien";
+            this.rbNhanVien.Size = new System.Drawing.Size(125, 39);
+            this.rbNhanVien.TabIndex = 127;
+            this.rbNhanVien.TabStop = true;
+            this.rbNhanVien.Text = "Thủ thư";
+            this.rbNhanVien.UseVisualStyleBackColor = true;
+            // 
+            // rbQuanLy
+            // 
+            this.rbQuanLy.AutoSize = true;
+            this.rbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbQuanLy.Location = new System.Drawing.Point(140, 17);
+            this.rbQuanLy.Name = "rbQuanLy";
+            this.rbQuanLy.Size = new System.Drawing.Size(123, 39);
+            this.rbQuanLy.TabIndex = 126;
+            this.rbQuanLy.TabStop = true;
+            this.rbQuanLy.Text = "Quản lý";
+            this.rbQuanLy.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 35);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Vai trò:";
+            // 
             // FrmCapNhatTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 853);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.btnThemAnh);
+            this.Controls.Add(this.pbAnh);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.rbKhongHoatDong);
             this.Controls.Add(this.rbHoatDong);
@@ -442,7 +510,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -452,18 +519,19 @@
             this.Controls.Add(this.label10);
             this.Name = "FrmCapNhatTaiKhoan";
             this.Text = "FrmCapNhatTaiKhoan";
-            this.Load += new System.EventHandler(this.FrmCapNhatTaiKhoan_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,7 +553,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -506,5 +573,11 @@
         private System.Windows.Forms.RadioButton rbNam;
         private System.Windows.Forms.RadioButton rbKhac;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button btnThemAnh;
+        private System.Windows.Forms.PictureBox pbAnh;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.RadioButton rbNhanVien;
+        private System.Windows.Forms.RadioButton rbQuanLy;
+        private System.Windows.Forms.Label label14;
     }
 }

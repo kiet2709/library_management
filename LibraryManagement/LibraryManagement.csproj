@@ -144,6 +144,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ImageUpload.cs" />
     <EmbeddedResource Include="GUI\FrmChiTietPhieuMuon.resx">
       <DependentUpon>FrmChiTietPhieuMuon.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\Password.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="uploads\nhanVien\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

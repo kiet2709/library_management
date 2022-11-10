@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -17,6 +18,8 @@ namespace LibraryManagement.GUI
         private HoSoBUS hoSoBUS = new HoSoBUS();
         private NhanVienBUS nhanVienBUS = new NhanVienBUS();
         private HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
+        OpenFileDialog open = new OpenFileDialog();
+        private Image image;
 
         public FrmCapNhatTaiKhoan(int profileId)
         {
@@ -38,6 +41,16 @@ namespace LibraryManagement.GUI
             String matKhau = hoSoBUS.getPasswordById(profileId);
             this.txtMatKhau.Text = matKhau;
 
+
+            // set vai trò
+            if(hoSoQuanLyDTO.VaiTro == "Quản lý")
+            {
+                rbQuanLy.Checked = true;
+            }
+            else
+            {
+                rbNhanVien.Checked = true;
+            }
 
             // set trangThai
             if (hoSoQuanLyDTO.TrangThai == 1)
@@ -65,6 +78,12 @@ namespace LibraryManagement.GUI
 
             // set ngaySinh
             this.dtpNgaySinh.Value = hoSoQuanLyDTO.Ngaysinh;
+
+            if (hoSoQuanLyDTO.Hinhanh != null && hoSoQuanLyDTO.Hinhanh != "")
+            {
+                pbAnh.Image = Image.FromFile(hoSoQuanLyDTO.Hinhanh);
+            }
+            
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -90,7 +109,25 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
             hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
-            hoSoQuanLyDTO.Hinhanh = "none";
+            
+            if (open.FileName != null && open.FileName != "")
+            {
+                String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+                hoSoQuanLyDTO.Hinhanh = imagePath;
+            }
+            else
+            {
+                hoSoQuanLyDTO.Hinhanh = "";
+            }
+
+            if (this.rbNhanVien.Checked)
+            {
+                hoSoQuanLyDTO.VaiTro = "Thủ thư";
+            }
+            else
+            {
+                hoSoQuanLyDTO.VaiTro = "Quản lý";
+            }
             if (this.rbNam.Checked)
             {
                 hoSoQuanLyDTO.GioiTinh = 1;
@@ -115,7 +152,6 @@ namespace LibraryManagement.GUI
 
             hoSoQuanLyDTO.TenDangNhap = txtTenDangNhap.Text;
             hoSoQuanLyDTO.MatKhau = txtMatKhau.Text;
-            Console.WriteLine(hoSoQuanLyDTO.ToString());
             int result;
             result = hoSoBUS.updateInfo(hoSoQuanLyDTO);
            
@@ -125,6 +161,12 @@ namespace LibraryManagement.GUI
             }
             else
             {
+                if (open.FileName != null && open.FileName != "")
+                {
+                    String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+                    hoSoQuanLyDTO.Hinhanh = imagePath;
+                    image.Save(imagePath);
+                }
                 MessageBox.Show("Sửa thành công");
                 this.Close();
                 Thread thread = new Thread(OpenFrmTaiKhoan);
@@ -134,9 +176,14 @@ namespace LibraryManagement.GUI
         
         }
 
-        private void FrmCapNhatTaiKhoan_Load(object sender, EventArgs e)
+        private void btnThemAnh_Click(object sender, EventArgs e)
         {
-
+            open.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;*.png)|*.jpg;*.jpeg;.*.gif;*.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                image = Image.FromFile(open.FileName);
+                pbAnh.Image = image;
+            }
         }
     }
 }
