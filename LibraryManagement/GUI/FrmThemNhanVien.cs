@@ -75,7 +75,6 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null)
                 {
-                    String imageName = Path.GetFileName(open.FileName);
                     String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + result + ".png";
                     image.Save(imagePath);
                     hoSoQuanLyDTO.Hinhanh = imagePath;
