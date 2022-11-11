@@ -19,7 +19,7 @@ namespace LibraryManagement.BUS
 
             foreach (DataRow dr in docgias.Rows)
             {
-                DocGiaDTO docGiaDTO = new DocGiaDTO();
+                DocGiaQuanLyDTO docGiaDTO = new DocGiaQuanLyDTO();
                 docGiaDTO.Id = Convert.ToInt32(dr["id"]);
                 docGiaDTO.Mssv = dr["mssv"].ToString();
                 docGiaDTO.Ten = dr["ten"].ToString();

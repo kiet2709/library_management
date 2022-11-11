@@ -499,7 +499,6 @@ AS
 BEGIN
    SELECT * FROM DocGia;
 END;
-Exec usp_Xem_Thong_Tin_Doc_gia
 
 GO
 
@@ -545,6 +544,13 @@ BEGIN
 END;
 GO
 
+-- procedure Xem thể loại
+CREATE OR ALTER PROCEDURE usp_Xem_The_Loai
+AS
+BEGIN
+   	SELECT * FROM TheLoai;
+END;
+GO
 -- procedure Xem sách theo ngôn ngữ
 CREATE PROCEDURE usp_Xem_Sach_Theo_Ngon_Ngu
 @id INT
@@ -684,7 +690,7 @@ BEGIN
 END;
 GO
 
--- procedure Xem thông tin đầu sách
+-- procedure Xem thông tin đầu sách DTO
 CREATE OR ALTER PROCEDURE usp_Xem_DauSachDTO
 AS
 BEGIN
@@ -847,6 +853,44 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROCEDURE usp_Xoa_The_Loai
+@id INT
+AS
+BEGIN
+   DELETE FROM TheLoai WHERE id = @id;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE usp_Xem_The_Loai_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT TheLoai.ten
+   FROM TheLoai
+   WHERE TheLoai.id = @id
+END;
+SELECT * FROM TheLoai
+EXEC usp_Xem_The_Loai_Theo_Id 19;
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_The_Loai  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE TheLoai SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+
 --================ Create Function ====================================
 
 -- function trả về tổng lương nhân viên
@@ -896,12 +940,8 @@ BEGIN
 		INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id;
    RETURN @vaitro;
 END;
-GO
-USE QuanLyThuVien;
-SELECT * FROM VaiTro;
-SELECT * FROM NhanVien;
-SELECT * FROM vaitro_nhanVien;
-SELECT dbo.fn_Vai_Tro_Nhan_Vien (1) AS abc;
+
+
 
 GO
 -- function kiểm tra đăng nhập 
@@ -940,6 +980,19 @@ ELSE
 END
 GO
 
+CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_The_Loai(@id INT)
+RETURNS INT
+AS
+BEGIN
+DECLARE @soLuong INT;
+SELECT @soLuong=COUNT(DauSach.id) 
+FROM TheLoai INNER JOIN DauSach ON TheLoai.id = DauSach.maTheLoai
+WHERE DauSach.id = @id
+GROUP BY DauSach.id;
+RETURN @soLuong;
+END;
+GO
+
 
 
 --================ INSERT DATA ====================================
@@ -952,6 +1005,7 @@ INSERT INTO TheLoai VALUES(N'Công nghệ thực phẩm');
 INSERT INTO TheLoai VALUES(N'Công nghệ hóa học');
 INSERT INTO TheLoai VALUES(N'Xây dựng');
 INSERT INTO TheLoai VALUES(N'Thương mại điện tử');
+
 
 
 INSERT INTO NgonNgu VALUES(N'Tiếng việt');

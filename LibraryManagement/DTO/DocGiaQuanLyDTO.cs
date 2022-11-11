@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibraryManagement.DTO
 {
-    class DocGiaDTO
+    class DocGiaQuanLyDTO
     {
         private int id;
         private string mssv;
@@ -13,7 +13,7 @@ namespace LibraryManagement.DTO
         private string ten;
         private string trangthai;
 
-        public DocGiaDTO(int id, string mssv, string khoa, string ten, string trangthai)
+        public DocGiaQuanLyDTO(int id, string mssv, string khoa, string ten, string trangthai)
         {
             this.id = id;
             this.mssv = mssv;
@@ -22,7 +22,7 @@ namespace LibraryManagement.DTO
             this.trangthai = trangthai;
         }
 
-        public DocGiaDTO()
+        public DocGiaQuanLyDTO()
         {
         }
 

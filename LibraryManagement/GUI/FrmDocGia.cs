@@ -27,11 +27,11 @@ namespace LibraryManagement.GUI
             {
                 DataGridViewRow dataGridViewRow = new DataGridViewRow();
                 dataGridViewRow.CreateCells(dtgDocGia);
-                dataGridViewRow.Cells[0].Value = ((DocGiaDTO)docgias[i]).Id;
-                dataGridViewRow.Cells[1].Value = ((DocGiaDTO)docgias[i]).Mssv;
-                dataGridViewRow.Cells[2].Value = ((DocGiaDTO)docgias[i]).Khoa;
-                dataGridViewRow.Cells[3].Value = ((DocGiaDTO)docgias[i]).Ten;
-                dataGridViewRow.Cells[4].Value = ((DocGiaDTO)docgias[i]).Trangthai;
+                dataGridViewRow.Cells[0].Value = ((DocGiaQuanLyDTO)docgias[i]).Id;
+                dataGridViewRow.Cells[1].Value = ((DocGiaQuanLyDTO)docgias[i]).Mssv;
+                dataGridViewRow.Cells[2].Value = ((DocGiaQuanLyDTO)docgias[i]).Khoa;
+                dataGridViewRow.Cells[3].Value = ((DocGiaQuanLyDTO)docgias[i]).Ten;
+                dataGridViewRow.Cells[4].Value = ((DocGiaQuanLyDTO)docgias[i]).Trangthai;
                 dtgDocGia.Rows.Add(dataGridViewRow);
             }    
         }
