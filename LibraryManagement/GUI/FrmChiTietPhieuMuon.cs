@@ -11,9 +11,16 @@ namespace LibraryManagement.GUI
 {
     public partial class FrmChiTietPhieuMuon : Form
     {
-        public FrmChiTietPhieuMuon()
+        int id;
+        public FrmChiTietPhieuMuon(int id)
         {
+            this.id = id;
             InitializeComponent();
+        }
+
+        private void FrmChiTietPhieuMuon_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

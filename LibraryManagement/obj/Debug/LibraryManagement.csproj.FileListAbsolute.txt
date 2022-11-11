@@ -70,3 +70,24 @@ C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDoiMatKhau.resources
 
 
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\bin\Debug\LibraryManagement.exe.config
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\bin\Debug\LibraryManagement.exe
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\bin\Debug\LibraryManagement.pdb
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.AssemblyReference.cache
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietPhieuMuon.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmCapNhatTaiKhoan.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietDauSach.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTaiKhoan.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTheLoai.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDocGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.FrmDangNhap.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmPhieuMuon.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSach.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemDocGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhanVien.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmXemChiTietDocGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.Properties.Resources.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.GenerateResource.cache
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.csproj.CoreCompileInputs.cache
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.exe
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.pdb

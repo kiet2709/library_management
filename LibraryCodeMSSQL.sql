@@ -332,14 +332,13 @@ CREATE TABLE Muon
   ngaymuon DATE NOT NULL,
   ngaytra DATE,
   ngayhethan DATE,
-  trangthai INT NOT NULL, -- 1: Đang mượn | 0: Trả rồi
   tienphat INT,
   maNhanVien INT NOT NULL,
   maDocGia INT NOT NULL,
   CONSTRAINT PK_Muon PRIMARY KEY(id),
   CONSTRAINT FK_Muon_NhanVien FOREIGN KEY (maNhanVien) REFERENCES NhanVien(id),
   CONSTRAINT FK_Muon_DocGia FOREIGN KEY (maDocGia) REFERENCES DocGia(id),
-  CONSTRAINT CHK_Muon CHECK (tienphat >= 0 AND (trangthai = 0 OR trangthai =1))
+  CONSTRAINT CHK_Muon CHECK (tienphat >= 0)
 );
 GO
 
@@ -392,9 +391,12 @@ CREATE TABLE MuonSach
 (
   maSach INT NOT NULL,
   maMuon INT NOT NULL,
+  ghiChu NVARCHAR(50),
+  trangthai INT NOT NULL, -- 1: Đang mượn | 0: Trả rồi
   CONSTRAINT PK_MuonSach PRIMARY KEY (maSach, maMuon),
   CONSTRAINT FK_Sach FOREIGN KEY (maSach) REFERENCES Sach(id),
-  CONSTRAINT FK_Muon FOREIGN KEY (maMuon) REFERENCES Muon(id)
+  CONSTRAINT FK_Muon FOREIGN KEY (maMuon) REFERENCES Muon(id),
+  CONSTRAINT CHK_MuonSach Check (trangthai = 0 OR trangthai =1)
 );
 GO
 
@@ -431,7 +433,7 @@ AS
 GO
 
 -- delete muon if trangthai == 1 => rollback 
-CREATE TRIGGER trig_trangthai_muon ON Muon 
+CREATE TRIGGER trig_trangthai_muon ON MuonSach 
 FOR DELETE
 AS
 	IF (SELECT trangthai FROM DELETED ) = 1
@@ -487,7 +489,7 @@ BEGIN
 END
 GO
 -- create view nhanvien
-CREATE VIEW NHANVIEN_VIEW AS
+CREATE OR ALTER VIEW NHANVIEN_VIEW AS
 SELECT HoSo.id, HoSo.ten, Hoso.email
 FROM HoSo INNER JOIN NhanVien ON HoSo.id=NhanVien.maHoSo 
 INNER JOIN vaitro_nhanVien ON NhanVien.id=vaitro_nhanVien.maNhanVien 
@@ -495,16 +497,26 @@ INNER JOIN vaitro_nhanVien ON NhanVien.id=vaitro_nhanVien.maNhanVien
 WHERE VaiTro.ten='nhan vien'
 GO
 
+CREATE OR ALTER VIEW NXB_VIEW AS
+SELECT *
+FROM NhaXuatBan 
+GO
+
+CREATE OR ALTER VIEW THELOAI_VIEW AS
+SELECT *
+FROM TheLoai
+GO
 
 --=============== CREATE PROC ===============--
 -- procedure Xem thông tin độc giả
-CREATE PROCEDURE usp_Xem_Thong_Tin_Doc_gia
+CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Doc_gia
 AS
 BEGIN
    SELECT * FROM DocGia;
 END;
 
 GO
+
 
 -- procedure Thêm thông tin độc giả
 CREATE OR ALTER PROCEDURE usp_Them_Doc_Gia
@@ -525,7 +537,7 @@ END;
 GO
 
 -- procedure Chuyển trạng thái độc giả
-CREATE PROCEDURE usp_Chuyen_Trang_Thai_Doc_gia
+CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Doc_gia
    @id INT,
    @trangthai INT
 AS
@@ -539,7 +551,7 @@ GO
 
 -- procedure sửa thông tin độc giả
 
-CREATE PROC usp_Sua_Thong_Tin_Doc_Gia  
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Doc_Gia  
 @id INT,
 @trangthai INT,
 @ten NVARCHAR(50),
@@ -560,7 +572,7 @@ BEGIN
 END;
 GO
 -- procedure Xem sách theo ngôn ngữ
-CREATE PROCEDURE usp_Xem_Sach_Theo_Ngon_Ngu
+CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Ngon_Ngu
 @id INT
 AS
 BEGIN
@@ -730,9 +742,28 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_DAU_SACH
+@ID INT,
+@TIEUDE NVARCHAR(30),
+@MOTA NVARCHAR(200),
+@GIA INT,
+@NGAYXB DATE,
+@HINHANH NVARCHAR(100),
+@LOAI INT,
+@TRANGTHAI INT,
+@MANXB INT,
+@MANGONGU INT,
+@MATHELOAI INT
+AS
+BEGIN
+	UPDATE DauSach SET tieude=@TIEUDE, mota=@MOTA, gia=@GIA, ngayxuatban=@NGAYXB, hinhanh=@HINHANH, loai=@LOAI, trangthai=@TRANGTHAI,
+		maNXB=@MANXB, maNgonNgu=@MANGONGU, maTheLoai=@MATHELOAI 
+			WHERE id=@ID		
+END
+GO
 
 -- procedure Xem toàn bộ thông tin nhân viên
-CREATE PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
+CREATE OR ALTER PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
 AS
 BEGIN
 	SELECT HoSo.id, HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
@@ -745,7 +776,7 @@ GO
 
 
 -- procedure Xem thông tin nhân viên theo id
-CREATE PROC usp_Xem_Thong_Tin_Nhan_Vien
+CREATE OR ALTER PROC usp_Xem_Thong_Tin_Nhan_Vien
 @id INT
 AS
 BEGIN
@@ -759,7 +790,7 @@ END;
 GO
 
 -- procedure Xem mật khẩu nhân viên theo id
-CREATE PROC usp_Xem_Mat_Khau_Nhan_Vien
+CREATE OR ALTER PROC usp_Xem_Mat_Khau_Nhan_Vien
 @id INT
 AS
 BEGIN
@@ -770,7 +801,7 @@ END;
 GO
 
 -- procedure chuyển trạng thái tài khoản nhân viên
-CREATE PROC usp_Chuyen_Trang_Thai_Nhan_Vien
+CREATE OR ALTER PROC usp_Chuyen_Trang_Thai_Nhan_Vien
 @ID INT,
 @TRANGTHAI INT
 AS
@@ -781,7 +812,7 @@ GO
 
 
 -- procedure Xem thông tin đầu sách
-CREATE PROCEDURE usp_Xem_Dau_Sach
+CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
 AS
 BEGIN
    SELECT * FROM DauSach;
@@ -798,7 +829,7 @@ END;
 
 GO
 -- procedure Thêm thông tin đầu sách
-CREATE PROCEDURE usp_Them_Dau_Sach
+CREATE OR ALTER PROCEDURE usp_Them_Dau_Sach
    @tieude NVARCHAR(30),
    @mota NVARCHAR(200),
    @gia INT,
@@ -840,7 +871,7 @@ END;
 GO
 
 -- procedure Chuyển trạng thái đầu sách ( Cho mượn, không cho mượn)
-CREATE PROCEDURE usp_Chuyen_Trang_Thai_Dau_Sach
+CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Dau_Sach
    @id INT,
    @trangthai INT
 AS
@@ -853,7 +884,7 @@ END;
 GO
 
 -- procedure Liệt kê sách theo trạng thái 
-CREATE PROCEDURE usp_Liet_Ke_Sach_Theo_Trang_Thai
+CREATE OR ALTER PROCEDURE usp_Liet_Ke_Sach_Theo_Trang_Thai
    @trangthai INT
 AS
 BEGIN
@@ -863,7 +894,7 @@ END;
 GO
 
 -- procedure Liệt kê những độc giả đang mượn sách
-CREATE PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach
+CREATE OR ALTER PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach
 AS
 BEGIN
    SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
@@ -873,7 +904,7 @@ END;
 GO
 
 -- procedure Liệt kê những độc giả đang mượn sách quá hạn
-CREATE PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach_Qua_Han
+CREATE OR ALTER PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach_Qua_Han
 AS
 BEGIN
    SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
@@ -884,7 +915,7 @@ END;
 GO
 
 -- procedure Xem sách theo tác giả
-CREATE PROCEDURE usp_Xem_Sach_Theo_Tac_Gia
+CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Tac_Gia
 @id INT
 AS
 BEGIN
@@ -897,7 +928,7 @@ END;
 GO
 
 -- procedure Xem sách theo danh mục
-CREATE PROCEDURE usp_Xem_Sach_Theo_Danh_Muc
+CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Danh_Muc
 @id INT
 AS
 BEGIN
@@ -909,7 +940,7 @@ GO
 
 
 -- procedure xem thông tin phiếu mượn
-CREATE PROCEDURE usp_Xem_Thong_Tin_Phieu_Muon
+CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Phieu_Muon
 @id INT
 AS
 BEGIN
@@ -918,7 +949,7 @@ BEGIN
 END;
 GO
 -- procedure thêm thông tin phiếu mượn
-CREATE proc usp_Them_Thong_Tin_Phieu_Muon
+CREATE OR ALTER proc usp_Them_Thong_Tin_Phieu_Muon
   @ngaymuon DATE,
   @ngaytra DATE,
   @ngayhethan DATE,
@@ -928,13 +959,13 @@ CREATE proc usp_Them_Thong_Tin_Phieu_Muon
   @maDocGia INT
 AS
 BEGIN
-	INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @trangthai, @tienphat ,@maNhanVien, @maDocGia)
+	INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @tienphat ,@maNhanVien, @maDocGia)
 END;
 
 GO
 
 -- procedure xóa thông tin phiếu mượn quá hạn ( trên 1 năm )
-CREATE PROC usp_Xoa_Phieu_Muon_Qua_Han
+CREATE OR ALTER PROC usp_Xoa_Phieu_Muon_Qua_Han
 AS
 BEGIN
 	DELETE FROM Muon WHERE DATEDIFF(day, GETDATE(), Muon.ngaytra) > 365
@@ -942,7 +973,7 @@ END;
 GO
 
 -- procedure xem đầu sách theo nhà xuất bản
-CREATE PROCEDURE usp_Xem_Dau_Sach_Theo_Nha_Xuat_Ban
+CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach_Theo_Nha_Xuat_Ban
 @maNXB INT
 AS
 BEGIN
@@ -989,10 +1020,38 @@ BEGIN
 	END CATCH 
 END;
 
+CREATE OR ALTER PROCEDURE usp_SUA_TAC_GIA_SACH
+@idSach INT,
+@idTacGiaCu INT,
+@idTacGiaMoi INT
+AS
+BEGIN
+   UPDATE tacgia_sach SET maTacGia=@idTacGiaMoi WHERE maDauSach=@idSach AND maTacGia=@idTacGiaCu
+END;
+GO
+
+CREATE OR ALTER PROCEDURE usp_XOA_TAC_GIA_SACH
+@idSach INT,
+@idTacGia INT
+AS
+BEGIN
+   DELETE FROM tacgia_sach WHERE maDauSach=@idSach AND maTacGia=@idTacGia
+END;
+GO
+
+CREATE OR ALTER PROCEDURE usp_THEM_TAC_GIA_SACH
+@idSach INT,
+@idTacGia INT
+AS
+BEGIN
+   INSERT INTO tacgia_sach VALUES(@idSach, @idTacGia);
+END;
+GO
+
 --================ Create Function ====================================
 
 -- function trả về tổng lương nhân viên
-CREATE FUNCTION fn_Tong_Luong_Nhan_Vien()
+CREATE OR ALTER FUNCTION fn_Tong_Luong_Nhan_Vien()
 RETURNS INT AS
 BEGIN
    DECLARE @salary INT;
@@ -1002,7 +1061,7 @@ BEGIN
 END;
 GO
 -- function trả về tổng số lượng sách theo trạng thái
-CREATE FUNCTION fn_Tong_Sach_Theo_Trang_Thai(
+CREATE OR ALTER FUNCTION fn_Tong_Sach_Theo_Trang_Thai(
 @ID_DAU_SACH INT,
 @TRANG_THAI INT
 )
@@ -1040,9 +1099,8 @@ BEGIN
 END;
 GO
 
-
--- procedure kiểm tra đăng nhập 
-CREATE PROC usp_Kiem_Tra_Dang_Nhap 
+-- PROC kiểm tra đăng nhập 
+CREATE OR ALTER PROC usp_Kiem_Tra_Dang_Nhap 
     @tenDangNhap NVARCHAR(40),
     @matKhau Nvarchar(100)
 AS
@@ -1056,11 +1114,7 @@ ELSE
     SELECT -1
 
 END
-
-
-
 GO
-
 
 
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_The_Loai(@id INT)
@@ -1074,10 +1128,66 @@ WHERE DauSach.id = @id
 GROUP BY DauSach.id;
 RETURN @soLuong;
 END;
+
+CREATE OR ALTER PROC usp_Thong_Tin_Chi_Tiet_Dau_Sach
+@id int
+AS
+BEGIN
+	SELECT tieude, mota, gia, ngayxuatban, hinhanh, loai as 'danhmuc', trangthai, NhaXuatBan.ten as 'nxb', NgonNgu.ten as 'ngonngu', TheLoai.ten as 'theloai' 
+	FROM DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id
+		INNER JOIN NhaXuatBan ON DauSach.maNXB = NhaXuatBan.id
+			INNER JOIN NgonNgu ON DauSach.maNgonNgu = NgonNgu.id
+	WHERE DauSach.id = @id
+END
 GO
 
+CREATE OR ALTER PROC usp_TAC_GIA_SACH_CU_THE
+@id int
+AS
+BEGIN
+	SELECT TacGia.id, TacGia.ten FROM tacgia_sach INNER JOIN TacGia ON tacgia_sach.maTacGia = TacGia.id
+	WHERE tacgia_sach.maDauSach = @id
+END
+GO
 
+CREATE OR ALTER PROC usp_TAC_GIA_SACH
+AS
+BEGIN
+	SELECT * FROM TacGia 
+END
+GO
 
+CREATE OR ALTER PROC usp_THEM_TAC_GIA
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO TacGia VALUES('N' + @TEN);
+END
+GO
+
+CREATE OR ALTER PROC usp_THEM_NXB
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO NhaXuatBan VALUES('N' + @TEN);
+END
+GO
+
+CREATE OR ALTER PROC usp_THEM_THE_LOAI
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO TheLoai VALUES('N' + @TEN);
+END
+GO
+
+CREATE OR ALTER PROC usp_THEM_NGON_NGU
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO NgonNgu VALUES('N' + @TEN);
+END
+GO
 --================ INSERT DATA ====================================
 
 INSERT INTO TheLoai VALUES(N'Công nghệ thông tin');
@@ -1134,12 +1244,18 @@ INSERT INTO NhanVien VALUES(N'vikhang','12345678',1,3);
 INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
 
 
-INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',1,null,1,1);
+
 /*
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',1,null,2,2);
 INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',1,null,3,3);
 INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',1,null,4,4);
 */
+
+INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',null,1,1);
+INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',null,2,2);
+INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',null,3,3);
+INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',null,4,4);
+
 
 INSERT INTO tacgia_sach VALUES(1,1);
 INSERT INTO tacgia_sach VALUES(2,1);
@@ -1170,11 +1286,16 @@ INSERT INTO Sach VALUES(-1,'Kệ 2',4);
 INSERT INTO Sach VALUES(1,'Kệ 2',4);
 
 
-INSERT INTO MuonSach VALUES(1,1);
 /*
 INSERT INTO MuonSach VALUES(2,1);
 INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
 */
+
+INSERT INTO MuonSach VALUES(1,1,'ghi chu 1', 1);
+INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
+INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
+INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
+INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
 

@@ -1,11 +1,12 @@
-﻿using LibraryManagement.DAL;
-using LibraryManagement.DTO;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Data;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LibraryManagement.DAL;
+using LibraryManagement.DTO;
+using LibraryManagement.Model;
 
 namespace LibraryManagement.BUS
 {
@@ -56,6 +57,20 @@ namespace LibraryManagement.BUS
         int getSumOfBookByCategory(int id)
         {
             return theLoaiDAO.getSumOfBookByCategory(id);
+        }
+
+        TheLoaiDAL theLoaiDAL = new TheLoaiDAL();
+
+        public DanhSachTheLoaiDTO getAllCatetories()
+        {
+            DanhSachTheLoaiDTO danhSach = new DanhSachTheLoaiDTO();
+            danhSach.add(theLoaiDAL.getAllCatetories());
+            return danhSach;
+        }
+
+        public int insertTheLoai(TheLoai theLoai)
+        {
+            return theLoaiDAL.insertTheLoai(theLoai);
         }
     }
 }

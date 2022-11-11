@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibraryManagement.Model
 {
-    public class TheLoai
+    public class NhaXuatBan
     {
         private int id;
         private string name;
@@ -13,11 +13,11 @@ namespace LibraryManagement.Model
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
 
-        public TheLoai(string name)
+        public NhaXuatBan(string name)
         {
             this.name = name;
         }
 
-        public TheLoai() { }
+        public NhaXuatBan() { }
     }
 }
