@@ -107,5 +107,9 @@ namespace LibraryManagement.BUS
            return hoSoDAO.saveInfo(hoSoQuanLyDTO);
         }
 
+        internal int updateBasicInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
+        {
+            return hoSoDAO.updateBasicInfo(hoSoQuanLyDTO);
+        }
     }
 }

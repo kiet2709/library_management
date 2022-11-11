@@ -568,7 +568,6 @@ CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien
 @GIOITINH INT,
 @NGAYSINH DATE,
 @LUONG INT,
-@TENTK NVARCHAR(30),
 @MK NVARCHAR(100),
 @TRANGTHAI INT,
 @VAITRO INT
@@ -582,7 +581,7 @@ BEGIN
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
 
-			UPDATE NhanVien SET tenDangNhap = @TENTK , matkhau = @MK, trangthai = @TRANGTHAI
+			UPDATE NhanVien SET matkhau = @MK, trangthai = @TRANGTHAI
 			WHERE id = @MANV
 
 			UPDATE vaitro_nhanVien SET maVaiTro = @VAITRO WHERE maNhanVien = @MANV;
@@ -632,6 +631,24 @@ BEGIN
 			ROLLBACK TRAN;
 	END CATCH
 	
+END;
+GO 
+
+-- procedure sửa hồ sơ
+CREATE OR ALTER PROC usp_Sua_Ho_So
+@ID INT,
+@TEN NVARCHAR(20),
+@HO NVARCHAR(20),
+@DIACHI NVARCHAR(20),
+@SODT NVARCHAR(10),
+@HINHANH NVARCHAR(100),
+@EMAIL NVARCHAR(100),
+@GIOITINH INT,
+@NGAYSINH DATE
+AS
+BEGIN
+	UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH
+	WHERE id=@ID
 END;
 GO 
 
@@ -1092,3 +1109,6 @@ INSERT INTO MuonSach VALUES(2,1);
 INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
+
+
+select * from hoso

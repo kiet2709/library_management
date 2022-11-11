@@ -81,7 +81,11 @@ namespace LibraryManagement.GUI
 
             if (hoSoQuanLyDTO.Hinhanh != null && hoSoQuanLyDTO.Hinhanh != "")
             {
-                pbAnh.Image = Image.FromFile(hoSoQuanLyDTO.Hinhanh);
+                using (FileStream fs = new FileStream(hoSoQuanLyDTO.Hinhanh, FileMode.Open))
+                {
+                    pbAnh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
             }
             
         }
@@ -110,15 +114,10 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
             
-            if (open.FileName != null && open.FileName != "")
-            {
-                String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
-                hoSoQuanLyDTO.Hinhanh = imagePath;
-            }
-            else
-            {
-                hoSoQuanLyDTO.Hinhanh = "";
-            }
+
+            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+            hoSoQuanLyDTO.Hinhanh = imagePath;
+     
 
             if (this.rbNhanVien.Checked)
             {
@@ -163,9 +162,20 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
-                    String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
-                    hoSoQuanLyDTO.Hinhanh = imagePath;
+                    
+                    // delete and save again
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath);
+                        
+                    }
                     image.Save(imagePath);
+
+                    if(Properties.Settings.Default.image == "")
+                    {
+                        Properties.Settings.Default.image = imagePath;
+                    }
+
                 }
                 MessageBox.Show("Sửa thành công");
                 this.Close();
@@ -183,6 +193,7 @@ namespace LibraryManagement.GUI
             {
                 image = Image.FromFile(open.FileName);
                 pbAnh.Image = image;
+
             }
         }
     }

@@ -76,6 +76,7 @@
             this.btnThemAnh.Text = "Đổi ảnh";
             this.btnThemAnh.UseVisualStyleBackColor = false;
             this.btnThemAnh.Visible = false;
+            this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
             // 
             // panel5
             // 

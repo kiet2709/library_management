@@ -34,8 +34,8 @@ namespace LibraryManagement.DAL
             {
                 maVaiTro = 2;
             }
-            string query = "usp_Sua_Thong_Tin_Nhan_Vien @ID , @TEN , @HO  , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG , @TENTK , @MK , @TRANGTHAI , @VAITRO ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoSoQuanLyDTO.Id, hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email, hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh, hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.TenDangNhap, hoSoQuanLyDTO.MatKhau, hoSoQuanLyDTO.TrangThai, maVaiTro });
+            string query = "usp_Sua_Thong_Tin_Nhan_Vien @ID , @TEN , @HO  , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG  , @MK , @TRANGTHAI , @VAITRO ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoSoQuanLyDTO.Id, hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email, hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh, hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.MatKhau, hoSoQuanLyDTO.TrangThai, maVaiTro });
             return result;
         }
 
@@ -84,6 +84,13 @@ namespace LibraryManagement.DAL
         {
             string query = "usp_Them_Hinh_Anh_Nhan_Vien @ID , @HINHANH ";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, hinhanh });
+            return result;
+        }
+
+        internal int updateBasicInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
+        {
+            string query = "usp_Sua_Ho_So @ID , @TEN , @HO  , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoSoQuanLyDTO.Id, hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email, hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh });
             return result;
         }
     }
