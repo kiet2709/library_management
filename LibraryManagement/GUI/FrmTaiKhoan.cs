@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -33,7 +34,11 @@ namespace LibraryManagement.GUI
             if(Properties.Settings.Default.image != null 
                 && Properties.Settings.Default.image != "")
             {
-                this.pbAnh.Image = Image.FromFile(Properties.Settings.Default.image);
+                using (FileStream fs = new FileStream(Properties.Settings.Default.image, FileMode.Open))
+                {
+                    pbAnh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
             }
 
             if (Properties.Settings.Default.username != null
@@ -137,7 +142,7 @@ namespace LibraryManagement.GUI
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.username = "";
-            Properties.Settings.Default.username = "";
+            Properties.Settings.Default.image = "";
             this.Close();
             Thread thread = new Thread(OpenFrmDangNhap);
             thread.SetApartmentState(ApartmentState.STA);

@@ -29,7 +29,14 @@ namespace LibraryManagement.DAL
             return result;
         }
 
-        internal string getImageByUsername(string username)
+        public int updatePassword(DoiMatKhauDTO doiMatKhauDTO)
+        {
+            string query = "usp_Doi_Mat_Khau  @MAHOSO , @MATKHAUCU , @MATKHAUMOI ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { doiMatKhauDTO.MaHS, doiMatKhauDTO.MatKhauCu, doiMatKhauDTO.MatKhauMoi });
+            return result;
+        }
+
+        public string getImageByUsername(string username)
         {
             string query = "usp_Hinh_Anh_Nhan_Vien  @TENDANGNHAP ";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });

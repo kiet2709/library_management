@@ -47,16 +47,23 @@
     <Compile Include="BUS\HoSoBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\SachBUS.cs" />
+    <Compile Include="BUS\TheLoaiBUS.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\DocGiaDAO.cs" />
+    <Compile Include="DAL\DoiMatKhauDTO.cs" />
     <Compile Include="DAL\HoSoDAO.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\SachDAO.cs" />
+
     <Compile Include="DTO\AddDocGiaDTO.cs" />
+
+    <Compile Include="DAL\TheLoaiDAO.cs" />
+
     <Compile Include="DTO\DangNhapDTO.cs" />
-    <Compile Include="DTO\DocGiaDTO.cs" />
+    <Compile Include="DTO\DocGiaQuanLyDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="DTO\TheLoaiQuanLyDTO.cs" />
     <Compile Include="DTO\ThongTinCaNhanDTO.cs" />
     <Compile Include="GUI\DocgiaBUS.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
@@ -76,6 +83,18 @@
     </Compile>
     <Compile Include="GUI\FrmChiTietDauSach.Designer.cs">
       <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietTheLoai.Designer.cs">
+      <DependentUpon>FrmChiTietTheLoai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDoiMatKhau.Designer.cs">
+      <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -118,6 +137,12 @@
     </Compile>
     <Compile Include="GUI\FrmThemNhanVien.Designer.cs">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmThemTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemTheLoai.Designer.cs">
+      <DependentUpon>FrmThemTheLoai.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmThongTinCaNhan.cs">
       <SubType>Form</SubType>
@@ -163,6 +188,12 @@
     <EmbeddedResource Include="GUI\FrmChiTietDauSach.resx">
       <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmChiTietTheLoai.resx">
+      <DependentUpon>FrmChiTietTheLoai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDoiMatKhau.resx">
+      <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemNhanVien.resx">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemTheLoai.resx">
+      <DependentUpon>FrmThemTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThongTinCaNhan.resx">
       <DependentUpon>FrmThongTinCaNhan.cs</DependentUpon>

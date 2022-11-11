@@ -63,5 +63,27 @@ namespace LibraryManagement.GUI
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
+
+        void OpenFrmTheLoai(object obj)
+        {
+            Application.Run(new FrmTheLoai());
+
+        }
+
+        private void btnFormTheLoai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTheLoai);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblFormTheLoai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTheLoai);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
     }
 }

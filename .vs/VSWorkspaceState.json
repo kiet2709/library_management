@@ -7,6 +7,6 @@
     "\\LibraryManagement\\GUI",
     "\\LibraryManagement\\Model"
   ],
-  "SelectedNode": "\\LibraryManagement\\GUI\\FrmXemChiTietDocGia.cs",
+  "SelectedNode": "\\LibraryManagement\\BUS\\TheLoaiBUS.cs",
   "PreviewInSolutionExplorer": false
 }

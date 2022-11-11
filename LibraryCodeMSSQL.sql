@@ -504,7 +504,6 @@ BEGIN
    SELECT * FROM DocGia;
 END;
 
-
 GO
 
 -- procedure Thêm thông tin độc giả
@@ -553,6 +552,13 @@ BEGIN
 END;
 GO
 
+-- procedure Xem thể loại
+CREATE OR ALTER PROCEDURE usp_Xem_The_Loai
+AS
+BEGIN
+   	SELECT * FROM TheLoai;
+END;
+GO
 -- procedure Xem sách theo ngôn ngữ
 CREATE PROCEDURE usp_Xem_Sach_Theo_Ngon_Ngu
 @id INT
@@ -576,7 +582,6 @@ CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien
 @GIOITINH INT,
 @NGAYSINH DATE,
 @LUONG INT,
-@TENTK NVARCHAR(30),
 @MK NVARCHAR(100),
 @TRANGTHAI INT,
 @VAITRO INT
@@ -590,7 +595,7 @@ BEGIN
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
 
-			UPDATE NhanVien SET tenDangNhap = @TENTK , matkhau = @MK, trangthai = @TRANGTHAI
+			UPDATE NhanVien SET matkhau = @MK, trangthai = @TRANGTHAI
 			WHERE id = @MANV
 
 			UPDATE vaitro_nhanVien SET maVaiTro = @VAITRO WHERE maNhanVien = @MANV;
@@ -640,6 +645,40 @@ BEGIN
 			ROLLBACK TRAN;
 	END CATCH
 	
+END;
+GO 
+
+-- procedure đổi mật khẩu
+CREATE PROC usp_Doi_Mat_Khau 
+@MAHOSO INT,
+@MATKHAUCU NVARCHAR(100),
+@MATKHAUMOI NVARCHAR(100)
+AS
+BEGIN
+	
+	If(@MATKHAUCU = (SELECT matkhau FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO))
+	BEGIN
+		UPDATE NhanVien SET  matkhau = @MATKHAUMOI  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+	END
+
+END
+GO
+
+-- procedure sửa hồ sơ
+CREATE OR ALTER PROC usp_Sua_Ho_So
+@ID INT,
+@TEN NVARCHAR(20),
+@HO NVARCHAR(20),
+@DIACHI NVARCHAR(20),
+@SODT NVARCHAR(10),
+@HINHANH NVARCHAR(100),
+@EMAIL NVARCHAR(100),
+@GIOITINH INT,
+@NGAYSINH DATE
+AS
+BEGIN
+	UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH
+	WHERE id=@ID
 END;
 GO 
 
@@ -749,7 +788,7 @@ BEGIN
 END;
 GO
 
--- procedure Xem thông tin đầu sách
+-- procedure Xem thông tin đầu sách DTO
 CREATE OR ALTER PROCEDURE usp_Xem_DauSachDTO
 AS
 BEGIN
@@ -912,6 +951,44 @@ BEGIN
 END;
 GO
 
+CREATE OR ALTER PROCEDURE usp_Xoa_The_Loai
+@id INT
+AS
+BEGIN
+   DELETE FROM TheLoai WHERE id = @id;
+END;
+GO
+
+CREATE OR ALTER PROCEDURE usp_Xem_The_Loai_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT TheLoai.ten
+   FROM TheLoai
+   WHERE TheLoai.id = @id
+END;
+SELECT * FROM TheLoai
+EXEC usp_Xem_The_Loai_Theo_Id 19;
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_The_Loai  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE TheLoai SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+
 --================ Create Function ====================================
 
 -- function trả về tổng lương nhân viên
@@ -963,7 +1040,8 @@ BEGIN
 END;
 GO
 
--- function kiểm tra đăng nhập 
+
+-- procedure kiểm tra đăng nhập 
 CREATE PROC usp_Kiem_Tra_Dang_Nhap 
     @tenDangNhap NVARCHAR(40),
     @matKhau Nvarchar(100)
@@ -985,6 +1063,19 @@ GO
 
 
 
+CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_The_Loai(@id INT)
+RETURNS INT
+AS
+BEGIN
+DECLARE @soLuong INT;
+SELECT @soLuong=COUNT(DauSach.id) 
+FROM TheLoai INNER JOIN DauSach ON TheLoai.id = DauSach.maTheLoai
+WHERE DauSach.id = @id
+GROUP BY DauSach.id;
+RETURN @soLuong;
+END;
+GO
+
 
 
 --================ INSERT DATA ====================================
@@ -997,6 +1088,7 @@ INSERT INTO TheLoai VALUES(N'Công nghệ thực phẩm');
 INSERT INTO TheLoai VALUES(N'Công nghệ hóa học');
 INSERT INTO TheLoai VALUES(N'Xây dựng');
 INSERT INTO TheLoai VALUES(N'Thương mại điện tử');
+
 
 
 INSERT INTO NgonNgu VALUES(N'Tiếng việt');
@@ -1085,3 +1177,4 @@ INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
 */
+

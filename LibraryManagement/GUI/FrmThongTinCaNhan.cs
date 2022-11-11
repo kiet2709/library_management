@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -16,7 +17,8 @@ namespace LibraryManagement.GUI
     {
         HoSoBUS hoSoBUS = new HoSoBUS();
         HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
-
+        OpenFileDialog open = new OpenFileDialog();
+        private Image image;
         public FrmThongTinCaNhan()
         {
             InitializeComponent();
@@ -37,7 +39,7 @@ namespace LibraryManagement.GUI
             this.txtDiaChi.Text = hoSoQuanLyDTO.Diachi;
             this.txtEmail.Text = hoSoQuanLyDTO.Email;
             this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
-
+            
             // set gioiTinh
             if (hoSoQuanLyDTO.GioiTinh == 0)
             {
@@ -57,7 +59,11 @@ namespace LibraryManagement.GUI
 
             if (hoSoQuanLyDTO.Hinhanh != null && hoSoQuanLyDTO.Hinhanh != "")
             {
-                pbAnh.Image = Image.FromFile(hoSoQuanLyDTO.Hinhanh);
+                using (FileStream fs = new FileStream(hoSoQuanLyDTO.Hinhanh, FileMode.Open))
+                {
+                    pbAnh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
             }
         }
 
@@ -89,14 +95,61 @@ namespace LibraryManagement.GUI
             this.rbNu.Enabled = false;
             this.btnLuu.Visible = false;
             this.btnThemAnh.Visible = false;
+
+            hoSoQuanLyDTO.Ten = this.txtTen.Text;
+            hoSoQuanLyDTO.Ho = this.txtHo.Text;
+            hoSoQuanLyDTO.Email = this.txtEmail.Text;
+            hoSoQuanLyDTO.TenDangNhap = this.txtTenDangNhap.Text;
+            hoSoQuanLyDTO.Diachi = this.txtDiaChi.Text;
+            hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
+            hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
+
+            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+            hoSoQuanLyDTO.Hinhanh = imagePath;
+
+
+            
+            if (this.rbNam.Checked)
+            {
+                hoSoQuanLyDTO.GioiTinh = 1;
+            }
+            else if (this.rbNu.Checked)
+            {
+                hoSoQuanLyDTO.GioiTinh = 2;
+            }
+            else
+            {
+                hoSoQuanLyDTO.GioiTinh = 0;
+            }
+
+           
+            int result;
+            result = hoSoBUS.updateBasicInfo(hoSoQuanLyDTO);
+
+            if (result == 0)
+            {
+                MessageBox.Show("Lỗi");
+            }
+            else
+            {
+                if (open.FileName != null && open.FileName != "")
+                {
+                    // delete and save again
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath);
+                    }
+
+                    image.Save(imagePath);
+
+
+
+                }
+                MessageBox.Show("Sửa thành công");
+            }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
-        {
-            NewMethod();
-        }
-
-        private void NewMethod()
         {
             this.Close();
             Thread thread = new Thread(OpenFrmTaiKhoan);
@@ -108,5 +161,24 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmTaiKhoan());
         }
+
+        private void btnThemAnh_Click(object sender, EventArgs e)
+        {
+            open.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;*.png)|*.jpg;*.jpeg;.*.gif;*.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                image = Image.FromFile(open.FileName);
+                pbAnh.Image = image;
+            }
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau(hoSoQuanLyDTO.Id);
+            frmDoiMatKhau.ShowDialog();
+        }
+
+
+
     }
 }

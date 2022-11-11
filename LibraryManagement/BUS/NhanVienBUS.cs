@@ -30,9 +30,14 @@ namespace LibraryManagement.BUS
         }
 
 
-        internal string getImageByUsername(string username)
+        public string getImageByUsername(string username)
         {
             return nhanVienDAO.getImageByUsername(username);
+        }
+
+        public int updatePassword(DoiMatKhauDTO doiMatKhauDTO)
+        {
+            return nhanVienDAO.updatePassword(doiMatKhauDTO);
         }
     }
 }
