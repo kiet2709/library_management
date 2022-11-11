@@ -54,9 +54,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtSDT = new System.Windows.Forms.TextBox();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.pbAnh = new System.Windows.Forms.PictureBox();
             this.backBtn = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -323,6 +324,32 @@
             this.txtSDT.Size = new System.Drawing.Size(380, 42);
             this.txtSDT.TabIndex = 137;
             // 
+            // btnSua
+            // 
+            this.btnSua.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnSua.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSua.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnSua.Location = new System.Drawing.Point(669, 645);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(122, 52);
+            this.btnSua.TabIndex = 157;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = false;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnDoiMatKhau
+            // 
+            this.btnDoiMatKhau.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnDoiMatKhau.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDoiMatKhau.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(12, 473);
+            this.btnDoiMatKhau.Name = "btnDoiMatKhau";
+            this.btnDoiMatKhau.Size = new System.Drawing.Size(298, 61);
+            this.btnDoiMatKhau.TabIndex = 158;
+            this.btnDoiMatKhau.Text = "Đổi mật khẩu";
+            this.btnDoiMatKhau.UseVisualStyleBackColor = false;
+            this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
+            // 
             // pbAnh
             // 
             this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -349,24 +376,12 @@
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // btnSua
-            // 
-            this.btnSua.BackColor = System.Drawing.Color.LemonChiffon;
-            this.btnSua.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSua.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnSua.Location = new System.Drawing.Point(669, 645);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(122, 52);
-            this.btnSua.TabIndex = 157;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = false;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
             // FrmThongTinCaNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 713);
+            this.Controls.Add(this.btnDoiMatKhau);
             this.Controls.Add(this.btnSua);
             this.Controls.Add(this.btnThemAnh);
             this.Controls.Add(this.pbAnh);
@@ -431,5 +446,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnDoiMatKhau;
     }
 }

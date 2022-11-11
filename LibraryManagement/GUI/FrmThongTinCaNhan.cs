@@ -39,8 +39,7 @@ namespace LibraryManagement.GUI
             this.txtDiaChi.Text = hoSoQuanLyDTO.Diachi;
             this.txtEmail.Text = hoSoQuanLyDTO.Email;
             this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
-            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
-            hoSoQuanLyDTO.Hinhanh = imagePath;
+            
             // set gioiTinh
             if (hoSoQuanLyDTO.GioiTinh == 0)
             {
@@ -172,5 +171,14 @@ namespace LibraryManagement.GUI
                 pbAnh.Image = image;
             }
         }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau(hoSoQuanLyDTO.Id);
+            frmDoiMatKhau.ShowDialog();
+        }
+
+
+
     }
 }

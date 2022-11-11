@@ -49,6 +49,7 @@
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\DocGiaDAO.cs" />
+    <Compile Include="DAL\DoiMatKhauDTO.cs" />
     <Compile Include="DAL\HoSoDAO.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\SachDAO.cs" />
@@ -74,6 +75,12 @@
     </Compile>
     <Compile Include="GUI\FrmChiTietDauSach.Designer.cs">
       <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDoiMatKhau.Designer.cs">
+      <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -160,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmChiTietDauSach.resx">
       <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDoiMatKhau.resx">
+      <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>

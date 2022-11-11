@@ -634,6 +634,22 @@ BEGIN
 END;
 GO 
 
+-- procedure đổi mật khẩu
+CREATE PROC usp_Doi_Mat_Khau 
+@MAHOSO INT,
+@MATKHAUCU NVARCHAR(100),
+@MATKHAUMOI NVARCHAR(100)
+AS
+BEGIN
+	
+	If(@MATKHAUCU = (SELECT matkhau FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO))
+	BEGIN
+		UPDATE NhanVien SET  matkhau = @MATKHAUMOI  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+	END
+
+END
+GO
+
 -- procedure sửa hồ sơ
 CREATE OR ALTER PROC usp_Sua_Ho_So
 @ID INT,
@@ -1110,5 +1126,3 @@ INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
 
-
-select * from hoso
