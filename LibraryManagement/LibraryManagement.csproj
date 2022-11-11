@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="GUI\FrmChiTietTheLoai.Designer.cs">
       <DependentUpon>FrmChiTietTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmDoiMatKhau.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,7 @@
     </Compile>
     <Compile Include="GUI\FrmThemTheLoai.Designer.cs">
       <DependentUpon>FrmThemTheLoai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +185,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmChiTietTheLoai.resx">
       <DependentUpon>FrmChiTietTheLoai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDoiMatKhau.resx">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +215,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemTheLoai.resx">
       <DependentUpon>FrmThemTheLoai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThongTinCaNhan.resx">
       <DependentUpon>FrmThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
