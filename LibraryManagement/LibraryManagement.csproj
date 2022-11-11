@@ -43,14 +43,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\DauSachBUS.cs" />
     <Compile Include="BUS\HoSoBUS.cs" />
+    <Compile Include="BUS\NgonNguBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
+    <Compile Include="BUS\NhaXuatBanBUS.cs" />
     <Compile Include="BUS\SachBUS.cs" />
+    <Compile Include="BUS\TacGiaBUS.cs" />
+    <Compile Include="BUS\TheLoaiBUS.cs" />
     <Compile Include="DAL\DataProvider.cs" />
+    <Compile Include="DAL\DauSachDAL.cs" />
     <Compile Include="DAL\HoSoDAO.cs" />
+    <Compile Include="DAL\NgonNguDAL.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
+    <Compile Include="DAL\NhaXuatBanDAL.cs" />
     <Compile Include="DAL\SachDAO.cs" />
+    <Compile Include="DAL\TacGiaDAL.cs" />
+    <Compile Include="DAL\TheLoaiDAL.cs" />
+    <Compile Include="DTO\ChiTietDauSachDTO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
+    <Compile Include="DTO\DanhSachNgonNguDTO.cs" />
+    <Compile Include="DTO\DanhSachNXBDTO.cs" />
+    <Compile Include="DTO\DanhSachTacGiaDTO.cs" />
+    <Compile Include="DTO\DanhSachTheLoaiDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
@@ -129,6 +144,7 @@
     <Compile Include="Model\HoSo.cs" />
     <Compile Include="Model\NgonNgu.cs" />
     <Compile Include="Model\NhanVien.cs" />
+    <Compile Include="Model\NhaXuatBan.cs" />
     <Compile Include="Model\PhieuMuon.cs" />
     <Compile Include="Model\Sach.cs" />
     <Compile Include="Model\TacGia.cs" />

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace LibraryManagement.Model
 {
-    internal class PhieuMuon
+    public class PhieuMuon
     {
     }
 }

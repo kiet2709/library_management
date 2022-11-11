@@ -11,7 +11,7 @@ namespace LibraryManagement.DAL
     {
         private static DataProvider instance;
 
-        private string strConnectionString = @"Data Source=THINHDEPTRAIPRO\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+        private string strConnectionString = @"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True";
         
         public static DataProvider Instance
         {
@@ -27,7 +27,6 @@ namespace LibraryManagement.DAL
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
-
             try
             {
                 DataTable data = new DataTable();
@@ -56,29 +55,19 @@ namespace LibraryManagement.DAL
                     }
 
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
-
-
                     da.Fill(data);
-
                     conn.Close();
-
                 }
-
                 return data;
             }
             catch
             {
                 return null;
             }
-
-            
-
         }
 
         public int ExecuteNonQuery(string query, object[] parameter = null)
         {
-
-
             int data = 0;
 
             try

@@ -5,7 +5,19 @@ using System.Text;
 
 namespace LibraryManagement.Model
 {
-    internal class NgonNgu
+    public class NgonNgu
     {
+        private int id;
+        private string name;
+
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+
+        public NgonNgu(string name)
+        {
+            this.name = name;
+        }
+
+        public NgonNgu() { }
     }
 }

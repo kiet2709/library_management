@@ -5,7 +5,19 @@ using System.Text;
 
 namespace LibraryManagement.Model
 {
-    internal class TacGia
+    public class TacGia
     {
+        private int id;
+        private string name;
+
+        public int Id { get => id; set => id = value; }
+        public string Name { get => name; set => name = value; }
+
+        public TacGia(string name)
+        {
+            this.name = name;
+        }
+
+        public TacGia() { }
     }
 }
