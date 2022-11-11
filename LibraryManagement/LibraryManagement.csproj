@@ -56,6 +56,7 @@
     <Compile Include="DTO\DocGiaDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="DTO\ThongTinCaNhanDTO.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,12 @@
     </Compile>
     <Compile Include="GUI\FrmThemNhanVien.Designer.cs">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThongTinCaNhan.Designer.cs">
+      <DependentUpon>FrmThongTinCaNhan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmXemChiTietDocGia.cs">
       <SubType>Form</SubType>
@@ -177,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemNhanVien.resx">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThongTinCaNhan.resx">
+      <DependentUpon>FrmThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmXemChiTietDocGia.resx">
       <DependentUpon>FrmXemChiTietDocGia.cs</DependentUpon>

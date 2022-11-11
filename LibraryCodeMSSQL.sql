@@ -635,6 +635,26 @@ BEGIN
 END;
 GO 
 
+-- procedure lấy hình ảnh nhân viên
+CREATE PROC usp_Hinh_Anh_Nhan_Vien
+@TENDANGNHAP NVARCHAR(30)
+AS
+BEGIN
+		SELECT HinhAnh FROM HoSo
+		INNER JOIN NhanVien ON HoSo.id = NhanVien.maHoSo
+		WHERE NhanVien.tenDangNhap = @TENDANGNHAP;
+END
+GO
+
+-- procedure lấy mã hồ sơ
+CREATE PROC usp_Lay_MaHS
+@TENDANGNHAP NVARCHAR(30)
+AS
+BEGIN
+		SELECT maHoSo FROM NhanVien
+		WHERE NhanVien.tenDangNhap = @TENDANGNHAP;
+END
+GO
 /*
 select * from vaitro_nhanvien
 select * from hoso

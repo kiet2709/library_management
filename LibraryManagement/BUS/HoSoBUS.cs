@@ -43,6 +43,10 @@ namespace LibraryManagement.BUS
             return hoSoQuanLyDTOs;
         }
 
+        internal int getIdByUsername(string username)
+        {
+            return hoSoDAO.getIdByUsername(username);
+        }
 
         public HoSoQuanLyDTO getProfileById(int profileId)
         {

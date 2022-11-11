@@ -23,10 +23,25 @@ namespace LibraryManagement.GUI
         {
             InitializeComponent();
             loadData();
+
+
         }
 
         private void loadData()
         {
+
+            if(Properties.Settings.Default.image != null 
+                && Properties.Settings.Default.image != "")
+            {
+                this.pbAnh.Image = Image.FromFile(Properties.Settings.Default.image);
+            }
+
+            if (Properties.Settings.Default.username != null
+                && Properties.Settings.Default.username != "")
+            {
+                this.lblTenDangNhap.Text = Properties.Settings.Default.username;
+            }
+
 
             this.dtgvHoSo.Columns[8].FillWeight = 2;
             this.dtgvHoSo.Columns[9].FillWeight = 2;
@@ -105,5 +120,19 @@ namespace LibraryManagement.GUI
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
+
+        private void pbAnh_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThongTinCaNhan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenFrmThongTinCaNhan()
+        {
+            Application.Run(new FrmThongTinCaNhan());
+        }
+
     }
 }

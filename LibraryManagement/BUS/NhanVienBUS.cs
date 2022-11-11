@@ -28,5 +28,11 @@ namespace LibraryManagement.BUS
         {
             return nhanVienDAO.getRole(id);
         }
+
+
+        internal string getImageByUsername(string username)
+        {
+            return nhanVienDAO.getImageByUsername(username);
+        }
     }
 }

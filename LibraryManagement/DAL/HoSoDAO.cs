@@ -46,6 +46,19 @@ namespace LibraryManagement.DAL
             return result;
         }
 
+        internal int getIdByUsername(string username)
+        {
+            string query = "usp_Lay_MaHS @TENDANGNHAP";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            if (result.Rows.Count > 0)
+            {
+                return Convert.ToInt32(result.Rows[0][0]);
+
+            }
+            return 0;
+
+        }
+
         public int saveInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
         {
             int maVaiTro = 0;
