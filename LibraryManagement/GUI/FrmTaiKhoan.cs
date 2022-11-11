@@ -134,5 +134,19 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmThongTinCaNhan());
         }
 
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.username = "";
+            Properties.Settings.Default.username = "";
+            this.Close();
+            Thread thread = new Thread(OpenFrmDangNhap);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenFrmDangNhap()
+        {
+            Application.Run(new FrmDangNhap());
+        }
     }
 }
