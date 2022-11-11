@@ -59,12 +59,18 @@
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbAnh = new System.Windows.Forms.PictureBox();
+            this.btnThemAnh = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rbNhanVien = new System.Windows.Forms.RadioButton();
+            this.rbQuanLy = new System.Windows.Forms.RadioButton();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbKhac
@@ -163,7 +169,7 @@
             this.btnThem.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnThem.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnThem.Location = new System.Drawing.Point(714, 731);
+            this.btnThem.Location = new System.Drawing.Point(671, 724);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(160, 61);
             this.btnThem.TabIndex = 117;
@@ -361,20 +367,83 @@
             this.backBtn.Size = new System.Drawing.Size(108, 75);
             this.backBtn.TabIndex = 109;
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // pictureBox1
+            // pbAnh
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(64, 134);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(204, 305);
-            this.pictureBox1.TabIndex = 108;
-            this.pictureBox1.TabStop = false;
+            this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAnh.Location = new System.Drawing.Point(43, 120);
+            this.pbAnh.Name = "pbAnh";
+            this.pbAnh.Size = new System.Drawing.Size(234, 243);
+            this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAnh.TabIndex = 127;
+            this.pbAnh.TabStop = false;
+            // 
+            // btnThemAnh
+            // 
+            this.btnThemAnh.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnThemAnh.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemAnh.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThemAnh.Location = new System.Drawing.Point(43, 379);
+            this.btnThemAnh.Name = "btnThemAnh";
+            this.btnThemAnh.Size = new System.Drawing.Size(234, 61);
+            this.btnThemAnh.TabIndex = 128;
+            this.btnThemAnh.Text = "Thêm ảnh";
+            this.btnThemAnh.UseVisualStyleBackColor = false;
+            this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.rbNhanVien);
+            this.panel5.Controls.Add(this.rbQuanLy);
+            this.panel5.Controls.Add(this.label7);
+            this.panel5.Location = new System.Drawing.Point(12, 463);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(292, 146);
+            this.panel5.TabIndex = 129;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 35);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Vai trò:";
+            // 
+            // rbNhanVien
+            // 
+            this.rbNhanVien.AutoSize = true;
+            this.rbNhanVien.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbNhanVien.Location = new System.Drawing.Point(140, 87);
+            this.rbNhanVien.Name = "rbNhanVien";
+            this.rbNhanVien.Size = new System.Drawing.Size(125, 39);
+            this.rbNhanVien.TabIndex = 127;
+            this.rbNhanVien.TabStop = true;
+            this.rbNhanVien.Text = "Thủ thư";
+            this.rbNhanVien.UseVisualStyleBackColor = true;
+            // 
+            // rbQuanLy
+            // 
+            this.rbQuanLy.AutoSize = true;
+            this.rbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbQuanLy.Location = new System.Drawing.Point(140, 17);
+            this.rbQuanLy.Name = "rbQuanLy";
+            this.rbQuanLy.Size = new System.Drawing.Size(123, 39);
+            this.rbQuanLy.TabIndex = 126;
+            this.rbQuanLy.TabStop = true;
+            this.rbQuanLy.Text = "Quản lý";
+            this.rbQuanLy.UseVisualStyleBackColor = true;
             // 
             // FrmThemNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 853);
+            this.ClientSize = new System.Drawing.Size(1140, 808);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.btnThemAnh);
+            this.Controls.Add(this.pbAnh);
             this.Controls.Add(this.rbKhac);
             this.Controls.Add(this.rbNu);
             this.Controls.Add(this.label13);
@@ -391,7 +460,6 @@
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -408,7 +476,9 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -440,12 +510,17 @@
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pbAnh;
+        private System.Windows.Forms.Button btnThemAnh;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton rbNhanVien;
+        private System.Windows.Forms.RadioButton rbQuanLy;
     }
 }

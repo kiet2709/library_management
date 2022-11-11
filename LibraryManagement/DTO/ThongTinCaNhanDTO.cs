@@ -5,13 +5,10 @@ using System.Text;
 
 namespace LibraryManagement.DTO
 {
-    public class HoSoQuanLyDTO
+    public class ThongTinCaNhanDTO
     {
         private int id;
         private String tenDangNhap;
-        private string vaiTro;
-        private String matKhau;
-        private int trangThai;
         private int gioiTinh;
         private string ten;
         private string ho;
@@ -20,10 +17,10 @@ namespace LibraryManagement.DTO
         private string hinhanh;
         private string email;
         private DateTime ngaysinh;
-        private int luong;
 
         public int Id { get => id; set => id = value; }
         public string TenDangNhap { get => tenDangNhap; set => tenDangNhap = value; }
+        public int GioiTinh { get => gioiTinh; set => gioiTinh = value; }
         public string Ten { get => ten; set => ten = value; }
         public string Ho { get => ho; set => ho = value; }
         public string Diachi { get => diachi; set => diachi = value; }
@@ -31,10 +28,5 @@ namespace LibraryManagement.DTO
         public string Hinhanh { get => hinhanh; set => hinhanh = value; }
         public string Email { get => email; set => email = value; }
         public DateTime Ngaysinh { get => ngaysinh; set => ngaysinh = value; }
-        public int Luong { get => luong; set => luong = value; }
-        public int GioiTinh { get => gioiTinh; set => gioiTinh = value; }
-        public int TrangThai { get => trangThai; set => trangThai = value; }
-        public string MatKhau { get => matKhau; set => matKhau = value; }
-        public string VaiTro { get => vaiTro; set => vaiTro = value; }
     }
 }

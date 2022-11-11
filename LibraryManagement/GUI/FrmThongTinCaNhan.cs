@@ -13,55 +13,33 @@ using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
 {
-    public partial class FrmCapNhatTaiKhoan : Form
+    public partial class FrmThongTinCaNhan : Form
     {
-        private HoSoBUS hoSoBUS = new HoSoBUS();
-        private NhanVienBUS nhanVienBUS = new NhanVienBUS();
-        private HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
+        HoSoBUS hoSoBUS = new HoSoBUS();
+        HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
         OpenFileDialog open = new OpenFileDialog();
         private Image image;
-
-        public FrmCapNhatTaiKhoan(int profileId)
+        public FrmThongTinCaNhan()
         {
             InitializeComponent();
-            hoSoQuanLyDTO.Id = profileId;
-            loadData(profileId);
+            loadData();
         }
 
-        private void loadData(int profileId)
+        private void loadData()
         {
-            hoSoQuanLyDTO = hoSoBUS.getProfileById(profileId);
+            if(Properties.Settings.Default.username != null)
+            {
+                int id = hoSoBUS.getIdByUsername(Properties.Settings.Default.username);
+                hoSoQuanLyDTO = hoSoBUS.getProfileById(id);
+            }
+            
             this.txtHo.Text = hoSoQuanLyDTO.Ho;
             this.txtTen.Text = hoSoQuanLyDTO.Ten;
             this.txtTenDangNhap.Text = hoSoQuanLyDTO.TenDangNhap;
             this.txtDiaChi.Text = hoSoQuanLyDTO.Diachi;
             this.txtEmail.Text = hoSoQuanLyDTO.Email;
             this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
-            this.txtLuong.Text = hoSoQuanLyDTO.Luong.ToString();
-            String matKhau = hoSoBUS.getPasswordById(profileId);
-            this.txtMatKhau.Text = matKhau;
-
-
-            // set vai trò
-            if(hoSoQuanLyDTO.VaiTro == "Quản lý")
-            {
-                rbQuanLy.Checked = true;
-            }
-            else
-            {
-                rbNhanVien.Checked = true;
-            }
-
-            // set trangThai
-            if (hoSoQuanLyDTO.TrangThai == 1)
-            {
-                this.rbHoatDong.Checked = true;
-            }
-            else
-            {
-                this.rbKhongHoatDong.Checked = true;
-            }
-
+            
             // set gioiTinh
             if (hoSoQuanLyDTO.GioiTinh == 0)
             {
@@ -87,7 +65,88 @@ namespace LibraryManagement.GUI
                     fs.Close();
                 }
             }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            this.txtHo.Enabled = true;
+            this.txtTen.Enabled = true;
+            this.txtDiaChi.Enabled = true;
+            this.txtEmail.Enabled = true;
+            this.txtSDT.Enabled = true;
+            this.dtpNgaySinh.Enabled = true;
+            this.rbKhac.Enabled = true;
+            this.rbNam.Enabled = true;
+            this.rbNu.Enabled = true;
+            this.btnLuu.Visible = true;
+            this.btnThemAnh.Visible = true;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            this.txtHo.Enabled = false;
+            this.txtTen.Enabled = false;
+            this.txtDiaChi.Enabled = false;
+            this.txtEmail.Enabled = false;
+            this.txtSDT.Enabled = false;
+            this.dtpNgaySinh.Enabled = false;
+            this.rbKhac.Enabled = false;
+            this.rbNam.Enabled = false;
+            this.rbNu.Enabled = false;
+            this.btnLuu.Visible = false;
+            this.btnThemAnh.Visible = false;
+
+            hoSoQuanLyDTO.Ten = this.txtTen.Text;
+            hoSoQuanLyDTO.Ho = this.txtHo.Text;
+            hoSoQuanLyDTO.Email = this.txtEmail.Text;
+            hoSoQuanLyDTO.TenDangNhap = this.txtTenDangNhap.Text;
+            hoSoQuanLyDTO.Diachi = this.txtDiaChi.Text;
+            hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
+            hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
+
+            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+            hoSoQuanLyDTO.Hinhanh = imagePath;
+
+
             
+            if (this.rbNam.Checked)
+            {
+                hoSoQuanLyDTO.GioiTinh = 1;
+            }
+            else if (this.rbNu.Checked)
+            {
+                hoSoQuanLyDTO.GioiTinh = 2;
+            }
+            else
+            {
+                hoSoQuanLyDTO.GioiTinh = 0;
+            }
+
+           
+            int result;
+            result = hoSoBUS.updateBasicInfo(hoSoQuanLyDTO);
+
+            if (result == 0)
+            {
+                MessageBox.Show("Lỗi");
+            }
+            else
+            {
+                if (open.FileName != null && open.FileName != "")
+                {
+                    // delete and save again
+                    if (File.Exists(imagePath))
+                    {
+                        File.Delete(imagePath);
+                    }
+
+                    image.Save(imagePath);
+
+
+
+                }
+                MessageBox.Show("Sửa thành công");
+            }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -103,89 +162,6 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmTaiKhoan());
         }
 
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            hoSoQuanLyDTO.Ten = this.txtTen.Text;
-            hoSoQuanLyDTO.Ho = this.txtHo.Text;
-            hoSoQuanLyDTO.Email = this.txtEmail.Text;
-            hoSoQuanLyDTO.TenDangNhap = this.txtTenDangNhap.Text;
-            hoSoQuanLyDTO.Diachi = this.txtDiaChi.Text;
-            hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
-            hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
-            hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
-            
-
-            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
-            hoSoQuanLyDTO.Hinhanh = imagePath;
-     
-
-            if (this.rbNhanVien.Checked)
-            {
-                hoSoQuanLyDTO.VaiTro = "Thủ thư";
-            }
-            else
-            {
-                hoSoQuanLyDTO.VaiTro = "Quản lý";
-            }
-            if (this.rbNam.Checked)
-            {
-                hoSoQuanLyDTO.GioiTinh = 1;
-            }
-            else if(this.rbNu.Checked)
-            {
-                hoSoQuanLyDTO.GioiTinh = 2;
-            }
-            else
-            {
-                hoSoQuanLyDTO.GioiTinh = 0;
-            }
-
-            if(this.rbHoatDong.Checked)
-            {
-                hoSoQuanLyDTO.TrangThai = 1;
-            }
-            else
-            {
-                hoSoQuanLyDTO.TrangThai = 0;
-            }
-
-            hoSoQuanLyDTO.TenDangNhap = txtTenDangNhap.Text;
-            hoSoQuanLyDTO.MatKhau = txtMatKhau.Text;
-            int result;
-            result = hoSoBUS.updateInfo(hoSoQuanLyDTO);
-           
-            if(result == 0)
-            {
-                MessageBox.Show("Lỗi");
-            }
-            else
-            {
-                if (open.FileName != null && open.FileName != "")
-                {
-                    
-                    // delete and save again
-                    if (File.Exists(imagePath))
-                    {
-                        File.Delete(imagePath);
-                        
-                    }
-                    image.Save(imagePath);
-
-                    if(Properties.Settings.Default.image == "")
-                    {
-                        Properties.Settings.Default.image = imagePath;
-                    }
-
-                }
-                MessageBox.Show("Sửa thành công");
-                this.Close();
-                Thread thread = new Thread(OpenFrmTaiKhoan);
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
-            }
-        
-        }
-
         private void btnThemAnh_Click(object sender, EventArgs e)
         {
             open.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;*.png)|*.jpg;*.jpeg;.*.gif;*.png";
@@ -193,8 +169,16 @@ namespace LibraryManagement.GUI
             {
                 image = Image.FromFile(open.FileName);
                 pbAnh.Image = image;
-
             }
         }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau(hoSoQuanLyDTO.Id);
+            frmDoiMatKhau.ShowDialog();
+        }
+
+
+
     }
 }

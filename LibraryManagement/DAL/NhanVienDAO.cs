@@ -21,5 +21,30 @@ namespace LibraryManagement.DAL
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
             return Convert.ToInt32(result.Rows[0][0]);
         }
+
+        internal DataTable getCredentials(string username)
+        {
+            string query = "SELECT usp_Thong_Tin_Dang_Nhap  @TENDANGNHAP ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            return result;
+        }
+
+        public int updatePassword(DoiMatKhauDTO doiMatKhauDTO)
+        {
+            string query = "usp_Doi_Mat_Khau  @MAHOSO , @MATKHAUCU , @MATKHAUMOI ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { doiMatKhauDTO.MaHS, doiMatKhauDTO.MatKhauCu, doiMatKhauDTO.MatKhauMoi });
+            return result;
+        }
+
+        public string getImageByUsername(string username)
+        {
+            string query = "usp_Hinh_Anh_Nhan_Vien  @TENDANGNHAP ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            if(result.Rows.Count > 0)
+            {
+                return result.Rows[0][0].ToString();
+            }
+            return "";
+        }
     }
 }

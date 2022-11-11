@@ -43,6 +43,10 @@ namespace LibraryManagement.BUS
             return hoSoQuanLyDTOs;
         }
 
+        internal int getIdByUsername(string username)
+        {
+            return hoSoDAO.getIdByUsername(username);
+        }
 
         public HoSoQuanLyDTO getProfileById(int profileId)
         {
@@ -58,8 +62,8 @@ namespace LibraryManagement.BUS
             hoSoQuanLyDTO.Diachi = dr["diachi"].ToString();
             hoSoQuanLyDTO.SoDT = dr["SoDT"].ToString();
             hoSoQuanLyDTO.Email = dr["email"].ToString();
-
-            if(Convert.ToInt32(dr["trangThai"]) == 1)
+            hoSoQuanLyDTO.Hinhanh = dr["hinhanh"].ToString();
+            if (Convert.ToInt32(dr["trangThai"]) == 1)
             {
                 hoSoQuanLyDTO.TrangThai = 1;
             }
@@ -79,11 +83,12 @@ namespace LibraryManagement.BUS
             return hoSoQuanLyDTO;
         }
 
-        public int saveTaiKhoan(HoSoQuanLyDTO hoSoQuanLyDTO, string password)
+        internal int saveImage(string hinhanh, int id)
         {
-            return hoSoDAO.saveTaiKhoan(hoSoQuanLyDTO, password);   
+           return hoSoDAO.saveImage(hinhanh, id);
         }
 
+       
         public String getPasswordById(int profileId)
         {
             DataTable profile = hoSoDAO.getPasswordById(profileId);
@@ -102,5 +107,9 @@ namespace LibraryManagement.BUS
            return hoSoDAO.saveInfo(hoSoQuanLyDTO);
         }
 
+        internal int updateBasicInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
+        {
+            return hoSoDAO.updateBasicInfo(hoSoQuanLyDTO);
+        }
     }
 }

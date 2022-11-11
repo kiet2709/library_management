@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -23,10 +24,29 @@ namespace LibraryManagement.GUI
         {
             InitializeComponent();
             loadData();
+
+
         }
 
         private void loadData()
         {
+
+            if(Properties.Settings.Default.image != null 
+                && Properties.Settings.Default.image != "")
+            {
+                using (FileStream fs = new FileStream(Properties.Settings.Default.image, FileMode.Open))
+                {
+                    pbAnh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
+
+            if (Properties.Settings.Default.username != null
+                && Properties.Settings.Default.username != "")
+            {
+                this.lblTenDangNhap.Text = Properties.Settings.Default.username;
+            }
+
 
             this.dtgvHoSo.Columns[8].FillWeight = 2;
             this.dtgvHoSo.Columns[9].FillWeight = 2;
@@ -37,8 +57,7 @@ namespace LibraryManagement.GUI
                 DataGridViewRow dr = new DataGridViewRow();
                 dr.CreateCells(this.dtgvHoSo);
                 dr.Cells[0].Value = ((HoSoQuanLyDTO) hoso[i]).Id;
-
-                dr.Cells[1].Value = ((HoSoQuanLyDTO) hoso[i]).VaiTro;
+                dr.Cells[1].Value = ((HoSoQuanLyDTO)hoso[i]).VaiTro;    
                 dr.Cells[2].Value = ((HoSoQuanLyDTO) hoso[i]).Ten;
                 dr.Cells[3].Value = ((HoSoQuanLyDTO) hoso[i]).Ho;
                 dr.Cells[4].Value = ((HoSoQuanLyDTO) hoso[i]).Email;
@@ -105,6 +124,34 @@ namespace LibraryManagement.GUI
             Thread thread = new Thread(OpenFrmThemTaiKhoan);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void pbAnh_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThongTinCaNhan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenFrmThongTinCaNhan()
+        {
+            Application.Run(new FrmThongTinCaNhan());
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.username = "";
+            Properties.Settings.Default.image = "";
+            this.Close();
+            Thread thread = new Thread(OpenFrmDangNhap);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenFrmDangNhap()
+        {
+            Application.Run(new FrmDangNhap());
         }
     }
 }
