@@ -34,5 +34,10 @@ namespace LibraryManagement.BUS
             }
             return docgiaDTOs;
         }
+
+        internal int saveDocGia(AddDocGiaDTO addDocGiaDTO)
+        {
+            return docGiaDAO.saveDocGia(addDocGiaDTO);
+        }
     }
 }

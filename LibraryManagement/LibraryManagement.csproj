@@ -52,11 +52,13 @@
     <Compile Include="DAL\HoSoDAO.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\SachDAO.cs" />
+    <Compile Include="DTO\AddDocGiaDTO.cs" />
     <Compile Include="DTO\DangNhapDTO.cs" />
     <Compile Include="DTO\DocGiaDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
     <Compile Include="DTO\ThongTinCaNhanDTO.cs" />
+    <Compile Include="GUI\DocgiaBUS.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>

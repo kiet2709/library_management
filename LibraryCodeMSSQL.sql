@@ -256,7 +256,11 @@ CREATE TABLE DocGia
   ten NVARCHAR(50) NOT NULL,
   mssv NVARCHAR(10),
   khoa NVARCHAR(30),
-  trangthai INT NOT NULL,
+  gioiTinh INT,
+  trangThai INT NOT NULL,
+  ngaySinh DATE,
+  soDT NVARCHAR(10),
+  email NVARCHAR(30),
   CONSTRAINT PK_DocGia PRIMARY KEY(id)
 );
 GO
@@ -499,20 +503,24 @@ AS
 BEGIN
    SELECT * FROM DocGia;
 END;
-Exec usp_Xem_Thong_Tin_Doc_gia
+
 
 GO
 
 -- procedure Thêm thông tin độc giả
-CREATE PROCEDURE usp_Them_Doc_Gia
-@trangthai INT,
-@ten NVARCHAR(50),
-@mssv NVARCHAR(10),
-@khoa NVARCHAR(30)
+CREATE OR ALTER PROCEDURE usp_Them_Doc_Gia
+@Ten NVARCHAR(50),
+@MSSV NVARCHAR(10),
+@KHOA NVARCHAR(30),
+@GIOITINH INT,
+@TRANGTHAI INT,
+@NGAYSINH DATE,
+@SODT NVARCHAR(10),
+@EMAIL NVARCHAR(30)
 AS
 BEGIN
-   INSERT INTO DocGia (ten,mssv,khoa,trangthai)
-   VALUES (@ten,@mssv,@khoa,@trangthai);
+   INSERT INTO DocGia (ten,mssv,khoa,gioiTinh,trangThai,ngaySinh,soDT,email)
+   VALUES (@TEN,@MSSV,@KHOA,@GIOITINH,@TRANGTHAI,@NGAYSINH,@SODT,@EMAIL);
 END;
 
 GO
@@ -954,13 +962,7 @@ BEGIN
    RETURN @vaitro;
 END;
 GO
-USE QuanLyThuVien;
-SELECT * FROM VaiTro;
-SELECT * FROM NhanVien;
-SELECT * FROM vaitro_nhanVien;
-SELECT dbo.fn_Vai_Tro_Nhan_Vien (1) AS abc;
 
-GO
 -- function kiểm tra đăng nhập 
 CREATE PROC usp_Kiem_Tra_Dang_Nhap 
     @tenDangNhap NVARCHAR(40),
@@ -981,21 +983,7 @@ END
 
 GO
 
-CREATE FUNCTION fn_Kiem_Tra_Dang_Nhap (
-    @tenDangNhap NVARCHAR(40),
-    @matKhau Nvarchar(100) )
-RETURNS INT
-AS
-BEGIN
 
-DECLARE @maNhanVien INT
-SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND NhanVien.matkhau = @matKhau
-IF (@maNhanVien IS NOT NULL)
-   RETURN @maNhanVien
-ELSE 
-   RETURN -1;
-END
-GO
 
 
 
@@ -1031,12 +1019,13 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','thinhbeo@gmail.com');
+/*
 INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1);
 INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1);
 INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1);
 INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1);
-
+*/
 INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,1,1,1);
 INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,2,2,2,2);
 INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,3,3,3,3);
@@ -1054,9 +1043,11 @@ INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
 
 
 INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',1,null,1,1);
+/*
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',1,null,2,2);
 INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',1,null,3,3);
 INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',1,null,4,4);
+*/
 
 INSERT INTO tacgia_sach VALUES(1,1);
 INSERT INTO tacgia_sach VALUES(2,1);
@@ -1088,7 +1079,9 @@ INSERT INTO Sach VALUES(1,'Kệ 2',4);
 
 
 INSERT INTO MuonSach VALUES(1,1);
+/*
 INSERT INTO MuonSach VALUES(2,1);
 INSERT INTO MuonSach VALUES(2,2);
 INSERT INTO MuonSach VALUES(3,3);
 INSERT INTO MuonSach VALUES(4,4);
+*/

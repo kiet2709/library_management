@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LibraryManagement.GUI
@@ -36,5 +37,17 @@ namespace LibraryManagement.GUI
             }    
         }
         
+        private void OpenFrmThemDocGia()
+        {
+            Application.Run(new FrmThemDocGia());
+        }
+
+        private void btnThemDocGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThemDocGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
     }
 }

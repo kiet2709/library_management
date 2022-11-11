@@ -30,43 +30,30 @@ namespace LibraryManagement.GUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThemDocGia));
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.rbKhac = new System.Windows.Forms.RadioButton();
             this.rbNam = new System.Windows.Forms.RadioButton();
             this.rbNu = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThem = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtSdt = new System.Windows.Forms.TextBox();
+            this.txtMssv = new System.Windows.Forms.TextBox();
+            this.txtHoTen = new System.Windows.Forms.TextBox();
+            this.cbKhoa = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(250, 595);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(176, 42);
-            this.dateTimePicker2.TabIndex = 127;
             // 
             // dtpNgaySinh
             // 
@@ -113,15 +100,6 @@ namespace LibraryManagement.GUI
             this.rbNu.Text = "Nữ";
             this.rbNu.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(250, 527);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(176, 42);
-            this.dateTimePicker1.TabIndex = 126;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.rbKhac);
@@ -132,17 +110,18 @@ namespace LibraryManagement.GUI
             this.panel5.Size = new System.Drawing.Size(339, 52);
             this.panel5.TabIndex = 124;
             // 
-            // button2
+            // btnThem
             // 
-            this.button2.BackColor = System.Drawing.Color.LemonChiffon;
-            this.button2.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(581, 561);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(122, 52);
-            this.button2.TabIndex = 121;
-            this.button2.Text = "Thêm";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnThem.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnThem.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnThem.Location = new System.Drawing.Point(340, 543);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(152, 59);
+            this.btnThem.TabIndex = 121;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = false;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // label10
             // 
@@ -155,43 +134,43 @@ namespace LibraryManagement.GUI
             this.label10.TabIndex = 120;
             this.label10.Text = "Thêm độc giả";
             // 
-            // textBox4
+            // txtEmail
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(507, 450);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(380, 42);
-            this.textBox4.TabIndex = 119;
+            this.txtEmail.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.Location = new System.Drawing.Point(507, 450);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(380, 42);
+            this.txtEmail.TabIndex = 119;
             // 
-            // textBox3
+            // txtSdt
             // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(507, 388);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(380, 42);
-            this.textBox3.TabIndex = 118;
+            this.txtSdt.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSdt.Location = new System.Drawing.Point(507, 388);
+            this.txtSdt.Name = "txtSdt";
+            this.txtSdt.Size = new System.Drawing.Size(380, 42);
+            this.txtSdt.TabIndex = 118;
             // 
-            // textBox2
+            // txtMssv
             // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(507, 138);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(380, 42);
-            this.textBox2.TabIndex = 117;
+            this.txtMssv.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMssv.Location = new System.Drawing.Point(507, 138);
+            this.txtMssv.Name = "txtMssv";
+            this.txtMssv.Size = new System.Drawing.Size(380, 42);
+            this.txtMssv.TabIndex = 117;
             // 
-            // textBox1
+            // txtHoTen
             // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(507, 82);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(380, 42);
-            this.textBox1.TabIndex = 116;
+            this.txtHoTen.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHoTen.Location = new System.Drawing.Point(507, 82);
+            this.txtHoTen.Name = "txtHoTen";
+            this.txtHoTen.Size = new System.Drawing.Size(380, 42);
+            this.txtHoTen.TabIndex = 116;
             // 
-            // comboBox1
+            // cbKhoa
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbKhoa.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbKhoa.FormattingEnabled = true;
+            this.cbKhoa.Items.AddRange(new object[] {
             "Khoa Cơ khí Chế tạo máy",
             "Khoa Cơ khí Động lực",
             "Khoa Công nghệ Hóa học và Thực phẩm",
@@ -205,10 +184,10 @@ namespace LibraryManagement.GUI
             "Khoa Xây dựng",
             "Khoa Đào tạo Quốc tế",
             "Khoa Ngoại ngữ"});
-            this.comboBox1.Location = new System.Drawing.Point(507, 200);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(380, 43);
-            this.comboBox1.TabIndex = 115;
+            this.cbKhoa.Location = new System.Drawing.Point(507, 200);
+            this.cbKhoa.Name = "cbKhoa";
+            this.cbKhoa.Size = new System.Drawing.Size(380, 43);
+            this.cbKhoa.TabIndex = 115;
             // 
             // label9
             // 
@@ -219,26 +198,6 @@ namespace LibraryManagement.GUI
             this.label9.Size = new System.Drawing.Size(92, 35);
             this.label9.TabIndex = 114;
             this.label9.Text = "Khoa:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(46, 600);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(136, 35);
-            this.label8.TabIndex = 113;
-            this.label8.Text = "Ngày trả:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(46, 534);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 35);
-            this.label7.TabIndex = 112;
-            this.label7.Text = "Ngày mượn:";
             // 
             // label6
             // 
@@ -300,20 +259,21 @@ namespace LibraryManagement.GUI
             this.label1.TabIndex = 106;
             this.label1.Text = "Họ Tên:";
             // 
-            // backBtn
+            // btnBack
             // 
-            this.backBtn.BackColor = System.Drawing.Color.DimGray;
-            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(36, 17);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(108, 75);
-            this.backBtn.TabIndex = 123;
-            this.backBtn.UseVisualStyleBackColor = false;
+            this.btnBack.BackColor = System.Drawing.Color.DimGray;
+            this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Location = new System.Drawing.Point(36, 17);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(108, 75);
+            this.btnBack.TabIndex = 123;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pictureBox1
             // 
@@ -328,22 +288,18 @@ namespace LibraryManagement.GUI
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 655);
-            this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dtpNgaySinh);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.backBtn);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnThem);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtSdt);
+            this.Controls.Add(this.txtMssv);
+            this.Controls.Add(this.txtHoTen);
+            this.Controls.Add(this.cbKhoa);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -361,26 +317,21 @@ namespace LibraryManagement.GUI
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.RadioButton rbKhac;
         private System.Windows.Forms.RadioButton rbNam;
         private System.Windows.Forms.RadioButton rbNu;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtSdt;
+        private System.Windows.Forms.TextBox txtMssv;
+        private System.Windows.Forms.TextBox txtHoTen;
+        private System.Windows.Forms.ComboBox cbKhoa;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

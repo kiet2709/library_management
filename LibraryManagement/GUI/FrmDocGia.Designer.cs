@@ -718,6 +718,7 @@
             this.btnThemDocGia.TabIndex = 60;
             this.btnThemDocGia.Text = "Thêm độc giả";
             this.btnThemDocGia.UseVisualStyleBackColor = false;
+            this.btnThemDocGia.Click += new System.EventHandler(this.btnThemDocGia_Click);
             // 
             // FrmDocGia
             // 
