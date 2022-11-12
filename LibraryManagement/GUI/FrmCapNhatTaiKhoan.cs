@@ -89,7 +89,7 @@ namespace LibraryManagement.GUI
             }
             
         }
-
+        
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -115,7 +115,7 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
             
 
-            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+            String imagePath = @"C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
             hoSoQuanLyDTO.Hinhanh = imagePath;
      
 
