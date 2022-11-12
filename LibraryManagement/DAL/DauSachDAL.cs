@@ -25,16 +25,21 @@ namespace LibraryManagement.DAL
 
         public DataTable getNumberOfBook(int id)
         {
-            string query = "fn_Tong_Sach @ID_DAU_SACH";
+            string query = "select dbo.fn_Tong_Sach( @ID_DAU_SACH )";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
             return result;
         }
 
         public int updateBookInfo(int id, ChiTietDauSachDTO chiTietDauSach)
         {
+            Console.WriteLine("4");
+            Console.WriteLine(chiTietDauSach.NgonNgu);
+            Console.WriteLine(chiTietDauSach.NhaXB);
+            Console.WriteLine(chiTietDauSach.TheLoai);
+            Console.WriteLine(chiTietDauSach.DanhMuc);
             string query = "usp_CAP_NHAT_THONG_TIN_DAU_SACH @ID , @TIEUDE , @MOTA , @GIA , @NGAYXB , @HINHANH , @LOAI , @TRANGTHAI , @MANXB , @MANGONGU , @MATHELOAI";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id,  chiTietDauSach.TieuDe, chiTietDauSach.MoTa, chiTietDauSach.Gia, chiTietDauSach.NgayXB.ToString(), 
-            chiTietDauSach.HinhAnh, chiTietDauSach.DanhMuc, chiTietDauSach.TrangThai, chiTietDauSach.NhaXB, chiTietDauSach.NgonNgu, chiTietDauSach.TheLoai});
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id,  chiTietDauSach.TieuDe, chiTietDauSach.MoTa, chiTietDauSach.Gia, chiTietDauSach.dateString(), 
+            chiTietDauSach.HinhAnh, Convert.ToInt32(chiTietDauSach.DanhMuc), chiTietDauSach.TrangThai, Convert.ToInt32(chiTietDauSach.NhaXB), Convert.ToInt32(chiTietDauSach.NgonNgu), Convert.ToInt32(chiTietDauSach.TheLoai)});
             return result;
         }
     }

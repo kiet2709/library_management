@@ -16,7 +16,6 @@ namespace LibraryManagement.GUI
 {
     public partial class FrmTaiKhoan : Form
     {
-
         private HoSoBUS hoSoBUS = new HoSoBUS();
         private HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
 
@@ -118,6 +117,11 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmThemNhanVien());
         }
 
+        private void OpenFrmSach()
+        {
+            Application.Run(new FrmSach());
+        }
+
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -152,6 +156,13 @@ namespace LibraryManagement.GUI
         private void OpenFrmDangNhap()
         {
             Application.Run(new FrmDangNhap());
+        }
+        private void sellCarPanel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmSach);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
     }
 }

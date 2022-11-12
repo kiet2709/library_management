@@ -34,5 +34,17 @@ namespace LibraryManagement.DTO
             }
             return list;
         }
+
+        public int index(string name)
+        {
+            for(int i = 0; i < listNgonNgu.Count; i++)
+            {
+                if (listNgonNgu[i].Name.CompareTo(name) == 0) 
+                {
+                    return i;
+                } 
+            }
+            return -1;
+        }
     }
 }
