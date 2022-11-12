@@ -7,6 +7,6 @@
     "\\LibraryManagement\\GUI",
     "\\LibraryManagement\\Model"
   ],
-  "SelectedNode": "\\LibraryManagement\\BUS\\TheLoaiBUS.cs",
+  "SelectedNode": "\\LibraryManagement\\DAL\\DocGiaDAO.cs",
   "PreviewInSolutionExplorer": false
 }

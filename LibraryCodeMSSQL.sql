@@ -261,6 +261,7 @@ CREATE TABLE DocGia
   ngaySinh DATE,
   soDT NVARCHAR(10),
   email NVARCHAR(30),
+  hinhAnh NVARCHAR(1000),
   CONSTRAINT PK_DocGia PRIMARY KEY(id)
 );
 GO
@@ -527,15 +528,51 @@ CREATE OR ALTER PROCEDURE usp_Them_Doc_Gia
 @TRANGTHAI INT,
 @NGAYSINH DATE,
 @SODT NVARCHAR(10),
-@EMAIL NVARCHAR(30)
+@EMAIL NVARCHAR(30),
+@HINHANH NVARCHAR(1000)
 AS
 BEGIN
-   INSERT INTO DocGia (ten,mssv,khoa,gioiTinh,trangThai,ngaySinh,soDT,email)
-   VALUES (@TEN,@MSSV,@KHOA,@GIOITINH,@TRANGTHAI,@NGAYSINH,@SODT,@EMAIL);
+   INSERT INTO DocGia (ten,mssv,khoa,gioiTinh,trangThai,ngaySinh,soDT,email,hinhAnh)
+   VALUES (@TEN,@MSSV,@KHOA,@GIOITINH,@TRANGTHAI,@NGAYSINH,@SODT,@EMAIL,@HINHANH);
+   SELECT SCOPE_IDENTITY();
 END;
-
 GO
-
+--procedure lấy độc giả theo id
+CREATE OR ALTER PROCEDURE usp_Lay_Doc_Gia_Theo_Id
+@ID INT
+AS
+BEGIN
+	SELECT * FROM DocGia
+	WHERE id = @ID;
+END
+GO
+--procedure sửa độc giả
+CREATE OR ALTER PROCEDURE usp_Sua_Doc_Gia
+@ID INT,
+@Ten NVARCHAR(50),
+@MSSV NVARCHAR(10),
+@KHOA NVARCHAR(30),
+@GIOITINH INT,
+@TRANGTHAI INT,
+@NGAYSINH DATE,
+@SODT NVARCHAR(10),
+@EMAIL NVARCHAR(30),
+@HINHANH NVARCHAR(1000)
+AS
+BEGIN
+   UPDATE DocGia SET ten = @Ten ,mssv = @MSSV, khoa=@KHOA ,gioiTinh = @GIOITINH,trangThai = @TRANGTHAI,ngaySinh = @NGAYSINH,soDT=@SODT,email = @EMAIL, hinhAnh = @HINHANH
+   WHERE id=@ID;
+END;
+GO
+--procedure sửa hình ảnh độc giả
+CREATE OR ALTER PROCEDURE usp_Sua_Hinh_Anh_Doc_Gia
+@ID INT,
+@HINHANH NVARCHAR(1000)
+AS
+BEGIN
+	UPDATE DocGia SET hinhAnh = @HINHANH WHERE ID = @ID
+END;
+GO
 -- procedure Chuyển trạng thái độc giả
 CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Doc_gia
    @id INT,
@@ -998,8 +1035,7 @@ BEGIN
    FROM TheLoai
    WHERE TheLoai.id = @id
 END;
-SELECT * FROM TheLoai
-EXEC usp_Xem_The_Loai_Theo_Id 19;
+
 GO
 -- procedure Sửa thông tin thể loại
 CREATE OR ALTER PROC usp_Sua_Thong_Tin_The_Loai  
@@ -1019,7 +1055,7 @@ BEGIN
 			ROLLBACK TRAN;
 	END CATCH 
 END;
-
+GO
 CREATE OR ALTER PROCEDURE usp_SUA_TAC_GIA_SACH
 @idSach INT,
 @idTacGiaCu INT,
@@ -1128,7 +1164,7 @@ WHERE DauSach.id = @id
 GROUP BY DauSach.id;
 RETURN @soLuong;
 END;
-
+GO
 CREATE OR ALTER PROC usp_Thong_Tin_Chi_Tiet_Dau_Sach
 @id int
 AS
@@ -1221,13 +1257,12 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','thinhbeo@gmail.com');
-/*
-INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1);
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1);
-*/
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','thinh1323o@gmail.com','');
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1,1,'01-07-2002','0123456789','t3142h112o@gmail.com','');
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0123456789','t324nh142o@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1,1,'01-04-2002','0123456789','aca12@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1,1,'11-08-2002','0123456789','baaf123@gmail.com','');
+
 INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,1,1,1);
 INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,2,2,2,2);
 INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,3,3,3,3);
@@ -1245,12 +1280,10 @@ INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
 
 
 
-/*
-INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',1,null,2,2);
-INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',1,null,3,3);
-INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',1,null,4,4);
-*/
 
+INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',null,2,2);
+INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',null,3,3);
+INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',null,4,4);
 INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',null,1,1);
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',null,2,2);
 INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',null,3,3);
@@ -1286,16 +1319,9 @@ INSERT INTO Sach VALUES(-1,'Kệ 2',4);
 INSERT INTO Sach VALUES(1,'Kệ 2',4);
 
 
-/*
-INSERT INTO MuonSach VALUES(2,1);
-INSERT INTO MuonSach VALUES(2,2);
-INSERT INTO MuonSach VALUES(3,3);
-INSERT INTO MuonSach VALUES(4,4);
-*/
-
 INSERT INTO MuonSach VALUES(1,1,'ghi chu 1', 1);
 INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
 INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
 INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
 INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
-
+SELECT * from docgia
