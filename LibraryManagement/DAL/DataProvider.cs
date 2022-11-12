@@ -72,6 +72,7 @@ namespace LibraryManagement.DAL
 
             try
             {
+                Console.WriteLine("5");
                 using (SqlConnection conn = new SqlConnection(strConnectionString))
                 {
                     conn.Open();
@@ -103,8 +104,9 @@ namespace LibraryManagement.DAL
 
                 return data;
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e.Message);
                 return 0;
             }
 

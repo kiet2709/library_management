@@ -96,7 +96,7 @@ namespace LibraryManagement.GUI
             this.txt_tenSach.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_tenSach.Location = new System.Drawing.Point(581, 90);
             this.txt_tenSach.Name = "txt_tenSach";
-            this.txt_tenSach.Size = new System.Drawing.Size(394, 42);
+            this.txt_tenSach.Size = new System.Drawing.Size(432, 42);
             this.txt_tenSach.TabIndex = 51;
             // 
             // label9
@@ -163,7 +163,7 @@ namespace LibraryManagement.GUI
             // 
             this.txt_soLuong.Enabled = false;
             this.txt_soLuong.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_soLuong.Location = new System.Drawing.Point(914, 458);
+            this.txt_soLuong.Location = new System.Drawing.Point(952, 462);
             this.txt_soLuong.Name = "txt_soLuong";
             this.txt_soLuong.Size = new System.Drawing.Size(61, 42);
             this.txt_soLuong.TabIndex = 62;
@@ -269,9 +269,9 @@ namespace LibraryManagement.GUI
             this.cb_tacGia.FormattingEnabled = true;
             this.cb_tacGia.Location = new System.Drawing.Point(581, 209);
             this.cb_tacGia.Name = "cb_tacGia";
-            this.cb_tacGia.Size = new System.Drawing.Size(394, 43);
+            this.cb_tacGia.Size = new System.Drawing.Size(432, 43);
             this.cb_tacGia.TabIndex = 118;
-            this.cb_tacGia.SelectedIndexChanged += new System.EventHandler(this.cb_tacGia_SelectedIndexChanged);
+            this.cb_tacGia.SelectionChangeCommitted += new System.EventHandler(this.cb_tacGia_SelectedIndexChanged);
             // 
             // cb_tatCa
             // 
@@ -282,6 +282,7 @@ namespace LibraryManagement.GUI
             this.cb_tatCa.Size = new System.Drawing.Size(247, 43);
             this.cb_tatCa.TabIndex = 120;
             this.cb_tatCa.Text = "Chọn hoặc thêm";
+            this.cb_tatCa.SelectionChangeCommitted += new System.EventHandler(this.cb_tatCa_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -319,7 +320,7 @@ namespace LibraryManagement.GUI
             this.btn_themTG.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_themTG.Location = new System.Drawing.Point(853, 266);
             this.btn_themTG.Name = "btn_themTG";
-            this.btn_themTG.Size = new System.Drawing.Size(122, 52);
+            this.btn_themTG.Size = new System.Drawing.Size(160, 52);
             this.btn_themTG.TabIndex = 122;
             this.btn_themTG.Text = "Thêm";
             this.btn_themTG.UseVisualStyleBackColor = false;
@@ -332,7 +333,7 @@ namespace LibraryManagement.GUI
             this.btn_themNN.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_themNN.Location = new System.Drawing.Point(786, 558);
             this.btn_themNN.Name = "btn_themNN";
-            this.btn_themNN.Size = new System.Drawing.Size(122, 52);
+            this.btn_themNN.Size = new System.Drawing.Size(160, 52);
             this.btn_themNN.TabIndex = 123;
             this.btn_themNN.Text = "Thêm";
             this.btn_themNN.UseVisualStyleBackColor = false;
@@ -364,7 +365,7 @@ namespace LibraryManagement.GUI
             this.btn_themTheLoai.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_themTheLoai.Location = new System.Drawing.Point(853, 333);
             this.btn_themTheLoai.Name = "btn_themTheLoai";
-            this.btn_themTheLoai.Size = new System.Drawing.Size(122, 52);
+            this.btn_themTheLoai.Size = new System.Drawing.Size(160, 52);
             this.btn_themTheLoai.TabIndex = 127;
             this.btn_themTheLoai.Text = "Thêm";
             this.btn_themTheLoai.UseVisualStyleBackColor = false;
@@ -377,7 +378,7 @@ namespace LibraryManagement.GUI
             this.btn_themNXB.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.btn_themNXB.Location = new System.Drawing.Point(853, 400);
             this.btn_themNXB.Name = "btn_themNXB";
-            this.btn_themNXB.Size = new System.Drawing.Size(122, 52);
+            this.btn_themNXB.Size = new System.Drawing.Size(160, 52);
             this.btn_themNXB.TabIndex = 128;
             this.btn_themNXB.Text = "Thêm";
             this.btn_themNXB.UseVisualStyleBackColor = false;
@@ -397,9 +398,12 @@ namespace LibraryManagement.GUI
             // 
             this.cb_danhMuc.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_danhMuc.FormattingEnabled = true;
+            this.cb_danhMuc.Items.AddRange(new object[] {
+            "Sách giáo trình",
+            "Sách tham khảo"});
             this.cb_danhMuc.Location = new System.Drawing.Point(581, 149);
             this.cb_danhMuc.Name = "cb_danhMuc";
-            this.cb_danhMuc.Size = new System.Drawing.Size(394, 43);
+            this.cb_danhMuc.Size = new System.Drawing.Size(432, 43);
             this.cb_danhMuc.TabIndex = 129;
             // 
             // btn_themAnh
@@ -407,9 +411,9 @@ namespace LibraryManagement.GUI
             this.btn_themAnh.BackColor = System.Drawing.Color.LemonChiffon;
             this.btn_themAnh.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_themAnh.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btn_themAnh.Location = new System.Drawing.Point(129, 369);
+            this.btn_themAnh.Location = new System.Drawing.Point(113, 369);
             this.btn_themAnh.Name = "btn_themAnh";
-            this.btn_themAnh.Size = new System.Drawing.Size(122, 52);
+            this.btn_themAnh.Size = new System.Drawing.Size(159, 52);
             this.btn_themAnh.TabIndex = 131;
             this.btn_themAnh.Text = "Thêm";
             this.btn_themAnh.UseVisualStyleBackColor = false;
@@ -419,7 +423,7 @@ namespace LibraryManagement.GUI
             // 
             this.cb_trangThai.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_trangThai.FormattingEnabled = true;
-            this.cb_trangThai.Location = new System.Drawing.Point(914, 513);
+            this.cb_trangThai.Location = new System.Drawing.Point(952, 516);
             this.cb_trangThai.Name = "cb_trangThai";
             this.cb_trangThai.Size = new System.Drawing.Size(61, 43);
             this.cb_trangThai.TabIndex = 133;
@@ -446,7 +450,7 @@ namespace LibraryManagement.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1003, 703);
+            this.ClientSize = new System.Drawing.Size(1058, 703);
             this.Controls.Add(this.txt_gia);
             this.Controls.Add(this.cb_trangThai);
             this.Controls.Add(this.label13);

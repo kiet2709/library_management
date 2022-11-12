@@ -29,6 +29,11 @@ namespace LibraryManagement.DTO
         public string MoTa { get => moTa; set => moTa = value; }
         public int Gia { get => gia; set => gia = value; }
 
+        public string dateString()
+        {
+            return ngayXB.ToString("MM-dd-yyyy");
+        }
+
         public void add(DataTable dataTable)
         {
             tieuDe = Convert.ToString(dataTable.Rows[0][0]);

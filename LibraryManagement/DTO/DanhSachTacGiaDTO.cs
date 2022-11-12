@@ -42,6 +42,7 @@ namespace LibraryManagement.DTO
             {
                 str += tacGia.Name + ", ";
             }
+            if (str.Length < 2) return str;
             str = str.Remove(str.Length - 2, 2);
 
             return str;
@@ -58,6 +59,18 @@ namespace LibraryManagement.DTO
                 }
             }
             return list;
+        }
+
+        public bool nameInList(string name)
+        {
+            foreach(TacGia tacGia in listTacGia)
+            {
+                if(tacGia.Name.CompareTo(name) == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
