@@ -15,7 +15,6 @@ namespace LibraryManagement.GUI
 {
     public partial class FrmTaiKhoan : Form
     {
-
         private HoSoBUS hoSoBUS = new HoSoBUS();
         private HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();
 
@@ -27,7 +26,6 @@ namespace LibraryManagement.GUI
 
         private void loadData()
         {
-
             this.dtgvHoSo.Columns[8].FillWeight = 2;
             this.dtgvHoSo.Columns[9].FillWeight = 2;
             ArrayList hoso = hoSoBUS.getAllProfile();
@@ -99,10 +97,23 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmThemNhanVien());
         }
 
+        private void OpenFrmSach()
+        {
+            Application.Run(new FrmSach());
+        }
+
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
             this.Close();
             Thread thread = new Thread(OpenFrmThemTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void sellCarPanel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmSach);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }

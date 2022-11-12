@@ -16,6 +16,7 @@ namespace LibraryManagement.GUI
     public partial class FrmSach : Form
     {
         SachBUS sachBUS = new SachBUS();
+        private int bookId;
         public FrmSach()
         {
             InitializeComponent();
@@ -50,9 +51,14 @@ namespace LibraryManagement.GUI
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
-        void OpenFrmSach(object obj)
+        private void OpenFrmSach()
         {
             Application.Run(new FrmSach());
+        }
+
+        private void OpenFrmChiTietSach()
+        {
+            Application.Run(new FrmChiTietDauSach(bookId, new FrmSach()));
 
         }
 
@@ -60,6 +66,15 @@ namespace LibraryManagement.GUI
         {
             this.Close();
             Thread thread = new Thread(OpenFrmSach);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void dtgSach_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bookId = Convert.ToInt32(dtgSach.SelectedRows[0].Cells[0].Value);
+            this.Close();
+            Thread thread = new Thread(OpenFrmChiTietSach);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }

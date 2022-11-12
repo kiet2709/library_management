@@ -184,7 +184,7 @@
             this.label3.Location = new System.Drawing.Point(117, 42);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 32);
+            this.label3.Size = new System.Drawing.Size(111, 32);
             this.label3.TabIndex = 30;
             this.label3.Text = "Độc giả";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -201,6 +201,7 @@
             this.sellCarPanel.Name = "sellCarPanel";
             this.sellCarPanel.Size = new System.Drawing.Size(287, 120);
             this.sellCarPanel.TabIndex = 33;
+            this.sellCarPanel.Click += new System.EventHandler(this.sellCarPanel_Click);
             // 
             // pictureBox6
             // 
@@ -263,7 +264,7 @@
             this.label9.Location = new System.Drawing.Point(117, 42);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 32);
+            this.label9.Size = new System.Drawing.Size(80, 32);
             this.label9.TabIndex = 30;
             this.label9.Text = "Sách";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -488,7 +489,7 @@
             this.label8.Location = new System.Drawing.Point(646, 9);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 32);
+            this.label8.Size = new System.Drawing.Size(109, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
@@ -571,7 +572,7 @@
             this.label5.Location = new System.Drawing.Point(117, 42);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 32);
+            this.label5.Size = new System.Drawing.Size(117, 32);
             this.label5.TabIndex = 30;
             this.label5.Text = "Thể loại";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -665,7 +666,7 @@
             this.label13.Location = new System.Drawing.Point(117, 42);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 32);
+            this.label13.Size = new System.Drawing.Size(140, 32);
             this.label13.TabIndex = 30;
             this.label13.Text = "Tài khoản";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -744,7 +745,7 @@
             this.label7.Location = new System.Drawing.Point(117, 42);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 32);
+            this.label7.Size = new System.Drawing.Size(167, 32);
             this.label7.TabIndex = 30;
             this.label7.Text = "Phiếu Mượn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
