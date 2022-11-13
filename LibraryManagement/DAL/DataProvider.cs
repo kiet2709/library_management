@@ -72,7 +72,6 @@ namespace LibraryManagement.DAL
 
             try
             {
-                Console.WriteLine("5");
                 using (SqlConnection conn = new SqlConnection(strConnectionString))
                 {
                     conn.Open();
@@ -97,7 +96,6 @@ namespace LibraryManagement.DAL
                     }
 
                     data = cmd.ExecuteNonQuery();
-                    Console.WriteLine(data);
                     conn.Close();
 
                 }

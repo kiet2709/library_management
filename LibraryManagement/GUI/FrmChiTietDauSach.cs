@@ -184,7 +184,6 @@ namespace LibraryManagement.GUI
         {
             try
             {
-                Console.WriteLine("1");
                 chiTietDauSach.TieuDe = txt_tenSach.Text;
                 chiTietDauSach.MoTa = txt_moTa.Text;
                 chiTietDauSach.DanhMuc = cb_danhMuc.SelectedIndex.ToString();
@@ -195,7 +194,6 @@ namespace LibraryManagement.GUI
                 chiTietDauSach.TrangThai = Convert.ToInt32(cb_trangThai.Text);
                 chiTietDauSach.Gia = Convert.ToInt32(txt_gia.Text);
                 chiTietDauSach.HinhAnh = "";
-                Console.WriteLine("2");
             }
             catch
             {

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BUS\DauSachBUS.cs" />
     <Compile Include="BUS\HoSoBUS.cs" />
+    <Compile Include="BUS\MuonBUS.cs" />
     <Compile Include="BUS\NgonNguBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\NhaXuatBanBUS.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\DauSachDAL.cs" />
     <Compile Include="DAL\HoSoDAO.cs" />
+    <Compile Include="DAL\MuonDAL.cs" />
     <Compile Include="DAL\NgonNguDAL.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\NhaXuatBanDAL.cs" />
@@ -64,10 +66,15 @@
     <Compile Include="DTO\DangNhapDTO.cs" />
     <Compile Include="DTO\DanhSachNgonNguDTO.cs" />
     <Compile Include="DTO\DanhSachNXBDTO.cs" />
+    <Compile Include="DTO\DanhSachPhieuMuonDTO.cs" />
+    <Compile Include="DTO\DanhSachSachMuonDTO.cs" />
     <Compile Include="DTO\DanhSachTacGiaDTO.cs" />
     <Compile Include="DTO\DanhSachTheLoaiDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
+    <Compile Include="DTO\MuonSachDTO.cs" />
+    <Compile Include="DTO\PhieuMuonDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="DTO\Service.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
