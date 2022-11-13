@@ -981,7 +981,20 @@ BEGIN
    WHERE NhaXuatBan.id = @maNXB;
 END;
 GO
-
+CREATE OR ALTER PROCEDURE usp_Xoa_Ngon_Ngu
+@id INT
+AS
+BEGIN
+   DELETE FROM NgonNgu WHERE id = @id;
+END;
+GO
+CREATE OR ALTER PROCEDURE usp_Xoa_Nha_Xuat_Ban
+@id INT
+AS
+BEGIN
+   DELETE FROM NhaXuatBan WHERE id = @id;
+END;
+GO
 CREATE OR ALTER PROCEDURE usp_Xoa_The_Loai
 @id INT
 AS
@@ -989,7 +1002,35 @@ BEGIN
    DELETE FROM TheLoai WHERE id = @id;
 END;
 GO
+CREATE OR ALTER PROCEDURE usp_Xem_Ngon_Ngu_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT NgonNgu.ten
+   FROM NgonNgu
+   WHERE NgonNgu.id = @id
+END;
+GO
+CREATE OR ALTER PROCEDURE usp_Xem_Tac_Gia_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT TacGia.ten
+   FROM TacGia
+   WHERE TacGia.id = @id
+END;
 
+GO
+CREATE OR ALTER PROCEDURE usp_Xem_Nha_Xuat_Ban_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT NhaXuatBan.ten
+   FROM NhaXuatBan
+   WHERE NhaXuatBan.id = @id
+END;
+
+GO
 CREATE OR ALTER PROCEDURE usp_Xem_The_Loai_Theo_Id
 @id INT
 AS
@@ -998,8 +1039,7 @@ BEGIN
    FROM TheLoai
    WHERE TheLoai.id = @id
 END;
-SELECT * FROM TheLoai
-EXEC usp_Xem_The_Loai_Theo_Id 19;
+
 GO
 -- procedure Sửa thông tin thể loại
 CREATE OR ALTER PROC usp_Sua_Thong_Tin_The_Loai  
@@ -1019,7 +1059,64 @@ BEGIN
 			ROLLBACK TRAN;
 	END CATCH 
 END;
-
+GO
+-- procedure Sửa thông tin tác giả
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Tac_Gia 
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE TacGia SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nha_Xuat_Ban  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE NhaXuatBan SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Ngon_Ngu  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE NgonNGu SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
 CREATE OR ALTER PROCEDURE usp_SUA_TAC_GIA_SACH
 @idSach INT,
 @idTacGiaCu INT,
@@ -1045,6 +1142,17 @@ CREATE OR ALTER PROCEDURE usp_THEM_TAC_GIA_SACH
 AS
 BEGIN
    INSERT INTO tacgia_sach VALUES(@idSach, @idTacGia);
+END;
+GO
+CREATE OR ALTER PROCEDURE usp_Xem_Danh_Sach_Dau_Sach_Theo_Tac_Gia
+@id INT
+AS
+BEGIN
+SELECT TacGia.id as 'tacgiaID', TacGia.ten, DauSach.id as 'sachID'
+FROM TacGia 
+JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
+JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
+WHERE TacGia.id=@id;
 END;
 GO
 
@@ -1114,9 +1222,34 @@ ELSE
     SELECT -1
 
 END
+
 GO
-
-
+CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)
+RETURNS INT
+AS
+BEGIN
+DECLARE @soLuong INT;
+SELECT @soLuong=COUNT(*) 
+FROM TacGia 
+JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
+JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
+WHERE TacGia.id = @id
+GROUP BY TacGia.id;
+RETURN @soluong;
+END;
+GO
+CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Nha_Xuat_Ban(@id INT)
+RETURNS INT
+AS
+BEGIN
+DECLARE @soLuong INT;
+SELECT @soLuong=COUNT(DauSach.id) 
+FROM NhaXuatBan INNER JOIN DauSach ON NhaXuatBan.id = DauSach.maNXB
+WHERE NhaXuatBan.id = @id
+GROUP BY NhaXuatBan.id;
+RETURN @soLuong;
+END;
+GO
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_The_Loai(@id INT)
 RETURNS INT
 AS
@@ -1128,7 +1261,21 @@ WHERE DauSach.id = @id
 GROUP BY DauSach.id;
 RETURN @soLuong;
 END;
+GO
 
+
+CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Ngon_Ngu(@id INT)
+RETURNS INT
+AS
+BEGIN
+DECLARE @soLuong INT;
+SELECT @soLuong=COUNT(DauSach.id) 
+FROM NgonNgu INNER JOIN DauSach ON NgonNgu.id = DauSach.maNgonNgu
+WHERE DauSach.id = @id
+GROUP BY DauSach.id;
+RETURN @soLuong;
+END;
+GO
 CREATE OR ALTER PROC usp_Thong_Tin_Chi_Tiet_Dau_Sach
 @id int
 AS
@@ -1156,7 +1303,8 @@ BEGIN
 	SELECT * FROM TacGia 
 END
 GO
-
+INSERT INTO TacGia VALUES(N'Kiệt');
+GO
 CREATE OR ALTER PROC usp_THEM_TAC_GIA
 @TEN NVARCHAR(50)
 AS

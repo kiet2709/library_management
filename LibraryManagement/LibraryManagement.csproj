@@ -61,11 +61,8 @@
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\NhaXuatBanDAL.cs" />
     <Compile Include="DAL\SachDAO.cs" />
-
     <Compile Include="DTO\AddDocGiaDTO.cs" />
-
     <Compile Include="DAL\TheLoaiDAO.cs" />
-
     <Compile Include="DTO\DangNhapDTO.cs" />
     <Compile Include="DTO\DocGiaQuanLyDTO.cs" />
     <Compile Include="DAL\TacGiaDAL.cs" />
@@ -76,10 +73,25 @@
     <Compile Include="DTO\DanhSachTacGiaDTO.cs" />
     <Compile Include="DTO\DanhSachTheLoaiDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
+    <Compile Include="DTO\NgonNguQuanLyDTO.cs" />
+    <Compile Include="DTO\NhaXuatBanQuanLyDTO.cs" />
     <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="DTO\TacGiaQuanLyDTO.cs" />
     <Compile Include="DTO\TheLoaiQuanLyDTO.cs" />
     <Compile Include="DTO\ThongTinCaNhanDTO.cs" />
     <Compile Include="GUI\DocgiaBUS.cs" />
+    <Compile Include="GUI\FrmChiTietNgonNgu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietNgonNgu.Designer.cs">
+      <DependentUpon>FrmChiTietNgonNgu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietNhaXuatBan.Designer.cs">
+      <DependentUpon>FrmChiTietNhaXuatBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     <Compile Include="GUI\FrmChiTietDauSach.Designer.cs">
       <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmChiTietTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChiTietTacGia.Designer.cs">
+      <DependentUpon>FrmChiTietTacGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmChiTietTheLoai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +127,24 @@
     </Compile>
     <Compile Include="GUI\FrmDoiMatKhau.Designer.cs">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmNgonNgu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmNgonNgu.Designer.cs">
+      <DependentUpon>FrmNgonNgu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmNhaXuatBan.Designer.cs">
+      <DependentUpon>FrmNhaXuatBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTacGia.Designer.cs">
+      <DependentUpon>FrmTacGia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
@@ -146,11 +182,29 @@
     <Compile Include="GUI\FrmThemDocGia.Designer.cs">
       <DependentUpon>FrmThemDocGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmThemNgonNgu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemNgonNgu.Designer.cs">
+      <DependentUpon>FrmThemNgonNgu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmThemNhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FrmThemNhanVien.Designer.cs">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmThemNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemNhaXuatBan.Designer.cs">
+      <DependentUpon>FrmThemNhaXuatBan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmThemTacGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemTacGia.Designer.cs">
+      <DependentUpon>FrmThemTacGia.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmThemTheLoai.cs">
       <SubType>Form</SubType>
@@ -194,6 +248,12 @@
       <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Utils\ImageUpload.cs" />
+    <EmbeddedResource Include="GUI\FrmChiTietNgonNgu.resx">
+      <DependentUpon>FrmChiTietNgonNgu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmChiTietNhaXuatBan.resx">
+      <DependentUpon>FrmChiTietNhaXuatBan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmChiTietPhieuMuon.resx">
       <DependentUpon>FrmChiTietPhieuMuon.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,11 +263,23 @@
     <EmbeddedResource Include="GUI\FrmChiTietDauSach.resx">
       <DependentUpon>FrmChiTietDauSach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmChiTietTacGia.resx">
+      <DependentUpon>FrmChiTietTacGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmChiTietTheLoai.resx">
       <DependentUpon>FrmChiTietTheLoai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDoiMatKhau.resx">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmNgonNgu.resx">
+      <DependentUpon>FrmNgonNgu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmNhaXuatBan.resx">
+      <DependentUpon>FrmNhaXuatBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTacGia.resx">
+      <DependentUpon>FrmTacGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
@@ -230,8 +302,17 @@
     <EmbeddedResource Include="GUI\FrmThemDocGia.resx">
       <DependentUpon>FrmThemDocGia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemNgonNgu.resx">
+      <DependentUpon>FrmThemNgonNgu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemNhanVien.resx">
       <DependentUpon>FrmThemNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemNhaXuatBan.resx">
+      <DependentUpon>FrmThemNhaXuatBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemTacGia.resx">
+      <DependentUpon>FrmThemTacGia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemTheLoai.resx">
       <DependentUpon>FrmThemTheLoai.cs</DependentUpon>

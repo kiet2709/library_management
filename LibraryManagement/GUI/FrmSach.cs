@@ -85,5 +85,67 @@ namespace LibraryManagement.GUI
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
+
+        private void btnNgonNgu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNgonNgu);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+        void OpenFrmNgonNgu(object obj)
+        {
+            Application.Run(new FrmNgonNgu());
+
+        }
+
+        private void lblNgonNgu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNgonNgu);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFormNhaXuatBan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNhaXuatBan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+        void OpenFrmNhaXuatBan(object obj)
+        {
+            Application.Run(new FrmNhaXuatBan());
+
+        }
+
+        private void lblFormNhaXuatBan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNhaXuatBan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFormTacGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTacGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+        void OpenFrmTacGia()
+        {
+            Application.Run(new FrmTacGia());
+        }
+
+        private void lblTacGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTacGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
     }
 }
