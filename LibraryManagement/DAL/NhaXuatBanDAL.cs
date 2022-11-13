@@ -12,7 +12,7 @@ namespace LibraryManagement.DAL
     {
         internal DataTable getAllPublisher()
         {
-            string query = "select * from THELOAI_VIEW";
+            string query = "select * from NhaXuatBan";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { });
             return result;
         }

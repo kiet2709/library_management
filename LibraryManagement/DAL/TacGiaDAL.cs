@@ -19,7 +19,7 @@ namespace LibraryManagement.DAL
 
         public int addAuthor(TacGia tacGia)
         {
-            string query = "usp_TAC_GIA_SACH @TEN";
+            string query = "usp_THEM_TAC_GIA @TEN";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tacGia.Name});
             return result;
         }

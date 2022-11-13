@@ -121,3 +121,8 @@ C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\ob
 C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietTacGia.resources
 C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTacGia.resources
 C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietTheLoai.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDoiMatKhau.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTheLoai.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSuaDocGia.resources
+

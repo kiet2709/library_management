@@ -146,6 +146,12 @@
     <Compile Include="GUI\FrmTacGia.Designer.cs">
       <DependentUpon>FrmTacGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmSuaDocGia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmSuaDocGia.Designer.cs">
+      <DependentUpon>FrmSuaDocGia.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +287,9 @@
     <EmbeddedResource Include="GUI\FrmTacGia.resx">
       <DependentUpon>FrmTacGia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmSuaDocGia.resx">
+      <DependentUpon>FrmSuaDocGia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTaiKhoan.resx">
       <DependentUpon>FrmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
@@ -365,6 +374,7 @@
     <None Include="images\Password.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="uploads\docGia\" />
     <Folder Include="uploads\nhanVien\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

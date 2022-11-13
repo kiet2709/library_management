@@ -34,5 +34,17 @@ namespace LibraryManagement.DTO
             }
             return list;
         }
+
+        public int index(string name)
+        {
+            for (int i = 0; i < listTheLoai.Count; i++)
+            {
+                if (listTheLoai[i].Name.CompareTo(name) == 0)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
     }
 }

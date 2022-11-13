@@ -28,81 +28,81 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocGia));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDocGia));
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.dtgDocGia = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.sellCarPanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnThemDocGia = new System.Windows.Forms.Button();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.sellCarPanel = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
-            this.btnThemDocGia = new System.Windows.Forms.Button();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDocGia)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.sellCarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // panel9
@@ -114,7 +114,7 @@
             this.panel9.Location = new System.Drawing.Point(302, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1127, 102);
+            this.panel9.Size = new System.Drawing.Size(830, 102);
             this.panel9.TabIndex = 41;
             // 
             // label8
@@ -122,46 +122,24 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.label8.Location = new System.Drawing.Point(587, 12);
+            this.label8.Location = new System.Drawing.Point(452, 7);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Location = new System.Drawing.Point(333, 9);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(133, 89);
-            this.pictureBox9.TabIndex = 27;
-            this.pictureBox9.TabStop = false;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.label10.Location = new System.Drawing.Point(511, 48);
+            this.label10.Location = new System.Drawing.Point(376, 43);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(250, 42);
             this.label10.TabIndex = 1;
             this.label10.Text = "Thư viện sách";
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(334, 121);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(84, 52);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 52;
-            this.pictureBox10.TabStop = false;
             // 
             // panel10
             // 
@@ -169,7 +147,7 @@
             this.panel10.Location = new System.Drawing.Point(334, 177);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1076, 6);
+            this.panel10.Size = new System.Drawing.Size(798, 6);
             this.panel10.TabIndex = 51;
             // 
             // label11
@@ -231,56 +209,9 @@
             this.dtgDocGia.RowHeadersVisible = false;
             this.dtgDocGia.RowHeadersWidth = 51;
             this.dtgDocGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgDocGia.Size = new System.Drawing.Size(1110, 588);
+            this.dtgDocGia.Size = new System.Drawing.Size(823, 588);
             this.dtgDocGia.TabIndex = 53;
-            // 
-            // CAR_ID
-            // 
-            this.CAR_ID.FillWeight = 39.0792F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // studentCode
-            // 
-            this.studentCode.FillWeight = 103.8481F;
-            this.studentCode.HeaderText = "MSSV";
-            this.studentCode.MinimumWidth = 6;
-            this.studentCode.Name = "studentCode";
-            this.studentCode.ReadOnly = true;
-            // 
-            // falcuty
-            // 
-            this.falcuty.FillWeight = 139.5633F;
-            this.falcuty.HeaderText = "Khoa";
-            this.falcuty.MinimumWidth = 6;
-            this.falcuty.Name = "falcuty";
-            this.falcuty.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.FillWeight = 150.8021F;
-            this.name.HeaderText = "Tên";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // state
-            // 
-            this.state.FillWeight = 79.95741F;
-            this.state.HeaderText = "Trạng thái";
-            this.state.MinimumWidth = 6;
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.FillWeight = 86.7499F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
+            this.dtgDocGia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDocGia_CellContentClick);
             // 
             // panel1
             // 
@@ -310,18 +241,6 @@
             this.panel11.Size = new System.Drawing.Size(284, 120);
             this.panel11.TabIndex = 40;
             // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox11.Enabled = false;
-            this.pictureBox11.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox11.TabIndex = 29;
-            this.pictureBox11.TabStop = false;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Transparent;
@@ -333,18 +252,6 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(0, 0);
             this.panel12.TabIndex = 38;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox12.Enabled = false;
-            this.pictureBox12.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
             // 
             // label12
             // 
@@ -389,18 +296,6 @@
             this.panel7.Size = new System.Drawing.Size(286, 120);
             this.panel7.TabIndex = 40;
             // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.Enabled = false;
-            this.pictureBox7.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox7.TabIndex = 29;
-            this.pictureBox7.TabStop = false;
-            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Transparent;
@@ -412,18 +307,6 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(0, 0);
             this.panel8.TabIndex = 38;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox8.Enabled = false;
-            this.pictureBox8.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox8.TabIndex = 29;
-            this.pictureBox8.TabStop = false;
             // 
             // label6
             // 
@@ -468,18 +351,6 @@
             this.panel5.Size = new System.Drawing.Size(284, 120);
             this.panel5.TabIndex = 39;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Enabled = false;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox4.TabIndex = 29;
-            this.pictureBox4.TabStop = false;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
@@ -491,18 +362,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(0, 0);
             this.panel6.TabIndex = 38;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Enabled = false;
-            this.pictureBox5.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox5.TabIndex = 29;
-            this.pictureBox5.TabStop = false;
             // 
             // label4
             // 
@@ -547,18 +406,6 @@
             this.panel3.Size = new System.Drawing.Size(296, 120);
             this.panel3.TabIndex = 38;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Enabled = false;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
@@ -570,18 +417,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(0, 0);
             this.panel4.TabIndex = 38;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox3.TabIndex = 29;
-            this.pictureBox3.TabStop = false;
             // 
             // label2
             // 
@@ -626,18 +461,6 @@
             this.sellCarPanel.Size = new System.Drawing.Size(287, 120);
             this.sellCarPanel.TabIndex = 33;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox6.TabIndex = 29;
-            this.pictureBox6.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -649,18 +472,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 0);
             this.panel2.TabIndex = 38;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -692,6 +503,139 @@
             this.label9.Text = "Sách";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnThemDocGia
+            // 
+            this.btnThemDocGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.btnThemDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemDocGia.ForeColor = System.Drawing.Color.White;
+            this.btnThemDocGia.Location = new System.Drawing.Point(764, 124);
+            this.btnThemDocGia.Name = "btnThemDocGia";
+            this.btnThemDocGia.Size = new System.Drawing.Size(317, 49);
+            this.btnThemDocGia.TabIndex = 60;
+            this.btnThemDocGia.Text = "Thêm độc giả";
+            this.btnThemDocGia.UseVisualStyleBackColor = false;
+            this.btnThemDocGia.Click += new System.EventHandler(this.btnThemDocGia_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox11.Enabled = false;
+            this.pictureBox11.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox11.TabIndex = 29;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox12.Enabled = false;
+            this.pictureBox12.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox7.Enabled = false;
+            this.pictureBox7.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox7.TabIndex = 29;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox8.Enabled = false;
+            this.pictureBox8.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox8.TabIndex = 29;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Enabled = false;
+            this.pictureBox4.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Enabled = false;
+            this.pictureBox5.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Enabled = false;
+            this.pictureBox2.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Enabled = false;
+            this.pictureBox3.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox3.TabIndex = 29;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Enabled = false;
+            this.pictureBox6.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox6.TabIndex = 29;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
             // backBtn
             // 
             this.backBtn.BackColor = System.Drawing.Color.Transparent;
@@ -707,24 +651,93 @@
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
-            // btnThemDocGia
+            // pictureBox10
             // 
-            this.btnThemDocGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.btnThemDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemDocGia.ForeColor = System.Drawing.Color.White;
-            this.btnThemDocGia.Location = new System.Drawing.Point(1083, 123);
-            this.btnThemDocGia.Name = "btnThemDocGia";
-            this.btnThemDocGia.Size = new System.Drawing.Size(317, 49);
-            this.btnThemDocGia.TabIndex = 60;
-            this.btnThemDocGia.Text = "Thêm độc giả";
-            this.btnThemDocGia.UseVisualStyleBackColor = false;
-            this.btnThemDocGia.Click += new System.EventHandler(this.btnThemDocGia_Click);
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(334, 121);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(84, 52);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 52;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox9.Location = new System.Drawing.Point(201, 9);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(133, 89);
+            this.pictureBox9.TabIndex = 27;
+            this.pictureBox9.TabStop = false;
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CAR_ID.FillWeight = 39.0792F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            this.CAR_ID.Width = 63;
+            // 
+            // studentCode
+            // 
+            this.studentCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.studentCode.FillWeight = 103.8481F;
+            this.studentCode.HeaderText = "MSSV";
+            this.studentCode.MinimumWidth = 6;
+            this.studentCode.Name = "studentCode";
+            this.studentCode.ReadOnly = true;
+            this.studentCode.Width = 103;
+            // 
+            // falcuty
+            // 
+            this.falcuty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.falcuty.FillWeight = 139.5633F;
+            this.falcuty.HeaderText = "Khoa";
+            this.falcuty.MinimumWidth = 6;
+            this.falcuty.Name = "falcuty";
+            this.falcuty.ReadOnly = true;
+            this.falcuty.Width = 94;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.name.FillWeight = 150.8021F;
+            this.name.HeaderText = "Tên";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 80;
+            // 
+            // state
+            // 
+            this.state.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.state.FillWeight = 79.95741F;
+            this.state.HeaderText = "Trạng thái";
+            this.state.MinimumWidth = 6;
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            this.state.Width = 146;
+            // 
+            // edit
+            // 
+            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.edit.FillWeight = 86.7499F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Width = 53;
             // 
             // FrmDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1427, 780);
+            this.ClientSize = new System.Drawing.Size(1140, 780);
             this.Controls.Add(this.btnThemDocGia);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtgDocGia);
@@ -736,40 +749,40 @@
             this.Text = "Form1";
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDocGia)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.sellCarPanel.ResumeLayout(false);
             this.sellCarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -816,12 +829,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button btnThemDocGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn falcuty;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn state;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
-        private System.Windows.Forms.Button btnThemDocGia;
     }
 }

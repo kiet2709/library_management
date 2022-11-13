@@ -16,6 +16,7 @@ namespace LibraryManagement.GUI
     public partial class FrmDocGia : Form
     {
         DocGiaBUS docGiaBUS = new DocGiaBUS();
+        int id;
         public FrmDocGia()
         {
             InitializeComponent();
@@ -48,6 +49,27 @@ namespace LibraryManagement.GUI
             Thread thread = new Thread(OpenFrmThemDocGia);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void dtgDocGia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = this.dtgDocGia.Rows[e.RowIndex];
+                id = Convert.ToInt32(row.Cells[0].Value);
+                if (e.ColumnIndex == this.edit.Index)
+                {
+                    this.Close();
+                    Thread thread = new Thread(OpenFrmSuaDocGia);
+                    thread.SetApartmentState(ApartmentState.STA);
+                    thread.Start();
+                }
+
+            }
+        }
+        private void OpenFrmSuaDocGia()
+        {
+            Application.Run(new FrmSuaDocGia(id));
         }
     }
 }
