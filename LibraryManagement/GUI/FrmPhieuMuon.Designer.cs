@@ -33,75 +33,75 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPhieuMuon));
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.viewCarGrid = new System.Windows.Forms.DataGridView();
+            this.vcg_phieuMuon = new System.Windows.Forms.DataGridView();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.sellCarPanel = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.sellCarPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vcg_phieuMuon)).BeginInit();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.sellCarPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.sellCarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // panel10
@@ -125,17 +125,17 @@
             this.label11.TabIndex = 49;
             this.label11.Text = "Thông tin sách";
             // 
-            // viewCarGrid
+            // vcg_phieuMuon
             // 
-            this.viewCarGrid.AllowUserToAddRows = false;
-            this.viewCarGrid.AllowUserToDeleteRows = false;
-            this.viewCarGrid.AllowUserToResizeColumns = false;
-            this.viewCarGrid.AllowUserToResizeRows = false;
-            this.viewCarGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.viewCarGrid.BackgroundColor = System.Drawing.Color.White;
-            this.viewCarGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.viewCarGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.viewCarGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.vcg_phieuMuon.AllowUserToAddRows = false;
+            this.vcg_phieuMuon.AllowUserToDeleteRows = false;
+            this.vcg_phieuMuon.AllowUserToResizeColumns = false;
+            this.vcg_phieuMuon.AllowUserToResizeRows = false;
+            this.vcg_phieuMuon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.vcg_phieuMuon.BackgroundColor = System.Drawing.Color.White;
+            this.vcg_phieuMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vcg_phieuMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.vcg_phieuMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -144,9 +144,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.viewCarGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.viewCarGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.vcg_phieuMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.vcg_phieuMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.vcg_phieuMuon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
             this.startDate,
             this.endDate,
@@ -161,67 +161,20 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.viewCarGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.viewCarGrid.EnableHeadersVisualStyles = false;
-            this.viewCarGrid.GridColor = System.Drawing.Color.White;
-            this.viewCarGrid.Location = new System.Drawing.Point(302, 186);
-            this.viewCarGrid.Margin = new System.Windows.Forms.Padding(4);
-            this.viewCarGrid.Name = "viewCarGrid";
-            this.viewCarGrid.ReadOnly = true;
-            this.viewCarGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.viewCarGrid.RowHeadersVisible = false;
-            this.viewCarGrid.RowHeadersWidth = 51;
-            this.viewCarGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.viewCarGrid.Size = new System.Drawing.Size(1110, 592);
-            this.viewCarGrid.TabIndex = 48;
-            // 
-            // CAR_ID
-            // 
-            this.CAR_ID.FillWeight = 35.80297F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // startDate
-            // 
-            this.startDate.FillWeight = 90.53038F;
-            this.startDate.HeaderText = "Ngày mượn";
-            this.startDate.MinimumWidth = 6;
-            this.startDate.Name = "startDate";
-            this.startDate.ReadOnly = true;
-            // 
-            // endDate
-            // 
-            this.endDate.FillWeight = 90.53038F;
-            this.endDate.HeaderText = "Ngày trả";
-            this.endDate.MinimumWidth = 6;
-            this.endDate.Name = "endDate";
-            this.endDate.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.FillWeight = 90.53038F;
-            this.status.HeaderText = "Trạng thái";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            // 
-            // fine
-            // 
-            this.fine.FillWeight = 90.53038F;
-            this.fine.HeaderText = "Tiền phạt";
-            this.fine.MinimumWidth = 6;
-            this.fine.Name = "fine";
-            this.fine.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.FillWeight = 61.4081F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
+            this.vcg_phieuMuon.DefaultCellStyle = dataGridViewCellStyle2;
+            this.vcg_phieuMuon.EnableHeadersVisualStyles = false;
+            this.vcg_phieuMuon.GridColor = System.Drawing.Color.White;
+            this.vcg_phieuMuon.Location = new System.Drawing.Point(302, 186);
+            this.vcg_phieuMuon.Margin = new System.Windows.Forms.Padding(4);
+            this.vcg_phieuMuon.Name = "vcg_phieuMuon";
+            this.vcg_phieuMuon.ReadOnly = true;
+            this.vcg_phieuMuon.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.vcg_phieuMuon.RowHeadersVisible = false;
+            this.vcg_phieuMuon.RowHeadersWidth = 51;
+            this.vcg_phieuMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.vcg_phieuMuon.Size = new System.Drawing.Size(1110, 592);
+            this.vcg_phieuMuon.TabIndex = 48;
+            this.vcg_phieuMuon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vcg_phieuMuon_CellClick);
             // 
             // panel9
             // 
@@ -246,6 +199,17 @@
             this.label8.Size = new System.Drawing.Size(109, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox9.Location = new System.Drawing.Point(333, 9);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(133, 89);
+            this.pictureBox9.TabIndex = 27;
+            this.pictureBox9.TabStop = false;
             // 
             // label10
             // 
@@ -286,6 +250,18 @@
             this.panel11.Size = new System.Drawing.Size(284, 120);
             this.panel11.TabIndex = 40;
             // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox11.Enabled = false;
+            this.pictureBox11.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox11.TabIndex = 29;
+            this.pictureBox11.TabStop = false;
+            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Transparent;
@@ -297,6 +273,18 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(0, 0);
             this.panel12.TabIndex = 38;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox12.Enabled = false;
+            this.pictureBox12.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox12.TabIndex = 29;
+            this.pictureBox12.TabStop = false;
             // 
             // label12
             // 
@@ -341,6 +329,18 @@
             this.panel7.Size = new System.Drawing.Size(286, 120);
             this.panel7.TabIndex = 40;
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox7.Enabled = false;
+            this.pictureBox7.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox7.TabIndex = 29;
+            this.pictureBox7.TabStop = false;
+            // 
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.Transparent;
@@ -352,6 +352,18 @@
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(0, 0);
             this.panel8.TabIndex = 38;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox8.Enabled = false;
+            this.pictureBox8.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox8.TabIndex = 29;
+            this.pictureBox8.TabStop = false;
             // 
             // label6
             // 
@@ -396,6 +408,18 @@
             this.panel5.Size = new System.Drawing.Size(284, 120);
             this.panel5.TabIndex = 39;
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Enabled = false;
+            this.pictureBox4.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.Transparent;
@@ -407,6 +431,18 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(0, 0);
             this.panel6.TabIndex = 38;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Enabled = false;
+            this.pictureBox5.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
             // 
             // label4
             // 
@@ -451,6 +487,18 @@
             this.panel3.Size = new System.Drawing.Size(296, 120);
             this.panel3.TabIndex = 38;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Enabled = false;
+            this.pictureBox2.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox2.TabIndex = 29;
+            this.pictureBox2.TabStop = false;
+            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
@@ -462,6 +510,18 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(0, 0);
             this.panel4.TabIndex = 38;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Enabled = false;
+            this.pictureBox3.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox3.TabIndex = 29;
+            this.pictureBox3.TabStop = false;
             // 
             // label2
             // 
@@ -506,6 +566,18 @@
             this.sellCarPanel.Size = new System.Drawing.Size(287, 120);
             this.sellCarPanel.TabIndex = 33;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Enabled = false;
+            this.pictureBox6.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox6.TabIndex = 29;
+            this.pictureBox6.TabStop = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -517,6 +589,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(0, 0);
             this.panel2.TabIndex = 38;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
             // 
             // label1
             // 
@@ -548,148 +632,6 @@
             this.label9.Text = "Sách";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(320, 116);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(84, 52);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 51;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Location = new System.Drawing.Point(333, 9);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(133, 89);
-            this.pictureBox9.TabIndex = 27;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox11.Enabled = false;
-            this.pictureBox11.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox11.TabIndex = 29;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.BackgroundImage")));
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox12.Enabled = false;
-            this.pictureBox12.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox12.TabIndex = 29;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox7.Enabled = false;
-            this.pictureBox7.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox7.TabIndex = 29;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox8.Enabled = false;
-            this.pictureBox8.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox8.TabIndex = 29;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Enabled = false;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox4.TabIndex = 29;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Enabled = false;
-            this.pictureBox5.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox5.TabIndex = 29;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Enabled = false;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox3.TabIndex = 29;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox6.TabIndex = 29;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
             // backBtn
             // 
             this.backBtn.BackColor = System.Drawing.Color.Transparent;
@@ -705,6 +647,66 @@
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(320, 116);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(84, 52);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 51;
+            this.pictureBox10.TabStop = false;
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.FillWeight = 35.80297F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // startDate
+            // 
+            this.startDate.FillWeight = 90.53038F;
+            this.startDate.HeaderText = "Ngày mượn";
+            this.startDate.MinimumWidth = 6;
+            this.startDate.Name = "startDate";
+            this.startDate.ReadOnly = true;
+            // 
+            // endDate
+            // 
+            this.endDate.FillWeight = 90.53038F;
+            this.endDate.HeaderText = "Hạn trả";
+            this.endDate.MinimumWidth = 6;
+            this.endDate.Name = "endDate";
+            this.endDate.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.FillWeight = 90.53038F;
+            this.status.HeaderText = "Trạng thái";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // fine
+            // 
+            this.fine.FillWeight = 90.53038F;
+            this.fine.HeaderText = "Tiền phạt";
+            this.fine.MinimumWidth = 6;
+            this.fine.Name = "fine";
+            this.fine.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.FillWeight = 61.4081F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            // 
             // FrmPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -713,47 +715,47 @@
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.viewCarGrid);
+            this.Controls.Add(this.vcg_phieuMuon);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Name = "FrmPhieuMuon";
             this.Text = "FrmPhieuMuon";
-            ((System.ComponentModel.ISupportInitialize)(this.viewCarGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vcg_phieuMuon)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.sellCarPanel.ResumeLayout(false);
             this.sellCarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -764,7 +766,7 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.DataGridView viewCarGrid;
+        private System.Windows.Forms.DataGridView vcg_phieuMuon;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox9;
@@ -795,17 +797,17 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fine;
-        private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.PictureBox pictureBox11;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn startDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn endDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fine;
+        private System.Windows.Forms.DataGridViewButtonColumn edit;
     }
 }

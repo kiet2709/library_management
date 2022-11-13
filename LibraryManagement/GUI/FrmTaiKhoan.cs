@@ -122,6 +122,11 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmSach());
         }
 
+        private void OpenFrmPhieuMuon()
+        {
+            Application.Run(new FrmPhieuMuon());
+        }
+
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -161,6 +166,14 @@ namespace LibraryManagement.GUI
         {
             this.Close();
             Thread thread = new Thread(OpenFrmSach);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmPhieuMuon);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,6 +46,7 @@
     <Compile Include="BUS\DocGiaBUS.cs" />
     <Compile Include="BUS\DauSachBUS.cs" />
     <Compile Include="BUS\HoSoBUS.cs" />
+    <Compile Include="BUS\MuonBUS.cs" />
     <Compile Include="BUS\NgonNguBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\NhaXuatBanBUS.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\DauSachDAL.cs" />
     <Compile Include="DAL\HoSoDAO.cs" />
+    <Compile Include="DAL\MuonDAL.cs" />
     <Compile Include="DAL\NgonNguDAL.cs" />
     <Compile Include="DAL\NhanVienDAO.cs" />
     <Compile Include="DAL\NhaXuatBanDAL.cs" />
@@ -70,6 +72,8 @@
     <Compile Include="DTO\ChiTietDauSachDTO.cs" />
     <Compile Include="DTO\DanhSachNgonNguDTO.cs" />
     <Compile Include="DTO\DanhSachNXBDTO.cs" />
+    <Compile Include="DTO\DanhSachPhieuMuonDTO.cs" />
+    <Compile Include="DTO\DanhSachSachMuonDTO.cs" />
     <Compile Include="DTO\DanhSachTacGiaDTO.cs" />
     <Compile Include="DTO\DanhSachTheLoaiDTO.cs" />
     <Compile Include="DTO\HoSoQuanLyDTO.cs" />
@@ -92,6 +96,10 @@
     <Compile Include="GUI\FrmChiTietNhaXuatBan.Designer.cs">
       <DependentUpon>FrmChiTietNhaXuatBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTO\MuonSachDTO.cs" />
+    <Compile Include="DTO\PhieuMuonDTO.cs" />
+    <Compile Include="DTO\SachQuanLyDTO.cs" />
+    <Compile Include="DTO\Service.cs" />
     <Compile Include="GUI\FrmChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>

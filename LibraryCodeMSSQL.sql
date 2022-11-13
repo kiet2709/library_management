@@ -799,6 +799,72 @@ BEGIN
 END
 GO
 
+
+CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
+@ID INT
+AS
+BEGIN
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat
+		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
+					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
+						JOIN DocGia ON maDocGia=DocGia.id
+			WHERE Muon.id=@ID		
+END
+GO
+
+CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
+@ID INT,
+@NGAYTRA DATE,
+@TIENPHAT INT
+AS
+BEGIN
+	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
+			WHERE id=@ID		
+END
+GO
+
+CREATE OR ALTER PROC usp_CAP_NHAT_MUON_SACH
+@MAMUON INT,
+@MASACH INT,
+@TRANGTHAI INT,
+@GHICHU NVARCHAR(50)
+AS
+BEGIN
+	UPDATE MuonSach SET trangthai=@TRANGTHAI, ghiChu=@GHICHU 
+			WHERE maMuon=@MAMUON AND maSach=@MASACH		
+END
+GO
+
+CREATE OR ALTER PROC usp_SACH_TRONG_PHIEU_MUON
+@MAMUON INT
+AS
+BEGIN
+	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
+							JOIN DauSach ON Sach.maDauSach=DauSach.id
+			WHERE maMuon=@MAMUON
+END
+GO
+
+CREATE OR ALTER PROC usp_PHIEU_MUON
+AS
+BEGIN
+	SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m
+END
+GO
+
+CREATE OR ALTER FUNCTION fn_Trang_Thai_Phieu_Muon(
+@ID_PHIEU_MUON INT
+)
+RETURNS INT
+AS
+BEGIN
+	DECLARE @NUMBER INT;
+	SELECT @NUMBER=COUNT(*) FROM MuonSach WHERE MuonSach.maMuon=@ID_PHIEU_MUON;
+	IF @NUMBER > 0 RETURN 0;
+	RETURN 1;
+END;
+GO
+
 -- procedure Xem toàn bộ thông tin nhân viên
 CREATE OR ALTER PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
 AS
@@ -1430,13 +1496,13 @@ INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
 
 
 
-INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',null,2,2);
-INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',null,3,3);
-INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',null,4,4);
-INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',null,1,1);
-INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',null,2,2);
-INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',null,3,3);
-INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',null,4,4);
+INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',20000,2,2);
+INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',25000,3,3);
+INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',150000,4,4);
+INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',50000,1,1);
+INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',22000,2,2);
+INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',35000,3,3);
+INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',53000,4,4);
 
 
 INSERT INTO tacgia_sach VALUES(1,1);

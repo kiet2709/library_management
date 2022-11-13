@@ -32,7 +32,6 @@ namespace LibraryManagement.DAL
 
         public int updateBookInfo(int id, ChiTietDauSachDTO chiTietDauSach)
         {
-            Console.WriteLine("4");
             Console.WriteLine(chiTietDauSach.NgonNgu);
             Console.WriteLine(chiTietDauSach.NhaXB);
             Console.WriteLine(chiTietDauSach.TheLoai);

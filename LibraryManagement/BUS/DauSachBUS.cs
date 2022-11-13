@@ -32,14 +32,12 @@ namespace LibraryManagement.BUS
 
         public int updateBookInfo(int id, ChiTietDauSachDTO chiTietDauSach, DanhSachTacGiaDTO danhSachTacGia)
         {
-            Console.WriteLine("3");
             if (dauSachDAL.updateBookInfo(id, chiTietDauSach) == 1 && updateAuthors(id, danhSachTacGia) == 1) return 1;
             return -1;
         }
 
         private int updateAuthors(int id, DanhSachTacGiaDTO danhSachTacGia)
         {
-            Console.WriteLine("5");
             DanhSachTacGiaDTO old = getAuthorOfBook(id);
             DanhSachTacGiaDTO del_list = old.OnlyThere(danhSachTacGia);
             DanhSachTacGiaDTO add_list = danhSachTacGia.OnlyThere(old);
