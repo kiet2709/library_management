@@ -356,6 +356,7 @@ namespace LibraryManagement.GUI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmXemChiTietDocGia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmQuanLyDocGia";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel5.ResumeLayout(false);

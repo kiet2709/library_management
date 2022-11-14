@@ -115,7 +115,7 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
             
 
-            String imagePath = @"C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
             hoSoQuanLyDTO.Hinhanh = imagePath;
      
 

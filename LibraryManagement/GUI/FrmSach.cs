@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -29,6 +30,21 @@ namespace LibraryManagement.GUI
         }
         void loadFormSach()
         {
+            if (Properties.Settings.Default.image != null
+               && Properties.Settings.Default.image != "")
+            {
+                using (FileStream fs = new FileStream(Properties.Settings.Default.image, FileMode.Open))
+                {
+                    pbAnh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
+
+            if (Properties.Settings.Default.username != null
+                && Properties.Settings.Default.username != "")
+            {
+                this.lblTenDangNhap.Text = Properties.Settings.Default.username;
+            }
             ArrayList sachs = sachBUS.getBook();
             //Object[] sachArrs = (SachQuanLyDTO[])sachs.ToArray();
             for (int i=0; i< sachs.Count; i++)
@@ -160,6 +176,33 @@ namespace LibraryManagement.GUI
             Thread thread = new Thread(OpenFrmChiTietSach);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.username = "";
+            Properties.Settings.Default.image = "";
+            this.Close();
+            Thread thread = new Thread(OpenFrmDangNhap);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenFrmDangNhap()
+        {
+            Application.Run(new FrmDangNhap());
+        }
+
+        private void pbAnh_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThongTinCaNhan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+        private void OpenFrmThongTinCaNhan()
+        {
+            Application.Run(new FrmThongTinCaNhan());
         }
     }
 }

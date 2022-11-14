@@ -201,6 +201,7 @@
             this.Controls.Add(this.pnlDangNhap);
             this.Controls.Add(this.pnlAnhDangNhap);
             this.Name = "FrmDangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.pnlAnhDangNhap.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();

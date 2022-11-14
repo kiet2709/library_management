@@ -518,6 +518,7 @@
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.label10);
             this.Name = "FrmCapNhatTaiKhoan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCapNhatTaiKhoan";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();

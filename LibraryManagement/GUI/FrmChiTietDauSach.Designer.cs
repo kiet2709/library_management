@@ -486,6 +486,7 @@ namespace LibraryManagement.GUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmChiTietDauSach";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChiTietDauSach";
             ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).EndInit();
             this.ResumeLayout(false);

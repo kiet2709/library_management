@@ -47,7 +47,7 @@ namespace LibraryManagement
         }
         void OpenFrmSach(object obj)
         {
-            Application.Run(new FrmTaiKhoan());
+            Application.Run(new FrmSach());
 
         }
     }

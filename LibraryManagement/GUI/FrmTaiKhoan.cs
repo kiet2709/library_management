@@ -117,15 +117,7 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmThemNhanVien());
         }
 
-        private void OpenFrmSach()
-        {
-            Application.Run(new FrmSach());
-        }
-
-        private void OpenFrmPhieuMuon()
-        {
-            Application.Run(new FrmPhieuMuon());
-        }
+      
 
         private void btnThemNhanVien_Click(object sender, EventArgs e)
         {
@@ -135,18 +127,7 @@ namespace LibraryManagement.GUI
             thread.Start();
         }
 
-        private void pbAnh_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread thread = new Thread(OpenFrmThongTinCaNhan);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-        }
-
-        private void OpenFrmThongTinCaNhan()
-        {
-            Application.Run(new FrmThongTinCaNhan());
-        }
+       
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
@@ -162,7 +143,61 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmDangNhap());
         }
-        private void sellCarPanel_Click(object sender, EventArgs e)
+      
+
+
+
+        private void pbAnh_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThongTinCaNhan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void OpenFrmThongTinCaNhan()
+        {
+            Application.Run(new FrmThongTinCaNhan());
+        }
+
+        private void OpenFrmSach()
+        {
+            Application.Run(new FrmSach());
+        }
+
+        private void OpenFrmTheLoai()
+        {
+            Application.Run(new FrmTheLoai());
+        }
+
+        private void OpenFrmNgonNgu()
+        {
+           Application.Run(new FrmNgonNgu());
+        }
+
+        private void OpenFrmNhaXuatBan()
+        {
+            Application.Run(new FrmNhaXuatBan());
+        }
+        private void OpenFrmTacGia()
+        {
+            Application.Run(new FrmTacGia());
+        }
+        private void OpenFrmTaiKhoan()
+        {
+            Application.Run(new FrmTaiKhoan());
+        }
+        private void OpenFrmPhieuMuon()
+        {
+            Application.Run(new FrmPhieuMuon());
+        }
+
+        private void OpenFrmDocGia()
+        {
+            Application.Run(new FrmDocGia());
+        }
+
+        private void btnFormSach_Click(object sender, EventArgs e)
         {
             this.Close();
             Thread thread = new Thread(OpenFrmSach);
@@ -170,12 +205,73 @@ namespace LibraryManagement.GUI
             thread.Start();
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void btnFormTheLoai_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTheLoai);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnNgonNgu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNgonNgu);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFormNhaXuatBan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNhaXuatBan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFormTacGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTacGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnPhieuMuon_Click(object sender, EventArgs e)
         {
             this.Close();
             Thread thread = new Thread(OpenFrmPhieuMuon);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmDocGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFormTaiKhoan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFormDocGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmDocGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblTenDangNhap_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

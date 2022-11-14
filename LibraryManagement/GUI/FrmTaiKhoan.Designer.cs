@@ -28,24 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTaiKhoan));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.sellCarPanel = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dtgvHoSo = new System.Windows.Forms.DataGridView();
             this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.company = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,250 +52,97 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.btnThemNhanVien = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.btnFormTacGia = new System.Windows.Forms.Panel();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.lblTacGia = new System.Windows.Forms.Label();
+            this.btnPhieuMuon = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnFormTaiKhoan = new System.Windows.Forms.Panel();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.btnNgonNgu = new System.Windows.Forms.Panel();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblNgonNgu = new System.Windows.Forms.Label();
+            this.btnFormDocGia = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnFormNhaXuatBan = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.panel18 = new System.Windows.Forms.Panel();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblFormNhaXuatBan = new System.Windows.Forms.Label();
+            this.btnFormSach = new System.Windows.Forms.Panel();
+            this.picFormSach = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblFormSach = new System.Windows.Forms.Label();
+            this.btnFormTheLoai = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblFormTheLoai = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.btnThemNhanVien = new System.Windows.Forms.Button();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.sellCarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHoSo)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            this.panel7.SuspendLayout();
+            this.btnFormTacGia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.panel16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
+            this.btnPhieuMuon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.btnFormTaiKhoan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.btnNgonNgu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            this.btnFormDocGia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.btnFormNhaXuatBan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.btnFormSach.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFormSach)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnFormTheLoai.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.pictureBox2);
-            this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.label3);
-            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel3.Location = new System.Drawing.Point(8, 263);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(296, 120);
-            this.panel3.TabIndex = 38;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Enabled = false;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox2.TabIndex = 29;
-            this.pictureBox2.TabStop = false;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Transparent;
-            this.panel4.Controls.Add(this.pictureBox3);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel4.Location = new System.Drawing.Point(0, 111);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(0, 0);
-            this.panel4.TabIndex = 38;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox3.Enabled = false;
-            this.pictureBox3.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox3.TabIndex = 29;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(117, 42);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 36);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Sách";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(117, 42);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 32);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Độc giả";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // sellCarPanel
-            // 
-            this.sellCarPanel.BackColor = System.Drawing.Color.Transparent;
-            this.sellCarPanel.Controls.Add(this.pictureBox6);
-            this.sellCarPanel.Controls.Add(this.panel2);
-            this.sellCarPanel.Controls.Add(this.label9);
-            this.sellCarPanel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.sellCarPanel.Location = new System.Drawing.Point(10, 135);
-            this.sellCarPanel.Margin = new System.Windows.Forms.Padding(4);
-            this.sellCarPanel.Name = "sellCarPanel";
-            this.sellCarPanel.Size = new System.Drawing.Size(287, 120);
-            this.sellCarPanel.TabIndex = 33;
-            this.sellCarPanel.Click += new System.EventHandler(this.sellCarPanel_Click);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox6.Enabled = false;
-            this.pictureBox6.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox6.TabIndex = 29;
-            this.pictureBox6.TabStop = false;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.Location = new System.Drawing.Point(0, 111);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(0, 0);
-            this.panel2.TabIndex = 38;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(117, 42);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 36);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Sách";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(117, 42);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 32);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "Sách";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(117, 42);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 36);
-            this.label4.TabIndex = 30;
-            this.label4.Text = "Sách";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Transparent;
-            this.panel6.Controls.Add(this.pictureBox5);
-            this.panel6.Controls.Add(this.label4);
-            this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel6.Location = new System.Drawing.Point(0, 111);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(0, 0);
-            this.panel6.TabIndex = 38;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox5.Enabled = false;
-            this.pictureBox5.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox5.TabIndex = 29;
-            this.pictureBox5.TabStop = false;
             // 
             // dtgvHoSo
             // 
@@ -323,15 +155,15 @@
             this.dtgvHoSo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgvHoSo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtgvHoSo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvHoSo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvHoSo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtgvHoSo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgvHoSo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
@@ -345,18 +177,18 @@
             this.NameC,
             this.Column4,
             this.edit});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvHoSo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvHoSo.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtgvHoSo.EnableHeadersVisualStyles = false;
             this.dtgvHoSo.GridColor = System.Drawing.Color.White;
-            this.dtgvHoSo.Location = new System.Drawing.Point(304, 253);
+            this.dtgvHoSo.Location = new System.Drawing.Point(359, 253);
             this.dtgvHoSo.Margin = new System.Windows.Forms.Padding(4);
             this.dtgvHoSo.Name = "dtgvHoSo";
             this.dtgvHoSo.ReadOnly = true;
@@ -364,7 +196,7 @@
             this.dtgvHoSo.RowHeadersVisible = false;
             this.dtgvHoSo.RowHeadersWidth = 51;
             this.dtgvHoSo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvHoSo.Size = new System.Drawing.Size(1245, 527);
+            this.dtgvHoSo.Size = new System.Drawing.Size(1480, 694);
             this.dtgvHoSo.TabIndex = 49;
             this.dtgvHoSo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvHoSo_CellContentClick);
             // 
@@ -482,27 +314,29 @@
             this.panel9.Controls.Add(this.label8);
             this.panel9.Controls.Add(this.pictureBox9);
             this.panel9.Controls.Add(this.label10);
-            this.panel9.Location = new System.Drawing.Point(304, 0);
+            this.panel9.Location = new System.Drawing.Point(359, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1245, 177);
+            this.panel9.Size = new System.Drawing.Size(1480, 177);
             this.panel9.TabIndex = 48;
             // 
             // lblTenDangNhap
             // 
             this.lblTenDangNhap.AutoSize = true;
             this.lblTenDangNhap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenDangNhap.Location = new System.Drawing.Point(849, 135);
+            this.lblTenDangNhap.Location = new System.Drawing.Point(1086, 141);
             this.lblTenDangNhap.Name = "lblTenDangNhap";
-            this.lblTenDangNhap.Size = new System.Drawing.Size(0, 23);
+            this.lblTenDangNhap.Size = new System.Drawing.Size(96, 23);
             this.lblTenDangNhap.TabIndex = 56;
+            this.lblTenDangNhap.Text = "username";
+            this.lblTenDangNhap.Click += new System.EventHandler(this.lblTenDangNhap_Click);
             // 
             // btnDangXuat
             // 
             this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(1015, 54);
+            this.btnDangXuat.Location = new System.Drawing.Point(1252, 60);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(181, 42);
             this.btnDangXuat.TabIndex = 55;
@@ -513,7 +347,7 @@
             // pbAnh
             // 
             this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAnh.Location = new System.Drawing.Point(841, 21);
+            this.pbAnh.Location = new System.Drawing.Point(1078, 27);
             this.pbAnh.Name = "pbAnh";
             this.pbAnh.Size = new System.Drawing.Size(134, 98);
             this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -529,7 +363,7 @@
             this.label8.Location = new System.Drawing.Point(603, 40);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(109, 32);
+            this.label8.Size = new System.Drawing.Size(108, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
@@ -559,10 +393,10 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel10.Location = new System.Drawing.Point(305, 241);
+            this.panel10.Location = new System.Drawing.Point(360, 241);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1223, 6);
+            this.panel10.Size = new System.Drawing.Size(1479, 6);
             this.panel10.TabIndex = 51;
             // 
             // label11
@@ -570,96 +404,60 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial Narrow", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(397, 198);
+            this.label11.Location = new System.Drawing.Point(452, 198);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(253, 40);
             this.label11.TabIndex = 50;
             this.label11.Text = "Thông tin tài khoản";
             // 
-            // panel5
+            // pictureBox10
             // 
-            this.panel5.BackColor = System.Drawing.Color.Transparent;
-            this.panel5.Controls.Add(this.pictureBox4);
-            this.panel5.Controls.Add(this.panel6);
-            this.panel5.Controls.Add(this.label5);
-            this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel5.Location = new System.Drawing.Point(12, 391);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(284, 120);
-            this.panel5.TabIndex = 39;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(360, 185);
+            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(84, 52);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 52;
+            this.pictureBox10.TabStop = false;
             // 
-            // pictureBox4
+            // btnThemNhanVien
             // 
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Enabled = false;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox4.TabIndex = 29;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(117, 42);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 32);
-            this.label5.TabIndex = 30;
-            this.label5.Text = "Thể loại";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnThemNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.btnThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemNhanVien.ForeColor = System.Drawing.Color.White;
+            this.btnThemNhanVien.Location = new System.Drawing.Point(1490, 189);
+            this.btnThemNhanVien.Name = "btnThemNhanVien";
+            this.btnThemNhanVien.Size = new System.Drawing.Size(312, 49);
+            this.btnThemNhanVien.TabIndex = 54;
+            this.btnThemNhanVien.Text = "Thêm nhân viên";
+            this.btnThemNhanVien.UseVisualStyleBackColor = false;
+            this.btnThemNhanVien.Click += new System.EventHandler(this.btnThemNhanVien_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel1.Controls.Add(this.panel11);
-            this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel5);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.sellCarPanel);
+            this.panel1.Controls.Add(this.panel12);
+            this.panel1.Controls.Add(this.btnFormTacGia);
+            this.panel1.Controls.Add(this.btnPhieuMuon);
+            this.panel1.Controls.Add(this.btnFormTaiKhoan);
+            this.panel1.Controls.Add(this.btnNgonNgu);
+            this.panel1.Controls.Add(this.btnFormDocGia);
+            this.panel1.Controls.Add(this.btnFormNhaXuatBan);
+            this.panel1.Controls.Add(this.btnFormSach);
+            this.panel1.Controls.Add(this.btnFormTheLoai);
             this.panel1.Controls.Add(this.backBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(302, 780);
-            this.panel1.TabIndex = 53;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.DimGray;
-            this.panel11.Controls.Add(this.pictureBox11);
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Controls.Add(this.label13);
-            this.panel11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel11.Location = new System.Drawing.Point(10, 647);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(284, 120);
-            this.panel11.TabIndex = 40;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox11.Enabled = false;
-            this.pictureBox11.Location = new System.Drawing.Point(16, 17);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox11.TabIndex = 29;
-            this.pictureBox11.TabStop = false;
+            this.panel1.Size = new System.Drawing.Size(355, 947);
+            this.panel1.TabIndex = 55;
             // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.Transparent;
+            this.panel12.Controls.Add(this.label15);
             this.panel12.Controls.Add(this.pictureBox12);
             this.panel12.Controls.Add(this.label12);
             this.panel12.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -668,6 +466,21 @@
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(0, 0);
             this.panel12.TabIndex = 38;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(117, 42);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(83, 36);
+            this.label15.TabIndex = 30;
+            this.label15.Text = "Sách";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox12
             // 
@@ -696,44 +509,94 @@
             this.label12.Text = "Sách";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
+            // btnFormTacGia
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(117, 42);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 32);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Tài khoản";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnFormTacGia.BackColor = System.Drawing.Color.Transparent;
+            this.btnFormTacGia.Controls.Add(this.pictureBox14);
+            this.btnFormTacGia.Controls.Add(this.panel16);
+            this.btnFormTacGia.Controls.Add(this.lblTacGia);
+            this.btnFormTacGia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormTacGia.Location = new System.Drawing.Point(4, 514);
+            this.btnFormTacGia.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormTacGia.Name = "btnFormTacGia";
+            this.btnFormTacGia.Size = new System.Drawing.Size(347, 91);
+            this.btnFormTacGia.TabIndex = 42;
+            this.btnFormTacGia.Click += new System.EventHandler(this.btnFormTacGia_Click);
             // 
-            // panel7
+            // pictureBox14
             // 
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.pictureBox7);
-            this.panel7.Controls.Add(this.panel8);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel7.Location = new System.Drawing.Point(10, 519);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(286, 120);
-            this.panel7.TabIndex = 40;
+            this.pictureBox14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.BackgroundImage")));
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox14.Enabled = false;
+            this.pictureBox14.Location = new System.Drawing.Point(5, 9);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox14.TabIndex = 41;
+            this.pictureBox14.TabStop = false;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.Transparent;
+            this.panel16.Controls.Add(this.pictureBox15);
+            this.panel16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel16.Location = new System.Drawing.Point(0, 111);
+            this.panel16.Margin = new System.Windows.Forms.Padding(4);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(0, 0);
+            this.panel16.TabIndex = 38;
+            // 
+            // pictureBox15
+            // 
+            this.pictureBox15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox15.BackgroundImage")));
+            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox15.Enabled = false;
+            this.pictureBox15.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox15.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox15.TabIndex = 29;
+            this.pictureBox15.TabStop = false;
+            // 
+            // lblTacGia
+            // 
+            this.lblTacGia.AutoSize = true;
+            this.lblTacGia.BackColor = System.Drawing.Color.Transparent;
+            this.lblTacGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTacGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTacGia.ForeColor = System.Drawing.Color.White;
+            this.lblTacGia.Location = new System.Drawing.Point(161, 29);
+            this.lblTacGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTacGia.Name = "lblTacGia";
+            this.lblTacGia.Size = new System.Drawing.Size(107, 32);
+            this.lblTacGia.TabIndex = 30;
+            this.lblTacGia.Text = "Tác giả";
+            this.lblTacGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnPhieuMuon
+            // 
+            this.btnPhieuMuon.BackColor = System.Drawing.Color.Transparent;
+            this.btnPhieuMuon.Controls.Add(this.pictureBox7);
+            this.btnPhieuMuon.Controls.Add(this.panel8);
+            this.btnPhieuMuon.Controls.Add(this.label7);
+            this.btnPhieuMuon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPhieuMuon.Location = new System.Drawing.Point(0, 811);
+            this.btnPhieuMuon.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPhieuMuon.Name = "btnPhieuMuon";
+            this.btnPhieuMuon.Size = new System.Drawing.Size(351, 91);
+            this.btnPhieuMuon.TabIndex = 40;
+            this.btnPhieuMuon.Click += new System.EventHandler(this.btnPhieuMuon_Click);
             // 
             // pictureBox7
             // 
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox7.Enabled = false;
-            this.pictureBox7.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox7.Location = new System.Drawing.Point(6, 13);
             this.pictureBox7.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(92, 86);
-            this.pictureBox7.TabIndex = 29;
+            this.pictureBox7.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox7.TabIndex = 44;
             this.pictureBox7.TabStop = false;
             // 
             // panel8
@@ -782,14 +645,452 @@
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(117, 42);
+            this.label7.Location = new System.Drawing.Point(130, 29);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(167, 32);
+            this.label7.Size = new System.Drawing.Size(166, 32);
             this.label7.TabIndex = 30;
             this.label7.Text = "Phiếu Mượn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // btnFormTaiKhoan
+            // 
+            this.btnFormTaiKhoan.BackColor = System.Drawing.Color.DimGray;
+            this.btnFormTaiKhoan.Controls.Add(this.pictureBox11);
+            this.btnFormTaiKhoan.Controls.Add(this.label13);
+            this.btnFormTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormTaiKhoan.Location = new System.Drawing.Point(0, 712);
+            this.btnFormTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormTaiKhoan.Name = "btnFormTaiKhoan";
+            this.btnFormTaiKhoan.Size = new System.Drawing.Size(351, 91);
+            this.btnFormTaiKhoan.TabIndex = 40;
+            this.btnFormTaiKhoan.Click += new System.EventHandler(this.btnFormTaiKhoan_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox11.Enabled = false;
+            this.pictureBox11.Location = new System.Drawing.Point(8, 14);
+            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox11.TabIndex = 43;
+            this.pictureBox11.TabStop = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(149, 22);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(139, 32);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Tài khoản";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnNgonNgu
+            // 
+            this.btnNgonNgu.BackColor = System.Drawing.Color.Transparent;
+            this.btnNgonNgu.Controls.Add(this.pictureBox18);
+            this.btnNgonNgu.Controls.Add(this.panel14);
+            this.btnNgonNgu.Controls.Add(this.lblNgonNgu);
+            this.btnNgonNgu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNgonNgu.Location = new System.Drawing.Point(4, 316);
+            this.btnNgonNgu.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNgonNgu.Name = "btnNgonNgu";
+            this.btnNgonNgu.Size = new System.Drawing.Size(347, 91);
+            this.btnNgonNgu.TabIndex = 41;
+            this.btnNgonNgu.Click += new System.EventHandler(this.btnNgonNgu_Click);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox18.BackgroundImage")));
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox18.Enabled = false;
+            this.pictureBox18.Location = new System.Drawing.Point(5, 11);
+            this.pictureBox18.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox18.TabIndex = 39;
+            this.pictureBox18.TabStop = false;
+            // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.Transparent;
+            this.panel14.Controls.Add(this.pictureBox13);
+            this.panel14.Controls.Add(this.label9);
+            this.panel14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel14.Location = new System.Drawing.Point(0, 111);
+            this.panel14.Margin = new System.Windows.Forms.Padding(4);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(0, 0);
+            this.panel14.TabIndex = 38;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.BackgroundImage")));
+            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox13.Enabled = false;
+            this.pictureBox13.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox13.TabIndex = 29;
+            this.pictureBox13.TabStop = false;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(117, 42);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(83, 36);
+            this.label9.TabIndex = 30;
+            this.label9.Text = "Sách";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblNgonNgu
+            // 
+            this.lblNgonNgu.AutoSize = true;
+            this.lblNgonNgu.BackColor = System.Drawing.Color.Transparent;
+            this.lblNgonNgu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNgonNgu.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNgonNgu.ForeColor = System.Drawing.Color.White;
+            this.lblNgonNgu.Location = new System.Drawing.Point(147, 29);
+            this.lblNgonNgu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNgonNgu.Name = "lblNgonNgu";
+            this.lblNgonNgu.Size = new System.Drawing.Size(137, 32);
+            this.lblNgonNgu.TabIndex = 30;
+            this.lblNgonNgu.Text = "Ngôn ngữ";
+            this.lblNgonNgu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnFormDocGia
+            // 
+            this.btnFormDocGia.BackColor = System.Drawing.Color.Transparent;
+            this.btnFormDocGia.Controls.Add(this.pictureBox2);
+            this.btnFormDocGia.Controls.Add(this.panel4);
+            this.btnFormDocGia.Controls.Add(this.label3);
+            this.btnFormDocGia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormDocGia.Location = new System.Drawing.Point(4, 613);
+            this.btnFormDocGia.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormDocGia.Name = "btnFormDocGia";
+            this.btnFormDocGia.Size = new System.Drawing.Size(347, 91);
+            this.btnFormDocGia.TabIndex = 38;
+            this.btnFormDocGia.Click += new System.EventHandler(this.btnFormDocGia_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox2.Enabled = false;
+            this.pictureBox2.Location = new System.Drawing.Point(5, 13);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox2.TabIndex = 42;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.pictureBox3);
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel4.Location = new System.Drawing.Point(0, 111);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(0, 0);
+            this.panel4.TabIndex = 38;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox3.Enabled = false;
+            this.pictureBox3.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox3.TabIndex = 29;
+            this.pictureBox3.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(117, 42);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(83, 36);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Sách";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(158, 22);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 32);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Độc giả";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnFormNhaXuatBan
+            // 
+            this.btnFormNhaXuatBan.BackColor = System.Drawing.Color.Transparent;
+            this.btnFormNhaXuatBan.Controls.Add(this.pictureBox6);
+            this.btnFormNhaXuatBan.Controls.Add(this.panel18);
+            this.btnFormNhaXuatBan.Controls.Add(this.lblFormNhaXuatBan);
+            this.btnFormNhaXuatBan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormNhaXuatBan.Location = new System.Drawing.Point(4, 415);
+            this.btnFormNhaXuatBan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormNhaXuatBan.Name = "btnFormNhaXuatBan";
+            this.btnFormNhaXuatBan.Size = new System.Drawing.Size(347, 91);
+            this.btnFormNhaXuatBan.TabIndex = 43;
+            this.btnFormNhaXuatBan.Click += new System.EventHandler(this.btnFormNhaXuatBan_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox6.Enabled = false;
+            this.pictureBox6.Location = new System.Drawing.Point(5, 11);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox6.TabIndex = 40;
+            this.pictureBox6.TabStop = false;
+            // 
+            // panel18
+            // 
+            this.panel18.BackColor = System.Drawing.Color.Transparent;
+            this.panel18.Controls.Add(this.pictureBox17);
+            this.panel18.Controls.Add(this.label17);
+            this.panel18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel18.Location = new System.Drawing.Point(0, 111);
+            this.panel18.Margin = new System.Windows.Forms.Padding(4);
+            this.panel18.Name = "panel18";
+            this.panel18.Size = new System.Drawing.Size(0, 0);
+            this.panel18.TabIndex = 38;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.BackgroundImage")));
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox17.Enabled = false;
+            this.pictureBox17.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox17.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox17.TabIndex = 29;
+            this.pictureBox17.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(117, 42);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(83, 36);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Sách";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFormNhaXuatBan
+            // 
+            this.lblFormNhaXuatBan.AutoSize = true;
+            this.lblFormNhaXuatBan.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormNhaXuatBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFormNhaXuatBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormNhaXuatBan.ForeColor = System.Drawing.Color.White;
+            this.lblFormNhaXuatBan.Location = new System.Drawing.Point(126, 29);
+            this.lblFormNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFormNhaXuatBan.Name = "lblFormNhaXuatBan";
+            this.lblFormNhaXuatBan.Size = new System.Drawing.Size(182, 32);
+            this.lblFormNhaXuatBan.TabIndex = 30;
+            this.lblFormNhaXuatBan.Text = "Nhà xuất bản";
+            this.lblFormNhaXuatBan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnFormSach
+            // 
+            this.btnFormSach.Controls.Add(this.picFormSach);
+            this.btnFormSach.Controls.Add(this.panel2);
+            this.btnFormSach.Controls.Add(this.lblFormSach);
+            this.btnFormSach.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormSach.Location = new System.Drawing.Point(4, 118);
+            this.btnFormSach.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormSach.Name = "btnFormSach";
+            this.btnFormSach.Size = new System.Drawing.Size(347, 91);
+            this.btnFormSach.TabIndex = 33;
+            this.btnFormSach.Click += new System.EventHandler(this.btnFormSach_Click);
+            // 
+            // picFormSach
+            // 
+            this.picFormSach.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("picFormSach.BackgroundImage")));
+            this.picFormSach.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picFormSach.Enabled = false;
+            this.picFormSach.Location = new System.Drawing.Point(6, 11);
+            this.picFormSach.Margin = new System.Windows.Forms.Padding(4);
+            this.picFormSach.Name = "picFormSach";
+            this.picFormSach.Size = new System.Drawing.Size(92, 68);
+            this.picFormSach.TabIndex = 29;
+            this.picFormSach.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.pictureBox1);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel2.Location = new System.Drawing.Point(0, 111);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(0, 0);
+            this.panel2.TabIndex = 38;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Enabled = false;
+            this.pictureBox1.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(117, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 36);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Sách";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFormSach
+            // 
+            this.lblFormSach.AutoSize = true;
+            this.lblFormSach.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormSach.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFormSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormSach.ForeColor = System.Drawing.Color.White;
+            this.lblFormSach.Location = new System.Drawing.Point(175, 30);
+            this.lblFormSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFormSach.Name = "lblFormSach";
+            this.lblFormSach.Size = new System.Drawing.Size(79, 32);
+            this.lblFormSach.TabIndex = 30;
+            this.lblFormSach.Text = "Sách";
+            this.lblFormSach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnFormTheLoai
+            // 
+            this.btnFormTheLoai.BackColor = System.Drawing.Color.Transparent;
+            this.btnFormTheLoai.Controls.Add(this.pictureBox4);
+            this.btnFormTheLoai.Controls.Add(this.panel6);
+            this.btnFormTheLoai.Controls.Add(this.lblFormTheLoai);
+            this.btnFormTheLoai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormTheLoai.Location = new System.Drawing.Point(4, 217);
+            this.btnFormTheLoai.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormTheLoai.Name = "btnFormTheLoai";
+            this.btnFormTheLoai.Size = new System.Drawing.Size(347, 91);
+            this.btnFormTheLoai.TabIndex = 39;
+            this.btnFormTheLoai.Click += new System.EventHandler(this.btnFormTheLoai_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox4.Enabled = false;
+            this.pictureBox4.Location = new System.Drawing.Point(5, 10);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(92, 68);
+            this.pictureBox4.TabIndex = 29;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Transparent;
+            this.panel6.Controls.Add(this.pictureBox5);
+            this.panel6.Controls.Add(this.label4);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel6.Location = new System.Drawing.Point(0, 111);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(0, 0);
+            this.panel6.TabIndex = 38;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox5.Enabled = false;
+            this.pictureBox5.Location = new System.Drawing.Point(16, 17);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(92, 86);
+            this.pictureBox5.TabIndex = 29;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(117, 42);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 36);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Sách";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblFormTheLoai
+            // 
+            this.lblFormTheLoai.AutoSize = true;
+            this.lblFormTheLoai.BackColor = System.Drawing.Color.Transparent;
+            this.lblFormTheLoai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFormTheLoai.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTheLoai.ForeColor = System.Drawing.Color.White;
+            this.lblFormTheLoai.Location = new System.Drawing.Point(164, 29);
+            this.lblFormTheLoai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblFormTheLoai.Name = "lblFormTheLoai";
+            this.lblFormTheLoai.Size = new System.Drawing.Size(116, 32);
+            this.lblFormTheLoai.TabIndex = 30;
+            this.lblFormTheLoai.Text = "Thể loại";
+            this.lblFormTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // backBtn
             // 
@@ -799,90 +1100,83 @@
             this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backBtn.FlatAppearance.BorderSize = 0;
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(12, 4);
+            this.backBtn.Location = new System.Drawing.Point(20, 13);
             this.backBtn.Margin = new System.Windows.Forms.Padding(4);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(277, 134);
+            this.backBtn.Size = new System.Drawing.Size(256, 89);
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(305, 185);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(84, 52);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox10.TabIndex = 52;
-            this.pictureBox10.TabStop = false;
-            // 
-            // btnThemNhanVien
-            // 
-            this.btnThemNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.btnThemNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThemNhanVien.ForeColor = System.Drawing.Color.White;
-            this.btnThemNhanVien.Location = new System.Drawing.Point(1174, 185);
-            this.btnThemNhanVien.Name = "btnThemNhanVien";
-            this.btnThemNhanVien.Size = new System.Drawing.Size(317, 49);
-            this.btnThemNhanVien.TabIndex = 54;
-            this.btnThemNhanVien.Text = "Thêm nhân viên";
-            this.btnThemNhanVien.UseVisualStyleBackColor = false;
-            this.btnThemNhanVien.Click += new System.EventHandler(this.btnThemNhanVien_Click);
             // 
             // FrmTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1554, 780);
-            this.Controls.Add(this.btnThemNhanVien);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.dtgvHoSo);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.panel10);
-            this.Controls.Add(this.label11);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1869, 947);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnThemNhanVien);
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.dtgvHoSo);
             this.Name = "FrmTaiKhoan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTaiKhoan";
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.sellCarPanel.ResumeLayout(false);
-            this.sellCarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvHoSo)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.btnFormTacGia.ResumeLayout(false);
+            this.btnFormTacGia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            this.panel16.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
+            this.btnPhieuMuon.ResumeLayout(false);
+            this.btnPhieuMuon.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.btnFormTaiKhoan.ResumeLayout(false);
+            this.btnFormTaiKhoan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.btnNgonNgu.ResumeLayout(false);
+            this.btnNgonNgu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            this.btnFormDocGia.ResumeLayout(false);
+            this.btnFormDocGia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.btnFormNhaXuatBan.ResumeLayout(false);
+            this.btnFormNhaXuatBan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel18.ResumeLayout(false);
+            this.panel18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            this.btnFormSach.ResumeLayout(false);
+            this.btnFormSach.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFormSach)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.btnFormTheLoai.ResumeLayout(false);
+            this.btnFormTheLoai.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,45 +1185,13 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel sellCarPanel;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView dtgvHoSo;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnThemNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn company;
@@ -945,5 +1207,55 @@
         private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.Label lblTenDangNhap;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel btnFormTacGia;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.PictureBox pictureBox15;
+        private System.Windows.Forms.Label lblTacGia;
+        private System.Windows.Forms.Panel btnPhieuMuon;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel btnFormTaiKhoan;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel btnNgonNgu;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNgonNgu;
+        private System.Windows.Forms.Panel btnFormDocGia;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel btnFormNhaXuatBan;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Panel panel18;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblFormNhaXuatBan;
+        private System.Windows.Forms.Panel btnFormSach;
+        private System.Windows.Forms.PictureBox picFormSach;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFormSach;
+        private System.Windows.Forms.Panel btnFormTheLoai;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblFormTheLoai;
+        private System.Windows.Forms.Button backBtn;
     }
 }

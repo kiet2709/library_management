@@ -81,6 +81,7 @@
             this.ClientSize = new System.Drawing.Size(660, 264);
             this.Controls.Add(this.pnlThemTheLoai);
             this.Name = "FrmThemNgonNgu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmThemNgonNgu";
             this.pnlThemTheLoai.ResumeLayout(false);
             this.pnlThemTheLoai.PerformLayout();

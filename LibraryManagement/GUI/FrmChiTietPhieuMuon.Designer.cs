@@ -29,8 +29,8 @@ namespace LibraryManagement.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmChiTietPhieuMuon));
             this.label10 = new System.Windows.Forms.Label();
             this.txt_mssv = new System.Windows.Forms.TextBox();
@@ -41,6 +41,11 @@ namespace LibraryManagement.GUI
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.vcg_phieuMuon = new System.Windows.Forms.DataGridView();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.daTra = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.ghiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dtp_ngayMuon = new System.Windows.Forms.DateTimePicker();
             this.dtp_ngayTra = new System.Windows.Forms.DateTimePicker();
             this.btn_back = new System.Windows.Forms.Button();
@@ -53,11 +58,6 @@ namespace LibraryManagement.GUI
             this.txt_tienPhat = new System.Windows.Forms.TextBox();
             this.btn_huy = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.daTra = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.ghiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.vcg_phieuMuon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,15 +151,15 @@ namespace LibraryManagement.GUI
             this.vcg_phieuMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.vcg_phieuMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.vcg_phieuMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vcg_phieuMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vcg_phieuMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.vcg_phieuMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vcg_phieuMuon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
@@ -167,15 +167,15 @@ namespace LibraryManagement.GUI
             this.startDate,
             this.daTra,
             this.ghiChu});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vcg_phieuMuon.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vcg_phieuMuon.DefaultCellStyle = dataGridViewCellStyle2;
             this.vcg_phieuMuon.EnableHeadersVisualStyles = false;
             this.vcg_phieuMuon.GridColor = System.Drawing.Color.White;
             this.vcg_phieuMuon.Location = new System.Drawing.Point(13, 374);
@@ -187,6 +187,46 @@ namespace LibraryManagement.GUI
             this.vcg_phieuMuon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.vcg_phieuMuon.Size = new System.Drawing.Size(987, 270);
             this.vcg_phieuMuon.TabIndex = 62;
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.FillWeight = 35.80297F;
+            this.CAR_ID.HeaderText = "STT";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // fine
+            // 
+            this.fine.FillWeight = 90.53038F;
+            this.fine.HeaderText = "Mã sách";
+            this.fine.MinimumWidth = 6;
+            this.fine.Name = "fine";
+            this.fine.ReadOnly = true;
+            // 
+            // startDate
+            // 
+            this.startDate.FillWeight = 180F;
+            this.startDate.HeaderText = "Tên sách";
+            this.startDate.MinimumWidth = 6;
+            this.startDate.Name = "startDate";
+            this.startDate.ReadOnly = true;
+            // 
+            // daTra
+            // 
+            this.daTra.DataPropertyName = "daTra";
+            this.daTra.HeaderText = "Đã trả";
+            this.daTra.MinimumWidth = 6;
+            this.daTra.Name = "daTra";
+            this.daTra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ghiChu
+            // 
+            this.ghiChu.DataPropertyName = "ghiChu";
+            this.ghiChu.FillWeight = 120F;
+            this.ghiChu.HeaderText = "Ghi chú";
+            this.ghiChu.MinimumWidth = 6;
+            this.ghiChu.Name = "ghiChu";
             // 
             // dtp_ngayMuon
             // 
@@ -315,46 +355,6 @@ namespace LibraryManagement.GUI
             this.btn_luu.UseVisualStyleBackColor = false;
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
-            // CAR_ID
-            // 
-            this.CAR_ID.FillWeight = 35.80297F;
-            this.CAR_ID.HeaderText = "STT";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // fine
-            // 
-            this.fine.FillWeight = 90.53038F;
-            this.fine.HeaderText = "Mã sách";
-            this.fine.MinimumWidth = 6;
-            this.fine.Name = "fine";
-            this.fine.ReadOnly = true;
-            // 
-            // startDate
-            // 
-            this.startDate.FillWeight = 180F;
-            this.startDate.HeaderText = "Tên sách";
-            this.startDate.MinimumWidth = 6;
-            this.startDate.Name = "startDate";
-            this.startDate.ReadOnly = true;
-            // 
-            // daTra
-            // 
-            this.daTra.DataPropertyName = "daTra";
-            this.daTra.HeaderText = "Đã trả";
-            this.daTra.MinimumWidth = 6;
-            this.daTra.Name = "daTra";
-            this.daTra.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ghiChu
-            // 
-            this.ghiChu.DataPropertyName = "ghiChu";
-            this.ghiChu.FillWeight = 120F;
-            this.ghiChu.HeaderText = "Ghi chú";
-            this.ghiChu.MinimumWidth = 6;
-            this.ghiChu.Name = "ghiChu";
-            // 
             // FrmChiTietPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,6 +382,7 @@ namespace LibraryManagement.GUI
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmChiTietPhieuMuon";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChiTietPhieuMuon";
             this.Load += new System.EventHandler(this.FrmChiTietPhieuMuon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.vcg_phieuMuon)).EndInit();

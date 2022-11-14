@@ -62,9 +62,9 @@
             this.pbAnh = new System.Windows.Forms.PictureBox();
             this.btnThemAnh = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.rbNhanVien = new System.Windows.Forms.RadioButton();
             this.rbQuanLy = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -402,16 +402,6 @@
             this.panel5.Size = new System.Drawing.Size(292, 146);
             this.panel5.TabIndex = 129;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 35);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Vai trò:";
-            // 
             // rbNhanVien
             // 
             this.rbNhanVien.AutoSize = true;
@@ -435,6 +425,16 @@
             this.rbQuanLy.TabStop = true;
             this.rbQuanLy.Text = "Quản lý";
             this.rbQuanLy.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 59);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(106, 35);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "Vai trò:";
             // 
             // FrmThemNhanVien
             // 
@@ -467,6 +467,7 @@
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.label10);
             this.Name = "FrmThemNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmThemNhanVien";
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

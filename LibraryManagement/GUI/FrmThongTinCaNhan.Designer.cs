@@ -402,6 +402,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSDT);
             this.Name = "FrmThongTinCaNhan";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmThongTinCaNhan";
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
