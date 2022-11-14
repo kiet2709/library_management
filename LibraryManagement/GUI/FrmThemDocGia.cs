@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.BUS;
 using LibraryManagement.DTO;
+using LibraryManagement.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,9 +55,10 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null)
                 {
-                    String imagePath = @"C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\uploads\docGia\" + result + ".png";
-                    image.Save(imagePath);
-                    addDocGiaDTO.HinhAnh = imagePath;
+                    string imagePath = AppConstant.getDirectory(result, "docGia");
+                    string fullImagePath = AppConstant.getFullDirectory(imagePath);
+                    image.Save(fullImagePath);// full url differ from machine
+                    addDocGiaDTO.HinhAnh = imagePath; // save just project folder image
                     docGiaBUS.saveImage(addDocGiaDTO.HinhAnh, result);
                 }
                 MessageBox.Show("Thêm thành công");

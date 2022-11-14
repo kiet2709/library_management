@@ -756,6 +756,7 @@ BEGIN
 END
 GO
 
+-- procedure thêm hình ảnh nhân viên
 CREATE PROC usp_Them_Hinh_Anh_Nhan_Vien
 @ID INT,
 @HINHANH NVARCHAR(100)
@@ -765,6 +766,7 @@ BEGIN
 END;
 GO
 
+--procedure cập nhật thông tin đầu sách
 CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_DAU_SACH
 @ID INT,
 @TIEUDE NVARCHAR(30),
@@ -785,7 +787,18 @@ BEGIN
 END
 GO
 
+-- procedure sửa hình ảnh đầu sách
+CREATE OR ALTER PROC usp_Sua_Hinh_Anh_Dau_Sach
+@ID INT,
+@HINHANH NVARCHAR(1000)
+AS
+BEGIN
+	UPDATE DauSach SET hinhAnh = @HINHANH
+			WHERE id=@ID		
+END
+GO
 
+-- procedure thông tin phiếu mượn
 CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
 @ID INT
 AS
@@ -798,6 +811,7 @@ BEGIN
 END
 GO
 
+-- procedure cập nhật thông tin phiếu mượn
 CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
 @ID INT,
 @NGAYTRA DATE,
@@ -1533,3 +1547,5 @@ INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
 INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
 INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
 INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
+
+select * from dausach

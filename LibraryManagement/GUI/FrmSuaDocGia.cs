@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.BUS;
 using LibraryManagement.Model;
+using LibraryManagement.Utils;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -60,7 +61,8 @@ namespace LibraryManagement.GUI
 
             if (docgia.HinhAnh != null && docgia.HinhAnh != "")
             {
-                using (FileStream fs = new FileStream(docgia.HinhAnh, FileMode.Open))
+                string fullImagePath = AppConstant.getFullDirectory(docgia.HinhAnh);
+                using (FileStream fs = new FileStream(fullImagePath, FileMode.Open))
                 {
                     pbAnh.Image = Image.FromStream(fs);
                     fs.Close();
@@ -108,7 +110,7 @@ namespace LibraryManagement.GUI
             }
             docgia.Sdt= txtSdt.Text;
             docgia.Email = txtEmail.Text;
-            String imagePath = @"C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\uploads\nhanVien\" + docgia.Id + ".png";
+            string imagePath = AppConstant.getDirectory(docgia.Id, "docGia");
             docgia.HinhAnh = imagePath;
             int result = docGiaBUS.updateDocGia(docgia);
             if (result == 0)
@@ -119,19 +121,15 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
-
+                    string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
-                    if (File.Exists(imagePath))
+                    if (File.Exists(fullImagePath))
                     {
-                        File.Delete(imagePath);
+                        File.Delete(fullImagePath);
 
                     }
-                    image.Save(imagePath);
+                    image.Save(fullImagePath);
 
-                    if (Properties.Settings.Default.image == "")
-                    {
-                        Properties.Settings.Default.image = imagePath;
-                    }
 
                 }
                 MessageBox.Show("Sửa thành công");

@@ -266,6 +266,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QuanLyThuVienDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Utils\AppConstant.cs" />
     <Compile Include="Utils\ImageUpload.cs" />
     <EmbeddedResource Include="GUI\FrmChiTietNgonNgu.resx">
       <DependentUpon>FrmChiTietNgonNgu.cs</DependentUpon>
@@ -390,6 +391,7 @@
     <None Include="images\Password.PNG" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="uploads\dauSach\" />
     <Folder Include="uploads\docGia\" />
     <Folder Include="uploads\nhanVien\" />
   </ItemGroup>

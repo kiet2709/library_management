@@ -1,5 +1,6 @@
 ﻿using LibraryManagement.BUS;
 using LibraryManagement.DTO;
+using LibraryManagement.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -81,7 +82,9 @@ namespace LibraryManagement.GUI
 
             if (hoSoQuanLyDTO.Hinhanh != null && hoSoQuanLyDTO.Hinhanh != "")
             {
-                using (FileStream fs = new FileStream(hoSoQuanLyDTO.Hinhanh, FileMode.Open))
+
+                string fullImagePath =  AppConstant.getFullDirectory(hoSoQuanLyDTO.Hinhanh);
+                using (FileStream fs = new FileStream(fullImagePath, FileMode.Open))
                 {
                     pbAnh.Image = Image.FromStream(fs);
                     fs.Close();
@@ -115,8 +118,7 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
             
 
-            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
-            hoSoQuanLyDTO.Hinhanh = imagePath;
+            string imagePath = AppConstant.getDirectory(hoSoQuanLyDTO.Id, "nhanVien");            hoSoQuanLyDTO.Hinhanh = imagePath;
      
 
             if (this.rbNhanVien.Checked)
@@ -162,18 +164,18 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
-                    
+                    string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
-                    if (File.Exists(imagePath))
+                    if (File.Exists(fullImagePath))
                     {
-                        File.Delete(imagePath);
+                        File.Delete(fullImagePath);
                         
                     }
-                    image.Save(imagePath);
+                    image.Save(fullImagePath);
 
                     if(Properties.Settings.Default.image == "")
                     {
-                        Properties.Settings.Default.image = imagePath;
+                        Properties.Settings.Default.image = fullImagePath;
                     }
 
                 }

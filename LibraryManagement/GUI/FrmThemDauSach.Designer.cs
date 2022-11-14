@@ -56,10 +56,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
-            this.pb_anh = new System.Windows.Forms.PictureBox();
+            this.pbAnh = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cb_tacGia = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_gia
@@ -81,6 +81,7 @@
             this.btn_themAnh.TabIndex = 165;
             this.btn_themAnh.Text = "Thêm";
             this.btn_themAnh.UseVisualStyleBackColor = false;
+            this.btn_themAnh.Click += new System.EventHandler(this.btn_themAnh_Click);
             // 
             // label3
             // 
@@ -373,13 +374,15 @@
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // pb_anh
+            // pbAnh
             // 
-            this.pb_anh.Location = new System.Drawing.Point(62, 111);
-            this.pb_anh.Name = "pb_anh";
-            this.pb_anh.Size = new System.Drawing.Size(288, 250);
-            this.pb_anh.TabIndex = 144;
-            this.pb_anh.TabStop = false;
+            this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAnh.Location = new System.Drawing.Point(62, 111);
+            this.pbAnh.Name = "pbAnh";
+            this.pbAnh.Size = new System.Drawing.Size(288, 250);
+            this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAnh.TabIndex = 144;
+            this.pbAnh.TabStop = false;
             // 
             // label2
             // 
@@ -427,7 +430,7 @@
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.cb_theLoai);
             this.Controls.Add(this.btn_huy);
-            this.Controls.Add(this.pb_anh);
+            this.Controls.Add(this.pbAnh);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_tenSach);
@@ -438,7 +441,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FrmThemDauSach";
             this.Text = "FrmThemDauSach";
-            ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,7 +469,7 @@
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.ComboBox cb_theLoai;
         private System.Windows.Forms.Button btn_huy;
-        private System.Windows.Forms.PictureBox pb_anh;
+        private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button btn_luu;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_tenSach;

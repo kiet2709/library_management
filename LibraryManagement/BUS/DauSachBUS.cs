@@ -88,21 +88,26 @@ namespace LibraryManagement.BUS
         internal int save(ChiTietDauSachDTO chiTietDauSach, DanhSachTacGiaDTO danhSachTacGia)
         {
             DataTable resultDauSach = dauSachDAL.save(chiTietDauSach);
-            int kq;
+            int maDauSach;
             try
             {
-                int maDauSach =  Convert.ToInt32( resultDauSach.Rows[0][0]);
+                maDauSach =  Convert.ToInt32( resultDauSach.Rows[0][0]);
                 for (int i=0; i<danhSachTacGia.ListTacGia.Count; i++)
                 {
                     int resultTacGia = dauSachDAL.saveAuthorBook(maDauSach, danhSachTacGia.ListTacGia[i].Id);
                 }
-                kq = 1;
+                return maDauSach;
             }
             catch
             {
-                kq = 0;
+                maDauSach = 0;
             }
-            return kq;
+            return maDauSach;
+        }
+
+        internal void saveImage(string imagePath, int result)
+        {
+            dauSachDAL.saveImage(imagePath, result);
         }
     }
 }

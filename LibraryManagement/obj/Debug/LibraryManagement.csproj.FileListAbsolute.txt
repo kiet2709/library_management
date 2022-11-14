@@ -152,3 +152,4 @@ C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\ob
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhaXuatBan.resources
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThongTinCaNhan.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemDauSach.resources

@@ -52,5 +52,13 @@ namespace LibraryManagement.DAL
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maDauSach , id});
             return result;
         }
+
+        internal void saveImage(string imagePath, int id)
+        {
+            string query = "usp_Sua_Hinh_Anh_Dau_Sach @ID , @HINHANH";
+            Console.WriteLine(imagePath);
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { Convert.ToInt32(id), imagePath });
+
+        }
     }
 }

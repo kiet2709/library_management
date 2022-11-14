@@ -216,5 +216,44 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmThemDauSach(new FrmSach()));
         }
+
+        private void btnFormDocGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmDocGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        void OpenFrmDocGia()
+        {
+            Application.Run(new FrmDocGia());
+        }
+
+        private void btnFormTaiKhoan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        void OpenFrmTaiKhoan()
+        {
+            Application.Run(new FrmTaiKhoan());
+        }
+
+        private void btnFormPhieuMuon_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmPhieuMuon);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        void OpenFrmPhieuMuon()
+        {
+            Application.Run(new FrmPhieuMuon());
+        }
     }
 }

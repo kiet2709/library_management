@@ -75,9 +75,10 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null)
                 {
-                    String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + result + ".png";
-                    image.Save(imagePath);
-                    hoSoQuanLyDTO.Hinhanh = imagePath;
+                    string imagePath = AppConstant.getDirectory(result, "nhanVien");
+                    string fullImagePage = AppConstant.getFullDirectory(imagePath);
+                    image.Save(fullImagePage); // full url differ from machine
+                    hoSoQuanLyDTO.Hinhanh = imagePath; // save just project folder image
                     hoSoBUS.saveImage(hoSoQuanLyDTO.Hinhanh, result);
                 }
 

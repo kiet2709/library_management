@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using LibraryManagement.BUS;
 using LibraryManagement.DTO;
 using LibraryManagement.Model;
+using LibraryManagement.Utils;
 
 namespace LibraryManagement.GUI
 {
@@ -28,7 +30,8 @@ namespace LibraryManagement.GUI
         private DanhSachNgonNguDTO danhSachNgonNgu;
         private DanhSachTheLoaiDTO danhSachTheLoai;
         private DanhSachNXBDTO danhSachNXB;
-
+        OpenFileDialog open = new OpenFileDialog();
+        private Image image;
         public object OpenFrmChiTietSach { get; private set; }
 
         public FrmChiTietDauSach(int id, Form backFrm)
@@ -42,6 +45,17 @@ namespace LibraryManagement.GUI
         private void LoadData()
         {
             chiTietDauSach = dauSachBUS.getBookInfo(id);
+            if (chiTietDauSach.HinhAnh != null && chiTietDauSach.HinhAnh != "")
+            {
+
+                string fullImagePath = AppConstant.getFullDirectory(chiTietDauSach.HinhAnh);
+                using (FileStream fs = new FileStream(fullImagePath, FileMode.Open))
+                {
+                    pbAnh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
+
             txt_moTa.Text = chiTietDauSach.MoTa;
             txt_tenSach.Text = chiTietDauSach.TieuDe;
             cb_danhMuc.SelectedIndex = Convert.ToInt32(chiTietDauSach.DanhMuc);
@@ -154,7 +168,13 @@ namespace LibraryManagement.GUI
 
         private void btn_themAnh_Click(object sender, EventArgs e)
         {
-           
+            open.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;*.png)|*.jpg;*.jpeg;.*.gif;*.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                image = Image.FromFile(open.FileName);
+                pbAnh.Image = image;
+
+            }
         }
 
         private void loadTacGia()
@@ -185,6 +205,7 @@ namespace LibraryManagement.GUI
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
+            string imagePath = "";
             try
             {
                 chiTietDauSach.TieuDe = txt_tenSach.Text;
@@ -196,7 +217,8 @@ namespace LibraryManagement.GUI
                 chiTietDauSach.NgayXB = dtp_ngayXB.Value;
                 chiTietDauSach.TrangThai = Convert.ToInt32(cb_trangThai.Text);
                 chiTietDauSach.Gia = Convert.ToInt32(txt_gia.Text);
-                chiTietDauSach.HinhAnh = "";
+                imagePath = AppConstant.getDirectory(this.id, "dauSach");
+                chiTietDauSach.HinhAnh = imagePath;
             }
             catch
             {
@@ -204,12 +226,26 @@ namespace LibraryManagement.GUI
                 return;
             }
             int result = dauSachBUS.updateBookInfo(id, chiTietDauSach, danhSachTacGia);
-            if(result == 1)
-            {
-                MessageBox.Show("Cập nhật thành công");
-            }else
+            if(result == -1)
             {
                 MessageBox.Show("Cập nhật thất bại");
+            }
+            else
+            {
+                if (open.FileName != null && open.FileName != "")
+                {
+                    string fullImagePath = AppConstant.getFullDirectory(imagePath);
+                    // delete and save again
+                    if (File.Exists(fullImagePath))
+                    {
+                        File.Delete(fullImagePath);
+
+                    }
+                    image.Save(fullImagePath);
+                }
+
+                MessageBox.Show("Cập nhật thành công");
+               
             }
             LoadData();
         }

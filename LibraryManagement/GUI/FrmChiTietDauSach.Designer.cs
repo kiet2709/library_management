@@ -63,8 +63,8 @@ namespace LibraryManagement.GUI
             this.label13 = new System.Windows.Forms.Label();
             this.txt_gia = new System.Windows.Forms.TextBox();
             this.btn_back = new System.Windows.Forms.Button();
-            this.pb_anh = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).BeginInit();
+            this.pbAnh = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_luu
@@ -438,13 +438,15 @@ namespace LibraryManagement.GUI
             this.btn_back.UseVisualStyleBackColor = false;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
-            // pb_anh
+            // pbAnh
             // 
-            this.pb_anh.Location = new System.Drawing.Point(46, 113);
-            this.pb_anh.Name = "pb_anh";
-            this.pb_anh.Size = new System.Drawing.Size(288, 250);
-            this.pb_anh.TabIndex = 60;
-            this.pb_anh.TabStop = false;
+            this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbAnh.Location = new System.Drawing.Point(46, 113);
+            this.pbAnh.Name = "pbAnh";
+            this.pbAnh.Size = new System.Drawing.Size(288, 250);
+            this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbAnh.TabIndex = 60;
+            this.pbAnh.TabStop = false;
             // 
             // FrmChiTietDauSach
             // 
@@ -475,7 +477,7 @@ namespace LibraryManagement.GUI
             this.Controls.Add(this.cb_theLoai);
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.txt_soLuong);
-            this.Controls.Add(this.pb_anh);
+            this.Controls.Add(this.pbAnh);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_tenSach);
@@ -488,14 +490,14 @@ namespace LibraryManagement.GUI
             this.Name = "FrmChiTietDauSach";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChiTietDauSach";
-            ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox pb_anh;
+        private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button btn_luu;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_tenSach;

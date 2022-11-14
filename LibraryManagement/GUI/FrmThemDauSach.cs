@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.BUS;
 using LibraryManagement.DTO;
 using LibraryManagement.Model;
+using LibraryManagement.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +28,8 @@ namespace LibraryManagement.GUI
         private DanhSachNgonNguDTO danhSachNgonNgu;
         private DanhSachTheLoaiDTO danhSachTheLoai;
         private DanhSachNXBDTO danhSachNXB;
+        OpenFileDialog open = new OpenFileDialog();
+        private Image image;
         public FrmThemDauSach(Form backFrm)
         {
             this.backFrm = backFrm;
@@ -173,17 +176,26 @@ namespace LibraryManagement.GUI
                 return;
             }
             int result = dauSachBUS.save(chiTietDauSach, danhSachTacGia);
-            if (result == 1)
+            if (result == 0)
             {
+                MessageBox.Show("Thêm thất bại");
+            }
+            else
+            {
+                if (open.FileName != null)
+                {
+                    string imagePath = AppConstant.getDirectory(result, "dauSach");
+                    string fullImagePath = AppConstant.getFullDirectory(imagePath);
+                    image.Save(fullImagePath);// full url differ from machine
+                    chiTietDauSach.HinhAnh = imagePath;// save just project folder image
+                    dauSachBUS.saveImage(imagePath, result);
+                }
                 MessageBox.Show("Thêm thành công");
                 this.Close();
                 Thread thread = new Thread(OpenFrmSach);
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
-            }
-            else
-            {
-                MessageBox.Show("Thêm thất bại");
+                
             }
             LoadData();
         }
@@ -202,6 +214,16 @@ namespace LibraryManagement.GUI
         void OpenFrmSach()
         {
             Application.Run(new FrmSach());
+        }
+
+        private void btn_themAnh_Click(object sender, EventArgs e)
+        {
+            open.Filter = "Image Files (*.jpg;*.jpeg;.*.gif;*.png)|*.jpg;*.jpeg;.*.gif;*.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                image = Image.FromFile(open.FileName);
+                pbAnh.Image = image;
+            }
         }
     }
 }
