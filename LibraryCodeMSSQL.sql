@@ -200,7 +200,7 @@ CREATE TABLE TheLoai
   id INT IDENTITY(1,1),
   ten NVARCHAR(50) NOT NULL,
   CONSTRAINT PK_TheLoai PRIMARY KEY(id),
-  CONSTRAINT CHK_TheLoai CHECK (ten NOT LIKE '%[^a-zA-Z ]%')
+  CONSTRAINT CHK_TheLoai CHECK (ten LIKE '%[a-zA-Z ]%')
 );
 GO
 
@@ -211,7 +211,7 @@ CREATE TABLE NgonNgu
   id INT IDENTITY(1,1),
   ten NVARCHAR(20) NOT NULL,
   CONSTRAINT PK_NgonNgu PRIMARY KEY(id),
-  CONSTRAINT CHK_NgonNgu CHECK (ten NOT LIKE '%[^a-zA-Z ]%')
+  CONSTRAINT CHK_NgonNgu CHECK (ten LIKE '%[a-zA-Z ]%')
 
 );
 GO
@@ -223,7 +223,7 @@ CREATE TABLE TacGia
   id INT IDENTITY(1,1),
   ten NVARCHAR(50) NOT NULL,
   CONSTRAINT PK_TacGia PRIMARY KEY(id),
-  CONSTRAINT CHK_TacGia CHECK (ten NOT LIKE '%[^a-zA-Z ]%')
+  CONSTRAINT CHK_TacGia CHECK (ten LIKE '%[a-zA-Z ]%')
 );
 GO
 
@@ -304,8 +304,10 @@ CREATE TABLE HoSo
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
+  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%'))
 );
 GO
+
 
 
 
@@ -320,7 +322,7 @@ CREATE TABLE NhanVien
   maHoSo INT NOT NULL,
   CONSTRAINT PK_NhanVien PRIMARY KEY(id),
   CONSTRAINT FK_HoSo_NhanVien FOREIGN KEY (maHoSo) REFERENCES HoSo(id),
-  CONSTRAINT CHK_NhanVien CHECK (DATALENGTH(matkhau) >= 8 AND (tenDangNhap LIKE '%[a-zA-Z ]%') 
+  CONSTRAINT CHK_NhanVien CHECK (LEN(matkhau) >= 8 AND (tenDangNhap LIKE '%[a-zA-Z ]%') 
 									AND (trangthai = 0 OR trangthai =1))
 );
 GO
@@ -751,24 +753,6 @@ BEGIN
 		WHERE NhanVien.tenDangNhap = @TENDANGNHAP;
 END
 GO
-/*
-select * from vaitro_nhanvien
-select * from hoso
-EXEC usp_Them_Thong_Tin_Nhan_Vien
-@TEN = 'a',
-@HO = 'a',
-@DIACHI = 'a',
-@SODT = 'a',
-@HINHANH = 'a',
-@EMAIL = 'a',
-@GIOITINH = 1,
-@NGAYSINH = '06-06-2002',
-@LUONG = 123,
-@TENTK = 'a',
-@MK = 'aaaaaaaaaaaaaaaaaaa',
-@TRANGTHAI = 1 
-*/
--- procedure cập nhật ảnh nhân viên
 
 CREATE PROC usp_Them_Hinh_Anh_Nhan_Vien
 @ID INT,
@@ -1483,7 +1467,7 @@ INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giớ
 INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,3,3,3,3);
 INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','',0,4,3,4,4);
 
-INSERT INTO HoSo VALUES(N'Khải', N'Nguyễn',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
+INSERT INTO HoSo VALUES(N'Khai', N'Nguyen',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
 INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
 INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
@@ -1532,7 +1516,6 @@ INSERT INTO Sach VALUES(1,'Kệ 2',4);
 INSERT INTO Sach VALUES(0,'Kệ 2',4);
 INSERT INTO Sach VALUES(-1,'Kệ 2',4);
 INSERT INTO Sach VALUES(1,'Kệ 2',4);
-
 
 INSERT INTO MuonSach VALUES(1,1,'ghi chu 1', 1);
 INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);

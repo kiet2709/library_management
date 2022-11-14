@@ -55,7 +55,12 @@ CREATE TABLE DocGia
   ten NVARCHAR(50) NOT NULL,
   mssv NVARCHAR(10),
   khoa NVARCHAR(30),
+  gioitinh INT,
   trangthai INT NOT NULL,
+  ngaySinh DATE,
+  soDT NVARCHAR(10),
+  email NVARCHAR(30),
+  hinhAnh NVARCHAR(1000),
   CONSTRAINT PK_DocGia PRIMARY KEY(id)
 );
 
@@ -89,8 +94,10 @@ CREATE TABLE HoSo
   diachi NVARCHAR(200),
   soDT NVARCHAR(10),
   hinhanh NVARCHAR(100),
-  email NVARCHAR(100) NOT NULL,
+  email NVARCHAR(100) NOT NULL UNIQUE,
+  gioiTinh INT NOT NULL,
   ngaysinh Date,
+  luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id)
 );
 
@@ -102,7 +109,6 @@ CREATE TABLE NhanVien
   matkhau NVARCHAR(100) NOT NULL,
   trangthai INT NOT NULL,
   maHoSo INT NOT NULL,
-  luong INT,
   CONSTRAINT PK_NhanVien PRIMARY KEY(id),
   CONSTRAINT FK_HoSo_NhanVien FOREIGN KEY (maHoSo) REFERENCES HoSo(id)
 );
@@ -113,7 +119,7 @@ CREATE TABLE Muon
   id INT AUTO_INCREMENT,
   ngaymuon DATE NOT NULL,
   ngaytra DATE,
-  trangthai INT NOT NULL,
+  ngayhethan DATE,
   tienphat INT,
   maNhanVien INT NOT NULL,
   maDocGia INT NOT NULL,
@@ -155,8 +161,8 @@ CREATE TABLE Sach
 
 CREATE TABLE MuonSach
 (
-  ngayhethan DATE,
-  ngaytra INT NOT NULL,
+  ghiChu NVARCHAR(50),
+  trangthai INT NOT NULL,
   maSach INT NOT NULL,
   maMuon INT NOT NULL,
   CONSTRAINT PK_MuonSach PRIMARY KEY (maSach, maMuon),
