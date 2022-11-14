@@ -125,4 +125,4 @@ C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDoiMatKhau.resources
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTheLoai.resources
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSuaDocGia.resources
-
+C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSuaDocGia.resources

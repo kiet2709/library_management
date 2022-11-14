@@ -17,7 +17,7 @@ namespace LibraryManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmSach());
+            Application.Run(new FrmTaiKhoan());
         }
     }
 }

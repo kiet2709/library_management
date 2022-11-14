@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\LibraryManagement",
-    "\\LibraryManagement\\BUS",
-    "\\LibraryManagement\\DAL",
-    "\\LibraryManagement\\GUI",
-    "\\LibraryManagement\\Model"
+    "\\LibraryManagement\\DAL"
   ],
-<<<<<<< HEAD
-=======
-  "SelectedNode": "\\LibraryManagement\\DAL\\DocGiaDAO.cs",
->>>>>>> 08257623341d38f0e8b97248cb94671e918fbaf1
+  "SelectedNode": "\\LibraryManagement\\DAL\\TacGiaDAL.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -255,17 +255,15 @@ namespace LibraryManagement.GUI
             this.dtgSach.TabIndex = 42;
             this.dtgSach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgSach_CellClick);
             // 
-<<<<<<< HEAD
-=======
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.panel1.Controls.Add(this.panel15);
+            this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel11);
-            this.panel1.Controls.Add(this.panel13);
+            this.panel1.Controls.Add(this.panel11);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.panel17);
+            this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.btnFormSach);
             this.panel1.Controls.Add(this.btnFormTheLoai);
             this.panel1.Controls.Add(this.backBtn);
@@ -556,16 +554,16 @@ namespace LibraryManagement.GUI
             // 
             // panel13
             // 
-            this.panel13.BackColor = System.Drawing.Color.Transparent;
-            this.panel13.Controls.Add(this.pictureBox18);
-            this.panel13.Controls.Add(this.panel14);
-            this.panel13.Controls.Add(this.label14);
-            this.panel13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel13.Location = new System.Drawing.Point(4, 316);
-            this.panel13.Margin = new System.Windows.Forms.Padding(4);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(347, 91);
-            this.panel13.TabIndex = 41;
+            this.panel10.BackColor = System.Drawing.Color.Transparent;
+            this.panel10.Controls.Add(this.pictureBox18);
+            this.panel10.Controls.Add(this.panel14);
+            this.panel10.Controls.Add(this.label10);
+            this.panel10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel10.Location = new System.Drawing.Point(4, 316);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
+            this.panel10.Name = "panel13";
+            this.panel10.Size = new System.Drawing.Size(347, 91);
+            this.panel10.TabIndex = 41;
             // 
             // panel14
             // 
@@ -596,31 +594,31 @@ namespace LibraryManagement.GUI
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(147, 29);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 32);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Ngôn ngữ";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(147, 29);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label14";
+            this.label10.Size = new System.Drawing.Size(137, 32);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "Ngôn ngữ";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel15
             // 
-            this.panel15.BackColor = System.Drawing.Color.Transparent;
-            this.panel15.Controls.Add(this.pictureBox14);
-            this.panel15.Controls.Add(this.panel16);
-            this.panel15.Controls.Add(this.label16);
-            this.panel15.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel15.Location = new System.Drawing.Point(4, 514);
-            this.panel15.Margin = new System.Windows.Forms.Padding(4);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(347, 91);
-            this.panel15.TabIndex = 42;
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
+            this.panel12.Controls.Add(this.pictureBox14);
+            this.panel12.Controls.Add(this.panel16);
+            this.panel12.Controls.Add(this.label15);
+            this.panel12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel12.Location = new System.Drawing.Point(4, 514);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Name = "panel15";
+            this.panel12.Size = new System.Drawing.Size(347, 91);
+            this.panel12.TabIndex = 42;
             // 
             // panel16
             // 
@@ -651,31 +649,31 @@ namespace LibraryManagement.GUI
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(161, 29);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 32);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "Tác giả";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(161, 29);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label16";
+            this.label13.Size = new System.Drawing.Size(107, 32);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Tác giả";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel17
             // 
-            this.panel17.BackColor = System.Drawing.Color.Transparent;
-            this.panel17.Controls.Add(this.pictureBox6);
-            this.panel17.Controls.Add(this.panel18);
-            this.panel17.Controls.Add(this.label18);
-            this.panel17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel17.Location = new System.Drawing.Point(4, 415);
-            this.panel17.Margin = new System.Windows.Forms.Padding(4);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(347, 91);
-            this.panel17.TabIndex = 43;
+            this.panel12.BackColor = System.Drawing.Color.Transparent;
+            this.panel12.Controls.Add(this.pictureBox6);
+            this.panel12.Controls.Add(this.panel18);
+            this.panel12.Controls.Add(this.label12);
+            this.panel12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panel12.Location = new System.Drawing.Point(4, 415);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
+            this.panel12.Name = "panel17";
+            this.panel12.Size = new System.Drawing.Size(347, 91);
+            this.panel12.TabIndex = 43;
             // 
             // panel18
             // 
@@ -706,20 +704,19 @@ namespace LibraryManagement.GUI
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(126, 29);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(182, 32);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Nhà xuất bản";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(126, 29);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Name = "label18";
+            this.label17.Size = new System.Drawing.Size(182, 32);
+            this.label17.TabIndex = 30;
+            this.label17.Text = "Nhà xuất bản";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
->>>>>>> 08257623341d38f0e8b97248cb94671e918fbaf1
             // CAR_ID
             // 
             this.CAR_ID.FillWeight = 58.04787F;
