@@ -66,7 +66,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnFormTaiKhoan = new System.Windows.Forms.Panel();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pbUser = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
             this.btnNgonNgu = new System.Windows.Forms.Panel();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
@@ -116,7 +116,7 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.btnFormTaiKhoan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.btnNgonNgu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.panel14.SuspendLayout();
@@ -600,7 +600,7 @@
             // 
             // btnFormTaiKhoan
             // 
-            this.btnFormTaiKhoan.Controls.Add(this.pictureBox11);
+            this.btnFormTaiKhoan.Controls.Add(this.pbUser);
             this.btnFormTaiKhoan.Controls.Add(this.label13);
             this.btnFormTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFormTaiKhoan.Location = new System.Drawing.Point(0, 712);
@@ -610,17 +610,17 @@
             this.btnFormTaiKhoan.TabIndex = 40;
             this.btnFormTaiKhoan.Click += new System.EventHandler(this.btnFormTaiKhoan_Click);
             // 
-            // pictureBox11
+            // pbUser
             // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox11.Enabled = false;
-            this.pictureBox11.Location = new System.Drawing.Point(8, 14);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(92, 68);
-            this.pictureBox11.TabIndex = 43;
-            this.pictureBox11.TabStop = false;
+            this.pbUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUser.BackgroundImage")));
+            this.pbUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbUser.Enabled = false;
+            this.pbUser.Location = new System.Drawing.Point(8, 14);
+            this.pbUser.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(92, 68);
+            this.pbUser.TabIndex = 43;
+            this.pbUser.TabStop = false;
             // 
             // label13
             // 
@@ -1090,7 +1090,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.btnFormTaiKhoan.ResumeLayout(false);
             this.btnFormTaiKhoan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.btnNgonNgu.ResumeLayout(false);
             this.btnNgonNgu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
@@ -1159,7 +1159,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel btnFormTaiKhoan;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pbUser;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel btnNgonNgu;
         private System.Windows.Forms.PictureBox pictureBox18;

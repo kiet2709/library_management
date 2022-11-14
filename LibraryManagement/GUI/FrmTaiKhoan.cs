@@ -30,7 +30,17 @@ namespace LibraryManagement.GUI
         private void loadData()
         {
 
-            if(Properties.Settings.Default.image != null 
+            if (Properties.Settings.Default.role != null
+             && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Thủ thư")
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào mục này");
+                this.Close();
+                Thread thread = new Thread(OpenFrmSach);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+
+            if (Properties.Settings.Default.image != null 
                 && Properties.Settings.Default.image != "")
             {
                 using (FileStream fs = new FileStream(Properties.Settings.Default.image, FileMode.Open))

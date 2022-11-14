@@ -25,6 +25,14 @@ namespace LibraryManagement.GUI
         }
         void LoadData()
         {
+
+            if (Properties.Settings.Default.role != null
+             && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Thủ thư")
+            {
+                this.pbUser.Enabled = false;
+                this.btnFormTaiKhoan.Enabled = false;
+            }
+
             if (Properties.Settings.Default.image != null
                && Properties.Settings.Default.image != "")
             {

@@ -25,6 +25,14 @@ namespace LibraryManagement.GUI
         }
         void LoadData()
         {
+
+            if (Properties.Settings.Default.role != null
+              && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Thủ thư")
+            {
+                this.pbUser.Enabled = false;
+                this.btnFormTaiKhoan.Enabled = false;
+            }
+
             if (Properties.Settings.Default.image != null
                && Properties.Settings.Default.image != "")
             {
@@ -40,6 +48,9 @@ namespace LibraryManagement.GUI
             {
                 this.lblTenDangNhap.Text = Properties.Settings.Default.username;
             }
+
+           
+
             ArrayList theloais = tacGiaBUS.getTacGia();
             for (int i = 0; i < theloais.Count; i++)
             {
@@ -159,13 +170,7 @@ namespace LibraryManagement.GUI
             thread.Start();
         }
 
-        private void tbnFormTaiKhoan_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread thread = new Thread(OpenFrmTaiKhoan);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-        }
+    
 
         private void btnFormPhieuMuon_Click(object sender, EventArgs e)
         {
@@ -209,6 +214,14 @@ namespace LibraryManagement.GUI
         private void lblTenDangNhap_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnFormTaiKhoan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
         }
     }
 }

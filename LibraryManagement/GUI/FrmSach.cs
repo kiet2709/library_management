@@ -45,6 +45,14 @@ namespace LibraryManagement.GUI
             {
                 this.lblTenDangNhap.Text = Properties.Settings.Default.username;
             }
+
+            if (Properties.Settings.Default.role != null
+                && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Thủ thư")
+            {
+                this.pbUser.Enabled = false;
+                this.btnFormTaiKhoan.Enabled = false;
+            }
+
             ArrayList sachs = sachBUS.getBook();
             //Object[] sachArrs = (SachQuanLyDTO[])sachs.ToArray();
             for (int i=0; i< sachs.Count; i++)

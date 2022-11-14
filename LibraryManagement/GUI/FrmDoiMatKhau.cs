@@ -37,9 +37,16 @@ namespace LibraryManagement.GUI
                 doiMatKhauDTO.MatKhauMoi = txtMatKhauMoi.Text;
                 int result =  nhanVienBUS.updatePassword(doiMatKhauDTO);
                 Console.WriteLine(result);  
-                if(result == -1 || result == 0)
+                if(result == 0)
                 {
                     MessageBox.Show("Mật khẩu cũ không đúng");
+                    this.txtMatKhauMoi.Text = "";
+                    this.txtMatKhauNhapLai.Text = "";
+                    this.txtMatKhauCu.Text = "";
+                }
+                else if(result == -1)
+                {
+                    MessageBox.Show("Mật khẩu mới không hợp lệ");
                     this.txtMatKhauMoi.Text = "";
                     this.txtMatKhauNhapLai.Text = "";
                     this.txtMatKhauCu.Text = "";

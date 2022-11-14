@@ -32,8 +32,16 @@ namespace LibraryManagement
             if (result == -1)
             {
                 MessageBox.Show("Không tồn tại tài khoản hoặc tài khoản nhập sai, vui lòng đăng nhập lại!!!");
-            } else if (result == 1 || result == 2)
+            } else 
             {
+                if (result == 1 )
+                {
+                    Properties.Settings.Default.role = "Quản lý";
+                }
+                else
+                {
+                    Properties.Settings.Default.role = "Thủ thư";
+                }
                 string username = txtTenDangNhap.Text;
                 String image = dangNhapBUS.getImageByUsername(username);
                 Properties.Settings.Default.username = username;

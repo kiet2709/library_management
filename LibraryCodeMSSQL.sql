@@ -319,12 +319,12 @@ CREATE TABLE NhanVien
 (
   id INT IDENTITY(1,1),
   tenDangNhap NVARCHAR(30) NOT NULL UNIQUE,
-  matkhau NVARCHAR(100) NOT NULL,
+  matkhau VARBINARY(128) NOT NULL,
   trangthai INT NOT NULL,
   maHoSo INT NOT NULL,
   CONSTRAINT PK_NhanVien PRIMARY KEY(id),
   CONSTRAINT FK_HoSo_NhanVien FOREIGN KEY (maHoSo) REFERENCES HoSo(id),
-  CONSTRAINT CHK_NhanVien CHECK (LEN(matkhau) >= 8 AND (tenDangNhap LIKE '%[a-zA-Z ]%') 
+  CONSTRAINT CHK_NhanVien CHECK ((tenDangNhap LIKE '%[a-zA-Z ]%') 
 									AND (trangthai = 0 OR trangthai =1))
 );
 GO
@@ -648,7 +648,7 @@ BEGIN
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
 
-			UPDATE NhanVien SET matkhau = @MK, trangthai = @TRANGTHAI
+			UPDATE NhanVien SET matkhau =pwdencrypt(@MK), trangthai = @TRANGTHAI
 			WHERE id = @MANV
 
 			UPDATE vaitro_nhanVien SET maVaiTro = @VAITRO WHERE maNhanVien = @MANV;
@@ -682,11 +682,13 @@ AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRAN
+			IF(LEN(@MK) <= 8 )
+				RETURN
 			DECLARE @MAHS INT;
 			DECLARE @MANV INT;
 			INSERT INTO HoSo VALUES(@TEN,@HO,@DIACHI,@SODT,@HINHANH,@EMAIL,@GIOITINH,@NGAYSINH,@LUONG)
 			SET @MAHS = SCOPE_IDENTITY();
-			INSERT INTO NhanVien VALUES(@TENTK, @MK, @TRANGTHAI, @MAHS);
+			INSERT INTO NhanVien VALUES(@TENTK, pwdencrypt(@MK), @TRANGTHAI, @MAHS);
 			SET @MANV = SCOPE_IDENTITY();
 			INSERT INTO vaitro_nhanVien VALUES (@MANV,@VAITRO); -- 2 cho thủ thư
 			SELECT @MAHS;
@@ -700,19 +702,28 @@ BEGIN
 	
 END;
 GO 
-
+---select * from nhanvien
+---EXEC usp_Doi_Mat_Khau @MAHOSO = 1, @MATKHAUCU = '12345678' ,@MATKHAUMOI = '1235354646466'
 -- procedure đổi mật khẩu
-CREATE PROC usp_Doi_Mat_Khau 
+CREATE OR ALTER PROC usp_Doi_Mat_Khau 
 @MAHOSO INT,
 @MATKHAUCU NVARCHAR(100),
 @MATKHAUMOI NVARCHAR(100)
 AS
 BEGIN
-	
-	If(@MATKHAUCU = (SELECT matkhau FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO))
+	IF(LEN(@MATKHAUMOI) <= 8 )
+		SELECT -1
+		RETURN
+
+	DECLARE @MKDB NVARCHAR(100);
+	SET @MKDB = (SELECT matkhau FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO)
+	PRINT(@MKDB);
+	If(pwdcompare(@MATKHAUCU,@MKDB) = 1)
 	BEGIN
-		UPDATE NhanVien SET  matkhau = @MATKHAUMOI  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+		UPDATE NhanVien SET  matkhau = pwdencrypt(@MATKHAUMOI)  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
 	END
+
+
 
 END
 GO
@@ -1327,14 +1338,17 @@ CREATE OR ALTER PROC usp_Kiem_Tra_Dang_Nhap
 AS
 BEGIN
 
-DECLARE @maNhanVien INT
-SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND NhanVien.matkhau = @matKhau
+DECLARE @maNhanVien INT;
+
+SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
 IF (@maNhanVien IS NOT NULL)
     SELECT @maNhanVien 
 ELSE
+
     SELECT -1
 
 END
+
 
 GO
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)
@@ -1499,10 +1513,10 @@ INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đố
 INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 
-INSERT INTO NhanVien VALUES(N'khainguyen','12345678',1,1);
-INSERT INTO NhanVien VALUES(N'kietnguyen','12345678',1,2);
-INSERT INTO NhanVien VALUES(N'vikhang','12345678',1,3);
-INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
+INSERT INTO NhanVien VALUES(N'khainguyen',pwdencrypt('12345678'),1,1);
+INSERT INTO NhanVien VALUES(N'kietnguyen',pwdencrypt('12345678'),1,2);
+INSERT INTO NhanVien VALUES(N'vikhang',pwdencrypt('12345678'),1,3);
+INSERT INTO NhanVien VALUES(N'thinhNguyen',pwdencrypt('12345678'),1,4);
 
 
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',20000,2,2);
@@ -1548,4 +1562,3 @@ INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
 INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
 INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
 
-select * from dausach

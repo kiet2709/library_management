@@ -48,7 +48,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnFormTaiKhoan = new System.Windows.Forms.Panel();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pbUser = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -111,7 +111,7 @@
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.btnFormTaiKhoan.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.btnNgonNgu.SuspendLayout();
@@ -322,7 +322,7 @@
             // btnFormTaiKhoan
             // 
             this.btnFormTaiKhoan.BackColor = System.Drawing.Color.Transparent;
-            this.btnFormTaiKhoan.Controls.Add(this.pictureBox11);
+            this.btnFormTaiKhoan.Controls.Add(this.pbUser);
             this.btnFormTaiKhoan.Controls.Add(this.panel12);
             this.btnFormTaiKhoan.Controls.Add(this.label13);
             this.btnFormTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -333,17 +333,17 @@
             this.btnFormTaiKhoan.TabIndex = 40;
             this.btnFormTaiKhoan.Click += new System.EventHandler(this.btnFormTaiKhoan_Click);
             // 
-            // pictureBox11
+            // pbUser
             // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox11.Enabled = false;
-            this.pictureBox11.Location = new System.Drawing.Point(8, 14);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(92, 68);
-            this.pictureBox11.TabIndex = 43;
-            this.pictureBox11.TabStop = false;
+            this.pbUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUser.BackgroundImage")));
+            this.pbUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbUser.Enabled = false;
+            this.pbUser.Location = new System.Drawing.Point(8, 14);
+            this.pbUser.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(92, 68);
+            this.pbUser.TabIndex = 43;
+            this.pbUser.TabStop = false;
             // 
             // panel12
             // 
@@ -1086,7 +1086,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.btnFormTaiKhoan.ResumeLayout(false);
             this.btnFormTaiKhoan.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -1147,7 +1147,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel btnFormTaiKhoan;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pbUser;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label12;

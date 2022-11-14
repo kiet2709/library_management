@@ -61,8 +61,8 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.btnFormTaiKhoan = new System.Windows.Forms.Panel();
+            this.pbUser = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -112,8 +112,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.panel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.btnFormTaiKhoan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).BeginInit();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             this.btnNgonNgu.SuspendLayout();
@@ -360,7 +360,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.panel1.Controls.Add(this.panel15);
             this.panel1.Controls.Add(this.panel7);
-            this.panel1.Controls.Add(this.panel11);
+            this.panel1.Controls.Add(this.btnFormTaiKhoan);
             this.panel1.Controls.Add(this.btnNgonNgu);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel17);
@@ -531,31 +531,31 @@
             this.label7.Text = "Phiếu Mượn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel11
+            // btnFormTaiKhoan
             // 
-            this.panel11.BackColor = System.Drawing.Color.Transparent;
-            this.panel11.Controls.Add(this.pictureBox11);
-            this.panel11.Controls.Add(this.panel12);
-            this.panel11.Controls.Add(this.label13);
-            this.panel11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel11.Location = new System.Drawing.Point(0, 712);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(351, 91);
-            this.panel11.TabIndex = 40;
-            this.panel11.Click += new System.EventHandler(this.panel11_Click);
+            this.btnFormTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.btnFormTaiKhoan.Controls.Add(this.pbUser);
+            this.btnFormTaiKhoan.Controls.Add(this.panel12);
+            this.btnFormTaiKhoan.Controls.Add(this.label13);
+            this.btnFormTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFormTaiKhoan.Location = new System.Drawing.Point(0, 712);
+            this.btnFormTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFormTaiKhoan.Name = "btnFormTaiKhoan";
+            this.btnFormTaiKhoan.Size = new System.Drawing.Size(351, 91);
+            this.btnFormTaiKhoan.TabIndex = 40;
+            this.btnFormTaiKhoan.Click += new System.EventHandler(this.btnFormTaiKhoan_Click);
             // 
-            // pictureBox11
+            // pbUser
             // 
-            this.pictureBox11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.BackgroundImage")));
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox11.Enabled = false;
-            this.pictureBox11.Location = new System.Drawing.Point(8, 14);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(92, 68);
-            this.pictureBox11.TabIndex = 43;
-            this.pictureBox11.TabStop = false;
+            this.pbUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbUser.BackgroundImage")));
+            this.pbUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbUser.Enabled = false;
+            this.pbUser.Location = new System.Drawing.Point(8, 14);
+            this.pbUser.Margin = new System.Windows.Forms.Padding(4);
+            this.pbUser.Name = "pbUser";
+            this.pbUser.Size = new System.Drawing.Size(92, 68);
+            this.pbUser.TabIndex = 43;
+            this.pbUser.TabStop = false;
             // 
             // panel12
             // 
@@ -1060,9 +1060,9 @@
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.btnFormTaiKhoan.ResumeLayout(false);
+            this.btnFormTaiKhoan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUser)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
@@ -1130,8 +1130,8 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel11;
-        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.Panel btnFormTaiKhoan;
+        private System.Windows.Forms.PictureBox pbUser;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label12;
