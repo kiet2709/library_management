@@ -393,5 +393,8 @@
     <Folder Include="uploads\docGia\" />
     <Folder Include="uploads\nhanVien\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\book-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
