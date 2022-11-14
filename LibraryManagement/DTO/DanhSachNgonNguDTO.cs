@@ -20,7 +20,7 @@ namespace LibraryManagement.DTO
             {
                 NgonNgu temp = new NgonNgu();
                 temp.Id = Convert.ToInt32(dataTable.Rows[i][0]);
-                temp.Name = Convert.ToString(dataTable.Rows[i][0]);
+                temp.Name = Convert.ToString(dataTable.Rows[i][1]);
                 listNgonNgu.Add(temp);
             }
         }

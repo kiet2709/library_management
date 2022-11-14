@@ -204,5 +204,17 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmThongTinCaNhan());
         }
+
+        private void btnThemDauSach_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThemDauSach);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+        void OpenFrmThemDauSach()
+        {
+            Application.Run(new FrmThemDauSach(new FrmSach()));
+        }
     }
 }

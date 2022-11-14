@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LibraryManagement.BUS;
+using LibraryManagement.DTO;
+using LibraryManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,88 +10,49 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using LibraryManagement.BUS;
-using LibraryManagement.DTO;
-using LibraryManagement.Model;
 
 namespace LibraryManagement.GUI
 {
-    public partial class FrmChiTietDauSach : Form
+    public partial class FrmThemDauSach : Form
     {
         DauSachBUS dauSachBUS = new DauSachBUS();
         TacGiaBUS tacGiaBUS = new TacGiaBUS();
         NhaXuatBanBUS nhaXuatBanBUS = new NhaXuatBanBUS();
         TheLoaiBUS theLoaiBUS = new TheLoaiBUS();
         NgonNguBUS ngonNguBUS = new NgonNguBUS();
-        private int id;
         private Form backFrm;
-        private ChiTietDauSachDTO chiTietDauSach;
-        private DanhSachTacGiaDTO danhSachTacGia;
+        private ChiTietDauSachDTO chiTietDauSach = new ChiTietDauSachDTO();
+        private DanhSachTacGiaDTO danhSachTacGia = new DanhSachTacGiaDTO();
         private DanhSachTacGiaDTO tatCaTacGia;
         private DanhSachNgonNguDTO danhSachNgonNgu;
         private DanhSachTheLoaiDTO danhSachTheLoai;
         private DanhSachNXBDTO danhSachNXB;
-
-        public object OpenFrmChiTietSach { get; private set; }
-
-        public FrmChiTietDauSach(int id, Form backFrm)
+        public FrmThemDauSach(Form backFrm)
         {
-            this.id = id;
             this.backFrm = backFrm;
             InitializeComponent();
             LoadData();
         }
-
         private void LoadData()
         {
-            chiTietDauSach = dauSachBUS.getBookInfo(id);
-            txt_moTa.Text = chiTietDauSach.MoTa;
-            txt_tenSach.Text = chiTietDauSach.TieuDe;
-            cb_danhMuc.SelectedIndex = Convert.ToInt32(chiTietDauSach.DanhMuc);
-            txt_gia.Text = chiTietDauSach.Gia.ToString();
-            txt_soLuong.Text = dauSachBUS.getNumberOfBook(id).ToString();
-
             danhSachNgonNgu = ngonNguBUS.getAllLanguages();
             cb_ngonNgu.DataSource = danhSachNgonNgu.getDataSource();
-            cb_ngonNgu.SelectedIndex = danhSachNgonNgu.index(chiTietDauSach.NgonNgu);
-            
 
             danhSachNXB = nhaXuatBanBUS.getAllPublisher();
             cb_nhaXB.DataSource = danhSachNXB.getDataSource();
-            cb_nhaXB.SelectedIndex = danhSachNXB.index(chiTietDauSach.NhaXB);
-            
 
             danhSachTheLoai = theLoaiBUS.getAllCatetories();
             cb_theLoai.DataSource = danhSachTheLoai.getDataSource();
-            cb_theLoai.SelectedIndex = danhSachTheLoai.index(chiTietDauSach.TheLoai);
-           
-            
-            dtp_ngayXB.Value = chiTietDauSach.NgayXB;
-            cb_trangThai.Text = chiTietDauSach.TrangThai.ToString();
 
-            danhSachTacGia = dauSachBUS.getAuthorOfBook(id);
-            loadTacGia();
+            
 
             tatCaTacGia = tacGiaBUS.getAllAuthors();
             cb_tatCa.DataSource = tatCaTacGia.getDataSource();
         }
-
-        private void OpenBackFrm()
+        private void loadTacGia()
         {
-            Application.Run(backFrm);
-        }
-
-        private void btn_back_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread thread = new Thread(OpenBackFrm);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-        }
-
-        private void btn_huy_Click(object sender, EventArgs e)
-        {
-            LoadData();
+            cb_tacGia.DataSource = danhSachTacGia.getDataSource();
+            cb_tacGia.Text = danhSachTacGia.toString();
         }
 
         private void btn_themTG_Click(object sender, EventArgs e)
@@ -100,10 +64,11 @@ namespace LibraryManagement.GUI
                 return;
             }
             int result = tacGiaBUS.addAuthor(new TacGia(name));
-            if(result == 0)
+            if (result == 0)
             {
                 MessageBox.Show("Thêm tác giả thất bại!!!");
-            }else
+            }
+            else
             {
                 MessageBox.Show("Thêm tác giả thành công!!!");
             }
@@ -152,23 +117,7 @@ namespace LibraryManagement.GUI
             LoadData();
         }
 
-        private void btn_themAnh_Click(object sender, EventArgs e)
-        {
-           
-        }
 
-        private void loadTacGia()
-        {
-            cb_tacGia.DataSource = danhSachTacGia.getDataSource();
-            cb_tacGia.Text = danhSachTacGia.toString();
-        }
-
-        private void cb_tacGia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = cb_tacGia.SelectedIndex;
-            danhSachTacGia.ListTacGia.RemoveAt(index);
-            loadTacGia();
-        }
 
         private void cb_theLoai_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -183,42 +132,11 @@ namespace LibraryManagement.GUI
             loadTacGia();
         }
 
-        private void btn_luu_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                chiTietDauSach.TieuDe = txt_tenSach.Text;
-                chiTietDauSach.MoTa = txt_moTa.Text;
-                chiTietDauSach.DanhMuc = cb_danhMuc.SelectedIndex.ToString();
-                chiTietDauSach.NgonNgu = Convert.ToString(danhSachNgonNgu.ListNgonNgu[cb_ngonNgu.SelectedIndex].Id) ;
-                chiTietDauSach.NhaXB = Convert.ToString(danhSachNXB.ListNXB[cb_nhaXB.SelectedIndex].Id);
-                chiTietDauSach.TheLoai = Convert.ToString(danhSachTheLoai.ListTheLoai[cb_theLoai.SelectedIndex].Id);
-                chiTietDauSach.NgayXB = dtp_ngayXB.Value;
-                chiTietDauSach.TrangThai = Convert.ToInt32(cb_trangThai.Text);
-                chiTietDauSach.Gia = Convert.ToInt32(txt_gia.Text);
-                chiTietDauSach.HinhAnh = "";
-            }
-            catch
-            {
-                MessageBox.Show("Thông tin không hợp lệ");
-                return;
-            }
-            int result = dauSachBUS.updateBookInfo(id, chiTietDauSach, danhSachTacGia);
-            if(result == 1)
-            {
-                MessageBox.Show("Cập nhật thành công");
-            }else
-            {
-                MessageBox.Show("Cập nhật thất bại");
-            }
-            LoadData();
-        }
-
         private void cb_tatCa_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cb_tatCa.SelectedIndex;
             TacGia temp = tatCaTacGia.ListTacGia[index];
-            if(danhSachTacGia.nameInList(temp.Name))
+            if (danhSachTacGia.nameInList(temp.Name))
             {
                 loadTacGia();
                 return;
@@ -227,5 +145,63 @@ namespace LibraryManagement.GUI
             loadTacGia();
         }
 
+        private void cb_tacGia_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            int index = cb_tacGia.SelectedIndex;
+            danhSachTacGia.ListTacGia.RemoveAt(index);
+            loadTacGia();
+        }
+
+        private void btn_luu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                chiTietDauSach.TieuDe = txt_tenSach.Text;
+                chiTietDauSach.MoTa = txt_moTa.Text;
+                chiTietDauSach.DanhMuc = cb_danhMuc.SelectedIndex.ToString();
+                chiTietDauSach.NgonNgu = Convert.ToString(danhSachNgonNgu.ListNgonNgu[cb_ngonNgu.SelectedIndex].Id);
+                chiTietDauSach.NhaXB = Convert.ToString(danhSachNXB.ListNXB[cb_nhaXB.SelectedIndex].Id);
+                chiTietDauSach.TheLoai = Convert.ToString(danhSachTheLoai.ListTheLoai[cb_theLoai.SelectedIndex].Id);
+                chiTietDauSach.NgayXB = dtp_ngayXB.Value;
+                chiTietDauSach.TrangThai = 1;
+                chiTietDauSach.Gia = Convert.ToInt32(txt_gia.Text);
+                chiTietDauSach.HinhAnh = "";
+            }
+            catch
+            {
+                MessageBox.Show("Thông tin không hợp lệ");
+                return;
+            }
+            int result = dauSachBUS.save(chiTietDauSach, danhSachTacGia);
+            if (result == 1)
+            {
+                MessageBox.Show("Thêm thành công");
+                this.Close();
+                Thread thread = new Thread(OpenFrmSach);
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại");
+            }
+            LoadData();
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenBackFrm);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+        private void OpenBackFrm()
+        {
+            Application.Run(backFrm);
+        }
+        void OpenFrmSach()
+        {
+            Application.Run(new FrmSach());
+        }
     }
 }

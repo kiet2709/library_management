@@ -138,3 +138,4 @@ E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryM
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhaXuatBan.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTheLoai.resources
+C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemDauSach.resources

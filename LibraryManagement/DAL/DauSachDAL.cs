@@ -32,13 +32,24 @@ namespace LibraryManagement.DAL
 
         public int updateBookInfo(int id, ChiTietDauSachDTO chiTietDauSach)
         {
-            Console.WriteLine(chiTietDauSach.NgonNgu);
-            Console.WriteLine(chiTietDauSach.NhaXB);
-            Console.WriteLine(chiTietDauSach.TheLoai);
-            Console.WriteLine(chiTietDauSach.DanhMuc);
             string query = "usp_CAP_NHAT_THONG_TIN_DAU_SACH @ID , @TIEUDE , @MOTA , @GIA , @NGAYXB , @HINHANH , @LOAI , @TRANGTHAI , @MANXB , @MANGONGU , @MATHELOAI";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id,  chiTietDauSach.TieuDe, chiTietDauSach.MoTa, chiTietDauSach.Gia, chiTietDauSach.dateString(), 
             chiTietDauSach.HinhAnh, Convert.ToInt32(chiTietDauSach.DanhMuc), chiTietDauSach.TrangThai, Convert.ToInt32(chiTietDauSach.NhaXB), Convert.ToInt32(chiTietDauSach.NgonNgu), Convert.ToInt32(chiTietDauSach.TheLoai)});
+            return result;
+        }
+
+        internal DataTable save(ChiTietDauSachDTO chiTietDauSach)
+        {
+            string query = "usp_Them_Dau_Sach @tieude , @mota , @gia , @ngayxuatban , @hinhanh , @loai , @trangthai , @maNXB , @maNgonNgu , @maTheLoai ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { chiTietDauSach.TieuDe, chiTietDauSach.MoTa, chiTietDauSach.Gia, chiTietDauSach.dateString(),
+            chiTietDauSach.HinhAnh, Convert.ToInt32(chiTietDauSach.DanhMuc), chiTietDauSach.TrangThai, Convert.ToInt32(chiTietDauSach.NhaXB), Convert.ToInt32(chiTietDauSach.NgonNgu), Convert.ToInt32(chiTietDauSach.TheLoai)});
+            return result;
+        }
+
+        internal int saveAuthorBook(int maDauSach, int id)
+        {
+            string query = "usp_THEM_TAC_GIA_SACH @maSach , @maTacGia ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maDauSach , id});
             return result;
         }
     }

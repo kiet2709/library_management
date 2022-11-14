@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using LibraryManagement.DAL;
 using LibraryManagement.DTO;
 
@@ -81,6 +83,26 @@ namespace LibraryManagement.BUS
                 return -1;
             }
             return 1;
+        }
+
+        internal int save(ChiTietDauSachDTO chiTietDauSach, DanhSachTacGiaDTO danhSachTacGia)
+        {
+            DataTable resultDauSach = dauSachDAL.save(chiTietDauSach);
+            int kq;
+            try
+            {
+                int maDauSach =  Convert.ToInt32( resultDauSach.Rows[0][0]);
+                for (int i=0; i<danhSachTacGia.ListTacGia.Count; i++)
+                {
+                    int resultTacGia = dauSachDAL.saveAuthorBook(maDauSach, danhSachTacGia.ListTacGia[i].Id);
+                }
+                kq = 1;
+            }
+            catch
+            {
+                kq = 0;
+            }
+            return kq;
         }
     }
 }

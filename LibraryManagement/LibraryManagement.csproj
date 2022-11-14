@@ -189,6 +189,12 @@
     <Compile Include="GUI\FrmPhieuMuon.Designer.cs">
       <DependentUpon>FrmPhieuMuon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmThemDauSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemDauSach.Designer.cs">
+      <DependentUpon>FrmThemDauSach.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmThemDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmSach.resx">
       <DependentUpon>FrmSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemDauSach.resx">
+      <DependentUpon>FrmThemDauSach.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemDocGia.resx">
       <DependentUpon>FrmThemDocGia.cs</DependentUpon>

@@ -42,8 +42,6 @@ namespace LibraryManagement.GUI
             this.txt_soLuong = new System.Windows.Forms.TextBox();
             this.btn_huy = new System.Windows.Forms.Button();
             this.cb_theLoai = new System.Windows.Forms.ComboBox();
-            this.btn_back = new System.Windows.Forms.Button();
-            this.pb_anh = new System.Windows.Forms.PictureBox();
             this.dtp_ngayXB = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.cb_ngonNgu = new System.Windows.Forms.ComboBox();
@@ -64,6 +62,8 @@ namespace LibraryManagement.GUI
             this.cb_trangThai = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_gia = new System.Windows.Forms.TextBox();
+            this.btn_back = new System.Windows.Forms.Button();
+            this.pb_anh = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -200,30 +200,6 @@ namespace LibraryManagement.GUI
             this.cb_theLoai.Size = new System.Drawing.Size(247, 43);
             this.cb_theLoai.TabIndex = 65;
             this.cb_theLoai.SelectedIndexChanged += new System.EventHandler(this.cb_theLoai_SelectedIndexChanged);
-            // 
-            // btn_back
-            // 
-            this.btn_back.BackColor = System.Drawing.Color.DimGray;
-            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
-            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_back.FlatAppearance.BorderSize = 0;
-            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_back.Location = new System.Drawing.Point(13, 13);
-            this.btn_back.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(108, 75);
-            this.btn_back.TabIndex = 110;
-            this.btn_back.UseVisualStyleBackColor = false;
-            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
-            // 
-            // pb_anh
-            // 
-            this.pb_anh.Location = new System.Drawing.Point(46, 113);
-            this.pb_anh.Name = "pb_anh";
-            this.pb_anh.Size = new System.Drawing.Size(288, 250);
-            this.pb_anh.TabIndex = 60;
-            this.pb_anh.TabStop = false;
             // 
             // dtp_ngayXB
             // 
@@ -445,6 +421,30 @@ namespace LibraryManagement.GUI
             this.txt_gia.Name = "txt_gia";
             this.txt_gia.Size = new System.Drawing.Size(176, 42);
             this.txt_gia.TabIndex = 134;
+            // 
+            // btn_back
+            // 
+            this.btn_back.BackColor = System.Drawing.Color.DimGray;
+            this.btn_back.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_back.BackgroundImage")));
+            this.btn_back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_back.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_back.FlatAppearance.BorderSize = 0;
+            this.btn_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_back.Location = new System.Drawing.Point(13, 13);
+            this.btn_back.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_back.Name = "btn_back";
+            this.btn_back.Size = new System.Drawing.Size(108, 75);
+            this.btn_back.TabIndex = 110;
+            this.btn_back.UseVisualStyleBackColor = false;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // pb_anh
+            // 
+            this.pb_anh.Location = new System.Drawing.Point(46, 113);
+            this.pb_anh.Name = "pb_anh";
+            this.pb_anh.Size = new System.Drawing.Size(288, 250);
+            this.pb_anh.TabIndex = 60;
+            this.pb_anh.TabStop = false;
             // 
             // FrmChiTietDauSach
             // 

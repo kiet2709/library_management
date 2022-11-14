@@ -931,34 +931,44 @@ CREATE OR ALTER PROCEDURE usp_Them_Dau_Sach
    @maTheLoai INT
 AS
 BEGIN
-   INSERT INTO DauSach (
-      tieude, 
-      mota, 
-      gia,
-      ngayxuatban,
-      hinhanh,
-      loai,
-      trangthai,
-      maNXB,
-      maNgonNgu,
-      maTheLoai
-   )
-   VALUES (
-      @tieude, 
-      @mota, 
-      @gia,
-      @ngayxuatban,
-      @hinhanh,
-      @loai,
-      @trangthai,
-      @maNXB,
-      @maNgonNgu,
-      @maTheLoai
-   );
+   BEGIN TRY
+		BEGIN TRAN
+         DECLARE @MaDauSach INT;
+			INSERT INTO DauSach (
+         tieude, 
+         mota, 
+         gia,
+         ngayxuatban,
+         hinhanh,
+         loai,
+         trangthai,
+         maNXB,
+         maNgonNgu,
+         maTheLoai
+      )
+      VALUES (
+         @tieude, 
+         @mota, 
+         @gia,
+         @ngayxuatban,
+         @hinhanh,
+         @loai,
+         @trangthai,
+         @maNXB,
+         @maNgonNgu,
+         @maTheLoai
+      );
+      SET @MaDauSach = SCOPE_IDENTITY();
+      COMMIT 
+	END TRY
+   BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+      SET @MaDauSach =-1;
+	END CATCH
+   SELECT @MaDauSach;   
 END;
-
 GO
-
 -- procedure Chuyển trạng thái đầu sách ( Cho mượn, không cho mượn)
 CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Dau_Sach
    @id INT,
@@ -1366,7 +1376,7 @@ RETURN @soLuong;
 END;
 GO
 CREATE OR ALTER PROC usp_Thong_Tin_Chi_Tiet_Dau_Sach
-@id int
+@id INT
 AS
 BEGIN
 	SELECT tieude, mota, gia, ngayxuatban, hinhanh, loai as 'danhmuc', trangthai, NhaXuatBan.ten as 'nxb', NgonNgu.ten as 'ngonngu', TheLoai.ten as 'theloai' 
@@ -1375,6 +1385,7 @@ BEGIN
 			INNER JOIN NgonNgu ON DauSach.maNgonNgu = NgonNgu.id
 	WHERE DauSach.id = @id
 END
+
 GO
 
 CREATE OR ALTER PROC usp_TAC_GIA_SACH_CU_THE
