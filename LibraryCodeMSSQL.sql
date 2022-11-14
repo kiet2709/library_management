@@ -212,7 +212,6 @@ CREATE TABLE NgonNgu
   ten NVARCHAR(20) NOT NULL,
   CONSTRAINT PK_NgonNgu PRIMARY KEY(id),
   CONSTRAINT CHK_NgonNgu CHECK (ten LIKE '%[a-zA-Z ]%')
-
 );
 GO
 
@@ -233,7 +232,8 @@ CREATE TABLE NhaXuatBan
 (
   id INT IDENTITY(1,1),
   ten NVARCHAR(50) NOT NULL,
-  CONSTRAINT PK_NhaXuatBan PRIMARY KEY(id)
+  CONSTRAINT PK_NhaXuatBan PRIMARY KEY(id),
+  CONSTRAINT CHK_NhaXuatBan CHECK (ten LIKE '%[a-zA-Z ]%')
 );
 GO
 
@@ -244,7 +244,8 @@ CREATE TABLE VaiTro
   id INT IDENTITY(1,1),
   ten NVARCHAR(20) NOT NULL,
   mota NVARCHAR(200),
-  CONSTRAINT PK_VaiTro PRIMARY KEY(id)
+  CONSTRAINT PK_VaiTro PRIMARY KEY(id),
+  CONSTRAINT CHK_VaiTro CHECK (ten LIKE '%[a-zA-Z ]%')
 );
 GO
 
@@ -262,7 +263,8 @@ CREATE TABLE DocGia
   soDT NVARCHAR(10),
   email NVARCHAR(30),
   hinhAnh NVARCHAR(1000),
-  CONSTRAINT PK_DocGia PRIMARY KEY(id)
+  CONSTRAINT PK_DocGia PRIMARY KEY(id),
+  CONSTRAINT CHK_DocGia CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' ) AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
 GO
 
@@ -276,8 +278,8 @@ CREATE TABLE DauSach
   gia INT,
   ngayxuatban DATE,
   hinhanh NVARCHAR(100),
-  loai INT NOT NULL, -- 1 = Giáo khoa | 0: Tham khảo
-  trangthai INT NOT NULL,
+  loai INT NOT NULL, -- 1: Giáo khoa | 0: Tham khảo
+  trangthai INT NOT NULL, -- 1: Cho mượn | 0: Không cho mượn
   maNXB INT,
   maNgonNgu INT,
   maTheLoai INT,
@@ -285,7 +287,7 @@ CREATE TABLE DauSach
   CONSTRAINT FK_NhaXB_DauSach FOREIGN KEY (maNXB) REFERENCES NhaXuatBan(id),
   CONSTRAINT FK_NgonNgu_DauSach FOREIGN KEY (maNgonNgu) REFERENCES NgonNgu(id),
   CONSTRAINT FK_TheLoai_DauSach FOREIGN KEY (maTheLoai) REFERENCES TheLoai(id),
-  CONSTRAINT CHK_DauSach CHECK (gia>=0 AND (loai=0 OR loai=1))
+  CONSTRAINT CHK_DauSach CHECK (gia>=0 AND (loai=0 OR loai=1) AND (trangthai = 1 OR trangthai = 0))
 );
 GO
 
@@ -298,13 +300,13 @@ CREATE TABLE HoSo
   ho NVARCHAR(20) NOT NULL,
   diachi NVARCHAR(200),
   soDT NVARCHAR(10),
-  hinhanh NVARCHAR(100),
+  hinhanh NVARCHAR(1000),
   email NVARCHAR(100) NOT NULL UNIQUE,
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
-  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%'))
+  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
 GO
 
@@ -1463,9 +1465,9 @@ INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật d�
 INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1,1,'11-08-2002','0123456789','baaf123@gmail.com','');
 
 INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,1,1,1);
-INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,2,2,2,2);
-INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,3,3,3,3);
-INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','',0,4,3,4,4);
+INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,2,2,2);
+INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,0,3,3,3);
+INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','',0,1,3,4,4);
 
 INSERT INTO HoSo VALUES(N'Khai', N'Nguyen',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
 INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
@@ -1476,8 +1478,6 @@ INSERT INTO NhanVien VALUES(N'khainguyen','12345678',1,1);
 INSERT INTO NhanVien VALUES(N'kietnguyen','12345678',1,2);
 INSERT INTO NhanVien VALUES(N'vikhang','12345678',1,3);
 INSERT INTO NhanVien VALUES(N'thinhNguyen','12345678',1,4);
-
-
 
 
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',20000,2,2);
