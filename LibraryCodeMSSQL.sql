@@ -256,13 +256,13 @@ CREATE TABLE DocGia
   id INT IDENTITY(1,1),
   ten NVARCHAR(50) NOT NULL,
   mssv NVARCHAR(10),
-  khoa NVARCHAR(30),
+  khoa NVARCHAR(30) NOT NULL,
   gioiTinh INT,
   trangThai INT NOT NULL,
   ngaySinh DATE,
   soDT NVARCHAR(10),
   email NVARCHAR(30),
-  hinhAnh NVARCHAR(1000),
+  hinhAnh NVARCHAR(500),
   CONSTRAINT PK_DocGia PRIMARY KEY(id),
   CONSTRAINT CHK_DocGia CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' ) AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
@@ -277,7 +277,7 @@ CREATE TABLE DauSach
   mota NVARCHAR(200),
   gia INT,
   ngayxuatban DATE,
-  hinhanh NVARCHAR(100),
+  hinhanh NVARCHAR(500),
   loai INT NOT NULL, -- 1: Giáo khoa | 0: Tham khảo
   trangthai INT NOT NULL, -- 1: Cho mượn | 0: Không cho mượn
   maNXB INT,
@@ -300,13 +300,13 @@ CREATE TABLE HoSo
   ho NVARCHAR(20) NOT NULL,
   diachi NVARCHAR(200),
   soDT NVARCHAR(10),
-  hinhanh NVARCHAR(1000),
+  hinhanh NVARCHAR(500),
   email NVARCHAR(100) NOT NULL UNIQUE,
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
-  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
+  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%') AND (ho LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
 GO
 
