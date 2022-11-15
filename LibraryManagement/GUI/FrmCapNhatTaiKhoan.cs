@@ -31,7 +31,7 @@ namespace LibraryManagement.GUI
 
         private void loadData(int profileId)
         {
-            hoSoQuanLyDTO = hoSoBUS.getProfileById(profileId);
+            hoSoQuanLyDTO = hoSoBUS.getProfileById(profileId);   
             this.txtHo.Text = hoSoQuanLyDTO.Ho;
             this.txtTen.Text = hoSoQuanLyDTO.Ten;
             this.txtTenDangNhap.Text = hoSoQuanLyDTO.TenDangNhap;
@@ -114,9 +114,7 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
 
-
-
-
+           
             hoSoQuanLyDTO.VaiTro = "Thủ thư";
             if (this.cbQuanLy.Checked)
             {
@@ -145,6 +143,12 @@ namespace LibraryManagement.GUI
             }
 
             hoSoQuanLyDTO.TenDangNhap = txtTenDangNhap.Text;
+            string imagePath = AppConstant.getDirectory(hoSoQuanLyDTO.Id, "nhanVien");
+            if (open.FileName != null && open.FileName != "")
+            {
+                hoSoQuanLyDTO.Hinhanh = imagePath;
+            }
+
             int result;
             result = hoSoBUS.updateInfo(hoSoQuanLyDTO);
            
@@ -156,7 +160,6 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
-                    string imagePath = AppConstant.getDirectory(hoSoQuanLyDTO.Id, "nhanVien");
                     string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
                     if (File.Exists(fullImagePath))

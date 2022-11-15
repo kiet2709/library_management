@@ -110,7 +110,11 @@ namespace LibraryManagement.GUI
             }
             docgia.Sdt= txtSdt.Text;
             docgia.Email = txtEmail.Text;
-            
+            string imagePath = AppConstant.getDirectory(docgia.Id, "docGia");
+            if (open.FileName != null && open.FileName != "")
+            {
+                docgia.HinhAnh = imagePath;
+            }
             int result = docGiaBUS.updateDocGia(docgia);
             if (result == 0)
             {
@@ -120,7 +124,6 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
-                    string imagePath = AppConstant.getDirectory(docgia.Id, "docGia");
                     string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
                     if (File.Exists(fullImagePath))

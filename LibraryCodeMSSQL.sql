@@ -650,7 +650,27 @@ BEGIN
 			UPDATE NhanVien SET trangthai = @TRANGTHAI
 			WHERE id = @MANV
 
-			UPDATE vaitro_nhanVien SET maVaiTro = @VAITRO WHERE maNhanVien = @MANV;
+			-- kiểm tra đã tồn tại role quản lý với mã tài khoản chưa
+			Declare @RESULT INT
+			SET @RESULT =  
+			CASE WHEN EXISTS(SELECT vaitro_nhanVien.maVaiTro FROM vaitro_nhanvien WHERE vaitro_nhanVien.maVaiTro = 1  AND vaitro_nhanVien.maNhanVien = @ID)
+                    THEN 1 ELSE 0
+            END
+
+			IF(@VAITRO = 1)
+			BEGIN
+			-- Nếu không có role quản lý
+				IF(@RESULT = 0)
+					INSERT INTO vaitro_nhanVien VALUES(@MANV,1);
+			END
+
+			IF(@VAITRO = 2)
+			BEGIN
+			-- Nếu có role quản lý
+				IF(@RESULT = 1)
+					DELETE FROM vaitro_nhanVien	WHERE vaitro_nhanVien.maVaiTro = 1   AND vaitro_nhanVien.maNhanVien = @MANV
+
+			END
 		COMMIT
 	END TRY
 		
@@ -1572,3 +1592,5 @@ INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
 INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
 INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
 INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
+
+select * from vaitro_nhanvien

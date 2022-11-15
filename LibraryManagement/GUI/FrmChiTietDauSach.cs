@@ -223,6 +223,8 @@ namespace LibraryManagement.GUI
                 MessageBox.Show("Thông tin không hợp lệ");
                 return;
             }
+            string imagePath = AppConstant.getDirectory(this.id, "dauSach");
+            chiTietDauSach.HinhAnh = imagePath;
             int result = dauSachBUS.updateBookInfo(id, chiTietDauSach, danhSachTacGia);
             if(result == -1)
             {
@@ -232,7 +234,6 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
-                    string imagePath = AppConstant.getDirectory(this.id, "dauSach");
                     string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
                     if (File.Exists(fullImagePath))
