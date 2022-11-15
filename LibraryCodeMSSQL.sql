@@ -668,6 +668,30 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
+@ID INT
+AS
+BEGIN
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, HoSo.hinhanh
+		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
+					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
+						JOIN DocGia ON maDocGia=DocGia.id
+			WHERE Muon.id=@ID		
+END
+GO
+
+CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
+@ID INT,
+@NGAYTRA DATE,
+@TIENPHAT INT
+AS
+BEGIN
+	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
+			WHERE id=@ID		
+END
+GO
+
+
 -- procedure Xem thông tin đầu sách
 CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
 AS
@@ -1622,23 +1646,23 @@ INSERT INTO vaitro_nhanVien VALUES(2,2);
 INSERT INTO vaitro_nhanVien VALUES(3,2);
 INSERT INTO vaitro_nhanVien VALUES(4,2);
 
-INSERT INTO Sach VALUES(1,'Kệ 1',1);
-INSERT INTO Sach VALUES(-1,'Kệ 1',1);
-INSERT INTO Sach VALUES(0,'Kệ 1',1);
-INSERT INTO Sach VALUES(1,'Kệ 1',1);
-INSERT INTO Sach VALUES(1,'Kệ 1',1);
-INSERT INTO Sach VALUES(1,'Kệ 2',2);
-INSERT INTO Sach VALUES(0,'Kệ 2',2);
-INSERT INTO Sach VALUES(-1,'Kệ 2',2);
-INSERT INTO Sach VALUES(1,'Kệ 2',2);
-INSERT INTO Sach VALUES(1,'Kệ 3',3);
-INSERT INTO Sach VALUES(0,'Kệ 3',3);
-INSERT INTO Sach VALUES(-1,'Kệ 3',3);
-INSERT INTO Sach VALUES(1,'Kệ 3',3);
-INSERT INTO Sach VALUES(1,'Kệ 2',4);
-INSERT INTO Sach VALUES(0,'Kệ 2',4);
-INSERT INTO Sach VALUES(-1,'Kệ 2',4);
-INSERT INTO Sach VALUES(1,'Kệ 2',4);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(-1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(0,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(0,N'Kệ 2',2);
+INSERT INTO Sach VALUES(-1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(0,N'Kệ 3',3);
+INSERT INTO Sach VALUES(-1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(1,N'Kệ 2',4);
+INSERT INTO Sach VALUES(0,N'Kệ 2',4);
+INSERT INTO Sach VALUES(-1,N'Kệ 2',4);
+INSERT INTO Sach VALUES(1,N'Kệ 2',4);
 
 INSERT INTO MuonSach VALUES(1,1,'ghi chu 1', 1);
 INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);

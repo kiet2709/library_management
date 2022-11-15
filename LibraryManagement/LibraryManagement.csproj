@@ -237,6 +237,7 @@
     <Compile Include="GUI\FrmThongTinCaNhan.Designer.cs">
       <DependentUpon>FrmThongTinCaNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmThemPhieuMuon.cs" />
     <Compile Include="GUI\FrmXemChiTietDocGia.cs">
       <SubType>Form</SubType>
     </Compile>
