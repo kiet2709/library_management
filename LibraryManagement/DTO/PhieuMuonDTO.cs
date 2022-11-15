@@ -19,6 +19,7 @@ namespace LibraryManagement.DTO
         private DateTime ngayTra;
         private int tienPhat;
         private int trangthai;
+        private string hinhAnh;
 
         public string SinhVien { get => sinhVien; set => sinhVien = value; }
 
@@ -40,6 +41,7 @@ namespace LibraryManagement.DTO
         public int TienPhat { get => tienPhat; set => tienPhat = value; }
         public int Id { get => id; set => id = value; }
         public int Trangthai { get => trangthai; set => trangthai = value; }
+        public string HinhAnh { get => hinhAnh; set => hinhAnh = value; }
 
         public void add(DataTable dataTable)
         {
@@ -51,6 +53,7 @@ namespace LibraryManagement.DTO
             hanTra = Service.convertDateTime(dataTable.Rows[0][5]);
             ngayTra = Service.convertDateTime(dataTable.Rows[0][6]);
             tienPhat = Convert.ToInt32(dataTable.Rows[0][7]);
+            hinhAnh = Convert.ToString(dataTable.Rows[0][8]);
         }
 
         public DataGridViewRow getDataSource(DataGridViewRow dr)

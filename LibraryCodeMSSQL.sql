@@ -256,13 +256,13 @@ CREATE TABLE DocGia
   id INT IDENTITY(1,1),
   ten NVARCHAR(50) NOT NULL,
   mssv NVARCHAR(10),
-  khoa NVARCHAR(30),
+  khoa NVARCHAR(30) NOT NULL,
   gioiTinh INT,
   trangThai INT NOT NULL,
   ngaySinh DATE,
   soDT NVARCHAR(10),
   email NVARCHAR(30),
-  hinhAnh NVARCHAR(1000),
+  hinhAnh NVARCHAR(500),
   CONSTRAINT PK_DocGia PRIMARY KEY(id),
   CONSTRAINT CHK_DocGia CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' ) AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
@@ -277,7 +277,7 @@ CREATE TABLE DauSach
   mota NVARCHAR(3000),
   gia INT,
   ngayxuatban DATE,
-  hinhanh NVARCHAR(100),
+  hinhanh NVARCHAR(500),
   loai INT NOT NULL, -- 1: Giáo khoa | 0: Tham khảo
   trangthai INT NOT NULL, -- 1: Cho mượn | 0: Không cho mượn
   maNXB INT,
@@ -300,13 +300,18 @@ CREATE TABLE HoSo
   ho NVARCHAR(200) NOT NULL,
   diachi NVARCHAR(2000),
   soDT NVARCHAR(10),
+<<<<<<< HEAD
   hinhanh NVARCHAR(1000),
   email NVARCHAR(1000) NOT NULL UNIQUE,
+=======
+  hinhanh NVARCHAR(500),
+  email NVARCHAR(100) NOT NULL UNIQUE,
+>>>>>>> 65efc76117d1cdeddaea452aa5db64ba85da7da5
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
-  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
+  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%') AND (ho LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
 GO
 
@@ -667,6 +672,30 @@ BEGIN
 			WHERE id=@ID		
 END
 GO
+
+CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
+@ID INT
+AS
+BEGIN
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, HoSo.hinhanh
+		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
+					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
+						JOIN DocGia ON maDocGia=DocGia.id
+			WHERE Muon.id=@ID		
+END
+GO
+
+CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
+@ID INT,
+@NGAYTRA DATE,
+@TIENPHAT INT
+AS
+BEGIN
+	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
+			WHERE id=@ID		
+END
+GO
+
 
 -- procedure Xem thông tin đầu sách
 CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
@@ -1803,6 +1832,7 @@ INSERT INTO vaitro_nhanVien VALUES(6,2);
 INSERT INTO vaitro_nhanVien VALUES(7,2);
 INSERT INTO vaitro_nhanVien VALUES(8,2);
 
+<<<<<<< HEAD
 INSERT INTO Sach VALUES(1,'Kệ 1',1);
 INSERT INTO Sach VALUES(-1,'Kệ 1',1);
 INSERT INTO Sach VALUES(0,'Kệ 1',1);
@@ -1934,6 +1964,25 @@ INSERT INTO Sach VALUES(1,'Kệ 10',34);
 INSERT INTO Sach VALUES(1,'Kệ 10',34);
 INSERT INTO Sach VALUES(1,'Kệ 10',34);
 INSERT INTO Sach VALUES(1,'Kệ 10',34);
+=======
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(-1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(0,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(0,N'Kệ 2',2);
+INSERT INTO Sach VALUES(-1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(0,N'Kệ 3',3);
+INSERT INTO Sach VALUES(-1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(1,N'Kệ 2',4);
+INSERT INTO Sach VALUES(0,N'Kệ 2',4);
+INSERT INTO Sach VALUES(-1,N'Kệ 2',4);
+INSERT INTO Sach VALUES(1,N'Kệ 2',4);
+>>>>>>> 65efc76117d1cdeddaea452aa5db64ba85da7da5
 
 
 INSERT INTO MuonSach VALUES(1,1,'Sách bình thường', 1);

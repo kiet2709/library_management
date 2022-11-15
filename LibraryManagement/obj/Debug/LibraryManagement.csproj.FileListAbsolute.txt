@@ -153,3 +153,13 @@ C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\ob
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
 C:\Users\TUANKIET\Desktop\New folder (3)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThongTinCaNhan.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemDauSach.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietNgonNgu.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietNhaXuatBan.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietTacGia.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmNgonNgu.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmNhaXuatBan.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTacGia.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemDauSach.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNgonNgu.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhaXuatBan.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources

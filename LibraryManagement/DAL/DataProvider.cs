@@ -11,7 +11,11 @@ namespace LibraryManagement.DAL
     {
         private static DataProvider instance;
 
+<<<<<<< HEAD
         private string strConnectionString = @"Data Source=DESKTOP-1HOIMQL\TUANKIET;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+=======
+        private string strConnectionString = @"Data Source=THINHDEPTRAIPRO\SQLEXPRESS;Initial Catalog=QuanLyThuVien;Integrated Security=True";
+>>>>>>> 65efc76117d1cdeddaea452aa5db64ba85da7da5
         
         public static DataProvider Instance
         {
