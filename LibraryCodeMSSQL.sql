@@ -6,7 +6,7 @@ DROP DATABASE IF EXISTS QuanLyThuVien
 GO
 CREATE DATABASE QuanLyThuVien
 GO
-
+SELECT * FROM DauSach WHERE id = 10
 
 USE QuanLyThuVien
 GO
@@ -273,8 +273,8 @@ IF OBJECT_ID(N'DauSach', N'U') IS NOT NULL
 CREATE TABLE DauSach
 (
   id INT IDENTITY(1,1),
-  tieude NVARCHAR(30) NOT NULL,
-  mota NVARCHAR(200),
+  tieude NVARCHAR(3000) NOT NULL,
+  mota NVARCHAR(3000),
   gia INT,
   ngayxuatban DATE,
   hinhanh NVARCHAR(100),
@@ -296,12 +296,12 @@ IF OBJECT_ID(N'HoSo', N'U') IS NOT NULL
 CREATE TABLE HoSo
 (
   id INT IDENTITY(1,1),
-  ten NVARCHAR(20) NOT NULL,
-  ho NVARCHAR(20) NOT NULL,
-  diachi NVARCHAR(200),
+  ten NVARCHAR(200) NOT NULL,
+  ho NVARCHAR(200) NOT NULL,
+  diachi NVARCHAR(2000),
   soDT NVARCHAR(10),
   hinhanh NVARCHAR(1000),
-  email NVARCHAR(100) NOT NULL UNIQUE,
+  email NVARCHAR(1000) NOT NULL UNIQUE,
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
@@ -1549,32 +1549,103 @@ END;
 GO
 --================ INSERT DATA ====================================
 
-INSERT INTO TheLoai VALUES(N'Công nghệ thông tin');
-INSERT INTO TheLoai VALUES(N'Kỹ thuật dữ liệu');
-INSERT INTO TheLoai VALUES(N'Ngôn ngữ anh');
-INSERT INTO TheLoai VALUES(N'Sư phạm');
-INSERT INTO TheLoai VALUES(N'Công nghệ thực phẩm');
-INSERT INTO TheLoai VALUES(N'Công nghệ hóa học');
-INSERT INTO TheLoai VALUES(N'Xây dựng');
-INSERT INTO TheLoai VALUES(N'Thương mại điện tử');
+INSERT INTO TheLoai VALUES(N'Công nghệ thông tin');					--1
+INSERT INTO TheLoai VALUES(N'Công nghệ may - Thời trang');			--2
+INSERT INTO TheLoai VALUES(N'Công nghệ in - Truyền thông');			--3
+INSERT INTO TheLoai VALUES(N'Kinh tế - Quản lý');					--4
+INSERT INTO TheLoai VALUES(N'Công nghệ thực phẩm - Môi trường');	--5
+INSERT INTO TheLoai VALUES(N'Nông - Lâm - Ngư nghiệp');				--6
+INSERT INTO TheLoai VALUES(N'Xây dựng - Kiến trúc');				--7
+INSERT INTO TheLoai VALUES(N'Y học - Sức khỏe');					--8
+INSERT INTO TheLoai VALUES(N'Cơ khí chế tạo máy');					--9
+INSERT INTO TheLoai VALUES(N'Điện - điện tử');						--10
+INSERT INTO TheLoai VALUES(N'Cơ khí động lực');						--11
+INSERT INTO TheLoai VALUES(N'Văn học');								--12
+INSERT INTO TheLoai VALUES(N'Ngôn ngữ');							--13
+INSERT INTO TheLoai VALUES(N'Lịch sử - Địa Lý - Du lịch');			--14
 
 
 
-INSERT INTO NgonNgu VALUES(N'Tiếng việt');
-INSERT INTO NgonNgu VALUES(N'Tiếng anh');
-INSERT INTO NgonNgu VALUES(N'Tiếng trung');
-INSERT INTO NgonNgu VALUES(N'Tiếng nhật');
-INSERT INTO NgonNgu VALUES(N'Tiếng hàn');
-INSERT INTO NgonNgu VALUES(N'Song ngữ');
 
-INSERT INTO TacGia VALUES(N'Nguyễn Trường Thịnh');
-INSERT INTO TacGia VALUES(N'Nguyễn Nhật Ánh');
-INSERT INTO TacGia VALUES(N'Lê Công Tú');
-INSERT INTO TacGia VALUES(N'Nguyễn Văn Ngọc');
+INSERT INTO NgonNgu VALUES(N'Tiếng việt');							--1
+INSERT INTO NgonNgu VALUES(N'Tiếng anh');							--2
+INSERT INTO NgonNgu VALUES(N'Tiếng trung');							--3
+INSERT INTO NgonNgu VALUES(N'Tiếng nhật');							--4
+INSERT INTO NgonNgu VALUES(N'Tiếng hàn');							--5
+INSERT INTO NgonNgu VALUES(N'Song ngữ');							--6
 
-INSERT INTO NhaXuatBan VALUES(N'Kim Đồng');
-INSERT INTO NhaXuatBan VALUES(N'Lao động');
-INSERT INTO NhaXuatBan VALUES(N'Trẻ');
+INSERT INTO TacGia VALUES(N'Ngô Trí Phúc');							--1
+INSERT INTO TacGia VALUES(N'Nguyễn Sơn Lâm');						--2
+INSERT INTO TacGia VALUES(N'Phạm Trọng Khu');						--3
+INSERT INTO TacGia VALUES(N'Trần Quang Long');						--4
+INSERT INTO TacGia VALUES(N'FOSECO (FS) Ltd');						--5
+INSERT INTO TacGia VALUES(N'Don Sexton');							--6
+INSERT INTO TacGia VALUES(N'Dan S. Kenedy');						--7
+INSERT INTO TacGia VALUES(N'Kathleen Park Talaro');					--8
+INSERT INTO TacGia VALUES(N'Barry Chess');							--9
+INSERT INTO TacGia VALUES(N'Jake VanderPlas');						--10
+INSERT INTO TacGia VALUES(N'Lawrence C. Linnemeyer');				--11
+INSERT INTO TacGia VALUES(N'Bradley D. Brown');						--12
+INSERT INTO TacGia VALUES(N'Peggy R Hoyt');							--13
+INSERT INTO TacGia VALUES(N'Trịnh Ngọc Trang');						--14
+INSERT INTO TacGia VALUES(N'Lisa Graham');							--15
+INSERT INTO TacGia VALUES(N'A. K. Haghi');							--16
+INSERT INTO TacGia VALUES(N'Elizabeth Carvajal-Millan');			--17
+INSERT INTO TacGia VALUES(N'Trần Đức Hạ');							--18
+INSERT INTO TacGia VALUES(N'Tạ Thu Cúc');							--19
+INSERT INTO TacGia VALUES(N'Vũ Đình Chính');						--20
+INSERT INTO TacGia VALUES(N'Nguyễn Văn Bình');						--21
+INSERT INTO TacGia VALUES(N'Joel Goldberg');						--22
+INSERT INTO TacGia VALUES(N'Valerie C. Scanlon');					--23
+INSERT INTO TacGia VALUES(N'Tina Sanders Medical');					--24
+INSERT INTO TacGia VALUES(N'Viện Dược Liệu');						--25
+INSERT INTO TacGia VALUES(N'James Yu');								--26
+INSERT INTO TacGia VALUES(N'Michael Herz');							--27
+INSERT INTO TacGia VALUES(N'Simon Haykin');							--28
+INSERT INTO TacGia VALUES(N'Rajkumar Buyya');						--29
+INSERT INTO TacGia VALUES(N'Amir Vahid Dastjerdi');					--30
+INSERT INTO TacGia VALUES(N'Trần Thế Sang');						--31
+INSERT INTO TacGia VALUES(N'Nguyễn Đức Phấn');						--32
+INSERT INTO TacGia VALUES(N'Nguyễn Duy Động');						--33
+INSERT INTO TacGia VALUES(N'Nguyễn Đức Lợi');						--34
+INSERT INTO TacGia VALUES(N'Nguyễn Nhật Ánh');						--35
+INSERT INTO TacGia VALUES(N'Kousuke Sawamura');						--36
+INSERT INTO TacGia VALUES(N'Trang Anh');							--37
+INSERT INTO TacGia VALUES(N'Hứa Kim Sinh');							--38
+INSERT INTO TacGia VALUES(N'Hồ Văn Hoa');							--39
+INSERT INTO TacGia VALUES(N'Ngô Trung Vĩ');							--40
+INSERT INTO TacGia VALUES(N'Ahn Jean-myung');						--41
+INSERT INTO TacGia VALUES(N'Lee Kyung-ah');							--42
+INSERT INTO TacGia VALUES(N'Han Hoo-young');						--43
+INSERT INTO TacGia VALUES(N'Trần Hải Quỳnh');						--44
+INSERT INTO TacGia VALUES(N'Paul Johnson');							--45
+INSERT INTO TacGia VALUES(N'Bộ Giáo Dục Và Đào Tạo');				--46
+
+
+INSERT INTO NhaXuatBan VALUES(N'Khoa học và Kỹ thuật');								--1
+INSERT INTO NhaXuatBan VALUES(N'Xây dựng');											--2
+INSERT INTO NhaXuatBan VALUES(N'Butterworth-Heinemann');							--3
+INSERT INTO NhaXuatBan VALUES(N'Lao Động');											--4
+INSERT INTO NhaXuatBan VALUES(N'Tổng Hợp TPHCM');									--5
+INSERT INTO NhaXuatBan VALUES(N'McGraw Hill');										--7
+INSERT INTO NhaXuatBan VALUES(N'O''Reilly Media');									--8
+INSERT INTO NhaXuatBan VALUES(N'Gratitude Partners');								--9 
+INSERT INTO NhaXuatBan VALUES(N'Giao thông vận tải');								--10 
+INSERT INTO NhaXuatBan VALUES(N'Cengage Learning');									--11
+INSERT INTO NhaXuatBan VALUES(N'Apple Academic Press');								--12
+INSERT INTO NhaXuatBan VALUES(N'Phụ Nữ');											--13
+INSERT INTO NhaXuatBan VALUES(N'Đại Học Sư Phạm');									--14
+INSERT INTO NhaXuatBan VALUES(N'F.A. Davis Company');								--15
+INSERT INTO NhaXuatBan VALUES(N'Design Media Publishing (UK) Limited');				--16
+INSERT INTO NhaXuatBan VALUES(N'Wiley');											--17
+INSERT INTO NhaXuatBan VALUES(N'Morgan Kaufmann');									--18
+INSERT INTO NhaXuatBan VALUES(N'Giáo dục Việt Nam');								--19
+INSERT INTO NhaXuatBan VALUES(N'Trẻ');												--20
+INSERT INTO NhaXuatBan VALUES(N'Thanh Niên');										--21
+INSERT INTO NhaXuatBan VALUES(N'Đại Học Quốc Gia Hà Nội');							--22
+INSERT INTO NhaXuatBan VALUES(N'Hồng Đức');											--23
+INSERT INTO NhaXuatBan VALUES(N'Dân Trí');											--24
+INSERT INTO NhaXuatBan VALUES(N'Tổng hợp');											--25
 
 INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
@@ -1585,22 +1656,72 @@ INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông 
 INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0123456789','t324nh142o@gmail.com','');
 INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1,1,'01-04-2002','0123456789','aca12@gmail.com','');
 INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1,1,'11-08-2002','0123456789','baaf123@gmail.com','');
+INSERT INTO DocGia VALUES(N'Lưu Chí Bảo',N'2015625',N'Kỹ thuật Hóa học',1,1,'01-07-2002','0123425428','ngw12524@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tuấn',N'2015450',N'Công nghệ thực phẩm',1,1,'11-03-2002','0563465689','bgfg1685@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Thịnh',N'2016573',N'Kỹ thuật Xây dựng',1,1,'01-06-2002','0123456789','aca12@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Đức Kiệt',N'20147657',N'Kiến trúc',1,1,'11-07-2002','0123456789','fjne.324@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Phúc',N'2011158',N'Kỹ thuật cơ khí',1,1,'01-01-2002','0123458729','gr5.54@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hải Triều',N'2013548',N'Hệ thống nhúng và IOT',1,1,'11-04-2002','0124757389','oil265@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Đình Phúc',N'20168251',N'Kỹ thuật máy tính',1,1,'10-04-2002','0123689789','pq354f@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Minh Đức',N'20185645',N'Công nghệ kỹ thuật in',1,1,'02-05-2002','0123136989','dcfd.3@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hải Đăng',N'20168623',N'Thiết kế đồ họa',1,1,'07-06-2002','0123456789','dang019o3@gmail.com','');
+INSERT INTO DocGia VALUES(N'Nguyễn Công Tú',N'20189367',N'Tự động hóa',1,1,'02-06-2002','0123459739','qier989.1@gmail.com','');
 
-INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,1,1,1);
-INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','',1,1,2,2,2);
-INSERT INTO DauSach VALUES(N'Xác suất thống kê', N'Một cuốn sách dạy xác suất hay',30000,'06-04-2012','',0,0,3,3,3);
-INSERT INTO DauSach VALUES(N'Toán 2', N'Một cuốn sách dạy toán 2 hay',30000,'05-04-2011','',0,1,3,4,4);
+
+
+INSERT INTO DauSach VALUES(N'Công nghệ sản xuất ferro: Hợp kim sắt', N'Giáo trình này được biên soạn trong Bộ môn Luyện kim đen',76000,'06-04-2006','/uploads/dauSach/1.png',0,1,1,1,9);
+INSERT INTO DauSach VALUES(N'Hàn trong môi trường khí bảo vệ', N'Cùng với sự phát triển của khoa học công nghệ trên thế giới, lĩnh vực cơ chí chế tạo nói chung và ngành Hàn ở Việt Nam nói riêng đã có những bước phát triển đáng kể về số lượng và chất lượng đóng góp cho sự nghiệp công nghiệp hóa – hiện đại hóa đất nước. Việc biên soạn tài liệu chuyên môn nhằm đáp ứng nhu cầu về tài liệu cho học sinh, tài liệu tham khảo cho giáo viên, tạo tiếng nói chung trong quá trình đào tạo, phù hợp với tiêu chuẩn Quốc tế và đáp ứng yêu cầu sản xuất thực tế là một điều cấp thiết.',30000,'03-01-2002','/uploads/dauSach/2.png',1,1,2,1,9);
+INSERT INTO DauSach VALUES(N'Foseco Foundryman''s Handbook: Facts, figures and formulae', N'The aim of the Foundryman''s Handbook is to provide a practical reference book for all those concerned with making casting',1200000,'06-29-1994','/uploads/dauSach/3.png',0,0,3,2,9);
+INSERT INTO DauSach VALUES(N'Marketing căn bản', N'Dù bạn bán cái gì và bán như thế nào, bạn điều hành một doanh nghiệp nhỏ hay một tập đoàn lớn, cuốn sách hướng dẫn đầy đủ và toàn diện này giải thích tất cả những điều bạn nên biết về marketing hiện đại.',135000,'04-22-2022','/uploads/dauSach/4.png',0,1,4,1,4);
+INSERT INTO DauSach VALUES(N'Thư Bán Hàng Đỉnh Cao', N'Được xuất bản lần đầu tiên vào năm 1990, “Thư Bán Hàng Đỉnh Cao” đã được hàng chục ngàn độc giả thuộc rất nhiều ngành nghề và lĩnh vực kinh doanh khác nhau yêu thích. Đây là quyển sách hướng dẫn chi tiết và giúp truyền cảm hứng để mọi người tạo ra được những “thư bán hàng đỉnh cao”.',105000,'07-01-1990','/uploads/dauSach/5.png',0,0,5,1,4);
+INSERT INTO DauSach VALUES(N'Foundations in Microbiology: Basic Principles', N'Foundations in Microbiology is an allied health microbiology text with a taxonomic approach to the disease chapters. It offers an engaging and accessible writing style through the use of case studies and analogies to thoroughly explain difficult microbiology concepts.',100000,'01-13-2017','/uploads/dauSach/6.png',0,0,7,2,1);
+INSERT INTO DauSach VALUES(N'Python data science handbook: essential tools for working with data', N'For many researchers, Python is a first-class tool mainly because of its libraries for storing, manipulating, and gaining insight from data. Several resources exist for individual pieces of this data science stack, but only with the Python Data Science Handbook do you get them all--IPython, NumPy, Pandas, Matplotlib, Scikit-Learn, and other related tools.',360000,'03-01-2017','/uploads/dauSach/7.png',0,0,8,2,1);
+INSERT INTO DauSach VALUES(N'Oracle HTML DB handbook', N'Oracle HTML DB Handbook shows you how to quickly create secure and scalable web applications that can be instantly deployed.',160000,'03-20-2006','/uploads/dauSach/8.png',0,0,7,2,1);
+INSERT INTO DauSach VALUES(N'All My Children Wear Fur Coats', N'How to leave a legacy for your pet. Animal companions... your pets... "your children." Whatever you call them, they are dearly loved family members. ',480000,'05-01-2009','/uploads/dauSach/9.png',0,0,9,2,2);
+INSERT INTO DauSach VALUES(N'Sửa Chữa Máy Photocopy - Kỹ Năng Thực Hành', N'Quyển sách này giới thiệu chi tiết các nguyên lý và kết cấu tổ hợp thành máy photo kỹ thuật số, đồng thời kết hợp nhiều ví dụ thực tiễn để giải thích và phân tích việc lắp đặt, tháo dỡ, điều chỉnh, khắc phục sự cố. Giúp  người đọc nắm vững được nguyên lý vận hành của máy photo, từ đó nâng cao kỹ năng sửa chữa. ',65000,'05-04-2001','/uploads/dauSach/10.png',0,1,10,1,3);
+INSERT INTO DauSach VALUES(N'Basics of Design: Layout & Typography for Beginners', N'Basics of Design: Layout and Typography for Beginners demystifies the design process with straightforward and complete explanations of the fundamental principles that create first-rate visual design. ',580000,'01-13-2015','/uploads/dauSach/11.png',0,0,11,2,3);
+INSERT INTO DauSach VALUES(N'Food Composition and Analysis: Methods and Strategies', N'This book covers methods and strategies related to food composition and analysis.',1200000,'01-05-2014','/uploads/dauSach/12.png',0,0,12,2,5);
+INSERT INTO DauSach VALUES(N'Xử lý nước thải sinh hoạt quy mô nhỏ và vừa', N'giáo trình dùng cho sinh viên đại học các ngành xây dựng cơ bản',50000,'07-08-2009','/uploads/dauSach/13.png',1,1,1,1,5);
+INSERT INTO DauSach VALUES(N'Kỹ thuật trồng rau sạch:Trồng rau ăn lá', N'Cuốn sách “Kỹ thuật trồng rau sạch - trồng rau ăn lá” hướng dẫn các bạn đọc áp dụng những tiến bộ khoa học kỹ thuật tiên tiến vào việc trồng rau, tạo ra những vườn rau sạch phục vụ cho bữa cơm hàng ngày của nhân dân.',15000,'05-01-2007','/uploads/dauSach/14.png',1,1,13,1,6);
+INSERT INTO DauSach VALUES(N'Kĩ thuật trồng cây công nghiệp: Sách dành cho cao đẳng sư phạm', N'hướng dẫn các bạn đọc áp dụng những tiến bộ khoa học kỹ thuật tiên tiến vào việc trồng cây tạo ra những vườn cây sạch',40000,'03-05-2007','/uploads/dauSach/15.png',1,1,14,1,6);
+INSERT INTO DauSach VALUES(N'Lange Practice Tests for the USMLE Step 3', N'Offering 15 comprehensive practice tests with a total of more than 750 review questions, this is the perfect study tool to assist time-strapped residences get through the study process.',270000,'04-11-2005','/uploads/dauSach/16.png',0,0,7,2,8);
+INSERT INTO DauSach VALUES(N'Essentials of Anatomy and Physiology', N'Here is the approach that makes A&P easier to master. A student-friendly writing style, superb art program, and learning opportunities in every chapter build a firm foundation in this must-know subject to ensure success.',1300000,'10-15-2018','/uploads/dauSach/17.png',0,0,15,2,8);
+INSERT INTO DauSach VALUES(N'Cây Thuốc Và Động Vật Làm Thuốc - Tập 3', N'Cây Thuốc Và Động Vật Làm Thuốc là công trình khoa học giới thiệu một cách chi tiết và toàn diện về nguồn dược liệu quý của Việt Nam do tập thể các nhà khoa học, tập thể các chuyên gia có uy tín đã và đang làm việc trong lĩnh vực dược liệu biên soạn.',340000,'07-04-2011','/uploads/dauSach/18.png',0,1,1,1,8);
+INSERT INTO DauSach VALUES(N'Hotel Proposals', N'The book is a selection of outstanding hotel proposals around the world in recent years. It introduces the modern hotel design ideas that would be trends in the future.',1060000,'09-15-2014','/uploads/dauSach/19.png',0,0,16,2,7);
+INSERT INTO DauSach VALUES(N'Campus Landscape Planning & Design', N'This book is composed by two parts: technical theories and some wonderful projects.',730000,'07-15-2014','/uploads/dauSach/20.png',0,0,16,2,7);
+INSERT INTO DauSach VALUES(N'Digital Communication Systems: First Edition: A Modern Introduction', N'Digital communications is an elective course often taken as the second semester of an analog/digital sequence or as a follow-on course to communication systems. ',530000,'01-01-2013','/uploads/dauSach/21.png',0,1,17,2,10);
+INSERT INTO DauSach VALUES(N'Internet of Things: Principles and Paradigms', N'Internet of Things: Principles and Paradigms captures the state-of-the-art research in Internet of Things, its applications, architectures, and technologies.',1530000,'11-05-2016','/uploads/dauSach/22.png',1,0,18,2,10);
+INSERT INTO DauSach VALUES(N'Thực Hành Kỹ Thuật Cơ Điện Lạnh', N'Nội dung chủ yếu của sách trình bày các vấn đề cơ bản về hệ thống lạnh và điều hòa không khí, các phương pháp bảo trì, sửa chữa, lắp đặt hệ thống lạnh, từ tủ lạnh gia dụng, tủ lạnh và cấp đông dùng trong siêu thị, nhà hà cho đến các hệ thống điều hòa không khí dùng trong các tòa nhà lớn, trên các phương tiện giao thông vận tả',115000,'10-05-2011','/uploads/dauSach/23.png',1,1,1,1,11);
+INSERT INTO DauSach VALUES(N'Thông gió và kỹ thuật xử lý khí thải', N'Cuốn sách Thông Gió Và Kỹ Thuật Xử Lý Khí Thải bao gồm 14 chương, trình bày những vấn đề cơ bản về tính toán nhiệt, ẩm, lượng độc hại tỏa ra trong nhà, trên cơ sở đó xác định lưu lượng khí cần thiết để khử nhiệt thừa, hơi nước và khí độc tỏa ra trong công trình.',60000,'11-19-2008','/uploads/dauSach/24.png',1,1,19,1,11);
+INSERT INTO DauSach VALUES(N'Thiết kế hệ thống điều hòa không khí VRV', N'Để đáp ứng các nhu cầu của hệ thống điều hoà không khí VRV, nhóm tác giả biên soạn cuốn Thiết kế hệ thống điều hành không khí VRV.',25000,'06-03-2001','/uploads/dauSach/25.png',1,1,2,1,11);
+INSERT INTO DauSach VALUES(N'Bảy Bước Tới Mùa Hè: Truyện dài', N'Câu chuyện về một mùa hè ngọt ngào, những trò chơi nghịch ngợm và bâng khuâng tình cảm tuổi mới lớn.',76000,'01-06-2022','/uploads/dauSach/26.png',1,1,20,1,12);
+INSERT INTO DauSach VALUES(N'Tiệm Cắt Tóc Lúc Nửa Đêm', N'Tất cả những bí ẩn và sự thật đằng sau nó sẽ được hé lộ trong TIỆM CẮT TÓC LÚC NỬA ĐÊM, Một cuốn sách được độc giả Nhật Bản nhận xét là KHÔNG THỂ ĐOÁN TRƯỚC ĐƯỢC CÁI KẾT!',116000,'06-06-2022','/uploads/dauSach/27.png',1,1,21,1,12);
+INSERT INTO DauSach VALUES(N'Cẩm Nang Cấu Trúc Tiếng Anh', N'Cuốn sách CẨM NANG CẤU TRÚC TIẾNG ANH gồm 25 phần, mỗi phần là một phạm trù kiến thức trong tiếng Anh được trình bày một cách ngắn gọn, đơn giản, cô đọng và hệ thống hoá dưới dạng sơ đồ, bảng biểu nhằm phát triển khả năng tư duy của người học và từ đó giúp người học nhớ kiến thức nhanh hơn và sâu hơn.',73000,'05-07-2018','/uploads/dauSach/28.png',1,1,14,6,13);
+INSERT INTO DauSach VALUES(N'25 Chuyên Đề Ngữ Pháp Tiếng Anh Trọng Tâm (Tập 1)', N'Các chuyên đề ngữ pháp trọng tâm được trình bày đơn giản, dễ hiểu cùng với hệ thống bài tập và từ vựng phong phú. Có tất cả 25 chuyên đề trong 2 tập sách, là tài liệu hữu ích cho học sinh, sinh viên, người đi làm, luyện thi cho các kỳ thi quốc gia, ôn luyện các chứng chỉ quốc tế và là tài liệu tham khảo cho giáo viên.',68000,'01-08-2018','/uploads/dauSach/29.png',1,1,14,6,13);
+INSERT INTO DauSach VALUES(N'Giáo trình Hán Ngữ MSUTONG sơ cấp', N'Sách học tiếng Trung là tài liệu quan trọng và cần chuẩn bị đầu tiên dù bạn quyết định tự học tiếng Trung tại nhà hay đến trung tâm. Việc xác định được loại sách học tiếng Trung cho người mới bắt đầu sẽ giúp bạn dễ dàng bắt đầu hành trình học ngôn ngữ.',170000,'01-05-2020','/uploads/dauSach/30.png',1,1,22,3,13);
+INSERT INTO DauSach VALUES(N'Ngữ Pháp Tiếng Hàn Thông Dụng - Sơ Cấp', N'Đây là quyển đầu tiên trong bộ “Ngữ pháp tiếng Hàn thông dụng, Korean Grammar in use”',140000,'01-06-2020','/uploads/dauSach/31.png',1,1,23,5,12);
+INSERT INTO DauSach VALUES(N'Tự Học Tiếng Nhật Cho Người Mới Bắt Đầu', N'Cuốn sách được xây dựng dành cho người chưa biết gì về tiếng Nhật có thể tiếp cận với ngoại ngữ này một cách dễ dàng và thú vị.',65000,'09-17-2018','/uploads/dauSach/32.png',0,1,23,4,12);
+INSERT INTO DauSach VALUES(N'Lịch Sử Do Thái', N'Lịch sử Do Thái của Paul Johnson bắt đầu bằng những sự kiện được viết trong Kinh Thánh và kết thúc khi thành lập Nhà nước Israel. ',275000,'02-02-2020','/uploads/dauSach/33.png',1,1,24,1,14);
+INSERT INTO DauSach VALUES(N'Atlat Địa Lí Việt Nam', N'Atlat Địa Lí Việt Nam - 2022',25000,'05-04-2022','/uploads/dauSach/34.png',0,1,19,1,14);
 
 INSERT INTO HoSo VALUES(N'Khai', N'Nguyen',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
 INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'22 Và trong mơ, anh hái bông hoa cài lên tóc em','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'12 Mỗi sáng chủ nhật, trời không có mây bay','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'N2 Quang Trung, Đông Nhì, Vĩnh Lộc, Đà Lạt','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'21 Trưng Vương, Bửu Lộc, Tăng Nhơn Phú A, TPHCM','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Phúc', N'Nguyễn',N'95 Nguyễn Văn Trỗi, Hà Đông, Hà Tây, Hà Nội','0783512345','','20123298@student.hcmute.edu.vn',1,'07-09-2002',2000000);
+INSERT INTO HoSo VALUES(N'Đức', N'Lê Hồng',N'252 Nguyễn Huệ, Bà Chiểu, Hà Linh, Nghệ An','0892651234','','20162974@student.hcmute.edu.vn',1,'09-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'221 Nguyễn Đăng Quang, Hiệp Phú, Bình Hòa, Đồng Nai','0768454155','','20162326@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'123 Y Vân, Đồ Chiểu, Nhơn Hòa, Quy Nhơn','0786455451','','20132635@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+
 
 INSERT INTO NhanVien VALUES(N'khainguyen',pwdencrypt('12345678'),1,1);
 INSERT INTO NhanVien VALUES(N'kietnguyen',pwdencrypt('12345678'),1,2);
 INSERT INTO NhanVien VALUES(N'vikhang',pwdencrypt('12345678'),1,3);
 INSERT INTO NhanVien VALUES(N'thinhNguyen',pwdencrypt('12345678'),1,4);
-
+INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12348756'),1,5);
+INSERT INTO NhanVien VALUES(N'hongducle',pwdencrypt('12342327'),1,6);
+INSERT INTO NhanVien VALUES(N'baochiluu',pwdencrypt('12343235'),1,7);
+INSERT INTO NhanVien VALUES(N'dangnguyenle',pwdencrypt('12349263'),1,8);
 
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',20000,2,2);
 INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',25000,3,3);
@@ -1609,18 +1730,78 @@ INSERT INTO Muon VALUES('11-1-2021',null,'11-1-2022',50000,1,1);
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',22000,2,2);
 INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',35000,3,3);
 INSERT INTO Muon VALUES('7-23-2021','7-19-2022','7-23-2022',53000,4,4);
+INSERT INTO Muon VALUES('7-25-2021','7-29-2022','7-29-2022',25000,5,5);
+INSERT INTO Muon VALUES('8-25-2021','7-29-2022','8-29-2022',30000,6,5);
+INSERT INTO Muon VALUES('9-25-2021','7-29-2022','9-29-2022',35000,7,6);
+INSERT INTO Muon VALUES('10-25-2021','7-29-2022','10-29-2022',40000,8,13);
+INSERT INTO Muon VALUES('12-1-2021',null,'11-1-2022',60000,1,1);
+INSERT INTO Muon VALUES('10-13-2021',null,'10-14-2022',27000,2,2);
+INSERT INTO Muon VALUES('1-12-2021','1-16-2022','9-12-2022',39000,3,7);
+INSERT INTO Muon VALUES('2-23-2021','2-28-2022','2-28-2022',33000,4,8);
+INSERT INTO Muon VALUES('3-25-2021','3-29-2022','3-29-2022',24000,5,9);
+INSERT INTO Muon VALUES('4-25-2021','4-29-2022','4-29-2022',38000,6,10);
+INSERT INTO Muon VALUES('5-25-2021','5-29-2022','5-29-2022',31000,7,11);
+INSERT INTO Muon VALUES('6-25-2021','6-29-2022','6-29-2022',49000,8,12);
 
 
 INSERT INTO tacgia_sach VALUES(1,1);
-INSERT INTO tacgia_sach VALUES(2,1);
-INSERT INTO tacgia_sach VALUES(3,2);
-INSERT INTO tacgia_sach VALUES(4,3);
+INSERT INTO tacgia_sach VALUES(1,2);
+INSERT INTO tacgia_sach VALUES(2,3);
+INSERT INTO tacgia_sach VALUES(2,4);
+INSERT INTO tacgia_sach VALUES(3,5);
+INSERT INTO tacgia_sach VALUES(4,6);
+INSERT INTO tacgia_sach VALUES(5,7);
+INSERT INTO tacgia_sach VALUES(6,8);
+INSERT INTO tacgia_sach VALUES(6,9);
+INSERT INTO tacgia_sach VALUES(7,10);
+INSERT INTO tacgia_sach VALUES(8,11);
+INSERT INTO tacgia_sach VALUES(8,12);
+INSERT INTO tacgia_sach VALUES(9,13);
+INSERT INTO tacgia_sach VALUES(10,14);
+INSERT INTO tacgia_sach VALUES(11,15);
+INSERT INTO tacgia_sach VALUES(12,16);
+INSERT INTO tacgia_sach VALUES(12,17);
+INSERT INTO tacgia_sach VALUES(13,18);
+INSERT INTO tacgia_sach VALUES(14,19);
+INSERT INTO tacgia_sach VALUES(15,20);
+INSERT INTO tacgia_sach VALUES(15,21);
+INSERT INTO tacgia_sach VALUES(16,22);
+INSERT INTO tacgia_sach VALUES(17,23);
+INSERT INTO tacgia_sach VALUES(17,24);
+INSERT INTO tacgia_sach VALUES(18,25);
+INSERT INTO tacgia_sach VALUES(19,26);
+INSERT INTO tacgia_sach VALUES(20,27);
+INSERT INTO tacgia_sach VALUES(21,28);
+INSERT INTO tacgia_sach VALUES(22,29);
+INSERT INTO tacgia_sach VALUES(22,30);
+INSERT INTO tacgia_sach VALUES(23,31);
+INSERT INTO tacgia_sach VALUES(24,32);
+INSERT INTO tacgia_sach VALUES(25,33);
+INSERT INTO tacgia_sach VALUES(26,34);
+INSERT INTO tacgia_sach VALUES(27,35);
+INSERT INTO tacgia_sach VALUES(28,36);
+INSERT INTO tacgia_sach VALUES(29,37);
+INSERT INTO tacgia_sach VALUES(30,37);
+INSERT INTO tacgia_sach VALUES(31,38);
+INSERT INTO tacgia_sach VALUES(31,39);
+INSERT INTO tacgia_sach VALUES(31,40);
+INSERT INTO tacgia_sach VALUES(32,41);
+INSERT INTO tacgia_sach VALUES(32,42);
+INSERT INTO tacgia_sach VALUES(32,43);
+INSERT INTO tacgia_sach VALUES(33,44);
+INSERT INTO tacgia_sach VALUES(33,45);
+INSERT INTO tacgia_sach VALUES(34,46);
+
 
 INSERT INTO vaitro_nhanVien VALUES(1,1);
 INSERT INTO vaitro_nhanVien VALUES(1,2);
 INSERT INTO vaitro_nhanVien VALUES(2,2);
 INSERT INTO vaitro_nhanVien VALUES(3,2);
 INSERT INTO vaitro_nhanVien VALUES(4,2);
+INSERT INTO vaitro_nhanVien VALUES(5,2);
+INSERT INTO vaitro_nhanVien VALUES(6,2);
+INSERT INTO vaitro_nhanVien VALUES(7,2);
+INSERT INTO vaitro_nhanVien VALUES(8,2);
 
 INSERT INTO Sach VALUES(1,'Kệ 1',1);
 INSERT INTO Sach VALUES(-1,'Kệ 1',1);
@@ -1639,9 +1820,138 @@ INSERT INTO Sach VALUES(1,'Kệ 2',4);
 INSERT INTO Sach VALUES(0,'Kệ 2',4);
 INSERT INTO Sach VALUES(-1,'Kệ 2',4);
 INSERT INTO Sach VALUES(1,'Kệ 2',4);
+INSERT INTO Sach VALUES(1,'Kệ 4',5);
+INSERT INTO Sach VALUES(1,'Kệ 4',5);
+INSERT INTO Sach VALUES(1,'Kệ 4',5);
+INSERT INTO Sach VALUES(1,'Kệ 4',5);
+INSERT INTO Sach VALUES(1,'Kệ 4',5);
+INSERT INTO Sach VALUES(1,'Kệ 4',6);
+INSERT INTO Sach VALUES(1,'Kệ 4',6);
+INSERT INTO Sach VALUES(1,'Kệ 4',6);
+INSERT INTO Sach VALUES(1,'Kệ 4',6);
+INSERT INTO Sach VALUES(1,'Kệ 4',6);
+INSERT INTO Sach VALUES(1,'Kệ 4',6);
+INSERT INTO Sach VALUES(1,'Kệ 5',7);
+INSERT INTO Sach VALUES(1,'Kệ 5',7);
+INSERT INTO Sach VALUES(1,'Kệ 5',7);
+INSERT INTO Sach VALUES(1,'Kệ 5',7);
+INSERT INTO Sach VALUES(1,'Kệ 5',7);
+INSERT INTO Sach VALUES(1,'Kệ 5',7);
+INSERT INTO Sach VALUES(1,'Kệ 5',8);
+INSERT INTO Sach VALUES(1,'Kệ 5',8);
+INSERT INTO Sach VALUES(1,'Kệ 5',8);
+INSERT INTO Sach VALUES(1,'Kệ 5',9);
+INSERT INTO Sach VALUES(1,'Kệ 5',9);
+INSERT INTO Sach VALUES(1,'Kệ 5',9);
+INSERT INTO Sach VALUES(1,'Kệ 5',9);
+INSERT INTO Sach VALUES(1,'Kệ 5',9);
+INSERT INTO Sach VALUES(1,'Kệ 6',10);
+INSERT INTO Sach VALUES(1,'Kệ 6',10);
+INSERT INTO Sach VALUES(1,'Kệ 6',10);
+INSERT INTO Sach VALUES(1,'Kệ 6',10);
+INSERT INTO Sach VALUES(1,'Kệ 6',11);
+INSERT INTO Sach VALUES(1,'Kệ 6',11);
+INSERT INTO Sach VALUES(1,'Kệ 6',11);
+INSERT INTO Sach VALUES(1,'Kệ 6',12);
+INSERT INTO Sach VALUES(1,'Kệ 6',12);
+INSERT INTO Sach VALUES(1,'Kệ 6',12);
+INSERT INTO Sach VALUES(1,'Kệ 6',12);
+INSERT INTO Sach VALUES(1,'Kệ 6',12);
+INSERT INTO Sach VALUES(1,'Kệ 6',13);
+INSERT INTO Sach VALUES(1,'Kệ 6',13);
+INSERT INTO Sach VALUES(1,'Kệ 6',13);
+INSERT INTO Sach VALUES(1,'Kệ 6',13);
+INSERT INTO Sach VALUES(1,'Kệ 6',13);
+INSERT INTO Sach VALUES(1,'Kệ 6',14);
+INSERT INTO Sach VALUES(1,'Kệ 6',14);
+INSERT INTO Sach VALUES(1,'Kệ 6',14);
+INSERT INTO Sach VALUES(1,'Kệ 7',15);
+INSERT INTO Sach VALUES(1,'Kệ 7',15);
+INSERT INTO Sach VALUES(1,'Kệ 7',15);
+INSERT INTO Sach VALUES(1,'Kệ 7',15);
+INSERT INTO Sach VALUES(1,'Kệ 7',18);
+INSERT INTO Sach VALUES(1,'Kệ 7',18);
+INSERT INTO Sach VALUES(1,'Kệ 7',18);
+INSERT INTO Sach VALUES(1,'Kệ 7',18);
+INSERT INTO Sach VALUES(1,'Kệ 7',19);
+INSERT INTO Sach VALUES(1,'Kệ 7',19);
+INSERT INTO Sach VALUES(1,'Kệ 7',19);
+INSERT INTO Sach VALUES(1,'Kệ 7',19);
+INSERT INTO Sach VALUES(1,'Kệ 7',20);
+INSERT INTO Sach VALUES(1,'Kệ 7',20);
+INSERT INTO Sach VALUES(1,'Kệ 7',20);
+INSERT INTO Sach VALUES(1,'Kệ 7',20);
+INSERT INTO Sach VALUES(1,'Kệ 7',21);
+INSERT INTO Sach VALUES(1,'Kệ 7',21);
+INSERT INTO Sach VALUES(1,'Kệ 7',21);
+INSERT INTO Sach VALUES(1,'Kệ 7',22);
+INSERT INTO Sach VALUES(1,'Kệ 7',22);
+INSERT INTO Sach VALUES(1,'Kệ 7',22);
+INSERT INTO Sach VALUES(1,'Kệ 7',22);
+INSERT INTO Sach VALUES(1,'Kệ 8',23);
+INSERT INTO Sach VALUES(1,'Kệ 8',23);
+INSERT INTO Sach VALUES(1,'Kệ 8',23);
+INSERT INTO Sach VALUES(1,'Kệ 8',23);
+INSERT INTO Sach VALUES(1,'Kệ 8',24);
+INSERT INTO Sach VALUES(1,'Kệ 8',24);
+INSERT INTO Sach VALUES(1,'Kệ 8',24);
+INSERT INTO Sach VALUES(1,'Kệ 8',24);
+INSERT INTO Sach VALUES(1,'Kệ 8',25);
+INSERT INTO Sach VALUES(1,'Kệ 8',25);
+INSERT INTO Sach VALUES(1,'Kệ 8',25);
+INSERT INTO Sach VALUES(1,'Kệ 8',26);
+INSERT INTO Sach VALUES(1,'Kệ 8',26);
+INSERT INTO Sach VALUES(1,'Kệ 8',26);
+INSERT INTO Sach VALUES(1,'Kệ 8',27);
+INSERT INTO Sach VALUES(1,'Kệ 8',27);
+INSERT INTO Sach VALUES(1,'Kệ 8',27);
+INSERT INTO Sach VALUES(1,'Kệ 8',27);
+INSERT INTO Sach VALUES(1,'Kệ 9',28);
+INSERT INTO Sach VALUES(1,'Kệ 9',28);
+INSERT INTO Sach VALUES(1,'Kệ 9',28);
+INSERT INTO Sach VALUES(1,'Kệ 9',29);
+INSERT INTO Sach VALUES(1,'Kệ 9',29);
+INSERT INTO Sach VALUES(1,'Kệ 9',29);
+INSERT INTO Sach VALUES(1,'Kệ 9',30);
+INSERT INTO Sach VALUES(1,'Kệ 9',30);
+INSERT INTO Sach VALUES(1,'Kệ 9',30);
+INSERT INTO Sach VALUES(1,'Kệ 9',31);
+INSERT INTO Sach VALUES(1,'Kệ 9',31);
+INSERT INTO Sach VALUES(1,'Kệ 9',31);
+INSERT INTO Sach VALUES(1,'Kệ 9',31);
+INSERT INTO Sach VALUES(1,'Kệ 10',32);
+INSERT INTO Sach VALUES(1,'Kệ 10',32);
+INSERT INTO Sach VALUES(1,'Kệ 10',32);
+INSERT INTO Sach VALUES(1,'Kệ 10',32);
+INSERT INTO Sach VALUES(1,'Kệ 10',33);
+INSERT INTO Sach VALUES(1,'Kệ 10',33);
+INSERT INTO Sach VALUES(1,'Kệ 10',33);
+INSERT INTO Sach VALUES(1,'Kệ 10',33);
+INSERT INTO Sach VALUES(1,'Kệ 10',33);
+INSERT INTO Sach VALUES(1,'Kệ 10',34);
+INSERT INTO Sach VALUES(1,'Kệ 10',34);
+INSERT INTO Sach VALUES(1,'Kệ 10',34);
+INSERT INTO Sach VALUES(1,'Kệ 10',34);
+INSERT INTO Sach VALUES(1,'Kệ 10',34);
+INSERT INTO Sach VALUES(1,'Kệ 10',34);
 
-INSERT INTO MuonSach VALUES(1,1,'ghi chu 1', 1);
-INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
-INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
-INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
-INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
+
+INSERT INTO MuonSach VALUES(1,1,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(2,2,'Sách quăng góc', 1);
+INSERT INTO MuonSach VALUES(3,3,'Sách rách bìa', 0);
+INSERT INTO MuonSach VALUES(4,4,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(5,5,'Sách quăng góc', 1);
+INSERT INTO MuonSach VALUES(32,6,'Sách rách bìa', 0);
+INSERT INTO MuonSach VALUES(31,7,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(30,8,'Sách bình thường', 0);
+INSERT INTO MuonSach VALUES(20,9,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(22,10,'Sách quăng góc', 0);
+INSERT INTO MuonSach VALUES(21,11,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(23,12,'Sách rách bìa', 1);
+INSERT INTO MuonSach VALUES(15,13,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(16,14,'Sách bình thường', 0);
+INSERT INTO MuonSach VALUES(17,15,'Sách bình thường', 0);
+INSERT INTO MuonSach VALUES(9,16,'Sách quăng góc', 0);
+INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
+INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);

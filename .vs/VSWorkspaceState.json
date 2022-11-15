@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\LibraryManagement",
-    "\\LibraryManagement\\DAL"
+    "\\LibraryManagement\\DAL",
+    "\\LibraryManagement\\GUI"
   ],
-  "SelectedNode": "\\LibraryManagement\\DAL\\TacGiaDAL.cs",
+  "SelectedNode": "\\LibraryManagement\\GUI\\FrmTaiKhoan.cs",
   "PreviewInSolutionExplorer": false
 }

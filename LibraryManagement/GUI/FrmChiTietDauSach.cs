@@ -51,7 +51,9 @@ namespace LibraryManagement.GUI
                 string fullImagePath = AppConstant.getFullDirectory(chiTietDauSach.HinhAnh);
                 using (FileStream fs = new FileStream(fullImagePath, FileMode.Open))
                 {
+                    Console.WriteLine(fullImagePath);
                     pbAnh.Image = Image.FromStream(fs);
+                    Console.WriteLine(fullImagePath);
                     fs.Close();
                 }
             }
