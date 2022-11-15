@@ -635,7 +635,6 @@ CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien
 @GIOITINH INT,
 @NGAYSINH DATE,
 @LUONG INT,
-@MK NVARCHAR(100),
 @TRANGTHAI INT,
 @VAITRO INT
 AS
@@ -648,7 +647,7 @@ BEGIN
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
 
-			UPDATE NhanVien SET matkhau =pwdencrypt(@MK), trangthai = @TRANGTHAI
+			UPDATE NhanVien SET trangthai = @TRANGTHAI
 			WHERE id = @MANV
 
 			UPDATE vaitro_nhanVien SET maVaiTro = @VAITRO WHERE maNhanVien = @MANV;
@@ -702,32 +701,46 @@ BEGIN
 	
 END;
 GO 
----select * from nhanvien
----EXEC usp_Doi_Mat_Khau @MAHOSO = 1, @MATKHAUCU = '12345678' ,@MATKHAUMOI = '1235354646466'
 -- procedure đổi mật khẩu
 CREATE OR ALTER PROC usp_Doi_Mat_Khau 
 @MAHOSO INT,
-@MATKHAUCU NVARCHAR(100),
-@MATKHAUMOI NVARCHAR(100)
+@MATKHAUCU NVARCHAR(1000),
+@MATKHAUMOI NVARCHAR(1000)
 AS
 BEGIN
-	IF(LEN(@MATKHAUMOI) <= 8 )
-		SELECT -1
+	
+	IF(LEN(@MATKHAUMOI) < 8 )
+	BEGIN 
 		RETURN
+	END
 
-	DECLARE @MKDB NVARCHAR(100);
+
+	DECLARE @MKDB VARBINARY(128);
 	SET @MKDB = (SELECT matkhau FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO)
-	PRINT(@MKDB);
 	If(pwdcompare(@MATKHAUCU,@MKDB) = 1)
 	BEGIN
 		UPDATE NhanVien SET  matkhau = pwdencrypt(@MATKHAUMOI)  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
 	END
 
 
-
 END
 GO
 
+-- procedure đổi mật khẩu cho quản lý
+CREATE OR ALTER PROC usp_Quan_Ly_Doi_Mat_Khau 
+@MAHOSO INT,
+@MATKHAUMOI NVARCHAR(1000)
+AS
+BEGIN
+	
+	IF(LEN(@MATKHAUMOI) < 8 )
+	BEGIN 
+		RETURN
+	END
+	UPDATE NhanVien SET  matkhau = pwdencrypt(@MATKHAUMOI)  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+
+END
+GO
 -- procedure sửa hồ sơ
 CREATE OR ALTER PROC usp_Sua_Ho_So
 @ID INT,
@@ -903,16 +916,6 @@ BEGIN
 END;
 GO
 
--- procedure Xem mật khẩu nhân viên theo id
-CREATE OR ALTER PROC usp_Xem_Mat_Khau_Nhan_Vien
-@id INT
-AS
-BEGIN
-	SELECT matKhau
-	FROM NhanVien
-	WHERE NhanVien.id = @id;
-END;
-GO
 
 -- procedure chuyển trạng thái tài khoản nhân viên
 CREATE OR ALTER PROC usp_Chuyen_Trang_Thai_Nhan_Vien

@@ -88,14 +88,6 @@ namespace LibraryManagement.BUS
            return hoSoDAO.saveImage(hinhanh, id);
         }
 
-       
-        public String getPasswordById(int profileId)
-        {
-            DataTable profile = hoSoDAO.getPasswordById(profileId);
-            DataRow dr = profile.Rows[0];
-            return dr["matKhau"].ToString(); ;
-        }
-
 
         public int updateInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
         {

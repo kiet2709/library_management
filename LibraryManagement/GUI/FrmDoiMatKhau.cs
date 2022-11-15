@@ -20,13 +20,67 @@ namespace LibraryManagement.GUI
 
             InitializeComponent();
             doiMatKhauDTO.MaHS = id;
+            if (Properties.Settings.Default.role != null
+                && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Quản lý")
+            {
+                this.plMatKhau.Enabled = false;
+                this.txtMatKhauCu.Enabled = false;
+            }
         }
 
-        private void btnXacNhan_Click(object sender, EventArgs e)
+        private void adminChangePassword()
         {
-            if(this.txtMatKhauNhapLai.Text != txtMatKhauMoi.Text)
+            if (this.txtMatKhauNhapLai.Text != txtMatKhauMoi.Text)
             {
                 MessageBox.Show("Mật khẩu xác nhận không đúng");
+                this.txtMatKhauMoi.Text = "";
+                this.txtMatKhauNhapLai.Text = "";
+                this.txtMatKhauCu.Text = "";
+            }
+            else if (txtMatKhauMoi.Text.Length < 8)
+            {
+                MessageBox.Show("Mật khẩu mới không hợp lệ");
+                this.txtMatKhauMoi.Text = "";
+                this.txtMatKhauNhapLai.Text = "";
+                this.txtMatKhauCu.Text = "";
+            }
+            else
+            {
+                doiMatKhauDTO.MatKhauMoi = txtMatKhauMoi.Text;
+                int result = nhanVienBUS.updatePasswordForAdmin(doiMatKhauDTO);
+                if (result == 0 || result == -1)
+                {
+                    MessageBox.Show("Mật khẩu sai");
+                    this.txtMatKhauMoi.Text = "";
+                    this.txtMatKhauNhapLai.Text = "";
+                    this.txtMatKhauCu.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Đổi mật khẩu thành công");
+                    this.Close();
+                }
+            }
+        }
+        private void btnXacNhan_Click(object sender, EventArgs e)
+        {
+
+            if (Properties.Settings.Default.role != null
+                && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Quản lý")
+            {
+                adminChangePassword();
+                return;
+            }
+
+            if (this.txtMatKhauNhapLai.Text != txtMatKhauMoi.Text)
+            {
+                MessageBox.Show("Mật khẩu xác nhận không đúng");
+                this.txtMatKhauMoi.Text = "";
+                this.txtMatKhauNhapLai.Text = "";
+                this.txtMatKhauCu.Text = "";
+            }
+            else if (txtMatKhauMoi.Text.Length < 8) {
+                MessageBox.Show("Mật khẩu mới không hợp lệ");
                 this.txtMatKhauMoi.Text = "";
                 this.txtMatKhauNhapLai.Text = "";
                 this.txtMatKhauCu.Text = "";
@@ -37,16 +91,9 @@ namespace LibraryManagement.GUI
                 doiMatKhauDTO.MatKhauMoi = txtMatKhauMoi.Text;
                 int result =  nhanVienBUS.updatePassword(doiMatKhauDTO);
                 Console.WriteLine(result);  
-                if(result == 0)
+                if(result == 0 || result == -1)
                 {
-                    MessageBox.Show("Mật khẩu cũ không đúng");
-                    this.txtMatKhauMoi.Text = "";
-                    this.txtMatKhauNhapLai.Text = "";
-                    this.txtMatKhauCu.Text = "";
-                }
-                else if(result == -1)
-                {
-                    MessageBox.Show("Mật khẩu mới không hợp lệ");
+                    MessageBox.Show("Mật khẩu sai");
                     this.txtMatKhauMoi.Text = "";
                     this.txtMatKhauNhapLai.Text = "";
                     this.txtMatKhauCu.Text = "";

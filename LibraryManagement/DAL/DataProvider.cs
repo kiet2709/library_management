@@ -99,7 +99,6 @@ namespace LibraryManagement.DAL
                     conn.Close();
 
                 }
-
                 return data;
             }
             catch(Exception e)

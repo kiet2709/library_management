@@ -186,6 +186,7 @@
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(275, 45);
             this.txtMatKhau.TabIndex = 1;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             // 
             // txtTenDangNhap
             // 

@@ -39,8 +39,6 @@ namespace LibraryManagement.GUI
             this.txtEmail.Text = hoSoQuanLyDTO.Email;
             this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
             this.txtLuong.Text = hoSoQuanLyDTO.Luong.ToString();
-            String matKhau = hoSoBUS.getPasswordById(profileId);
-            this.txtMatKhau.Text = matKhau;
 
 
             // set vai trò
@@ -118,7 +116,7 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
             
 
-            string imagePath = AppConstant.getDirectory(hoSoQuanLyDTO.Id, "nhanVien");            hoSoQuanLyDTO.Hinhanh = imagePath;
+            
      
 
             if (this.rbNhanVien.Checked)
@@ -152,7 +150,6 @@ namespace LibraryManagement.GUI
             }
 
             hoSoQuanLyDTO.TenDangNhap = txtTenDangNhap.Text;
-            hoSoQuanLyDTO.MatKhau = txtMatKhau.Text;
             int result;
             result = hoSoBUS.updateInfo(hoSoQuanLyDTO);
            
@@ -164,6 +161,7 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
+                    string imagePath = AppConstant.getDirectory(hoSoQuanLyDTO.Id, "nhanVien");
                     string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
                     if (File.Exists(fullImagePath))
@@ -197,6 +195,12 @@ namespace LibraryManagement.GUI
                 pbAnh.Image = image;
 
             }
+        }
+
+        private void btnDoiMatKhau_Click(object sender, EventArgs e)
+        {
+            FrmDoiMatKhau frmDoiMatKhau = new FrmDoiMatKhau(hoSoQuanLyDTO.Id);
+            frmDoiMatKhau.ShowDialog();
         }
     }
 }

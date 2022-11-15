@@ -34,15 +34,8 @@ namespace LibraryManagement.DAL
             {
                 maVaiTro = 2;
             }
-            string query = "usp_Sua_Thong_Tin_Nhan_Vien @ID , @TEN , @HO  , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG  , @MK , @TRANGTHAI , @VAITRO ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoSoQuanLyDTO.Id, hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email, hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh, hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.MatKhau, hoSoQuanLyDTO.TrangThai, maVaiTro });
-            return result;
-        }
-
-        public DataTable getPasswordById(int profileId)
-        {
-            string query = "usp_Xem_Mat_Khau_Nhan_Vien @id";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { profileId });
+            string query = "usp_Sua_Thong_Tin_Nhan_Vien @ID , @TEN , @HO  , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG  , @TRANGTHAI , @VAITRO ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { hoSoQuanLyDTO.Id, hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email, hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh, hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.TrangThai, maVaiTro });
             return result;
         }
 

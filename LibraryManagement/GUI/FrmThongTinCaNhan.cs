@@ -149,18 +149,9 @@ namespace LibraryManagement.GUI
             }
         }
 
-        private void backBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Thread thread = new Thread(OpenFrmTaiKhoan);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-        }
 
-        private void OpenFrmTaiKhoan()
-        {
-            Application.Run(new FrmTaiKhoan());
-        }
+
+   
 
         private void btnThemAnh_Click(object sender, EventArgs e)
         {

@@ -36,6 +36,13 @@ namespace LibraryManagement.DAL
             return result;
         }
 
+        internal int updatePasswordForAdmin(DoiMatKhauDTO doiMatKhauDTO)
+        {
+            string query = "usp_Quan_Ly_Doi_Mat_Khau  @MAHOSO , @MATKHAUMOI ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { doiMatKhauDTO.MaHS, doiMatKhauDTO.MatKhauMoi });
+            return result;
+        }
+
         public string getImageByUsername(string username)
         {
             string query = "usp_Hinh_Anh_Nhan_Vien  @TENDANGNHAP ";

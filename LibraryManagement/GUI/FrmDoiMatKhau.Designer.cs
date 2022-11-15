@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.plMatKhau = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMatKhauCu = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -38,19 +38,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtMatKhauNhapLai = new System.Windows.Forms.TextBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.plMatKhau.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // plMatKhau
             // 
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtMatKhauCu);
-            this.panel1.Location = new System.Drawing.Point(79, 34);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(567, 66);
-            this.panel1.TabIndex = 144;
+            this.plMatKhau.Controls.Add(this.label1);
+            this.plMatKhau.Controls.Add(this.txtMatKhauCu);
+            this.plMatKhau.Location = new System.Drawing.Point(79, 34);
+            this.plMatKhau.Name = "plMatKhau";
+            this.plMatKhau.Size = new System.Drawing.Size(567, 66);
+            this.plMatKhau.TabIndex = 144;
             // 
             // label1
             // 
@@ -145,12 +145,12 @@
             this.Controls.Add(this.btnXacNhan);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.plMatKhau);
             this.Name = "FrmDoiMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmDoiMatKhau";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.plMatKhau.ResumeLayout(false);
+            this.plMatKhau.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -161,7 +161,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel plMatKhau;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMatKhauCu;
         private System.Windows.Forms.Panel panel2;

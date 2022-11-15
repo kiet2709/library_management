@@ -39,5 +39,10 @@ namespace LibraryManagement.BUS
         {
             return nhanVienDAO.updatePassword(doiMatKhauDTO);
         }
+
+        public int updatePasswordForAdmin(DoiMatKhauDTO doiMatKhauDTO)
+        {
+            return nhanVienDAO.updatePasswordForAdmin(doiMatKhauDTO);
+        }
     }
 }

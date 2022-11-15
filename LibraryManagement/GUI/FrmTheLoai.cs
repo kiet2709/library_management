@@ -234,10 +234,8 @@ namespace LibraryManagement.GUI
 
         private void pbAnh_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Thread thread = new Thread(OpenFrmThongTinCaNhan);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
+            FrmThongTinCaNhan frmThongTinCaNhan = new FrmThongTinCaNhan();
+            frmThongTinCaNhan.ShowDialog();
         }
     }
 }

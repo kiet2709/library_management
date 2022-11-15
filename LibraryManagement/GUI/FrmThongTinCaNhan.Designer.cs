@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThongTinCaNhan));
             this.btnThemAnh = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rbKhac = new System.Windows.Forms.RadioButton();
@@ -57,7 +56,6 @@
             this.btnSua = new System.Windows.Forms.Button();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
             this.pbAnh = new System.Windows.Forms.PictureBox();
-            this.backBtn = new System.Windows.Forms.Button();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -342,7 +340,7 @@
             this.btnDoiMatKhau.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnDoiMatKhau.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDoiMatKhau.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(12, 473);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(28, 447);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
             this.btnDoiMatKhau.Size = new System.Drawing.Size(298, 61);
             this.btnDoiMatKhau.TabIndex = 158;
@@ -359,22 +357,6 @@
             this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbAnh.TabIndex = 155;
             this.pbAnh.TabStop = false;
-            // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.DimGray;
-            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(43, 15);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(108, 75);
-            this.backBtn.TabIndex = 139;
-            this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // FrmThongTinCaNhan
             // 
@@ -394,7 +376,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.dtpNgaySinh);
-            this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -439,7 +420,6 @@
         private System.Windows.Forms.TextBox txtHo;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

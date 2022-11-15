@@ -205,7 +205,6 @@ namespace LibraryManagement.GUI
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
-            string imagePath = "";
             try
             {
                 chiTietDauSach.TieuDe = txt_tenSach.Text;
@@ -217,8 +216,7 @@ namespace LibraryManagement.GUI
                 chiTietDauSach.NgayXB = dtp_ngayXB.Value;
                 chiTietDauSach.TrangThai = Convert.ToInt32(cb_trangThai.Text);
                 chiTietDauSach.Gia = Convert.ToInt32(txt_gia.Text);
-                imagePath = AppConstant.getDirectory(this.id, "dauSach");
-                chiTietDauSach.HinhAnh = imagePath;
+                
             }
             catch
             {
@@ -234,6 +232,7 @@ namespace LibraryManagement.GUI
             {
                 if (open.FileName != null && open.FileName != "")
                 {
+                    string imagePath = AppConstant.getDirectory(this.id, "dauSach");
                     string fullImagePath = AppConstant.getFullDirectory(imagePath);
                     // delete and save again
                     if (File.Exists(fullImagePath))
