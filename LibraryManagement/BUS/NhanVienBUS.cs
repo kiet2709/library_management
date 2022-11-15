@@ -51,5 +51,12 @@ namespace LibraryManagement.BUS
         {
             return nhanVienDAO.updatePasswordForAdmin(doiMatKhauDTO);
         }
+
+        public int getIdByName(string username)
+        {
+            DataTable result =  nhanVienDAO.getIdByName(username);
+            if (result == null) return -1;
+            return Convert.ToInt32(result.Rows[0][0]);
+        }
     }
 }
