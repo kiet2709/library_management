@@ -300,13 +300,8 @@ CREATE TABLE HoSo
   ho NVARCHAR(200) NOT NULL,
   diachi NVARCHAR(2000),
   soDT NVARCHAR(10),
-<<<<<<< HEAD
   hinhanh NVARCHAR(1000),
   email NVARCHAR(1000) NOT NULL UNIQUE,
-=======
-  hinhanh NVARCHAR(500),
-  email NVARCHAR(100) NOT NULL UNIQUE,
->>>>>>> 65efc76117d1cdeddaea452aa5db64ba85da7da5
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
@@ -1832,7 +1827,6 @@ INSERT INTO vaitro_nhanVien VALUES(6,2);
 INSERT INTO vaitro_nhanVien VALUES(7,2);
 INSERT INTO vaitro_nhanVien VALUES(8,2);
 
-<<<<<<< HEAD
 INSERT INTO Sach VALUES(1,'Kệ 1',1);
 INSERT INTO Sach VALUES(-1,'Kệ 1',1);
 INSERT INTO Sach VALUES(0,'Kệ 1',1);
@@ -1964,25 +1958,6 @@ INSERT INTO Sach VALUES(1,'Kệ 10',34);
 INSERT INTO Sach VALUES(1,'Kệ 10',34);
 INSERT INTO Sach VALUES(1,'Kệ 10',34);
 INSERT INTO Sach VALUES(1,'Kệ 10',34);
-=======
-INSERT INTO Sach VALUES(1,N'Kệ 1',1);
-INSERT INTO Sach VALUES(-1,N'Kệ 1',1);
-INSERT INTO Sach VALUES(0,N'Kệ 1',1);
-INSERT INTO Sach VALUES(1,N'Kệ 1',1);
-INSERT INTO Sach VALUES(1,N'Kệ 1',1);
-INSERT INTO Sach VALUES(1,N'Kệ 2',2);
-INSERT INTO Sach VALUES(0,N'Kệ 2',2);
-INSERT INTO Sach VALUES(-1,N'Kệ 2',2);
-INSERT INTO Sach VALUES(1,N'Kệ 2',2);
-INSERT INTO Sach VALUES(1,N'Kệ 3',3);
-INSERT INTO Sach VALUES(0,N'Kệ 3',3);
-INSERT INTO Sach VALUES(-1,N'Kệ 3',3);
-INSERT INTO Sach VALUES(1,N'Kệ 3',3);
-INSERT INTO Sach VALUES(1,N'Kệ 2',4);
-INSERT INTO Sach VALUES(0,N'Kệ 2',4);
-INSERT INTO Sach VALUES(-1,N'Kệ 2',4);
-INSERT INTO Sach VALUES(1,N'Kệ 2',4);
->>>>>>> 65efc76117d1cdeddaea452aa5db64ba85da7da5
 
 
 INSERT INTO MuonSach VALUES(1,1,'Sách bình thường', 1);
