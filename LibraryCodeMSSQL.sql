@@ -663,7 +663,7 @@ CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
 @ID INT
 AS
 BEGIN
-	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, HoSo.hinhanh
 		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
 					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
 						JOIN DocGia ON maDocGia=DocGia.id
@@ -1149,11 +1149,11 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123','Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345','Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678','Công nghệ thông tin',1);
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912','Kỹ thuật dữ liệu',1);
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722','Công nghệ hóa học',1);
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1);
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1);
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1);
 
 INSERT INTO DauSach VALUES(N'Tôi thấy hoa vàng trên cỏ xanh', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,1,1,1,1);
 INSERT INTO DauSach VALUES(N'Mắt biếc', N'Một cuốn sách dành cho giới trẻ',30000,'06-04-2012','None',1,2,2,2,2);
@@ -1186,23 +1186,23 @@ INSERT INTO vaitro_nhanVien VALUES(2,2);
 INSERT INTO vaitro_nhanVien VALUES(3,2);
 INSERT INTO vaitro_nhanVien VALUES(4,2);
 
-INSERT INTO Sach VALUES(1,'Kệ 1',1);
-INSERT INTO Sach VALUES(-1,'Kệ 1',1);
-INSERT INTO Sach VALUES(0,'Kệ 1',1);
-INSERT INTO Sach VALUES(1,'Kệ 1',1);
-INSERT INTO Sach VALUES(1,'Kệ 1',1);
-INSERT INTO Sach VALUES(1,'Kệ 2',2);
-INSERT INTO Sach VALUES(0,'Kệ 2',2);
-INSERT INTO Sach VALUES(-1,'Kệ 2',2);
-INSERT INTO Sach VALUES(1,'Kệ 2',2);
-INSERT INTO Sach VALUES(1,'Kệ 3',3);
-INSERT INTO Sach VALUES(0,'Kệ 3',3);
-INSERT INTO Sach VALUES(-1,'Kệ 3',3);
-INSERT INTO Sach VALUES(1,'Kệ 3',3);
-INSERT INTO Sach VALUES(1,'Kệ 2',4);
-INSERT INTO Sach VALUES(0,'Kệ 2',4);
-INSERT INTO Sach VALUES(-1,'Kệ 2',4);
-INSERT INTO Sach VALUES(1,'Kệ 2',4);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(-1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(0,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 1',1);
+INSERT INTO Sach VALUES(1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(0,N'Kệ 2',2);
+INSERT INTO Sach VALUES(-1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(1,N'Kệ 2',2);
+INSERT INTO Sach VALUES(1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(0,N'Kệ 3',3);
+INSERT INTO Sach VALUES(-1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(1,N'Kệ 3',3);
+INSERT INTO Sach VALUES(1,N'Kệ 2',4);
+INSERT INTO Sach VALUES(0,N'Kệ 2',4);
+INSERT INTO Sach VALUES(-1,N'Kệ 2',4);
+INSERT INTO Sach VALUES(1,N'Kệ 2',4);
 
 
 INSERT INTO MuonSach VALUES(1,1,'ghi chu 1', 1);

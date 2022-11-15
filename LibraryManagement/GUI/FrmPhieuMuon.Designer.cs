@@ -34,6 +34,12 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.vcg_phieuMuon = new System.Windows.Forms.DataGridView();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -71,12 +77,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.backBtn = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.btn_luu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vcg_phieuMuon)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -175,6 +176,55 @@
             this.vcg_phieuMuon.Size = new System.Drawing.Size(1110, 592);
             this.vcg_phieuMuon.TabIndex = 48;
             this.vcg_phieuMuon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.vcg_phieuMuon_CellClick);
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.FillWeight = 35.80297F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // startDate
+            // 
+            this.startDate.FillWeight = 90.53038F;
+            this.startDate.HeaderText = "Ngày mượn";
+            this.startDate.MinimumWidth = 6;
+            this.startDate.Name = "startDate";
+            this.startDate.ReadOnly = true;
+            // 
+            // endDate
+            // 
+            this.endDate.FillWeight = 90.53038F;
+            this.endDate.HeaderText = "Hạn trả";
+            this.endDate.MinimumWidth = 6;
+            this.endDate.Name = "endDate";
+            this.endDate.ReadOnly = true;
+            // 
+            // status
+            // 
+            this.status.FillWeight = 90.53038F;
+            this.status.HeaderText = "Trạng thái";
+            this.status.MinimumWidth = 6;
+            this.status.Name = "status";
+            this.status.ReadOnly = true;
+            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // fine
+            // 
+            this.fine.FillWeight = 90.53038F;
+            this.fine.HeaderText = "Tiền phạt";
+            this.fine.MinimumWidth = 6;
+            this.fine.Name = "fine";
+            this.fine.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.FillWeight = 61.4081F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
             // 
             // panel9
             // 
@@ -658,60 +708,24 @@
             this.pictureBox10.TabIndex = 51;
             this.pictureBox10.TabStop = false;
             // 
-            // CAR_ID
+            // btn_luu
             // 
-            this.CAR_ID.FillWeight = 35.80297F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // startDate
-            // 
-            this.startDate.FillWeight = 90.53038F;
-            this.startDate.HeaderText = "Ngày mượn";
-            this.startDate.MinimumWidth = 6;
-            this.startDate.Name = "startDate";
-            this.startDate.ReadOnly = true;
-            // 
-            // endDate
-            // 
-            this.endDate.FillWeight = 90.53038F;
-            this.endDate.HeaderText = "Hạn trả";
-            this.endDate.MinimumWidth = 6;
-            this.endDate.Name = "endDate";
-            this.endDate.ReadOnly = true;
-            // 
-            // status
-            // 
-            this.status.FillWeight = 90.53038F;
-            this.status.HeaderText = "Trạng thái";
-            this.status.MinimumWidth = 6;
-            this.status.Name = "status";
-            this.status.ReadOnly = true;
-            this.status.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // fine
-            // 
-            this.fine.FillWeight = 90.53038F;
-            this.fine.HeaderText = "Tiền phạt";
-            this.fine.MinimumWidth = 6;
-            this.fine.Name = "fine";
-            this.fine.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.FillWeight = 61.4081F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
+            this.btn_luu.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btn_luu.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_luu.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btn_luu.Location = new System.Drawing.Point(1246, 115);
+            this.btn_luu.Name = "btn_luu";
+            this.btn_luu.Size = new System.Drawing.Size(150, 52);
+            this.btn_luu.TabIndex = 60;
+            this.btn_luu.Text = "Thêm";
+            this.btn_luu.UseVisualStyleBackColor = false;
             // 
             // FrmPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1427, 780);
+            this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.label11);
@@ -809,5 +823,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn status;
         private System.Windows.Forms.DataGridViewTextBoxColumn fine;
         private System.Windows.Forms.DataGridViewButtonColumn edit;
+        private System.Windows.Forms.Button btn_luu;
     }
 }
