@@ -98,9 +98,9 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblFormTheLoai = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
             this.btnThemTheLoai = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTheLoai)).BeginInit();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
@@ -360,6 +360,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.btnFormTacGia);
             this.panel1.Controls.Add(this.btnFormPhieuMuon);
             this.panel1.Controls.Add(this.btnFormTaiKhoan);
@@ -368,7 +369,6 @@
             this.panel1.Controls.Add(this.tbnFormNhaXuatBan);
             this.panel1.Controls.Add(this.btnFormSach);
             this.panel1.Controls.Add(this.btnFormTheLoai);
-            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -1017,21 +1017,6 @@
             this.lblFormTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblFormTheLoai.Click += new System.EventHandler(this.lblFormTheLoai_Click);
             // 
-            // backBtn
-            // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(20, 13);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(256, 89);
-            this.backBtn.TabIndex = 37;
-            this.backBtn.UseVisualStyleBackColor = false;
-            // 
             // btnThemTheLoai
             // 
             this.btnThemTheLoai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
@@ -1055,6 +1040,21 @@
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox10.TabIndex = 57;
             this.pictureBox10.TabStop = false;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Location = new System.Drawing.Point(56, 16);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(256, 107);
+            this.backBtn.TabIndex = 44;
+            this.backBtn.UseVisualStyleBackColor = false;
             // 
             // FrmTheLoai
             // 
@@ -1191,7 +1191,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblFormTheLoai;
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button btnThemTheLoai;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
@@ -1201,5 +1200,6 @@
         private System.Windows.Forms.Label lblTenDangNhap;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.PictureBox pbAnh;
+        private System.Windows.Forms.Button backBtn;
     }
 }

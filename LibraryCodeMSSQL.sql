@@ -406,10 +406,10 @@ CREATE TABLE MuonSach
 GO
 
 
---=============== CREATE TRIGGER ===============--
+								--=============== TRIGGER ===============--
 
--- if ngayxuatban > current time => rollback
--- or ngayxuatban is older than 1900 => rollback also
+-- Nếu ngayxuatban > thời gian hiện tại => rollback
+-- Hoặc ngayxuatban < năm 1900 => rollback 
 CREATE TRIGGER trig_namxuatban ON DauSach
 FOR INSERT, UPDATE
 AS
@@ -421,7 +421,8 @@ AS
 	END
 
 GO
--- instead of delete dausach, change status from 1 to 0 (unactive )
+
+-- Thay vì xóa dausach, đổi trạng thái từ  1 thành 0 (Không cho mượn)
 CREATE TRIGGER trig_trangthai_dausach ON DauSach
 INSTEAD OF DELETE
 AS
@@ -437,7 +438,7 @@ AS
 	END
 GO
 
--- delete muon if trangthai == 1 => rollback 
+-- Xóa phiếu mượn khi trangthai == 1 => rollback thay vào đó
 CREATE TRIGGER trig_trangthai_muon ON MuonSach 
 FOR DELETE
 AS
@@ -447,7 +448,7 @@ AS
 	END
 Go
 
--- delete sach if trangthai == -1 => rollback 
+-- Xóa sach khi trangthai == -1 => rollback thay vào đó 
 CREATE TRIGGER trig_trangthai_sach ON Sach
 INSTEAD OF DELETE
 AS
@@ -463,7 +464,7 @@ AS
 	END
 GO
 
--- if role is admin but age < 18 => rollback
+-- Thêm mới nếu vai trò là quản lý nhưng tuổi < 18 => rollback
 CREATE TRIGGER trig_HoSo ON HoSo
 FOR INSERT, UPDATE
 AS
@@ -480,7 +481,7 @@ BEGIN
 END
 GO
 
--- if trangthai == 1 => rollback
+-- Khi xóa nhân viên nếu trangthai == 1 => rollback
 CREATE TRIGGER trigg_enable_nhanVien ON NhanVien
 FOR DELETE
 AS
@@ -493,7 +494,9 @@ BEGIN
 	END
 END
 GO
--- create view nhanvien
+
+							--=============== VIEW ===============--
+--  view nhanvien
 CREATE OR ALTER VIEW NHANVIEN_VIEW AS
 SELECT HoSo.id, HoSo.ten, Hoso.email
 FROM HoSo INNER JOIN NhanVien ON HoSo.id=NhanVien.maHoSo 
@@ -501,27 +504,29 @@ INNER JOIN vaitro_nhanVien ON NhanVien.id=vaitro_nhanVien.maNhanVien
 	INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id
 WHERE VaiTro.ten='nhan vien'
 GO
-
+--  view nhaxuatban
 CREATE OR ALTER VIEW NXB_VIEW AS
 SELECT *
 FROM NhaXuatBan 
 GO
-
+--  view theloai
 CREATE OR ALTER VIEW THELOAI_VIEW AS
 SELECT *
 FROM TheLoai
 GO
 
---=============== CREATE PROC ===============--
+							--=============== PROCEDURE ===============--
+
+
+--============================================= ĐỘC GIẢ =============================================--
+
 -- procedure Xem thông tin độc giả
 CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Doc_gia
 AS
 BEGIN
    SELECT * FROM DocGia;
 END;
-
 GO
-
 
 -- procedure Thêm thông tin độc giả
 CREATE OR ALTER PROCEDURE usp_Them_Doc_Gia
@@ -541,6 +546,7 @@ BEGIN
    SELECT SCOPE_IDENTITY();
 END;
 GO
+
 --procedure lấy độc giả theo id
 CREATE OR ALTER PROCEDURE usp_Lay_Doc_Gia_Theo_Id
 @ID INT
@@ -550,6 +556,7 @@ BEGIN
 	WHERE id = @ID;
 END
 GO
+
 --procedure sửa độc giả
 CREATE OR ALTER PROCEDURE usp_Sua_Doc_Gia
 @ID INT,
@@ -568,6 +575,7 @@ BEGIN
    WHERE id=@ID;
 END;
 GO
+
 --procedure sửa hình ảnh độc giả
 CREATE OR ALTER PROCEDURE usp_Sua_Hinh_Anh_Doc_Gia
 @ID INT,
@@ -577,6 +585,7 @@ BEGIN
 	UPDATE DocGia SET hinhAnh = @HINHANH WHERE ID = @ID
 END;
 GO
+
 -- procedure Chuyển trạng thái độc giả
 CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Doc_gia
    @id INT,
@@ -591,7 +600,6 @@ END;
 GO
 
 -- procedure sửa thông tin độc giả
-
 CREATE OR ALTER PROC usp_Sua_Thong_Tin_Doc_Gia  
 @id INT,
 @trangthai INT,
@@ -605,6 +613,8 @@ BEGIN
 END;
 GO
 
+--============================================= SÁCH =============================================--
+
 -- procedure Xem thể loại
 CREATE OR ALTER PROCEDURE usp_Xem_The_Loai
 AS
@@ -612,6 +622,7 @@ BEGIN
    	SELECT * FROM TheLoai;
 END;
 GO
+
 -- procedure Xem sách theo ngôn ngữ
 CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Ngon_Ngu
 @id INT
@@ -622,6 +633,454 @@ BEGIN
 	WHERE NgonNgu.id=@id
 END;
 GO
+
+
+
+--procedure cập nhật thông tin đầu sách
+CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_DAU_SACH
+@ID INT,
+@TIEUDE NVARCHAR(30),
+@MOTA NVARCHAR(200),
+@GIA INT,
+@NGAYXB DATE,
+@HINHANH NVARCHAR(100),
+@LOAI INT,
+@TRANGTHAI INT,
+@MANXB INT,
+@MANGONGU INT,
+@MATHELOAI INT
+AS
+BEGIN
+	UPDATE DauSach SET tieude=@TIEUDE, mota=@MOTA, gia=@GIA, ngayxuatban=@NGAYXB, hinhanh=@HINHANH, loai=@LOAI, trangthai=@TRANGTHAI,
+		maNXB=@MANXB, maNgonNgu=@MANGONGU, maTheLoai=@MATHELOAI 
+			WHERE id=@ID		
+END
+GO
+
+-- procedure sửa hình ảnh đầu sách
+CREATE OR ALTER PROC usp_Sua_Hinh_Anh_Dau_Sach
+@ID INT,
+@HINHANH NVARCHAR(1000)
+AS
+BEGIN
+	UPDATE DauSach SET hinhAnh = @HINHANH
+			WHERE id=@ID		
+END
+GO
+
+-- procedure Xem thông tin đầu sách
+CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
+AS
+BEGIN
+   SELECT * FROM DauSach;
+END;
+GO
+
+-- procedure Xem thông tin đầu sách DTO
+CREATE OR ALTER PROCEDURE usp_Xem_DauSachDTO
+AS
+BEGIN
+SELECT DauSach.id, DauSach.tieude, TheLoai.ten as 'theloai', DauSach.gia
+FROM DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id;
+END;
+
+GO
+
+-- procedure Thêm thông tin đầu sách
+CREATE OR ALTER PROCEDURE usp_Them_Dau_Sach
+   @tieude NVARCHAR(30),
+   @mota NVARCHAR(200),
+   @gia INT,
+   @ngayxuatban DATE,
+   @hinhanh NVARCHAR(100),
+   @loai INT,
+   @trangthai INT,
+   @maNXB INT,
+   @maNgonNgu INT,
+   @maTheLoai INT
+AS
+BEGIN
+   BEGIN TRY
+		BEGIN TRAN
+         DECLARE @MaDauSach INT;
+			INSERT INTO DauSach (
+         tieude, 
+         mota, 
+         gia,
+         ngayxuatban,
+         hinhanh,
+         loai,
+         trangthai,
+         maNXB,
+         maNgonNgu,
+         maTheLoai
+      )
+      VALUES (
+         @tieude, 
+         @mota, 
+         @gia,
+         @ngayxuatban,
+         @hinhanh,
+         @loai,
+         @trangthai,
+         @maNXB,
+         @maNgonNgu,
+         @maTheLoai
+      );
+      SET @MaDauSach = SCOPE_IDENTITY();
+      COMMIT 
+	END TRY
+   BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+      SET @MaDauSach =-1;
+	END CATCH
+   SELECT @MaDauSach;   
+END;
+GO
+
+-- procedure Chuyển trạng thái đầu sách ( Cho mượn, không cho mượn)
+CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Dau_Sach
+   @id INT,
+   @trangthai INT
+AS
+BEGIN
+   UPDATE DauSach
+   SET trangthai = @trangthai
+   WHERE id=@id;
+END;
+
+GO
+
+-- procedure Liệt kê sách theo trạng thái 
+CREATE OR ALTER PROCEDURE usp_Liet_Ke_Sach_Theo_Trang_Thai
+   @trangthai INT
+AS
+BEGIN
+   SELECT * FROM DauSach WHERE trangthai=@trangthai;
+END;
+
+GO
+
+-- procedure Liệt kê những độc giả đang mượn sách
+CREATE OR ALTER PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach
+AS
+BEGIN
+   SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
+   DocGia INNER JOIN Muon ON DocGia.id = Muon.maDocGia;
+END;
+
+GO
+
+-- procedure Liệt kê những độc giả đang mượn sách quá hạn
+CREATE OR ALTER PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach_Qua_Han
+AS
+BEGIN
+   SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
+   DocGia INNER JOIN Muon ON DocGia.id = Muon.maDocGia
+   WHERE MONTH(GETDATE())-MONTH(Muon.ngaymuon) >=6;
+END;
+
+GO
+
+-- procedure Xem sách theo tác giả
+CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Tac_Gia
+@id INT
+AS
+BEGIN
+   SELECT DauSach.tieude, DauSach.mota, DauSach.hinhanh FROM 
+   TacGia INNER JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
+   INNER JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
+   WHERE TacGia.id = @id;
+END;
+
+GO
+
+-- procedure Xem sách theo danh mục
+CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Danh_Muc
+@id INT
+AS
+BEGIN
+   SELECT DauSach.tieude, DauSach.mota, DauSach.hinhanh FROM 
+   DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id
+   WHERE TheLoai.id = @id;
+END;
+GO
+
+-- procedure xem đầu sách theo nhà xuất bản
+CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach_Theo_Nha_Xuat_Ban
+@maNXB INT
+AS
+	BEGIN
+	   SELECT * FROM DauSach INNER JOIN NhaXuatBan ON DauSach.maNXB = NhaXuatBan.id
+	   WHERE NhaXuatBan.id = @maNXB;
+	END;
+GO
+
+-- procedure Xóa ngôn ngữ
+CREATE OR ALTER PROCEDURE usp_Xoa_Ngon_Ngu
+@id INT
+AS
+	BEGIN
+	   DELETE FROM NgonNgu WHERE id = @id;
+	END;
+GO
+
+-- procedure xóa nhà xuất bản
+CREATE OR ALTER PROCEDURE usp_Xoa_Nha_Xuat_Ban
+@id INT
+AS
+	BEGIN
+	   DELETE FROM NhaXuatBan WHERE id = @id;
+	END;
+GO
+
+-- procedure xóa thể loại
+CREATE OR ALTER PROCEDURE usp_Xoa_The_Loai
+@id INT
+AS
+	BEGIN
+	   DELETE FROM TheLoai WHERE id = @id;
+	END;
+GO
+
+-- procedure xem ngôn ngữ
+CREATE OR ALTER PROCEDURE usp_Xem_Ngon_Ngu_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT NgonNgu.ten
+   FROM NgonNgu
+   WHERE NgonNgu.id = @id
+END;
+GO
+
+-- procedure xem tác giả theo mã tác giả
+CREATE OR ALTER PROCEDURE usp_Xem_Tac_Gia_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT TacGia.ten
+   FROM TacGia
+   WHERE TacGia.id = @id
+END;
+
+-- procedure xem nhà xuất bản theo mã nhà xuất bản
+GO
+CREATE OR ALTER PROCEDURE usp_Xem_Nha_Xuat_Ban_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT NhaXuatBan.ten
+   FROM NhaXuatBan
+   WHERE NhaXuatBan.id = @id
+END;
+
+-- procedure xem thể loại theo mã thể loại
+GO
+CREATE OR ALTER PROCEDURE usp_Xem_The_Loai_Theo_Id
+@id INT
+AS
+BEGIN
+   SELECT TheLoai.ten
+   FROM TheLoai
+   WHERE TheLoai.id = @id
+END;
+
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_The_Loai  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE TheLoai SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
+
+-- procedure Sửa thông tin tác giả
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Tac_Gia 
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE TacGia SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nha_Xuat_Ban  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE NhaXuatBan SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
+-- procedure Sửa thông tin thể loại
+CREATE OR ALTER PROC usp_Sua_Thong_Tin_Ngon_Ngu  
+@ID INT,
+@TEN NVARCHAR(200)
+AS
+BEGIN
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE NgonNGu SET ten=@TEN
+			WHERE id=@ID
+		COMMIT
+	END TRY
+		
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH 
+END;
+GO
+
+-- procedure Sửa thông tin về bảng tác giả và sách
+CREATE OR ALTER PROCEDURE usp_SUA_TAC_GIA_SACH
+@idSach INT,
+@idTacGiaCu INT,
+@idTacGiaMoi INT
+AS
+BEGIN
+   UPDATE tacgia_sach SET maTacGia=@idTacGiaMoi WHERE maDauSach=@idSach AND maTacGia=@idTacGiaCu
+END;
+GO
+
+-- procedure xóa bảng tác giả và sách
+CREATE OR ALTER PROCEDURE usp_XOA_TAC_GIA_SACH
+@idSach INT,
+@idTacGia INT
+AS
+BEGIN
+   DELETE FROM tacgia_sach WHERE maDauSach=@idSach AND maTacGia=@idTacGia
+END;
+GO
+
+-- procedure thêm vào bảng tác giả và sách
+CREATE OR ALTER PROCEDURE usp_THEM_TAC_GIA_SACH
+@idSach INT,
+@idTacGia INT
+AS
+	BEGIN
+	   INSERT INTO tacgia_sach VALUES(@idSach, @idTacGia);
+	END;
+GO
+
+-- procedure Xem sách theo đầu sách và tác giả
+CREATE OR ALTER PROCEDURE usp_Xem_Danh_Sach_Dau_Sach_Theo_Tac_Gia
+@id INT
+AS
+BEGIN
+	SELECT TacGia.id as 'tacgiaID', TacGia.ten, DauSach.id as 'sachID'
+	FROM TacGia 
+	JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
+	JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
+	WHERE TacGia.id=@id;
+END;
+GO
+
+
+-- procedure Lấy thông tin chi tiết đầu sách theo mã đầu sách
+CREATE OR ALTER PROC usp_Thong_Tin_Chi_Tiet_Dau_Sach
+@id INT
+AS
+BEGIN
+	SELECT tieude, mota, gia, ngayxuatban, hinhanh, loai as 'danhmuc', trangthai, NhaXuatBan.ten as 'nxb', NgonNgu.ten as 'ngonngu', TheLoai.ten as 'theloai' 
+	FROM DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id
+		INNER JOIN NhaXuatBan ON DauSach.maNXB = NhaXuatBan.id
+			INNER JOIN NgonNgu ON DauSach.maNgonNgu = NgonNgu.id
+	WHERE DauSach.id = @id
+END
+GO
+
+-- procedure Lấy toàn bộ tác giả theo mã đầu sách
+CREATE OR ALTER PROC usp_TAC_GIA_SACH_CU_THE
+@id int
+AS
+BEGIN
+	SELECT TacGia.id, TacGia.ten FROM tacgia_sach INNER JOIN TacGia ON tacgia_sach.maTacGia = TacGia.id
+	WHERE tacgia_sach.maDauSach = @id
+END
+GO
+
+-- procedure Lấy tất cả tác giả
+CREATE OR ALTER PROC usp_TAC_GIA_SACH
+AS
+	BEGIN
+		SELECT * FROM TacGia 
+	END
+GO
+
+-- procedure thêm tác giả
+CREATE OR ALTER PROC usp_THEM_TAC_GIA
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO TacGia VALUES(@TEN);
+END
+GO
+
+-- procedure thêm nhà xuất bản
+CREATE OR ALTER PROC usp_THEM_NXB
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO NhaXuatBan VALUES(@TEN);
+END
+GO
+
+-- procedure thêm thể loại
+CREATE OR ALTER PROC usp_THEM_THE_LOAI
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO TheLoai VALUES(@TEN);
+END
+GO
+
+-- procedure thêm ngôn ngữ
+CREATE OR ALTER PROC usp_THEM_NGON_NGU
+@TEN NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO NgonNgu VALUES(@TEN);
+END
+GO
+
+
+
+--============================================= NHÂN VIÊN =============================================--
 
 -- procedure Sửa thông tin nhân viên
 CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien  
@@ -726,7 +1185,7 @@ BEGIN
 	
 END;
 GO 
--- procedure đổi mật khẩu
+-- procedure đổi mật khẩu nhân viên
 CREATE OR ALTER PROC usp_Doi_Mat_Khau 
 @MAHOSO INT,
 @MATKHAUCU NVARCHAR(1000),
@@ -815,105 +1274,6 @@ BEGIN
 END;
 GO
 
---procedure cập nhật thông tin đầu sách
-CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_DAU_SACH
-@ID INT,
-@TIEUDE NVARCHAR(30),
-@MOTA NVARCHAR(200),
-@GIA INT,
-@NGAYXB DATE,
-@HINHANH NVARCHAR(100),
-@LOAI INT,
-@TRANGTHAI INT,
-@MANXB INT,
-@MANGONGU INT,
-@MATHELOAI INT
-AS
-BEGIN
-	UPDATE DauSach SET tieude=@TIEUDE, mota=@MOTA, gia=@GIA, ngayxuatban=@NGAYXB, hinhanh=@HINHANH, loai=@LOAI, trangthai=@TRANGTHAI,
-		maNXB=@MANXB, maNgonNgu=@MANGONGU, maTheLoai=@MATHELOAI 
-			WHERE id=@ID		
-END
-GO
-
--- procedure sửa hình ảnh đầu sách
-CREATE OR ALTER PROC usp_Sua_Hinh_Anh_Dau_Sach
-@ID INT,
-@HINHANH NVARCHAR(1000)
-AS
-BEGIN
-	UPDATE DauSach SET hinhAnh = @HINHANH
-			WHERE id=@ID		
-END
-GO
-
--- procedure thông tin phiếu mượn
-CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
-@ID INT
-AS
-BEGIN
-	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat
-		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
-					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
-						JOIN DocGia ON maDocGia=DocGia.id
-			WHERE Muon.id=@ID		
-END
-GO
-
--- procedure cập nhật thông tin phiếu mượn
-CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
-@ID INT,
-@NGAYTRA DATE,
-@TIENPHAT INT
-AS
-BEGIN
-	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
-			WHERE id=@ID		
-END
-GO
-
-CREATE OR ALTER PROC usp_CAP_NHAT_MUON_SACH
-@MAMUON INT,
-@MASACH INT,
-@TRANGTHAI INT,
-@GHICHU NVARCHAR(50)
-AS
-BEGIN
-	UPDATE MuonSach SET trangthai=@TRANGTHAI, ghiChu=@GHICHU 
-			WHERE maMuon=@MAMUON AND maSach=@MASACH		
-END
-GO
-
-CREATE OR ALTER PROC usp_SACH_TRONG_PHIEU_MUON
-@MAMUON INT
-AS
-BEGIN
-	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
-							JOIN DauSach ON Sach.maDauSach=DauSach.id
-			WHERE maMuon=@MAMUON
-END
-GO
-
-CREATE OR ALTER PROC usp_PHIEU_MUON
-AS
-BEGIN
-	SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m
-END
-GO
-
-CREATE OR ALTER FUNCTION fn_Trang_Thai_Phieu_Muon(
-@ID_PHIEU_MUON INT
-)
-RETURNS INT
-AS
-BEGIN
-	DECLARE @NUMBER INT;
-	SELECT @NUMBER=COUNT(*) FROM MuonSach WHERE MuonSach.maMuon=@ID_PHIEU_MUON;
-	IF @NUMBER > 0 RETURN 0;
-	RETURN 1;
-END;
-GO
-
 -- procedure Xem toàn bộ thông tin nhân viên
 CREATE OR ALTER PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
 AS
@@ -926,6 +1286,7 @@ BEGIN
 	GROUP BY NhanVien.id, HoSo.id,  HoSo.ten,tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 END;
 GO
+
 -- procedure Xem thông tin nhân viên theo id
 CREATE OR ALTER PROC usp_Xem_Thong_Tin_Nhan_Vien
 @id INT
@@ -953,153 +1314,24 @@ END;
 GO
 
 
--- procedure Xem thông tin đầu sách
-CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
+
+
+
+-- procedure kiểm tra đăng nhập 
+CREATE OR ALTER PROC usp_Kiem_Tra_Dang_Nhap 
+    @tenDangNhap NVARCHAR(40),
+    @matKhau Nvarchar(100)
 AS
 BEGIN
-   SELECT * FROM DauSach;
-END;
+	DECLARE @maNhanVien INT;
+	SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
+	IF (@maNhanVien IS NOT NULL)
+		SELECT @maNhanVien 
+	ELSE
+		SELECT -1
+END
 GO
-
--- procedure Xem thông tin đầu sách DTO
-CREATE OR ALTER PROCEDURE usp_Xem_DauSachDTO
-AS
-BEGIN
-SELECT DauSach.id, DauSach.tieude, TheLoai.ten as 'theloai', DauSach.gia
-FROM DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id;
-END;
-
-GO
--- procedure Thêm thông tin đầu sách
-CREATE OR ALTER PROCEDURE usp_Them_Dau_Sach
-   @tieude NVARCHAR(30),
-   @mota NVARCHAR(200),
-   @gia INT,
-   @ngayxuatban DATE,
-   @hinhanh NVARCHAR(100),
-   @loai INT,
-   @trangthai INT,
-   @maNXB INT,
-   @maNgonNgu INT,
-   @maTheLoai INT
-AS
-BEGIN
-   BEGIN TRY
-		BEGIN TRAN
-         DECLARE @MaDauSach INT;
-			INSERT INTO DauSach (
-         tieude, 
-         mota, 
-         gia,
-         ngayxuatban,
-         hinhanh,
-         loai,
-         trangthai,
-         maNXB,
-         maNgonNgu,
-         maTheLoai
-      )
-      VALUES (
-         @tieude, 
-         @mota, 
-         @gia,
-         @ngayxuatban,
-         @hinhanh,
-         @loai,
-         @trangthai,
-         @maNXB,
-         @maNgonNgu,
-         @maTheLoai
-      );
-      SET @MaDauSach = SCOPE_IDENTITY();
-      COMMIT 
-	END TRY
-   BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRAN;
-      SET @MaDauSach =-1;
-	END CATCH
-   SELECT @MaDauSach;   
-END;
-GO
--- procedure Chuyển trạng thái đầu sách ( Cho mượn, không cho mượn)
-CREATE OR ALTER PROCEDURE usp_Chuyen_Trang_Thai_Dau_Sach
-   @id INT,
-   @trangthai INT
-AS
-BEGIN
-   UPDATE DauSach
-   SET trangthai = @trangthai
-   WHERE id=@id;
-END;
-
-GO
-
--- procedure Liệt kê sách theo trạng thái 
-CREATE OR ALTER PROCEDURE usp_Liet_Ke_Sach_Theo_Trang_Thai
-   @trangthai INT
-AS
-BEGIN
-   SELECT * FROM DauSach WHERE trangthai=@trangthai;
-END;
-
-GO
-
--- procedure Liệt kê những độc giả đang mượn sách
-CREATE OR ALTER PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach
-AS
-BEGIN
-   SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
-   DocGia INNER JOIN Muon ON DocGia.id = Muon.maDocGia;
-END;
-
-GO
-
--- procedure Liệt kê những độc giả đang mượn sách quá hạn
-CREATE OR ALTER PROCEDURE usp_Liet_Ke_Doc_Gia_Dang_Muon_Sach_Qua_Han
-AS
-BEGIN
-   SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
-   DocGia INNER JOIN Muon ON DocGia.id = Muon.maDocGia
-   WHERE MONTH(GETDATE())-MONTH(Muon.ngaymuon) >=6;
-END;
-
-GO
-
--- procedure Xem sách theo tác giả
-CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Tac_Gia
-@id INT
-AS
-BEGIN
-   SELECT DauSach.tieude, DauSach.mota, DauSach.hinhanh FROM 
-   TacGia INNER JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
-   INNER JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
-   WHERE TacGia.id = @id;
-END;
-
-GO
-
--- procedure Xem sách theo danh mục
-CREATE OR ALTER PROCEDURE usp_Xem_Sach_Theo_Danh_Muc
-@id INT
-AS
-BEGIN
-   SELECT DauSach.tieude, DauSach.mota, DauSach.hinhanh FROM 
-   DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id
-   WHERE TheLoai.id = @id;
-END;
-GO
-
-
--- procedure xem thông tin phiếu mượn
-CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Phieu_Muon
-@id INT
-AS
-BEGIN
-   SELECT * FROM Muon
-   WHERE id = @id;
-END;
-GO
+--============================================= PHIẾU MƯỢN =============================================--
 -- procedure thêm thông tin phiếu mượn
 CREATE OR ALTER proc usp_Them_Thong_Tin_Phieu_Muon
   @ngaymuon DATE,
@@ -1124,191 +1356,73 @@ BEGIN
 END;
 GO
 
--- procedure xem đầu sách theo nhà xuất bản
-CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach_Theo_Nha_Xuat_Ban
-@maNXB INT
-AS
-BEGIN
-   SELECT * FROM DauSach INNER JOIN NhaXuatBan ON DauSach.maNXB = NhaXuatBan.id
-   WHERE NhaXuatBan.id = @maNXB;
-END;
-GO
-CREATE OR ALTER PROCEDURE usp_Xoa_Ngon_Ngu
+-- procedure xem thông tin phiếu mượn
+CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Phieu_Muon
 @id INT
 AS
 BEGIN
-   DELETE FROM NgonNgu WHERE id = @id;
+   SELECT * FROM Muon
+   WHERE id = @id;
 END;
 GO
-CREATE OR ALTER PROCEDURE usp_Xoa_Nha_Xuat_Ban
-@id INT
-AS
-BEGIN
-   DELETE FROM NhaXuatBan WHERE id = @id;
-END;
-GO
-CREATE OR ALTER PROCEDURE usp_Xoa_The_Loai
-@id INT
-AS
-BEGIN
-   DELETE FROM TheLoai WHERE id = @id;
-END;
-GO
-CREATE OR ALTER PROCEDURE usp_Xem_Ngon_Ngu_Theo_Id
-@id INT
-AS
-BEGIN
-   SELECT NgonNgu.ten
-   FROM NgonNgu
-   WHERE NgonNgu.id = @id
-END;
-GO
-CREATE OR ALTER PROCEDURE usp_Xem_Tac_Gia_Theo_Id
-@id INT
-AS
-BEGIN
-   SELECT TacGia.ten
-   FROM TacGia
-   WHERE TacGia.id = @id
-END;
 
-GO
-CREATE OR ALTER PROCEDURE usp_Xem_Nha_Xuat_Ban_Theo_Id
-@id INT
+-- procedure lấy thông tin phiếu mượn
+CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
+@ID INT
 AS
 BEGIN
-   SELECT NhaXuatBan.ten
-   FROM NhaXuatBan
-   WHERE NhaXuatBan.id = @id
-END;
-
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat
+	FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
+				JOIN HoSo ON NhanVien.maHoSo=HoSo.id
+					JOIN DocGia ON maDocGia=DocGia.id
+	WHERE Muon.id=@ID		
+END
 GO
-CREATE OR ALTER PROCEDURE usp_Xem_The_Loai_Theo_Id
-@id INT
-AS
-BEGIN
-   SELECT TheLoai.ten
-   FROM TheLoai
-   WHERE TheLoai.id = @id
-END;
 
-GO
--- procedure Sửa thông tin thể loại
-CREATE OR ALTER PROC usp_Sua_Thong_Tin_The_Loai  
+-- procedure cập nhật thông tin phiếu mượn
+CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
 @ID INT,
-@TEN NVARCHAR(200)
+@NGAYTRA DATE,
+@TIENPHAT INT
 AS
 BEGIN
-	BEGIN TRY
-		BEGIN TRAN
-			UPDATE TheLoai SET ten=@TEN
-			WHERE id=@ID
-		COMMIT
-	END TRY
-		
-	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRAN;
-	END CATCH 
-END;
-GO
--- procedure Sửa thông tin tác giả
-CREATE OR ALTER PROC usp_Sua_Thong_Tin_Tac_Gia 
-@ID INT,
-@TEN NVARCHAR(200)
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRAN
-			UPDATE TacGia SET ten=@TEN
-			WHERE id=@ID
-		COMMIT
-	END TRY
-		
-	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRAN;
-	END CATCH 
-END;
-GO
--- procedure Sửa thông tin thể loại
-CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nha_Xuat_Ban  
-@ID INT,
-@TEN NVARCHAR(200)
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRAN
-			UPDATE NhaXuatBan SET ten=@TEN
-			WHERE id=@ID
-		COMMIT
-	END TRY
-		
-	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRAN;
-	END CATCH 
-END;
-GO
--- procedure Sửa thông tin thể loại
-CREATE OR ALTER PROC usp_Sua_Thong_Tin_Ngon_Ngu  
-@ID INT,
-@TEN NVARCHAR(200)
-AS
-BEGIN
-	BEGIN TRY
-		BEGIN TRAN
-			UPDATE NgonNGu SET ten=@TEN
-			WHERE id=@ID
-		COMMIT
-	END TRY
-		
-	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRAN;
-	END CATCH 
-END;
-GO
-CREATE OR ALTER PROCEDURE usp_SUA_TAC_GIA_SACH
-@idSach INT,
-@idTacGiaCu INT,
-@idTacGiaMoi INT
-AS
-BEGIN
-   UPDATE tacgia_sach SET maTacGia=@idTacGiaMoi WHERE maDauSach=@idSach AND maTacGia=@idTacGiaCu
-END;
+	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
+			WHERE id=@ID		
+END
 GO
 
-CREATE OR ALTER PROCEDURE usp_XOA_TAC_GIA_SACH
-@idSach INT,
-@idTacGia INT
+-- procedure cập nhật thành phần phiếu mượn
+CREATE OR ALTER PROC usp_CAP_NHAT_MUON_SACH
+@MAMUON INT,
+@MASACH INT,
+@TRANGTHAI INT,
+@GHICHU NVARCHAR(50)
 AS
 BEGIN
-   DELETE FROM tacgia_sach WHERE maDauSach=@idSach AND maTacGia=@idTacGia
-END;
+	UPDATE MuonSach SET trangthai=@TRANGTHAI, ghiChu=@GHICHU 
+			WHERE maMuon=@MAMUON AND maSach=@MASACH		
+END
 GO
 
-CREATE OR ALTER PROCEDURE usp_THEM_TAC_GIA_SACH
-@idSach INT,
-@idTacGia INT
+-- procedure Lấy sách trong phiếu mượn
+CREATE OR ALTER PROC usp_SACH_TRONG_PHIEU_MUON
+@MAMUON INT
 AS
 BEGIN
-   INSERT INTO tacgia_sach VALUES(@idSach, @idTacGia);
-END;
-GO
-CREATE OR ALTER PROCEDURE usp_Xem_Danh_Sach_Dau_Sach_Theo_Tac_Gia
-@id INT
-AS
-BEGIN
-SELECT TacGia.id as 'tacgiaID', TacGia.ten, DauSach.id as 'sachID'
-FROM TacGia 
-JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
-JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
-WHERE TacGia.id=@id;
-END;
+	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
+							JOIN DauSach ON Sach.maDauSach=DauSach.id
+			WHERE maMuon=@MAMUON
+END
 GO
 
---================ Create Function ====================================
+-- procedure xem thông tin phiếu mượn
+CREATE OR ALTER PROC usp_PHIEU_MUON
+AS
+BEGIN
+	SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m
+END
+GO
+--================ Function ====================================
 
 -- function trả về tổng lương nhân viên
 CREATE OR ALTER FUNCTION fn_Tong_Luong_Nhan_Vien()
@@ -1361,138 +1475,77 @@ BEGIN
 END;
 GO
 
--- PROC kiểm tra đăng nhập 
-CREATE OR ALTER PROC usp_Kiem_Tra_Dang_Nhap 
-    @tenDangNhap NVARCHAR(40),
-    @matKhau Nvarchar(100)
-AS
-BEGIN
-
-DECLARE @maNhanVien INT;
-
-SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
-IF (@maNhanVien IS NOT NULL)
-    SELECT @maNhanVien 
-ELSE
-
-    SELECT -1
-
-END
-
-
-GO
+-- function trả về tổng số sách theo tác giả
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)
 RETURNS INT
 AS
 BEGIN
-DECLARE @soLuong INT;
-SELECT @soLuong=COUNT(*) 
-FROM TacGia 
-JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
-JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
-WHERE TacGia.id = @id
-GROUP BY TacGia.id;
-RETURN @soluong;
+	DECLARE @soLuong INT;
+	SELECT @soLuong=COUNT(*) 
+	FROM TacGia 
+	JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
+	JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
+	WHERE TacGia.id = @id
+	GROUP BY TacGia.id;
+	RETURN @soluong;
 END;
 GO
+
+-- function trả về tổng số sách theo nhà xuất bản
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Nha_Xuat_Ban(@id INT)
 RETURNS INT
 AS
 BEGIN
-DECLARE @soLuong INT;
-SELECT @soLuong=COUNT(DauSach.id) 
-FROM NhaXuatBan INNER JOIN DauSach ON NhaXuatBan.id = DauSach.maNXB
-WHERE NhaXuatBan.id = @id
-GROUP BY NhaXuatBan.id;
-RETURN @soLuong;
+	DECLARE @soLuong INT;
+	SELECT @soLuong=COUNT(DauSach.id) 
+	FROM NhaXuatBan INNER JOIN DauSach ON NhaXuatBan.id = DauSach.maNXB
+	WHERE NhaXuatBan.id = @id
+	GROUP BY NhaXuatBan.id;
+	RETURN @soLuong;
 END;
 GO
+
+-- function trả về tổng số sách theo thể loại
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_The_Loai(@id INT)
 RETURNS INT
 AS
 BEGIN
-DECLARE @soLuong INT;
-SELECT @soLuong=COUNT(DauSach.id) 
-FROM TheLoai INNER JOIN DauSach ON TheLoai.id = DauSach.maTheLoai
-WHERE DauSach.id = @id
-GROUP BY DauSach.id;
-RETURN @soLuong;
+	DECLARE @soLuong INT;
+	SELECT @soLuong=COUNT(DauSach.id) 
+	FROM TheLoai INNER JOIN DauSach ON TheLoai.id = DauSach.maTheLoai
+	WHERE DauSach.id = @id
+	GROUP BY DauSach.id;
+	RETURN @soLuong;
 END;
 GO
 
 
+-- function trả về tổng số sách theo ngôn ngữ
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Ngon_Ngu(@id INT)
 RETURNS INT
 AS
 BEGIN
-DECLARE @soLuong INT;
-SELECT @soLuong=COUNT(DauSach.id) 
-FROM NgonNgu INNER JOIN DauSach ON NgonNgu.id = DauSach.maNgonNgu
-WHERE DauSach.id = @id
-GROUP BY DauSach.id;
-RETURN @soLuong;
+	DECLARE @soLuong INT;
+	SELECT @soLuong=COUNT(DauSach.id) 
+	FROM NgonNgu INNER JOIN DauSach ON NgonNgu.id = DauSach.maNgonNgu
+	WHERE DauSach.id = @id
+	GROUP BY DauSach.id;
+	RETURN @soLuong;
 END;
 GO
-CREATE OR ALTER PROC usp_Thong_Tin_Chi_Tiet_Dau_Sach
-@id INT
-AS
-BEGIN
-	SELECT tieude, mota, gia, ngayxuatban, hinhanh, loai as 'danhmuc', trangthai, NhaXuatBan.ten as 'nxb', NgonNgu.ten as 'ngonngu', TheLoai.ten as 'theloai' 
-	FROM DauSach INNER JOIN TheLoai ON DauSach.maTheLoai = TheLoai.id
-		INNER JOIN NhaXuatBan ON DauSach.maNXB = NhaXuatBan.id
-			INNER JOIN NgonNgu ON DauSach.maNgonNgu = NgonNgu.id
-	WHERE DauSach.id = @id
-END
 
-GO
-
-CREATE OR ALTER PROC usp_TAC_GIA_SACH_CU_THE
-@id int
+-- function trả về tổng số phiếu mượn theo trạng thái 
+CREATE OR ALTER FUNCTION fn_Trang_Thai_Phieu_Muon(
+@ID_PHIEU_MUON INT
+)
+RETURNS INT
 AS
 BEGIN
-	SELECT TacGia.id, TacGia.ten FROM tacgia_sach INNER JOIN TacGia ON tacgia_sach.maTacGia = TacGia.id
-	WHERE tacgia_sach.maDauSach = @id
-END
-GO
-
-CREATE OR ALTER PROC usp_TAC_GIA_SACH
-AS
-BEGIN
-	SELECT * FROM TacGia 
-END
-GO
-INSERT INTO TacGia VALUES(N'Kiệt');
-GO
-CREATE OR ALTER PROC usp_THEM_TAC_GIA
-@TEN NVARCHAR(50)
-AS
-BEGIN
-	INSERT INTO TacGia VALUES(@TEN);
-END
-GO
-
-CREATE OR ALTER PROC usp_THEM_NXB
-@TEN NVARCHAR(50)
-AS
-BEGIN
-	INSERT INTO NhaXuatBan VALUES(@TEN);
-END
-GO
-
-CREATE OR ALTER PROC usp_THEM_THE_LOAI
-@TEN NVARCHAR(50)
-AS
-BEGIN
-	INSERT INTO TheLoai VALUES(@TEN);
-END
-GO
-
-CREATE OR ALTER PROC usp_THEM_NGON_NGU
-@TEN NVARCHAR(50)
-AS
-BEGIN
-	INSERT INTO NgonNgu VALUES(@TEN);
-END
+	DECLARE @NUMBER INT;
+	SELECT @NUMBER=COUNT(*) FROM MuonSach WHERE MuonSach.maMuon=@ID_PHIEU_MUON;
+	IF @NUMBER > 0 RETURN 0;
+	RETURN 1;
+END;
 GO
 --================ INSERT DATA ====================================
 
@@ -1592,5 +1645,3 @@ INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
 INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
 INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
 INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
-
-select * from vaitro_nhanvien

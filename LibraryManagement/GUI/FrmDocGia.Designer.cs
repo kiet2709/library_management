@@ -383,6 +383,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Controls.Add(this.panel12);
             this.panel1.Controls.Add(this.btnFormTacGia);
             this.panel1.Controls.Add(this.btnPhieuMuon);
@@ -392,7 +393,6 @@
             this.panel1.Controls.Add(this.btnFormNhaXuatBan);
             this.panel1.Controls.Add(this.btnFormSach);
             this.panel1.Controls.Add(this.btnFormTheLoai);
-            this.panel1.Controls.Add(this.backBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -1044,11 +1044,11 @@
             this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backBtn.FlatAppearance.BorderSize = 0;
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(20, 13);
+            this.backBtn.Location = new System.Drawing.Point(56, 4);
             this.backBtn.Margin = new System.Windows.Forms.Padding(4);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(256, 89);
-            this.backBtn.TabIndex = 37;
+            this.backBtn.Size = new System.Drawing.Size(256, 107);
+            this.backBtn.TabIndex = 44;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
             // FrmDocGia
@@ -1191,9 +1191,9 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblFormTheLoai;
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label lblTenDangNhap;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.PictureBox pbAnh;
+        private System.Windows.Forms.Button backBtn;
     }
 }

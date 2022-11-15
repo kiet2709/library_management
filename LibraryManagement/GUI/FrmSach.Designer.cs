@@ -1041,10 +1041,10 @@ namespace LibraryManagement.GUI
             this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.backBtn.FlatAppearance.BorderSize = 0;
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(20, 13);
+            this.backBtn.Location = new System.Drawing.Point(40, 4);
             this.backBtn.Margin = new System.Windows.Forms.Padding(4);
             this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(256, 89);
+            this.backBtn.Size = new System.Drawing.Size(256, 107);
             this.backBtn.TabIndex = 37;
             this.backBtn.UseVisualStyleBackColor = false;
             // 
