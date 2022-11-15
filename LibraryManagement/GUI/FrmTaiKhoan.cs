@@ -66,7 +66,7 @@ namespace LibraryManagement.GUI
                 DataGridViewRow dr = new DataGridViewRow();
                 dr.CreateCells(this.dtgvHoSo);
                 dr.Cells[0].Value = ((HoSoQuanLyDTO) hoso[i]).Id;
-                dr.Cells[1].Value = ((HoSoQuanLyDTO)hoso[i]).VaiTro;    
+                dr.Cells[1].Value = ((HoSoQuanLyDTO)hoso[i]).VaiTro.Contains("Quản lý")?"Quản lý":"Thủ thư";    
                 dr.Cells[2].Value = ((HoSoQuanLyDTO) hoso[i]).Ten;
                 dr.Cells[3].Value = ((HoSoQuanLyDTO) hoso[i]).Ho;
                 dr.Cells[4].Value = ((HoSoQuanLyDTO) hoso[i]).Email;

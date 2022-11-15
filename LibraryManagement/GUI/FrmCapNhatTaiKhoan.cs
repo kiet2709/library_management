@@ -42,13 +42,9 @@ namespace LibraryManagement.GUI
 
 
             // set vai trò
-            if(hoSoQuanLyDTO.VaiTro == "Quản lý")
+            if(hoSoQuanLyDTO.VaiTro.Contains("Quản lý"))
             {
-                rbQuanLy.Checked = true;
-            }
-            else
-            {
-                rbNhanVien.Checked = true;
+                cbQuanLy.Checked = true;
             }
 
             // set trangThai
@@ -103,7 +99,10 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmTaiKhoan());
         }
-
+        private void OpenFrmSach()
+        {
+            Application.Run(new FrmSach());
+        }
         private void btnLuu_Click(object sender, EventArgs e)
         {
             hoSoQuanLyDTO.Ten = this.txtTen.Text;
@@ -114,16 +113,12 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
             hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
-            
 
-            
-     
 
-            if (this.rbNhanVien.Checked)
-            {
-                hoSoQuanLyDTO.VaiTro = "Thủ thư";
-            }
-            else
+
+
+            hoSoQuanLyDTO.VaiTro = "Thủ thư";
+            if (this.cbQuanLy.Checked)
             {
                 hoSoQuanLyDTO.VaiTro = "Quản lý";
             }
@@ -178,10 +173,24 @@ namespace LibraryManagement.GUI
 
                 }
                 MessageBox.Show("Sửa thành công");
-                this.Close();
-                Thread thread = new Thread(OpenFrmTaiKhoan);
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
+                
+                // change role on authenticated user
+                if(this.cbQuanLy.Checked == false && hoSoQuanLyDTO.TenDangNhap == Properties.Settings.Default.username)
+                {
+                    Properties.Settings.Default.role = "Thủ thư";
+                    this.Close();
+                    Thread thread = new Thread(OpenFrmSach);
+                    thread.SetApartmentState(ApartmentState.STA);
+                    thread.Start();
+                }
+                else
+                {
+                    this.Close();
+                    Thread thread = new Thread(OpenFrmTaiKhoan);
+                    thread.SetApartmentState(ApartmentState.STA);
+                    thread.Start();
+                }
+                
             }
         
         }

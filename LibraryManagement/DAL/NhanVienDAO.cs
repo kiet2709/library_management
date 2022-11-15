@@ -15,11 +15,11 @@ namespace LibraryManagement.DAL
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { dangNhapDTO.Taikhoan, dangNhapDTO.Matkhau });
             return Convert.ToInt32(result.Rows[0][0]);
         }
-        public int getRole(int id)
+        public string getRole(int id)
         {
             string query = "SELECT dbo.fn_Vai_Tro_Nhan_Vien ( @id ) ";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
-            return Convert.ToInt32(result.Rows[0][0]);
+            return result.Rows[0][0].ToString();
         }
 
         internal DataTable getCredentials(string username)
@@ -47,7 +47,7 @@ namespace LibraryManagement.DAL
         {
             string query = "usp_Hinh_Anh_Nhan_Vien  @TENDANGNHAP ";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
-            if(result.Rows.Count > 0)
+            if(result != null && result.Rows.Count > 0)
             {
                 return result.Rows[0][0].ToString();
             }

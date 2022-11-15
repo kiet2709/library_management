@@ -53,7 +53,7 @@ namespace LibraryManagement.GUI
             }
             else
             {
-                if (open.FileName != null)
+                if (open.FileName != null && open.FileName != "")
                 {
                     string imagePath = AppConstant.getDirectory(result, "docGia");
                     string fullImagePath = AppConstant.getFullDirectory(imagePath);

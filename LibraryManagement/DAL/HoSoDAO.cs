@@ -43,7 +43,7 @@ namespace LibraryManagement.DAL
         {
             string query = "usp_Lay_MaHS @TENDANGNHAP";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
-            if (result.Rows.Count > 0)
+            if (result != null && result.Rows.Count > 0)
             {
                 return Convert.ToInt32(result.Rows[0][0]);
 
@@ -59,13 +59,9 @@ namespace LibraryManagement.DAL
             {
                 maVaiTro = 1;
             }
-            else
-            {
-                maVaiTro = 2;
-            }
             string query = "usp_Them_Thong_Tin_Nhan_Vien @TEN , @HO , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG , @TENTK , @MK , @TRANGTHAI , @VAITRO";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email , hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh , hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.TenDangNhap, hoSoQuanLyDTO.MatKhau, hoSoQuanLyDTO.TrangThai, maVaiTro });
-            if(result.Rows.Count > 0)
+            if(result!=null && result.Rows.Count > 0)
             {
                 return Convert.ToInt32(result.Rows[0][0]);
                 

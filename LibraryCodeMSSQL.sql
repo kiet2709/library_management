@@ -681,7 +681,7 @@ AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRAN
-			IF(LEN(@MK) <= 8 )
+			IF(LEN(@MK) < 8 )
 				RETURN
 			DECLARE @MAHS INT;
 			DECLARE @MANV INT;
@@ -689,7 +689,12 @@ BEGIN
 			SET @MAHS = SCOPE_IDENTITY();
 			INSERT INTO NhanVien VALUES(@TENTK, pwdencrypt(@MK), @TRANGTHAI, @MAHS);
 			SET @MANV = SCOPE_IDENTITY();
-			INSERT INTO vaitro_nhanVien VALUES (@MANV,@VAITRO); -- 2 cho thủ thư
+			INSERT INTO vaitro_nhanVien VALUES (@MANV,2); -- 2 cho thủ thư
+			IF(@VAITRO = 1)
+			BEGIN 
+				INSERT INTO vaitro_nhanVien VALUES (@MANV,1); -- có quyền quản lý
+			END
+			
 			SELECT @MAHS;
 		COMMIT 
 	END TRY
@@ -893,26 +898,26 @@ GO
 CREATE OR ALTER PROC usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien
 AS
 BEGIN
-	SELECT HoSo.id, HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
+	SELECT HoSo.id, HoSo.ten, string_agg(VaiTro.ten,' , ') AS vaitro, tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 	FROM HoSo 
 	INNER JOIN NhanVien on HoSo.id = NhanVien.maHoSo
 		INNER JOIN vaitro_nhanVien ON vaitro_nhanVien.maNhanVien = NhanVien.id
 			INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro = VaiTro.id
+	GROUP BY NhanVien.id, HoSo.id,  HoSo.ten,tenDangNhap,ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 END;
 GO
-
-
 -- procedure Xem thông tin nhân viên theo id
 CREATE OR ALTER PROC usp_Xem_Thong_Tin_Nhan_Vien
 @id INT
 AS
 BEGIN
-	SELECT NhanVien.id AS [maTaiKhoan], HoSo.id,HoSo.ten, VaiTro.ten AS vaitro, tenDangNhap, ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
+	SELECT NhanVien.id AS [maTaiKhoan], HoSo.id,HoSo.ten, string_agg(VaiTro.ten,' , ') AS vaitro, tenDangNhap, ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 	FROM HoSo 
 	INNER JOIN NhanVien on HoSo.id = NhanVien.maHoSo
 		INNER JOIN vaitro_nhanVien ON vaitro_nhanVien.maNhanVien = NhanVien.id
 			INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro = VaiTro.id
-	WHERE HoSo.id = @id;
+	WHERE HoSo.id = @id
+	GROUP BY NhanVien.id, HoSo.id,HoSo.ten,tenDangNhap, ho,diachi ,soDT,hinhanh,email, gioitinh, ngaysinh,luong, trangthai
 END;
 GO
 
@@ -1324,12 +1329,14 @@ GO
 
 -- function trả về vai trò theo nhân viên
 CREATE OR ALTER FUNCTION fn_Vai_Tro_Nhan_Vien( @id INT)
-RETURNS INT AS
+RETURNS NVARCHAR(10) AS
 BEGIN
-   DECLARE @vaitro INT;
-   SELECT @vaitro = VaiTro.id FROM NhanVien
-	INNER JOIN vaitro_nhanVien ON @id = vaitro_nhanVien.maNhanVien
-		INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id;
+   DECLARE @vaitro NVARCHAR(10);
+   SELECT @vaitro = string_agg(VaiTro.id,' , ') FROM NhanVien
+   INNER JOIN vaitro_nhanVien ON NhanVien.id = vaitro_nhanVien.maNhanVien
+		INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id
+   WHERE NhanVien.id = @id
+   GROUP BY vaitro_nhanVien.maNhanVien
    RETURN @vaitro;
 END;
 GO
@@ -1537,6 +1544,7 @@ INSERT INTO tacgia_sach VALUES(3,2);
 INSERT INTO tacgia_sach VALUES(4,3);
 
 INSERT INTO vaitro_nhanVien VALUES(1,1);
+INSERT INTO vaitro_nhanVien VALUES(1,2);
 INSERT INTO vaitro_nhanVien VALUES(2,2);
 INSERT INTO vaitro_nhanVien VALUES(3,2);
 INSERT INTO vaitro_nhanVien VALUES(4,2);
@@ -1564,4 +1572,3 @@ INSERT INTO MuonSach VALUES(2,1,'ghi chu 2', 1);
 INSERT INTO MuonSach VALUES(2,2,'ghi chu 3', 1);
 INSERT INTO MuonSach VALUES(3,3,'ghi chu 4', 1);
 INSERT INTO MuonSach VALUES(4,4,'ghi chu 5', 1);
-

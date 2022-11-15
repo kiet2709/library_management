@@ -62,9 +62,8 @@
             this.pbAnh = new System.Windows.Forms.PictureBox();
             this.btnThemAnh = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.rbNhanVien = new System.Windows.Forms.RadioButton();
-            this.rbQuanLy = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.cbQuanLy = new System.Windows.Forms.CheckBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -394,37 +393,12 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.rbNhanVien);
-            this.panel5.Controls.Add(this.rbQuanLy);
+            this.panel5.Controls.Add(this.cbQuanLy);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(12, 463);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(292, 146);
             this.panel5.TabIndex = 129;
-            // 
-            // rbNhanVien
-            // 
-            this.rbNhanVien.AutoSize = true;
-            this.rbNhanVien.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbNhanVien.Location = new System.Drawing.Point(140, 87);
-            this.rbNhanVien.Name = "rbNhanVien";
-            this.rbNhanVien.Size = new System.Drawing.Size(125, 39);
-            this.rbNhanVien.TabIndex = 127;
-            this.rbNhanVien.TabStop = true;
-            this.rbNhanVien.Text = "Thủ thư";
-            this.rbNhanVien.UseVisualStyleBackColor = true;
-            // 
-            // rbQuanLy
-            // 
-            this.rbQuanLy.AutoSize = true;
-            this.rbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbQuanLy.Location = new System.Drawing.Point(140, 17);
-            this.rbQuanLy.Name = "rbQuanLy";
-            this.rbQuanLy.Size = new System.Drawing.Size(123, 39);
-            this.rbQuanLy.TabIndex = 126;
-            this.rbQuanLy.TabStop = true;
-            this.rbQuanLy.Text = "Quản lý";
-            this.rbQuanLy.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -435,6 +409,17 @@
             this.label7.Size = new System.Drawing.Size(106, 35);
             this.label7.TabIndex = 39;
             this.label7.Text = "Vai trò:";
+            // 
+            // cbQuanLy
+            // 
+            this.cbQuanLy.AutoSize = true;
+            this.cbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbQuanLy.Location = new System.Drawing.Point(129, 55);
+            this.cbQuanLy.Name = "cbQuanLy";
+            this.cbQuanLy.Size = new System.Drawing.Size(124, 39);
+            this.cbQuanLy.TabIndex = 131;
+            this.cbQuanLy.Text = "Quản lý";
+            this.cbQuanLy.UseVisualStyleBackColor = true;
             // 
             // FrmThemNhanVien
             // 
@@ -521,7 +506,6 @@
         private System.Windows.Forms.Button btnThemAnh;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.RadioButton rbNhanVien;
-        private System.Windows.Forms.RadioButton rbQuanLy;
+        private System.Windows.Forms.CheckBox cbQuanLy;
     }
 }

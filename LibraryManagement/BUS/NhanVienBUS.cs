@@ -18,13 +18,20 @@ namespace LibraryManagement.BUS
             {
                 return -1;
             }
-            return getRole(isAccountExist);
+            if (getRole(isAccountExist).Contains("1"))
+            {
+                return 1;
+            }
+            else
+            {
+                return 2;
+            }
         }
         int checkExistAccount(DangNhapDTO dangNhapDTO)
         {
             return nhanVienDAO.checkExistAccount(dangNhapDTO);
         }
-        int getRole(int id)
+        string getRole(int id)
         {
             return nhanVienDAO.getRole(id);
         }

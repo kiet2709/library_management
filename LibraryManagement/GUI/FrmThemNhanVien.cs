@@ -25,7 +25,6 @@ namespace LibraryManagement.GUI
         {
             InitializeComponent();
             this.rbNam.Checked = true;
-            this.rbNhanVien.Checked = true;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -39,14 +38,10 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.SoDT = txtSDT.Text;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(txtLuong.Text);
             hoSoQuanLyDTO.Ngaysinh = dtpNgaySinh.Value;
-
-            if (rbQuanLy.Checked)
+            hoSoQuanLyDTO.VaiTro = "Thủ thư";
+            if (cbQuanLy.Checked)
             {
                 hoSoQuanLyDTO.VaiTro = "Quản lý";
-            }
-            else
-            {
-                hoSoQuanLyDTO.VaiTro = "Thủ thư";
             }
 
             if (rbKhac.Checked)
@@ -73,7 +68,7 @@ namespace LibraryManagement.GUI
             }
             else
             {
-                if (open.FileName != null)
+                if (open.FileName != null && open.FileName != "")
                 {
                     string imagePath = AppConstant.getDirectory(result, "nhanVien");
                     string fullImagePage = AppConstant.getFullDirectory(imagePath);
