@@ -84,14 +84,14 @@ namespace LibraryManagement.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            docgia.Ten = txtHoTen.Text;
-            docgia.Mssv = txtMssv.Text;
-            docgia.Khoa = cbKhoa.SelectedItem.ToString();
-            if (rbKhac.Checked)
+            docgia.Ten = this.txtHoTen.Text;
+            docgia.Mssv = this.txtMssv.Text;
+            docgia.Khoa = this.cbKhoa.SelectedItem.ToString();
+            if (this.rbKhac.Checked)
             {
                 docgia.Gioitinh = 0;
             }
-            else if (rbNam.Checked)
+            else if (this.rbNam.Checked)
             {
                 docgia.Gioitinh = 1;
             }
@@ -100,7 +100,7 @@ namespace LibraryManagement.GUI
                 docgia.Gioitinh = 2;
             }
             docgia.Ngaysinh = dtpNgaySinh.Value;
-            if (rbMuon.Checked == true)
+            if (this.rbMuon.Checked)
             {
                 docgia.Trangthai = 1;
             }
@@ -108,8 +108,8 @@ namespace LibraryManagement.GUI
             {
                 docgia.Trangthai = 0;
             }
-            docgia.Sdt= txtSdt.Text;
-            docgia.Email = txtEmail.Text;
+            docgia.Sdt= this.txtSdt.Text;
+            docgia.Email = this.txtEmail.Text;
             string imagePath = AppConstant.getDirectory(docgia.Id, "docGia");
             if (open.FileName != null && open.FileName != "")
             {

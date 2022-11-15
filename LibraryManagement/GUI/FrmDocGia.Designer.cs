@@ -41,15 +41,10 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.dtgDocGia = new System.Windows.Forms.DataGridView();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnThemDocGia = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.backBtn = new System.Windows.Forms.Button();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -98,7 +93,12 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblFormTheLoai = new System.Windows.Forms.Label();
-            this.backBtn = new System.Windows.Forms.Button();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -151,14 +151,14 @@
             this.panel9.Location = new System.Drawing.Point(351, 0);
             this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(904, 177);
+            this.panel9.Size = new System.Drawing.Size(1318, 177);
             this.panel9.TabIndex = 41;
             // 
             // lblTenDangNhap
             // 
             this.lblTenDangNhap.AutoSize = true;
             this.lblTenDangNhap.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTenDangNhap.Location = new System.Drawing.Point(532, 141);
+            this.lblTenDangNhap.Location = new System.Drawing.Point(968, 129);
             this.lblTenDangNhap.Name = "lblTenDangNhap";
             this.lblTenDangNhap.Size = new System.Drawing.Size(96, 23);
             this.lblTenDangNhap.TabIndex = 59;
@@ -170,7 +170,7 @@
             this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDangXuat.ForeColor = System.Drawing.Color.White;
-            this.btnDangXuat.Location = new System.Drawing.Point(698, 60);
+            this.btnDangXuat.Location = new System.Drawing.Point(1112, 69);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(181, 42);
             this.btnDangXuat.TabIndex = 58;
@@ -181,7 +181,7 @@
             // pbAnh
             // 
             this.pbAnh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbAnh.Location = new System.Drawing.Point(524, 27);
+            this.pbAnh.Location = new System.Drawing.Point(948, 26);
             this.pbAnh.Name = "pbAnh";
             this.pbAnh.Size = new System.Drawing.Size(134, 98);
             this.pbAnh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -194,10 +194,10 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.label8.Location = new System.Drawing.Point(344, 49);
+            this.label8.Location = new System.Drawing.Point(442, 51);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 32);
+            this.label8.Size = new System.Drawing.Size(109, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
@@ -205,7 +205,7 @@
             // 
             this.pictureBox9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.BackgroundImage")));
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox9.Location = new System.Drawing.Point(93, 51);
+            this.pictureBox9.Location = new System.Drawing.Point(216, 51);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(133, 89);
@@ -217,7 +217,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            this.label10.Location = new System.Drawing.Point(324, 98);
+            this.label10.Location = new System.Drawing.Point(431, 98);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(143, 42);
@@ -230,7 +230,7 @@
             this.panel10.Location = new System.Drawing.Point(365, 283);
             this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(887, 6);
+            this.panel10.Size = new System.Drawing.Size(1304, 6);
             this.panel10.TabIndex = 51;
             // 
             // label11
@@ -292,76 +292,16 @@
             this.dtgDocGia.RowHeadersVisible = false;
             this.dtgDocGia.RowHeadersWidth = 51;
             this.dtgDocGia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgDocGia.Size = new System.Drawing.Size(898, 646);
+            this.dtgDocGia.Size = new System.Drawing.Size(1315, 646);
             this.dtgDocGia.TabIndex = 53;
             this.dtgDocGia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDocGia_CellContentClick);
-            // 
-            // CAR_ID
-            // 
-            this.CAR_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CAR_ID.FillWeight = 39.0792F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            this.CAR_ID.Width = 63;
-            // 
-            // studentCode
-            // 
-            this.studentCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.studentCode.FillWeight = 103.8481F;
-            this.studentCode.HeaderText = "MSSV";
-            this.studentCode.MinimumWidth = 6;
-            this.studentCode.Name = "studentCode";
-            this.studentCode.ReadOnly = true;
-            this.studentCode.Width = 103;
-            // 
-            // falcuty
-            // 
-            this.falcuty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.falcuty.FillWeight = 139.5633F;
-            this.falcuty.HeaderText = "Khoa";
-            this.falcuty.MinimumWidth = 6;
-            this.falcuty.Name = "falcuty";
-            this.falcuty.ReadOnly = true;
-            this.falcuty.Width = 94;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.name.FillWeight = 150.8021F;
-            this.name.HeaderText = "Tên";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 80;
-            // 
-            // state
-            // 
-            this.state.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.state.FillWeight = 79.95741F;
-            this.state.HeaderText = "Trạng thái";
-            this.state.MinimumWidth = 6;
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            this.state.Width = 146;
-            // 
-            // edit
-            // 
-            this.edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.edit.FillWeight = 86.7499F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Width = 53;
             // 
             // btnThemDocGia
             // 
             this.btnThemDocGia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.btnThemDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemDocGia.ForeColor = System.Drawing.Color.White;
-            this.btnThemDocGia.Location = new System.Drawing.Point(827, 230);
+            this.btnThemDocGia.Location = new System.Drawing.Point(1352, 230);
             this.btnThemDocGia.Name = "btnThemDocGia";
             this.btnThemDocGia.Size = new System.Drawing.Size(317, 49);
             this.btnThemDocGia.TabIndex = 60;
@@ -398,6 +338,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 947);
             this.panel1.TabIndex = 61;
+            // 
+            // backBtn
+            // 
+            this.backBtn.BackColor = System.Drawing.Color.Transparent;
+            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
+            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Location = new System.Drawing.Point(56, 4);
+            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(256, 107);
+            this.backBtn.TabIndex = 44;
+            this.backBtn.UseVisualStyleBackColor = false;
             // 
             // panel12
             // 
@@ -513,7 +468,7 @@
             this.lblTacGia.Location = new System.Drawing.Point(161, 29);
             this.lblTacGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTacGia.Name = "lblTacGia";
-            this.lblTacGia.Size = new System.Drawing.Size(107, 32);
+            this.lblTacGia.Size = new System.Drawing.Size(108, 32);
             this.lblTacGia.TabIndex = 30;
             this.lblTacGia.Text = "Tác giả";
             this.lblTacGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -593,7 +548,7 @@
             this.label7.Location = new System.Drawing.Point(130, 29);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(166, 32);
+            this.label7.Size = new System.Drawing.Size(167, 32);
             this.label7.TabIndex = 30;
             this.label7.Text = "Phiếu Mượn";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -632,7 +587,7 @@
             this.label13.Location = new System.Drawing.Point(149, 22);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(139, 32);
+            this.label13.Size = new System.Drawing.Size(140, 32);
             this.label13.TabIndex = 30;
             this.label13.Text = "Tài khoản";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -712,7 +667,7 @@
             this.lblNgonNgu.Location = new System.Drawing.Point(147, 29);
             this.lblNgonNgu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNgonNgu.Name = "lblNgonNgu";
-            this.lblNgonNgu.Size = new System.Drawing.Size(137, 32);
+            this.lblNgonNgu.Size = new System.Drawing.Size(138, 32);
             this.lblNgonNgu.TabIndex = 30;
             this.lblNgonNgu.Text = "Ngôn ngữ";
             this.lblNgonNgu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -792,7 +747,7 @@
             this.label3.Location = new System.Drawing.Point(158, 22);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 32);
+            this.label3.Size = new System.Drawing.Size(111, 32);
             this.label3.TabIndex = 30;
             this.label3.Text = "Độc giả";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -872,7 +827,7 @@
             this.lblFormNhaXuatBan.Location = new System.Drawing.Point(126, 29);
             this.lblFormNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormNhaXuatBan.Name = "lblFormNhaXuatBan";
-            this.lblFormNhaXuatBan.Size = new System.Drawing.Size(182, 32);
+            this.lblFormNhaXuatBan.Size = new System.Drawing.Size(183, 32);
             this.lblFormNhaXuatBan.TabIndex = 30;
             this.lblFormNhaXuatBan.Text = "Nhà xuất bản";
             this.lblFormNhaXuatBan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -951,7 +906,7 @@
             this.lblFormSach.Location = new System.Drawing.Point(175, 30);
             this.lblFormSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormSach.Name = "lblFormSach";
-            this.lblFormSach.Size = new System.Drawing.Size(79, 32);
+            this.lblFormSach.Size = new System.Drawing.Size(80, 32);
             this.lblFormSach.TabIndex = 30;
             this.lblFormSach.Text = "Sách";
             this.lblFormSach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1031,32 +986,65 @@
             this.lblFormTheLoai.Location = new System.Drawing.Point(164, 29);
             this.lblFormTheLoai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormTheLoai.Name = "lblFormTheLoai";
-            this.lblFormTheLoai.Size = new System.Drawing.Size(116, 32);
+            this.lblFormTheLoai.Size = new System.Drawing.Size(117, 32);
             this.lblFormTheLoai.TabIndex = 30;
             this.lblFormTheLoai.Text = "Thể loại";
             this.lblFormTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // backBtn
+            // CAR_ID
             // 
-            this.backBtn.BackColor = System.Drawing.Color.Transparent;
-            this.backBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("backBtn.BackgroundImage")));
-            this.backBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.backBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Location = new System.Drawing.Point(56, 4);
-            this.backBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(256, 107);
-            this.backBtn.TabIndex = 44;
-            this.backBtn.UseVisualStyleBackColor = false;
+            this.CAR_ID.FillWeight = 40F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // studentCode
+            // 
+            this.studentCode.FillWeight = 105F;
+            this.studentCode.HeaderText = "MSSV";
+            this.studentCode.MinimumWidth = 6;
+            this.studentCode.Name = "studentCode";
+            this.studentCode.ReadOnly = true;
+            // 
+            // falcuty
+            // 
+            this.falcuty.FillWeight = 180F;
+            this.falcuty.HeaderText = "Khoa";
+            this.falcuty.MinimumWidth = 6;
+            this.falcuty.Name = "falcuty";
+            this.falcuty.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 150F;
+            this.name.HeaderText = "Tên";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // state
+            // 
+            this.state.FillWeight = 180F;
+            this.state.HeaderText = "Trạng thái";
+            this.state.MinimumWidth = 6;
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.FillWeight = 60F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
             // 
             // FrmDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1268, 947);
+            this.ClientSize = new System.Drawing.Size(1671, 947);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnThemDocGia);
             this.Controls.Add(this.dtgDocGia);
@@ -1136,12 +1124,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridView dtgDocGia;
         private System.Windows.Forms.Button btnThemDocGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn falcuty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn state;
-        private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label15;
@@ -1195,5 +1177,11 @@
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CAR_ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn falcuty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn state;
+        private System.Windows.Forms.DataGridViewButtonColumn edit;
     }
 }

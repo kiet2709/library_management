@@ -40,7 +40,7 @@ namespace LibraryManagement.DAL
         internal int updateDocGia(DocGia docgia)
         {
             string query = "usp_Sua_Doc_Gia @ID , @TEN , @MSSV , @KHOA , @GIOITINH , @TRANGTHAI , @NGAYSINH , @SODT , @EMAIL , @HINHANH";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { docgia.Id, docgia.Ten, docgia.Mssv, docgia.Khoa, docgia.Gioitinh, 1, docgia.Ngaysinh, docgia.Sdt, docgia.Email , docgia.HinhAnh});
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { docgia.Id, docgia.Ten, docgia.Mssv, docgia.Khoa, docgia.Gioitinh, docgia.Trangthai, docgia.Ngaysinh, docgia.Sdt, docgia.Email , docgia.HinhAnh});
             return result;
         }
 
