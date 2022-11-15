@@ -108,6 +108,11 @@ namespace LibraryManagement.GUI
             Application.Run(new FrmTaiKhoan());
         }
 
+        private void OpenFrmThemPhieuMuon()
+        {
+            Application.Run(new FrmThemPhieuMuon(new FrmPhieuMuon()));
+        }
+
         private void btnFormSach_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -186,6 +191,14 @@ namespace LibraryManagement.GUI
         {
             this.Close();
             Thread thread = new Thread(OpenFrmTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btn_themPhieuMuon_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThemPhieuMuon);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }

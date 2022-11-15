@@ -28,5 +28,14 @@ namespace LibraryManagement.BUS
             }
             return sachQuanLyDTOs;
         }
+
+        public MuonSachDTO getBookById(int id)
+        {
+            DataTable result = sachDAO.getBookById(id);
+            MuonSachDTO muonSach = new MuonSachDTO();
+            if (result == null) return null;
+            muonSach.addRow(result.Rows[0]);
+            return muonSach;
+        }
     }
 }

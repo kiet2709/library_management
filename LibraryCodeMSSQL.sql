@@ -191,6 +191,12 @@ END
 
 GO
 
+IF (OBJECT_ID('dbo.CHK_MuonSachTemp', 'C') IS NOT NULL)
+BEGIN
+	ALTER TABLE MuonSachTemp DROP CONSTRAINT IF EXISTS CHK_MuonSachTemp;
+END
+
+GO
 --=============== CREATE TABLE ===============--
 
 IF OBJECT_ID(N'TheLoai', N'U') IS NOT NULL  
@@ -405,7 +411,17 @@ CREATE TABLE MuonSach
 );
 GO
 
-
+IF OBJECT_ID(N'MuonSachTemp', N'U') IS NOT NULL  
+	DROP TABLE [dbo].[MuonSachTemp]; 
+CREATE TABLE MuonSachTemp
+(
+  maSach INT,
+  maMuon INT,
+  ghiChu NVARCHAR(50),
+  trangthai INT, -- 1: Đang mượn | 0: Trả rồi
+  CONSTRAINT CHK_MuonSachTemp Check (trangthai = 0 OR trangthai =1)
+);
+GO
 								--=============== TRIGGER ===============--
 
 -- Nếu ngayxuatban > thời gian hiện tại => rollback
@@ -672,7 +688,7 @@ CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
 @ID INT
 AS
 BEGIN
-	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, HoSo.hinhanh
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, DocGia.hinhAnh
 		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
 					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
 						JOIN DocGia ON maDocGia=DocGia.id
@@ -803,6 +819,15 @@ BEGIN
    SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
    DocGia INNER JOIN Muon ON DocGia.id = Muon.maDocGia
    WHERE MONTH(GETDATE())-MONTH(Muon.ngaymuon) >=6;
+END;
+
+GO
+
+CREATE OR ALTER PROCEDURE usp_LAY_SACH_THEO_MA_SACH
+@id INT
+AS
+BEGIN
+   SELECT Sach.id, DauSach.tieude, 0, '' FROM Sach JOIN DauSach ON Sach.maDauSach=DauSach.id WHERE Sach.id=@id
 END;
 
 GO
@@ -1278,6 +1303,15 @@ BEGIN
 END
 GO
 
+CREATE PROC usp_MA_NHAN_VIEN_THEO_TEN
+@TENDANGNHAP NVARCHAR(30)
+AS
+BEGIN
+		SELECT id FROM NhanVien
+		WHERE NhanVien.tenDangNhap = @TENDANGNHAP;
+END
+GO
+
 -- procedure lấy mã hồ sơ
 CREATE PROC usp_Lay_MaHS
 @TENDANGNHAP NVARCHAR(30)
@@ -1361,15 +1395,47 @@ CREATE OR ALTER proc usp_Them_Thong_Tin_Phieu_Muon
   @ngaymuon DATE,
   @ngaytra DATE,
   @ngayhethan DATE,
-  @trangthai INT,
   @tienphat INT,
   @maNhanVien INT,
   @maDocGia INT
 AS
 BEGIN
-	INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @tienphat ,@maNhanVien, @maDocGia)
+	BEGIN TRY
+		BEGIN TRAN
+			DECLARE @MAMUON INT;
+			INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @tienphat ,@maNhanVien, @maDocGia);
+			SET @MAMUON = SCOPE_IDENTITY()
+
+			UPDATE MuonSachTemp SET maMuon=@MAMUON, trangthai=0;
+
+			INSERT INTO MuonSach(maSach, maMuon, ghiChu, trangthai) SELECT maSach, maMuon, trangthai, ghiChu FROM MuonSachTemp;
+			EXEC usp_XOA_BANG_TAM;
+		COMMIT
+	END TRY
+
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH
+	
 END;
 
+GO
+
+CREATE OR ALTER PROC usp_THEM_TAM_SACH_TRONG_PHIEU_MUON
+@MASACH INT,
+@GHICHU NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO MuonSachTemp(maSach, ghiChu) VALUES(@MASACH, @GHICHU);	
+END
+GO
+
+CREATE OR ALTER PROC usp_XOA_BANG_TAM
+AS
+BEGIN
+	DELETE FROM MuonSachTemp;	
+END
 GO
 
 -- procedure xóa thông tin phiếu mượn quá hạn ( trên 1 năm )
@@ -1425,6 +1491,27 @@ AS
 BEGIN
 	UPDATE MuonSach SET trangthai=@TRANGTHAI, ghiChu=@GHICHU 
 			WHERE maMuon=@MAMUON AND maSach=@MASACH		
+END
+GO
+
+CREATE OR ALTER PROC usp_TIM_DOC_GIA
+@USERNAME NVARCHAR(30)
+AS
+BEGIN
+	SELECT id FROM NhanVien WHERE tenDangNhap=@USERNAME	
+END
+GO
+
+
+
+CREATE OR ALTER PROC usp_THEM_SACH_TRONG_PHIEU_MUON
+@MAMUON INT,
+@MASACH INT,
+@TRANGTHAI INT,
+@GHICHU NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO MuonSach VALUES(@MASACH, @MAMUON, @GHICHU, @TRANGTHAI);	
 END
 GO
 
@@ -1498,6 +1585,8 @@ BEGIN
    RETURN @vaitro;
 END;
 GO
+
+
 
 -- function trả về tổng số sách theo tác giả
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)

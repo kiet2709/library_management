@@ -219,6 +219,12 @@
     <Compile Include="GUI\FrmThemNhaXuatBan.Designer.cs">
       <DependentUpon>FrmThemNhaXuatBan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmThemPhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThemPhieuMuon.Designer.cs">
+      <DependentUpon>FrmThemPhieuMuon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmThemTacGia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemNhaXuatBan.resx">
       <DependentUpon>FrmThemNhaXuatBan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThemPhieuMuon.resx">
+      <DependentUpon>FrmThemPhieuMuon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThemTacGia.resx">
       <DependentUpon>FrmThemTacGia.cs</DependentUpon>

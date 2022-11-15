@@ -43,6 +43,13 @@ namespace LibraryManagement.DAL
             return result;
         }
 
+        public DataTable getIdByName(string username)
+        {
+            string query = "usp_MA_NHAN_VIEN_THEO_TEN  @TENDANGNHAP ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
+            return result;
+        }
+
         public string getImageByUsername(string username)
         {
             string query = "usp_Hinh_Anh_Nhan_Vien  @TENDANGNHAP ";
