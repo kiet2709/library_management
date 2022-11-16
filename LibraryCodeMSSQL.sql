@@ -1694,8 +1694,8 @@ BEGIN
 	DECLARE @soLuong INT;
 	SELECT @soLuong=COUNT(DauSach.id) 
 	FROM TheLoai INNER JOIN DauSach ON TheLoai.id = DauSach.maTheLoai
-	WHERE DauSach.id = @id
-	GROUP BY DauSach.id;
+	WHERE TheLoai.id = @id
+	GROUP BY TheLoai.id;
 	RETURN @soLuong;
 END;
 GO
@@ -1709,8 +1709,8 @@ BEGIN
 	DECLARE @soLuong INT;
 	SELECT @soLuong=COUNT(DauSach.id) 
 	FROM NgonNgu INNER JOIN DauSach ON NgonNgu.id = DauSach.maNgonNgu
-	WHERE DauSach.id = @id
-	GROUP BY DauSach.id;
+	WHERE NgonNgu.id = @id
+	GROUP BY NgonNgu.id;
 	RETURN @soLuong;
 END;
 GO
@@ -2214,6 +2214,3 @@ INSERT INTO MuonSach VALUES(9,16,'Sách quăng góc', 0);
 INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
 INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
 INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);
-
-
-
