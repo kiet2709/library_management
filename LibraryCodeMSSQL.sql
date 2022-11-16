@@ -1572,7 +1572,7 @@ CREATE OR ALTER PROC usp_SACH_TRONG_PHIEU_MUON
 @MAMUON INT
 AS
 BEGIN
-	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
+	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu, SACH.TRANGTHAI FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
 							JOIN DauSach ON Sach.maDauSach=DauSach.id
 			WHERE maMuon=@MAMUON
 END;

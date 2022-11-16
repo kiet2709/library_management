@@ -17,8 +17,8 @@ namespace LibraryManagement.GUI
     {
         private Form backFrm;
 
-        private PhieuMuonDTO phieuMuon;
-        private DanhSachSachMuonDTO danhSachSachMuon;
+        private PhieuMuonDTO phieuMuon = new PhieuMuonDTO();
+        private DanhSachSachMuonDTO danhSachSachMuon = new DanhSachSachMuonDTO();
         private DocGia docGia;
 
         MuonBUS muonBUS = new MuonBUS();
@@ -41,7 +41,6 @@ namespace LibraryManagement.GUI
         private void loadDataSV()
         {
             pd_anh.Image = null;
-            txt_mssv.Text = "";
             txt_khoa.Text = "";
             txt_sinhVien.Text = "";
         }
