@@ -1764,21 +1764,22 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','thinh1323o@gmail.com','');
-INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1,1,'01-07-2002','0123456789','t3142h112o@gmail.com','');
-INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0123456789','t324nh142o@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1,1,'01-04-2002','0123456789','aca12@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1,1,'11-08-2002','0123456789','baaf123@gmail.com','');
-INSERT INTO DocGia VALUES(N'Lưu Chí Bảo',N'2015625',N'Kỹ thuật Hóa học',1,1,'01-07-2002','0123425428','ngw12524@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tuấn',N'2015450',N'Công nghệ thực phẩm',1,1,'11-03-2002','0563465689','bgfg1685@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Thịnh',N'2016573',N'Kỹ thuật Xây dựng',1,1,'01-06-2002','0123456789','aca12@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Đức Kiệt',N'20147657',N'Kiến trúc',1,1,'11-07-2002','0123456789','fjne.324@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Phúc',N'2011158',N'Kỹ thuật cơ khí',1,1,'01-01-2002','0123458729','gr5.54@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hải Triều',N'2013548',N'Hệ thống nhúng và IOT',1,1,'11-04-2002','0124757389','oil265@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Đình Phúc',N'20168251',N'Kỹ thuật máy tính',1,1,'10-04-2002','0123689789','pq354f@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Minh Đức',N'20185645',N'Công nghệ kỹ thuật in',1,1,'02-05-2002','0123136989','dcfd.3@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hải Đăng',N'20168623',N'Thiết kế đồ họa',1,1,'07-06-2002','0123456789','dang019o3@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Công Tú',N'20189367',N'Tự động hóa',1,1,'02-06-2002','0123459739','qier989.1@gmail.com','');
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'20110623',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','20110623@student.hcmute.edu.vn','');
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Đào tạo Chất lượng cao',1,1,'01-07-2002','0122544789','20110345@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0164246789','20110678@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Cơ khí Động lực',1,1,'01-04-2002','0125126789','20110912@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Hải',N'20110722',N'Điện - Điện tử',1,1,'11-08-2002','0152421789','20110722@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lưu Chí Bảo',N'20157625',N'Công nghệ Hóa học và Thực phẩm',1,1,'01-07-2002','0123425428','20157625@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tuấn',N'20156450',N'Xây dựng',1,1,'11-03-2002','0563465689','20156450@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Thịnh',N'20168573',N'Công nghệ Thông tin',1,1,'01-06-2002','0125242789','20168573@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Trần Hải My',N'20147657',N'Kinh tế',2,1,'11-07-2002','0121246789','20147657@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Phúc',N'20118158',N'Cơ khí Chế tạo máy',1,1,'01-01-2002','0123458729','20118158@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lê Thị Trúc',N'20137548',N'In - Truyền thông',2,1,'11-04-2002','0124757389','20137548@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Trần Bảo Anh',N'20168251',N'Ngoại ngữ',2,1,'10-04-2002','0123689789','20168251@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Trần Anh Thư',N'20185645',N'Kinh tế',2,1,'02-05-2002','0123136989','20185645@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hải Đăng',N'20168623',N'Đào tạo Quốc tế',1,1,'07-06-2002','0123412789','20168623@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Thanh Thảo',N'20189367',N'Thời trang và Du lịch',2,1,'02-06-2002','0123459739','20189367@student.edu.vn','');
+
 
 
 

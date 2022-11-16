@@ -41,6 +41,12 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.dtgDocGia = new System.Windows.Forms.DataGridView();
+            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.btnThemDocGia = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -93,12 +99,6 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblFormTheLoai = new System.Windows.Forms.Label();
-            this.CAR_ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.falcuty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.state = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -295,6 +295,54 @@
             this.dtgDocGia.Size = new System.Drawing.Size(1315, 646);
             this.dtgDocGia.TabIndex = 53;
             this.dtgDocGia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgDocGia_CellContentClick);
+            // 
+            // CAR_ID
+            // 
+            this.CAR_ID.FillWeight = 40F;
+            this.CAR_ID.HeaderText = "ID";
+            this.CAR_ID.MinimumWidth = 6;
+            this.CAR_ID.Name = "CAR_ID";
+            this.CAR_ID.ReadOnly = true;
+            // 
+            // studentCode
+            // 
+            this.studentCode.FillWeight = 105F;
+            this.studentCode.HeaderText = "MSSV";
+            this.studentCode.MinimumWidth = 6;
+            this.studentCode.Name = "studentCode";
+            this.studentCode.ReadOnly = true;
+            // 
+            // falcuty
+            // 
+            this.falcuty.FillWeight = 180F;
+            this.falcuty.HeaderText = "Khoa";
+            this.falcuty.MinimumWidth = 6;
+            this.falcuty.Name = "falcuty";
+            this.falcuty.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.FillWeight = 150F;
+            this.name.HeaderText = "Tên";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // state
+            // 
+            this.state.FillWeight = 180F;
+            this.state.HeaderText = "Trạng thái";
+            this.state.MinimumWidth = 6;
+            this.state.Name = "state";
+            this.state.ReadOnly = true;
+            // 
+            // edit
+            // 
+            this.edit.FillWeight = 60F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
             // 
             // btnThemDocGia
             // 
@@ -991,54 +1039,6 @@
             this.lblFormTheLoai.Text = "Thể loại";
             this.lblFormTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CAR_ID
-            // 
-            this.CAR_ID.FillWeight = 40F;
-            this.CAR_ID.HeaderText = "ID";
-            this.CAR_ID.MinimumWidth = 6;
-            this.CAR_ID.Name = "CAR_ID";
-            this.CAR_ID.ReadOnly = true;
-            // 
-            // studentCode
-            // 
-            this.studentCode.FillWeight = 105F;
-            this.studentCode.HeaderText = "MSSV";
-            this.studentCode.MinimumWidth = 6;
-            this.studentCode.Name = "studentCode";
-            this.studentCode.ReadOnly = true;
-            // 
-            // falcuty
-            // 
-            this.falcuty.FillWeight = 180F;
-            this.falcuty.HeaderText = "Khoa";
-            this.falcuty.MinimumWidth = 6;
-            this.falcuty.Name = "falcuty";
-            this.falcuty.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.FillWeight = 150F;
-            this.name.HeaderText = "Tên";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // state
-            // 
-            this.state.FillWeight = 180F;
-            this.state.HeaderText = "Trạng thái";
-            this.state.MinimumWidth = 6;
-            this.state.Name = "state";
-            this.state.ReadOnly = true;
-            // 
-            // edit
-            // 
-            this.edit.FillWeight = 60F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            // 
             // FrmDocGia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1054,7 +1054,7 @@
             this.Controls.Add(this.panel9);
             this.Name = "FrmDocGia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "FrmDocGia";
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
