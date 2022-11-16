@@ -270,7 +270,11 @@ CREATE TABLE DocGia
   email NVARCHAR(30),
   hinhAnh NVARCHAR(500),
   CONSTRAINT PK_DocGia PRIMARY KEY(id),
-  CONSTRAINT CHK_DocGia CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' ) AND (ten LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
+  CONSTRAINT CHK_DocGia CHECK (
+  LEN(soDT) = 10 
+  AND (soDT LIKE '%[0-9]%' ) 
+  AND (ten LIKE '%[a-zA-Z ]%') 
+  AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
 GO
 
@@ -293,7 +297,10 @@ CREATE TABLE DauSach
   CONSTRAINT FK_NhaXB_DauSach FOREIGN KEY (maNXB) REFERENCES NhaXuatBan(id),
   CONSTRAINT FK_NgonNgu_DauSach FOREIGN KEY (maNgonNgu) REFERENCES NgonNgu(id),
   CONSTRAINT FK_TheLoai_DauSach FOREIGN KEY (maTheLoai) REFERENCES TheLoai(id),
-  CONSTRAINT CHK_DauSach CHECK (gia>=0 AND (loai=0 OR loai=1) AND (trangthai = 1 OR trangthai = 0))
+  CONSTRAINT CHK_DauSach CHECK (
+  gia>=0 
+  AND (loai=0 OR loai=1) 
+  AND (trangthai = 1 OR trangthai = 0))
 );
 GO
 
@@ -312,7 +319,11 @@ CREATE TABLE HoSo
   ngaysinh Date,
   luong INT,
   CONSTRAINT PK_HoSo PRIMARY KEY(id),
-  CONSTRAINT CHK_HoSo CHECK (LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' )  AND (ten LIKE '%[a-zA-Z ]%') AND (ho LIKE '%[a-zA-Z ]%') AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
+  CONSTRAINT CHK_HoSo CHECK (
+  LEN(soDT) = 10 AND (soDT LIKE '%[0-9]%' ) 
+  AND (ten LIKE '%[a-zA-Z ]%') 
+  AND (ho LIKE '%[a-zA-Z ]%')
+  AND (gioitinh=0 OR gioitinh=1 OR gioitinh = 2))
 );
 GO
 
@@ -514,11 +525,15 @@ GO
 							--=============== VIEW ===============--
 --  view nhanvien
 CREATE OR ALTER VIEW NHANVIEN_VIEW AS
-SELECT HoSo.id, HoSo.ten, Hoso.email
+
+SELECT HoSo.id,HoSo.ho AS [Họ] ,HoSo.ten AS [Tên], Hoso.email , HoSo.diachi AS [Địa chỉ],
+HoSo.gioitinh AS [Giới tính], HoSo.hinhanh AS [Hình ảnh], HoSo.luong AS [Lương],
+HoSo.soDT AS [SĐT], HoSo.ngaysinh AS [Ngày sinh]
 FROM HoSo INNER JOIN NhanVien ON HoSo.id=NhanVien.maHoSo 
 INNER JOIN vaitro_nhanVien ON NhanVien.id=vaitro_nhanVien.maNhanVien 
 	INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id
 WHERE VaiTro.ten='nhan vien'
+
 GO
 --  view nhaxuatban
 CREATE OR ALTER VIEW NXB_VIEW AS
@@ -772,40 +787,20 @@ AS
 BEGIN
    BEGIN TRY
 		BEGIN TRAN
-         DECLARE @MaDauSach INT;
-			INSERT INTO DauSach (
-         tieude, 
-         mota, 
-         gia,
-         ngayxuatban,
-         hinhanh,
-         loai,
-         trangthai,
-         maNXB,
-         maNgonNgu,
-         maTheLoai
-      )
-      VALUES (
-         @tieude, 
-         @mota, 
-         @gia,
-         @ngayxuatban,
-         @hinhanh,
-         @loai,
-         @trangthai,
-         @maNXB,
-         @maNgonNgu,
-         @maTheLoai
-      );
-      SET @MaDauSach = SCOPE_IDENTITY();
-      COMMIT 
+			DECLARE @MaDauSach INT;
+			INSERT INTO DauSach (tieude, mota, gia,ngayxuatban,hinhanh,loai,trangthai,
+			maNXB,maNgonNgu,maTheLoai)
+			VALUES ( @tieude, @mota, @gia, @ngayxuatban, @hinhanh,@loai,@trangthai,@maNXB,
+			@maNgonNgu,@maTheLoai);
+			SET @MaDauSach = SCOPE_IDENTITY();
+        COMMIT 
 	END TRY
    BEGIN CATCH
 		IF @@TRANCOUNT > 0
 			ROLLBACK TRAN;
-      SET @MaDauSach =-1;
-	END CATCH
-   SELECT @MaDauSach;   
+		SET @MaDauSach =-1;
+   END CATCH
+		SELECT @MaDauSach;   
 END;
 GO
 
@@ -1175,21 +1170,16 @@ AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRAN
-
 			DECLARE @MANV INT;
 			DECLARE @TENTK NVARCHAR(40);
-
 			SET @MANV = (SELECT id FROM NhanVien WHERE maHoSo = @ID)
 			SET @TENTK = (SELECT tenDangNhap FROM NhanVien WHERE maHoSo = @ID)
-
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
-
 			UPDATE NhanVien SET trangthai = @TRANGTHAI
 			WHERE id = @MANV
 		COMMIT
 	END TRY
-		
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
 			ROLLBACK TRAN;
@@ -1233,7 +1223,6 @@ BEGIN
 
 			 -- Gán quyền thủ thư
 			INSERT INTO vaitro_nhanVien VALUES (@MANV,2);
-
 			 -- Gán quyền nhân viên quản lý ( vừa là quản lý, vừa thủ thư)
 			IF(@VAITRO = 1)
 				BEGIN 
@@ -1254,12 +1243,10 @@ BEGIN
 
 		COMMIT 
 	END TRY
-
 	BEGIN CATCH
 		IF @@TRANCOUNT > 0
 			ROLLBACK TRAN;
 	END CATCH
-	
 END;
 GO 
 
@@ -1422,7 +1409,8 @@ AS
 BEGIN
 	DECLARE @maNhanVien INT;
 	DECLARE @trangThai INT;
-	SELECT @maNhanVien = NhanVien.id, @trangThai = NhanVien.trangthai FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
+	SELECT @maNhanVien = NhanVien.id, @trangThai = NhanVien.trangthai FROM NhanVien 
+	WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
 	
 	-- Kiểm tra tài khoản có bị chặn không
 	IF(@trangThai = 0 )
@@ -1640,37 +1628,37 @@ END;
 
 GO
 
--- function trả về vai trò theo nhân viên
-CREATE OR ALTER FUNCTION fn_Vai_Tro_Nhan_Vien( @id INT)
-RETURNS NVARCHAR(10) AS
-BEGIN
-   DECLARE @vaitro NVARCHAR(10);
-   SELECT @vaitro = string_agg(VaiTro.id,' , ') FROM NhanVien
-   INNER JOIN vaitro_nhanVien ON NhanVien.id = vaitro_nhanVien.maNhanVien
-		INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id
-   WHERE NhanVien.id = @id
-   GROUP BY vaitro_nhanVien.maNhanVien
-   RETURN @vaitro;
-END;
-GO
+	-- function trả về vai trò theo nhân viên
+	CREATE OR ALTER FUNCTION fn_Vai_Tro_Nhan_Vien( @id INT)
+	RETURNS NVARCHAR(10) AS
+	BEGIN
+	   DECLARE @vaitro NVARCHAR(10);
+	   SELECT @vaitro = string_agg(VaiTro.id,' , ') FROM NhanVien
+	   INNER JOIN vaitro_nhanVien ON NhanVien.id = vaitro_nhanVien.maNhanVien
+			INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id
+	   WHERE NhanVien.id = @id
+	   GROUP BY vaitro_nhanVien.maNhanVien
+	   RETURN @vaitro;
+	END;
+	GO
 
 
 
--- function trả về tổng số sách theo tác giả
-CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)
-RETURNS INT
-AS
-BEGIN
-	DECLARE @soLuong INT;
-	SELECT @soLuong=COUNT(*) 
-	FROM TacGia 
-	JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
-	JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
-	WHERE TacGia.id = @id
-	GROUP BY TacGia.id;
-	RETURN @soluong;
-END;
-GO
+	-- function trả về tổng số sách theo tác giả
+	CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)
+	RETURNS INT
+	AS
+	BEGIN
+		DECLARE @soLuong INT;
+		SELECT @soLuong=COUNT(*) 
+		FROM TacGia 
+		JOIN tacgia_sach ON TacGia.id = tacgia_sach.maTacGia
+		JOIN DauSach ON DauSach.id = tacgia_sach.maDauSach
+		WHERE TacGia.id = @id
+		GROUP BY TacGia.id;
+		RETURN @soluong;
+	END;
+	GO
 
 -- function trả về tổng số sách theo nhà xuất bản
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Nha_Xuat_Ban(@id INT)
@@ -1930,14 +1918,14 @@ BEGIN
 	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = vikhang
 END
 
-INSERT INTO NhanVien VALUES(N'thinhNguyen',pwdencrypt('12345678'),1,4);
+INSERT INTO NhanVien VALUES(N'thinhnguyen',pwdencrypt('12345678'),1,4);
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
-     WHERE name = 'thinhNguyen')
+     WHERE name = 'thinhnguyen')
 BEGIN
-	CREATE LOGIN thinhNguyen WITH PASSWORD = '12345678'
-	CREATE USER thinhNguyen for LOGIN thinhNguyen
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhNguyen
+	CREATE LOGIN thinhnguyen WITH PASSWORD = '12345678'
+	CREATE USER thinhnguyen for LOGIN thinhnguyen
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhnguyen
 END
 
 INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12348756'),1,5);
