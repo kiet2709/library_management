@@ -6,7 +6,6 @@ DROP DATABASE IF EXISTS QuanLyThuVien
 GO
 CREATE DATABASE QuanLyThuVien
 GO
-SELECT * FROM DauSach WHERE id = 10
 
 USE QuanLyThuVien
 GO
@@ -1293,7 +1292,7 @@ END;
 GO 
 
 -- procedure lấy hình ảnh nhân viên
-CREATE PROC usp_Hinh_Anh_Nhan_Vien
+CREATE OR ALTER PROC usp_Hinh_Anh_Nhan_Vien
 @TENDANGNHAP NVARCHAR(30)
 AS
 BEGIN
@@ -1303,7 +1302,7 @@ BEGIN
 END
 GO
 
-CREATE PROC usp_MA_NHAN_VIEN_THEO_TEN
+CREATE OR ALTER PROC usp_MA_NHAN_VIEN_THEO_TEN
 @TENDANGNHAP NVARCHAR(30)
 AS
 BEGIN
@@ -1313,7 +1312,7 @@ END
 GO
 
 -- procedure lấy mã hồ sơ
-CREATE PROC usp_Lay_MaHS
+CREATE OR ALTER PROC usp_Lay_MaHS
 @TENDANGNHAP NVARCHAR(30)
 AS
 BEGIN
@@ -1323,7 +1322,7 @@ END
 GO
 
 -- procedure thêm hình ảnh nhân viên
-CREATE PROC usp_Them_Hinh_Anh_Nhan_Vien
+CREATE OR ALTER PROC usp_Them_Hinh_Anh_Nhan_Vien
 @ID INT,
 @HINHANH NVARCHAR(100)
 AS
@@ -1409,7 +1408,7 @@ BEGIN
 			UPDATE MuonSachTemp SET maMuon=@MAMUON, trangthai=0;
 
 			INSERT INTO MuonSach(maSach, maMuon, ghiChu, trangthai) SELECT maSach, maMuon, trangthai, ghiChu FROM MuonSachTemp;
-			EXEC usp_XOA_BANG_TAM;
+			
 		COMMIT
 	END TRY
 
@@ -1417,10 +1416,12 @@ BEGIN
 		IF @@TRANCOUNT > 0
 			ROLLBACK TRAN;
 	END CATCH
-	
+	EXEC usp_XOA_BANG_TAM;
 END;
 
 GO
+
+
 
 CREATE OR ALTER PROC usp_THEM_TAM_SACH_TRONG_PHIEU_MUON
 @MASACH INT,
@@ -1531,6 +1532,24 @@ CREATE OR ALTER PROC usp_PHIEU_MUON
 AS
 BEGIN
 	SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m
+END
+GO
+
+CREATE OR ALTER PROC usp_LOC_PHIEU_MUON
+@MSSV INT,
+@TRANGTHAI INT
+AS
+BEGIN
+	IF(@MSSV = -1) 
+	BEGIN
+		IF(@TRANGTHAI = 2) SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m;
+		ELSE SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE dbo.fn_Trang_Thai_Phieu_Muon(m.id)=@TRANGTHAI;
+	END
+	ELSE
+	BEGIN
+		IF(@TRANGTHAI=2) SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE maDocGia=@MSSV;
+		ELSE SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE maDocGia=@MSSV AND dbo.fn_Trang_Thai_Phieu_Muon(m.id)=@TRANGTHAI;
+	END
 END
 GO
 --================ Function ====================================

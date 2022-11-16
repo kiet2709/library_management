@@ -44,6 +44,13 @@ namespace LibraryManagement.DAL
             return result;
         }
 
+        public DataTable getFilterListBrrowing(LocPhieuMuonDTO locPhieuMuon)
+        {
+            string query = "usp_LOC_PHIEU_MUON  @MSSV , @TRANGTHAI ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { locPhieuMuon.Mssv, locPhieuMuon.TrangThai });
+            return result;
+        }
+
         public int insertBrrowing(PhieuMuonDTO phieuMuon)
         {
             string query = "usp_Them_Thong_Tin_Phieu_Muon @ngaymuon , @ngaytra , @ngayhethan , @tienphat , @maNhanVien , @maDocGia ";

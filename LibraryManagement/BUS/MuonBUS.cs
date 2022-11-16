@@ -73,5 +73,12 @@ namespace LibraryManagement.BUS
             }
             return 1;
         }
+
+        public DanhSachPhieuMuonDTO getFilterListBrrowing(LocPhieuMuonDTO locPhieuMuon)
+        {
+            DanhSachPhieuMuonDTO danhSachPhieuMuon = new DanhSachPhieuMuonDTO();
+            danhSachPhieuMuon.add(muonDAL.getFilterListBrrowing(locPhieuMuon));
+            return danhSachPhieuMuon;
+        }
     }
 }
