@@ -165,3 +165,19 @@ C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemPhieuMuon.resources
 E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemPhieuMuon.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietNgonNgu.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietNhaXuatBan.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietTacGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmChiTietTheLoai.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmDoiMatKhau.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmNgonNgu.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmNhaXuatBan.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmTacGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmSuaDocGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemDauSach.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNgonNgu.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhaXuatBan.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemPhieuMuon.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTheLoai.resources
+D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThongTinCaNhan.resources

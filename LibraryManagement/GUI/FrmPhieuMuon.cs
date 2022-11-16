@@ -71,6 +71,7 @@ namespace LibraryManagement.GUI
             cb_trangThai.SelectedIndex = locPhieuMuon.TrangThai;
             
             danhSachPhieuMuon = muonBUS.getFilterListBrrowing(this.locPhieuMuon);
+            vcg_phieuMuon.Rows.Clear();
             vcg_phieuMuon = danhSachPhieuMuon.getDataSource(vcg_phieuMuon);
         }
 
@@ -232,7 +233,6 @@ namespace LibraryManagement.GUI
             {
                 pl_kiemTraSV.Enabled = false;
             }
-            loadData();
         }
 
         private void loadKTSV()
@@ -286,6 +286,7 @@ namespace LibraryManagement.GUI
             }
             if (rd_timSV.Checked)
             {
+                btn_kiemTra_Click(sender, e);
                 if(lb_thongBao.Text.CompareTo("Tìm thấy") == 0)
                     locPhieuMuon.Mssv = Convert.ToInt32(txt_mssv.Text);
                 else

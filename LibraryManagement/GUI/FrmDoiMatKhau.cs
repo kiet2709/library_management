@@ -71,7 +71,7 @@ namespace LibraryManagement.GUI
                         Properties.Settings.Default.password = txtMatKhauMoi.Text;
                         Properties.Settings.Default.Save();
                         DataProvider dataProvider = DataProvider.Instance;
-                        dataProvider.StrConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
+                        dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
 
                     }
 
@@ -107,9 +107,7 @@ namespace LibraryManagement.GUI
             {
                 doiMatKhauDTO.MatKhauCu = txtMatKhauCu.Text;
                 doiMatKhauDTO.MatKhauMoi = txtMatKhauMoi.Text;
-                Console.WriteLine(doiMatKhauDTO.MatKhauMoi);
-                int result =  nhanVienBUS.updatePassword(doiMatKhauDTO);
-                Console.WriteLine(result);  
+                int result =  nhanVienBUS.updatePassword(doiMatKhauDTO); 
                 if(result == 0 || result == -1)
                 {
                     MessageBox.Show("Mật khẩu sai");
@@ -122,7 +120,7 @@ namespace LibraryManagement.GUI
                     Properties.Settings.Default.password = txtMatKhauMoi.Text;
                     Properties.Settings.Default.Save();
                     DataProvider dataProvider = DataProvider.Instance;
-                    dataProvider.StrConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
+                    dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
 
                     MessageBox.Show("Đổi mật khẩu thành công");
                     this.Close();

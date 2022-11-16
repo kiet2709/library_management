@@ -852,7 +852,7 @@ CREATE OR ALTER PROCEDURE usp_LAY_SACH_THEO_MA_SACH
 @id INT
 AS
 BEGIN
-   SELECT Sach.id, DauSach.tieude, 0, '' FROM Sach JOIN DauSach ON Sach.maDauSach=DauSach.id WHERE Sach.id=@id
+   SELECT Sach.id, DauSach.tieude, 0, '', Sach.trangthai FROM Sach JOIN DauSach ON Sach.maDauSach=DauSach.id WHERE Sach.id=@id
 END;
 
 GO
@@ -1453,7 +1453,7 @@ BEGIN
 		IF @@TRANCOUNT > 0
 			ROLLBACK TRAN;
 	END CATCH
-	EXEC usp_XOA_BANG_TAM;
+	DELETE FROM MuonSachTemp;
 END;
 
 GO
@@ -1499,13 +1499,14 @@ CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
 @ID INT
 AS
 BEGIN
-	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, DocGia.hinhAnh
 	FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
 				JOIN HoSo ON NhanVien.maHoSo=HoSo.id
 					JOIN DocGia ON maDocGia=DocGia.id
 	WHERE Muon.id=@ID		
-END
+END;
 GO
+
 
 -- procedure cập nhật thông tin phiếu mượn
 CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
@@ -1516,7 +1517,7 @@ AS
 BEGIN
 	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
 			WHERE id=@ID		
-END
+END;
 GO
 
 -- procedure cập nhật thành phần phiếu mượn
@@ -1529,7 +1530,7 @@ AS
 BEGIN
 	UPDATE MuonSach SET trangthai=@TRANGTHAI, ghiChu=@GHICHU 
 			WHERE maMuon=@MAMUON AND maSach=@MASACH		
-END
+END;
 GO
 
 CREATE OR ALTER PROC usp_TIM_DOC_GIA
@@ -1537,7 +1538,7 @@ CREATE OR ALTER PROC usp_TIM_DOC_GIA
 AS
 BEGIN
 	SELECT id FROM NhanVien WHERE tenDangNhap=@USERNAME	
-END
+END;
 GO
 
 
@@ -1550,7 +1551,8 @@ CREATE OR ALTER PROC usp_THEM_SACH_TRONG_PHIEU_MUON
 AS
 BEGIN
 	INSERT INTO MuonSach VALUES(@MASACH, @MAMUON, @GHICHU, @TRANGTHAI);	
-END
+	UPDATE Sach SET trangthai=1 WHERE id=@MASACH; 
+END;
 GO
 
 -- procedure Lấy sách trong phiếu mượn
@@ -1558,10 +1560,10 @@ CREATE OR ALTER PROC usp_SACH_TRONG_PHIEU_MUON
 @MAMUON INT
 AS
 BEGIN
-	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
+	SELECT SACH.id, DauSach.tieude, MuonSach.trangthai, MuonSach.ghiChu, SACH.TRANGTHAI FROM MuonSach JOIN Sach ON MuonSach.maSach=Sach.id
 							JOIN DauSach ON Sach.maDauSach=DauSach.id
 			WHERE maMuon=@MAMUON
-END
+END;
 GO
 
 -- procedure xem thông tin phiếu mượn
@@ -1569,7 +1571,7 @@ CREATE OR ALTER PROC usp_PHIEU_MUON
 AS
 BEGIN
 	SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m
-END
+END;
 GO
 
 CREATE OR ALTER PROC usp_LOC_PHIEU_MUON
@@ -1711,7 +1713,7 @@ RETURNS INT
 AS
 BEGIN
 	DECLARE @NUMBER INT;
-	SELECT @NUMBER=COUNT(*) FROM MuonSach WHERE MuonSach.maMuon=@ID_PHIEU_MUON;
+	SELECT @NUMBER=COUNT(*) FROM MuonSach WHERE MuonSach.maMuon=@ID_PHIEU_MUON AND MuonSach.trangthai=0;
 	IF @NUMBER > 0 RETURN 0;
 	RETURN 1;
 END;

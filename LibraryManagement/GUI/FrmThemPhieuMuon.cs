@@ -17,8 +17,8 @@ namespace LibraryManagement.GUI
     {
         private Form backFrm;
 
-        private PhieuMuonDTO phieuMuon;
-        private DanhSachSachMuonDTO danhSachSachMuon;
+        private PhieuMuonDTO phieuMuon = new PhieuMuonDTO();
+        private DanhSachSachMuonDTO danhSachSachMuon = new DanhSachSachMuonDTO();
         private DocGia docGia;
 
         MuonBUS muonBUS = new MuonBUS();
@@ -41,7 +41,6 @@ namespace LibraryManagement.GUI
         private void loadDataSV()
         {
             pd_anh.Image = null;
-            txt_mssv.Text = "";
             txt_khoa.Text = "";
             txt_sinhVien.Text = "";
         }
@@ -93,6 +92,11 @@ namespace LibraryManagement.GUI
                 MessageBox.Show("Không tìm thấy sinh viên");
                 return;
             }
+            if(docGia.Trangthai == 0)
+            {
+                MessageBox.Show("Sinh viên này bị cấm mượn sách");
+                return;
+            }
             txt_mssv.Text = docGia.Id.ToString();
             txt_khoa.Text = docGia.Khoa;
             txt_sinhVien.Text = docGia.Ten;
@@ -121,7 +125,12 @@ namespace LibraryManagement.GUI
             {
                 MessageBox.Show("Không tìm thấy sách");
                 return;
-            } else if (danhSachSachMuon.ListMuonSach.Contains(muonSach))
+            } else if (muonSach.DaMuon == 1)
+            {
+                MessageBox.Show("Sách đã có người mượn");
+                return;
+            } 
+            else if (danhSachSachMuon.ListMuonSach.Contains(muonSach))
             {
                 MessageBox.Show("Đã tồn tại");
                 return;
