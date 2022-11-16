@@ -43,5 +43,27 @@ namespace LibraryManagement.DAL
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { });
             return result;
         }
+
+        public DataTable getFilterListBrrowing(LocPhieuMuonDTO locPhieuMuon)
+        {
+            string query = "usp_LOC_PHIEU_MUON  @MSSV , @TRANGTHAI ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { locPhieuMuon.Mssv, locPhieuMuon.TrangThai });
+            return result;
+        }
+
+        public int insertBrrowing(PhieuMuonDTO phieuMuon)
+        {
+            string query = "usp_Them_Thong_Tin_Phieu_Muon @ngaymuon , @ngaytra , @ngayhethan , @tienphat , @maNhanVien , @maDocGia ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { phieuMuon.NgayMuon.ToString("MM-dd-yyyy"), phieuMuon.NgayTra.ToString("MM-dd-yyyy"), 
+                                phieuMuon.HanTra.ToString("MM-dd-yyyy"), phieuMuon.TienPhat, phieuMuon.MaThuThu, Convert.ToInt32(phieuMuon.Mssv) });
+            return result;
+        }
+
+        public int insertTempBrrowing(MuonSachDTO muonSach)
+        {
+            string query = "usp_THEM_TAM_SACH_TRONG_PHIEU_MUON @MASACH , @GHICHU ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { muonSach.Id, muonSach.GhiChu});
+            return result;
+        }
     }
 }

@@ -20,6 +20,7 @@ namespace LibraryManagement.DTO
         private int tienPhat;
         private int trangthai;
         private string hinhAnh;
+        private int maThuThu;
 
         public string SinhVien { get => sinhVien; set => sinhVien = value; }
 
@@ -42,6 +43,7 @@ namespace LibraryManagement.DTO
         public int Id { get => id; set => id = value; }
         public int Trangthai { get => trangthai; set => trangthai = value; }
         public string HinhAnh { get => hinhAnh; set => hinhAnh = value; }
+        public int MaThuThu { get => maThuThu; set => maThuThu = value; }
 
         public void add(DataTable dataTable)
         {

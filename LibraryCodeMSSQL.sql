@@ -190,6 +190,12 @@ END
 
 GO
 
+IF (OBJECT_ID('dbo.CHK_MuonSachTemp', 'C') IS NOT NULL)
+BEGIN
+	ALTER TABLE MuonSachTemp DROP CONSTRAINT IF EXISTS CHK_MuonSachTemp;
+END
+
+GO
 --=============== CREATE TABLE ===============--
 
 IF OBJECT_ID(N'TheLoai', N'U') IS NOT NULL  
@@ -404,7 +410,17 @@ CREATE TABLE MuonSach
 );
 GO
 
-
+IF OBJECT_ID(N'MuonSachTemp', N'U') IS NOT NULL  
+	DROP TABLE [dbo].[MuonSachTemp]; 
+CREATE TABLE MuonSachTemp
+(
+  maSach INT,
+  maMuon INT,
+  ghiChu NVARCHAR(50),
+  trangthai INT, -- 1: Đang mượn | 0: Trả rồi
+  CONSTRAINT CHK_MuonSachTemp Check (trangthai = 0 OR trangthai =1)
+);
+GO
 								--=============== TRIGGER ===============--
 
 -- Nếu ngayxuatban > thời gian hiện tại => rollback
@@ -701,7 +717,7 @@ CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
 @ID INT
 AS
 BEGIN
-	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, HoSo.hinhanh
+	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, DocGia.hinhAnh
 		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
 					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
 						JOIN DocGia ON maDocGia=DocGia.id
@@ -832,6 +848,15 @@ BEGIN
    SELECT DocGia.ten, DocGia.mssv, DocGia.khoa FROM 
    DocGia INNER JOIN Muon ON DocGia.id = Muon.maDocGia
    WHERE MONTH(GETDATE())-MONTH(Muon.ngaymuon) >=6;
+END;
+
+GO
+
+CREATE OR ALTER PROCEDURE usp_LAY_SACH_THEO_MA_SACH
+@id INT
+AS
+BEGIN
+   SELECT Sach.id, DauSach.tieude, 0, '' FROM Sach JOIN DauSach ON Sach.maDauSach=DauSach.id WHERE Sach.id=@id
 END;
 
 GO
@@ -1306,7 +1331,7 @@ END;
 GO 
 
 -- procedure lấy hình ảnh nhân viên
-CREATE PROC usp_Hinh_Anh_Nhan_Vien
+CREATE OR ALTER PROC usp_Hinh_Anh_Nhan_Vien
 @TENDANGNHAP NVARCHAR(30)
 AS
 BEGIN
@@ -1316,8 +1341,17 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROC usp_MA_NHAN_VIEN_THEO_TEN
+@TENDANGNHAP NVARCHAR(30)
+AS
+BEGIN
+		SELECT id FROM NhanVien
+		WHERE NhanVien.tenDangNhap = @TENDANGNHAP;
+END
+GO
+
 -- procedure lấy mã hồ sơ
-CREATE PROC usp_Lay_MaHS
+CREATE OR ALTER PROC usp_Lay_MaHS
 @TENDANGNHAP NVARCHAR(30)
 AS
 BEGIN
@@ -1327,7 +1361,7 @@ END
 GO
 
 -- procedure thêm hình ảnh nhân viên
-CREATE PROC usp_Them_Hinh_Anh_Nhan_Vien
+CREATE OR ALTER PROC usp_Them_Hinh_Anh_Nhan_Vien
 @ID INT,
 @HINHANH NVARCHAR(100)
 AS
@@ -1408,15 +1442,49 @@ CREATE OR ALTER proc usp_Them_Thong_Tin_Phieu_Muon
   @ngaymuon DATE,
   @ngaytra DATE,
   @ngayhethan DATE,
-  @trangthai INT,
   @tienphat INT,
   @maNhanVien INT,
   @maDocGia INT
 AS
 BEGIN
-	INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @tienphat ,@maNhanVien, @maDocGia)
+	BEGIN TRY
+		BEGIN TRAN
+			DECLARE @MAMUON INT;
+			INSERT INTO Muon VALUES(@ngaymuon, @ngaytra, @ngayhethan, @tienphat ,@maNhanVien, @maDocGia);
+			SET @MAMUON = SCOPE_IDENTITY()
+
+			UPDATE MuonSachTemp SET maMuon=@MAMUON, trangthai=0;
+
+			INSERT INTO MuonSach(maSach, maMuon, ghiChu, trangthai) SELECT maSach, maMuon, trangthai, ghiChu FROM MuonSachTemp;
+			
+		COMMIT
+	END TRY
+
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH
+	EXEC usp_XOA_BANG_TAM;
 END;
 
+GO
+
+
+
+CREATE OR ALTER PROC usp_THEM_TAM_SACH_TRONG_PHIEU_MUON
+@MASACH INT,
+@GHICHU NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO MuonSachTemp(maSach, ghiChu) VALUES(@MASACH, @GHICHU);	
+END
+GO
+
+CREATE OR ALTER PROC usp_XOA_BANG_TAM
+AS
+BEGIN
+	DELETE FROM MuonSachTemp;	
+END
 GO
 
 -- procedure xóa thông tin phiếu mượn quá hạn ( trên 1 năm )
@@ -1475,6 +1543,27 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROC usp_TIM_DOC_GIA
+@USERNAME NVARCHAR(30)
+AS
+BEGIN
+	SELECT id FROM NhanVien WHERE tenDangNhap=@USERNAME	
+END
+GO
+
+
+
+CREATE OR ALTER PROC usp_THEM_SACH_TRONG_PHIEU_MUON
+@MAMUON INT,
+@MASACH INT,
+@TRANGTHAI INT,
+@GHICHU NVARCHAR(50)
+AS
+BEGIN
+	INSERT INTO MuonSach VALUES(@MASACH, @MAMUON, @GHICHU, @TRANGTHAI);	
+END
+GO
+
 -- procedure Lấy sách trong phiếu mượn
 CREATE OR ALTER PROC usp_SACH_TRONG_PHIEU_MUON
 @MAMUON INT
@@ -1494,7 +1583,23 @@ BEGIN
 END
 GO
 
- 
+CREATE OR ALTER PROC usp_LOC_PHIEU_MUON
+@MSSV INT,
+@TRANGTHAI INT
+AS
+BEGIN
+	IF(@MSSV = -1) 
+	BEGIN
+		IF(@TRANGTHAI = 2) SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m;
+		ELSE SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE dbo.fn_Trang_Thai_Phieu_Muon(m.id)=@TRANGTHAI;
+	END
+	ELSE
+	BEGIN
+		IF(@TRANGTHAI=2) SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE maDocGia=@MSSV;
+		ELSE SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE maDocGia=@MSSV AND dbo.fn_Trang_Thai_Phieu_Muon(m.id)=@TRANGTHAI;
+	END
+END
+GO
 --================ Function ====================================
 
 -- function trả về tổng lương nhân viên
@@ -1547,6 +1652,8 @@ BEGIN
    RETURN @vaitro;
 END;
 GO
+
+
 
 -- function trả về tổng số sách theo tác giả
 CREATE OR ALTER FUNCTION fn_Tong_So_Sach_Theo_Tac_Gia(@id INT)
@@ -1726,21 +1833,22 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'201106123',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','thinh1323o@gmail.com','');
-INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Công nghệ thông tin',1,1,'01-07-2002','0123456789','t3142h112o@gmail.com','');
-INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0123456789','t324nh142o@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Kỹ thuật dữ liệu',1,1,'01-04-2002','0123456789','aca12@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tèo',N'20110722',N'Công nghệ hóa học',1,1,'11-08-2002','0123456789','baaf123@gmail.com','');
-INSERT INTO DocGia VALUES(N'Lưu Chí Bảo',N'2015625',N'Kỹ thuật Hóa học',1,1,'01-07-2002','0123425428','ngw12524@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Tuấn',N'2015450',N'Công nghệ thực phẩm',1,1,'11-03-2002','0563465689','bgfg1685@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Thịnh',N'2016573',N'Kỹ thuật Xây dựng',1,1,'01-06-2002','0123456789','aca12@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Đức Kiệt',N'20147657',N'Kiến trúc',1,1,'11-07-2002','0123456789','fjne.324@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Phúc',N'2011158',N'Kỹ thuật cơ khí',1,1,'01-01-2002','0123458729','gr5.54@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hải Triều',N'2013548',N'Hệ thống nhúng và IOT',1,1,'11-04-2002','0124757389','oil265@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Đình Phúc',N'20168251',N'Kỹ thuật máy tính',1,1,'10-04-2002','0123689789','pq354f@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Minh Đức',N'20185645',N'Công nghệ kỹ thuật in',1,1,'02-05-2002','0123136989','dcfd.3@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hải Đăng',N'20168623',N'Thiết kế đồ họa',1,1,'07-06-2002','0123456789','dang019o3@gmail.com','');
-INSERT INTO DocGia VALUES(N'Nguyễn Công Tú',N'20189367',N'Tự động hóa',1,1,'02-06-2002','0123459739','qier989.1@gmail.com','');
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'20110623',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','20110623@student.hcmute.edu.vn','');
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Đào tạo Chất lượng cao',1,1,'01-07-2002','0122544789','20110345@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0164246789','20110678@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Cơ khí Động lực',1,1,'01-04-2002','0125126789','20110912@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Hải',N'20110722',N'Điện - Điện tử',1,1,'11-08-2002','0152421789','20110722@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lưu Chí Bảo',N'20157625',N'Công nghệ Hóa học và Thực phẩm',1,1,'01-07-2002','0123425428','20157625@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Tuấn',N'20156450',N'Xây dựng',1,1,'11-03-2002','0563465689','20156450@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Thịnh',N'20168573',N'Công nghệ Thông tin',1,1,'01-06-2002','0125242789','20168573@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Trần Hải My',N'20147657',N'Kinh tế',2,1,'11-07-2002','0121246789','20147657@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Phúc',N'20118158',N'Cơ khí Chế tạo máy',1,1,'01-01-2002','0123458729','20118158@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lê Thị Trúc',N'20137548',N'In - Truyền thông',2,1,'11-04-2002','0124757389','20137548@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Trần Bảo Anh',N'20168251',N'Ngoại ngữ',2,1,'10-04-2002','0123689789','20168251@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Trần Anh Thư',N'20185645',N'Kinh tế',2,1,'02-05-2002','0123136989','20185645@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Hải Đăng',N'20168623',N'Đào tạo Quốc tế',1,1,'07-06-2002','0123412789','20168623@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Nguyễn Thanh Thảo',N'20189367',N'Thời trang và Du lịch',2,1,'02-06-2002','0123459739','20189367@student.edu.vn','');
+
 
 
 

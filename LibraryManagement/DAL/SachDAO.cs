@@ -22,5 +22,12 @@ namespace LibraryManagement.DAL
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
             return Convert.ToInt32(result.Rows[0][0]);
         }
+
+        internal DataTable getBookById(int id)
+        {
+            string query = "usp_LAY_SACH_THEO_MA_SACH @id ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
+            return result;
+        }
     }
 }

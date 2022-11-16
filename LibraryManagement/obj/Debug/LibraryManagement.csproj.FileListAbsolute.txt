@@ -163,3 +163,4 @@ C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNgonNgu.resources
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemNhaXuatBan.resources
 C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTacGia.resources
+C:\Users\Nguyen Duc Thinh\Documents\Workspace\Three Year\HeCSDL\project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemPhieuMuon.resources

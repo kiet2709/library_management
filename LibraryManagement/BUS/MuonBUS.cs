@@ -54,5 +54,31 @@ namespace LibraryManagement.BUS
             }
             return 1;
         }
+
+        public int insertBrrowing(PhieuMuonDTO phieuMuon, DanhSachSachMuonDTO danhSachSachMuon)
+        {
+            if(insertTempBrrowing(danhSachSachMuon) == 1)
+            {
+                return muonDAL.insertBrrowing(phieuMuon);
+            }
+            return 0;
+        }
+
+        public int insertTempBrrowing(DanhSachSachMuonDTO danhSachSachMuon)
+        {
+            foreach(MuonSachDTO muonSach in danhSachSachMuon.ListMuonSach)
+            {
+                int result = muonDAL.insertTempBrrowing(muonSach);
+                if (result <= 0) return 0;
+            }
+            return 1;
+        }
+
+        public DanhSachPhieuMuonDTO getFilterListBrrowing(LocPhieuMuonDTO locPhieuMuon)
+        {
+            DanhSachPhieuMuonDTO danhSachPhieuMuon = new DanhSachPhieuMuonDTO();
+            danhSachPhieuMuon.add(muonDAL.getFilterListBrrowing(locPhieuMuon));
+            return danhSachPhieuMuon;
+        }
     }
 }

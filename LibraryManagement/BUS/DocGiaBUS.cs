@@ -41,6 +41,7 @@ namespace LibraryManagement.BUS
         {
             DataTable result = docGiaDAO.getDocGiaById(id);
             DocGia docGia = new DocGia();
+            if (result == null) return null;
             DataRow dr = result.Rows[0];
 
             docGia.Id = Convert.ToInt32(dr["id"]);

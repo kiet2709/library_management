@@ -10,6 +10,7 @@ using System.Threading;
 using System.Windows.Forms;
 using LibraryManagement.BUS;
 using LibraryManagement.DTO;
+using LibraryManagement.Model;
 
 namespace LibraryManagement.GUI
 {
@@ -19,7 +20,8 @@ namespace LibraryManagement.GUI
         private DanhSachPhieuMuonDTO danhSachPhieuMuon;
 
         private MuonBUS muonBUS = new MuonBUS();
-
+        private DocGiaBUS docGiaBUS = new DocGiaBUS();
+        private LocPhieuMuonDTO locPhieuMuon = new LocPhieuMuonDTO(-1, 2);
         public FrmPhieuMuon()
         {
             InitializeComponent();
@@ -51,7 +53,24 @@ namespace LibraryManagement.GUI
             {
                 this.lblTenDangNhap.Text = Properties.Settings.Default.username;
             }
-            danhSachPhieuMuon = muonBUS.getListBrrowing();
+            
+            if(locPhieuMuon.Mssv == -1)
+            {
+                rd_tatCa.Checked = true;
+                pl_kiemTraSV.Enabled = false;
+                loadKTSV();
+            }
+            else
+            {
+                rd_timSV.Checked = true;
+                pl_kiemTraSV.Enabled = true;
+                txt_mssv.Text = locPhieuMuon.Mssv.ToString();
+                lb_thongBao.Text = "Tìm thấy";
+            }
+
+            cb_trangThai.SelectedIndex = locPhieuMuon.TrangThai;
+            
+            danhSachPhieuMuon = muonBUS.getFilterListBrrowing(this.locPhieuMuon);
             vcg_phieuMuon = danhSachPhieuMuon.getDataSource(vcg_phieuMuon);
         }
 
@@ -106,6 +125,11 @@ namespace LibraryManagement.GUI
         private void OpenFrmTaiKhoan()
         {
             Application.Run(new FrmTaiKhoan());
+        }
+
+        private void OpenFrmThemPhieuMuon()
+        {
+            Application.Run(new FrmThemPhieuMuon(new FrmPhieuMuon()));
         }
 
         private void btnFormSach_Click(object sender, EventArgs e)
@@ -188,6 +212,90 @@ namespace LibraryManagement.GUI
             Thread thread = new Thread(OpenFrmTaiKhoan);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
+        }
+
+        private void btn_themPhieuMuon_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmThemPhieuMuon);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void rd_tatCa_CheckedChanged(object sender, EventArgs e)
+        {
+            if(rd_timSV.Checked)
+            {
+                pl_kiemTraSV.Enabled = true;
+            }
+            else
+            {
+                pl_kiemTraSV.Enabled = false;
+            }
+            loadData();
+        }
+
+        private void loadKTSV()
+        {
+            txt_mssv.Text = "";
+            lb_thongBao.Text = "Kết quả";
+        }
+
+        private void txt_mssv_TextChanged(object sender, EventArgs e)
+        {
+            lb_thongBao.Text = "Kết quả";
+        }
+
+        private void btn_kiemTra_Click(object sender, EventArgs e)
+        {
+            int mssv = -1;
+            string thongBao = "";
+            try
+            {
+                mssv = Convert.ToInt32(txt_mssv.Text);
+            }
+            catch
+            {
+                thongBao = "Không tìm thấy";
+            }
+            DocGia docGia = new DocGia();
+            docGia = docGiaBUS.getDocGiaById(mssv);
+            if(docGia == null)
+            {
+                thongBao = "Không tìm thấy";
+            }
+            else
+            {
+                thongBao = "Tìm thấy";
+            }
+            lb_thongBao.Text = thongBao;
+        }
+
+        private void btn_tatCa_Click(object sender, EventArgs e)
+        {
+            locPhieuMuon.Mssv = -1;
+            locPhieuMuon.TrangThai = 2;
+            loadData();
+        }
+
+        private void btn_loc_Click(object sender, EventArgs e)
+        {
+            if (rd_tatCa.Checked)
+            {
+                locPhieuMuon.Mssv = -1;
+            }
+            if (rd_timSV.Checked)
+            {
+                if(lb_thongBao.Text.CompareTo("Tìm thấy") == 0)
+                    locPhieuMuon.Mssv = Convert.ToInt32(txt_mssv.Text);
+                else
+                {
+                    MessageBox.Show("Không tìm thấy sinh viên");
+                    return;
+                }
+            }
+            locPhieuMuon.TrangThai = cb_trangThai.SelectedIndex;
+            loadData();
         }
     }
 }
