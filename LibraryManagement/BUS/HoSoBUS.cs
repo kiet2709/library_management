@@ -18,6 +18,10 @@ namespace LibraryManagement.BUS
         {
             ArrayList hoSoQuanLyDTOs = new ArrayList();
             DataTable profiles = hoSoDAO.getAllProfile();
+            if(profiles==null || profiles.Rows.Count<=0)
+            {
+                return hoSoQuanLyDTOs;
+            }
             foreach (DataRow dr in profiles.Rows)
             {
                 HoSoQuanLyDTO hoSoQuanLyDTO = new HoSoQuanLyDTO();

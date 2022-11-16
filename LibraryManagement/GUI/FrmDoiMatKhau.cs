@@ -14,6 +14,7 @@ namespace LibraryManagement.GUI
     public partial class FrmDoiMatKhau : Form
     {
         NhanVienBUS nhanVienBUS = new NhanVienBUS();
+        HoSoBUS HoSoBUS = new HoSoBUS();    
         DoiMatKhauDTO doiMatKhauDTO = new DoiMatKhauDTO();
         public FrmDoiMatKhau(int id)
         {
@@ -47,6 +48,13 @@ namespace LibraryManagement.GUI
             else
             {
                 doiMatKhauDTO.MatKhauMoi = txtMatKhauMoi.Text;
+
+                int isCurrentUser = 0;
+                if(HoSoBUS.getIdByUsername(Properties.Settings.Default.username) == doiMatKhauDTO.MaHS)
+                {
+                    isCurrentUser = 1;
+                }
+
                 int result = nhanVienBUS.updatePasswordForAdmin(doiMatKhauDTO);
                 if (result == 0 || result == -1)
                 {
@@ -57,6 +65,16 @@ namespace LibraryManagement.GUI
                 }
                 else
                 {
+                    // check if current authenticate user changed
+                    if (isCurrentUser == 1)
+                    {
+                        Properties.Settings.Default.password = txtMatKhauMoi.Text;
+                        Properties.Settings.Default.Save();
+                        DataProvider dataProvider = DataProvider.Instance;
+                        dataProvider.StrConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
+
+                    }
+
                     MessageBox.Show("Đổi mật khẩu thành công");
                     this.Close();
                 }
@@ -89,6 +107,7 @@ namespace LibraryManagement.GUI
             {
                 doiMatKhauDTO.MatKhauCu = txtMatKhauCu.Text;
                 doiMatKhauDTO.MatKhauMoi = txtMatKhauMoi.Text;
+                Console.WriteLine(doiMatKhauDTO.MatKhauMoi);
                 int result =  nhanVienBUS.updatePassword(doiMatKhauDTO);
                 Console.WriteLine(result);  
                 if(result == 0 || result == -1)
@@ -100,6 +119,11 @@ namespace LibraryManagement.GUI
                 }
                 else
                 {
+                    Properties.Settings.Default.password = txtMatKhauMoi.Text;
+                    Properties.Settings.Default.Save();
+                    DataProvider dataProvider = DataProvider.Instance;
+                    dataProvider.StrConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
+
                     MessageBox.Show("Đổi mật khẩu thành công");
                     this.Close();
                 }

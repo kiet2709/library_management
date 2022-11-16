@@ -1,4 +1,5 @@
 ﻿using LibraryManagement.BUS;
+using LibraryManagement.DAL;
 using LibraryManagement.DTO;
 using LibraryManagement.GUI;
 using System;
@@ -28,6 +29,10 @@ namespace LibraryManagement
         private void btnDangNhapp_Click(object sender, EventArgs e)
         {
             DangNhapDTO dangNhap = new DangNhapDTO(txtTenDangNhap.Text, txtMatKhau.Text);
+
+
+            DataProvider dataProvider = DataProvider.Instance;
+            dataProvider.StrConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={txtTenDangNhap.Text}; Password={txtMatKhau.Text};";
             int result = dangNhapBUS.dangNhap(dangNhap);
             if (result == -1)
             {
@@ -42,11 +47,15 @@ namespace LibraryManagement
                 {
                     Properties.Settings.Default.role = "Thủ thư";
                 }
-                string username = txtTenDangNhap.Text;
-                String image = dangNhapBUS.getImageByUsername(username);
-                Properties.Settings.Default.username = username;
+                String image = dangNhapBUS.getImageByUsername(txtTenDangNhap.Text);
+                Properties.Settings.Default.username = txtTenDangNhap.Text;
+                Properties.Settings.Default.password = txtMatKhau.Text;
                 Properties.Settings.Default.image = image;
+
+                Console.WriteLine(image);
+
                 Properties.Settings.Default.Save();
+                dataProvider.StrConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
                 this.Close();
                 Thread thread = new Thread(OpenFrmSach);
                 thread.SetApartmentState(ApartmentState.STA);

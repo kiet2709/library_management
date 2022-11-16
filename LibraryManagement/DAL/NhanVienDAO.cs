@@ -13,7 +13,11 @@ namespace LibraryManagement.DAL
         {
             string query = "usp_Kiem_Tra_Dang_Nhap  @tenDangNhap , @matKhau  ";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { dangNhapDTO.Taikhoan, dangNhapDTO.Matkhau });
-            return Convert.ToInt32(result.Rows[0][0]);
+            if (result != null && result.Rows.Count > 0)
+            {
+                return Convert.ToInt32(result.Rows[0][0]);
+            }
+            return -1;
         }
         public string getRole(int id)
         {

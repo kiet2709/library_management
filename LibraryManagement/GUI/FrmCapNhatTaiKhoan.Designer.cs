@@ -62,10 +62,10 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnThemAnh = new System.Windows.Forms.Button();
             this.pbAnh = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.cbQuanLy = new System.Windows.Forms.CheckBox();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -411,25 +411,6 @@
             this.pbAnh.TabIndex = 129;
             this.pbAnh.TabStop = false;
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.cbQuanLy);
-            this.panel6.Controls.Add(this.label14);
-            this.panel6.Location = new System.Drawing.Point(18, 544);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(292, 146);
-            this.panel6.TabIndex = 131;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 59);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 35);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Vai trò:";
-            // 
             // btnDoiMatKhau
             // 
             this.btnDoiMatKhau.BackColor = System.Drawing.Color.LemonChiffon;
@@ -443,9 +424,20 @@
             this.btnDoiMatKhau.UseVisualStyleBackColor = false;
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 59);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(106, 35);
+            this.label14.TabIndex = 39;
+            this.label14.Text = "Vai trò:";
+            // 
             // cbQuanLy
             // 
             this.cbQuanLy.AutoSize = true;
+            this.cbQuanLy.Enabled = false;
             this.cbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbQuanLy.Location = new System.Drawing.Point(134, 55);
             this.cbQuanLy.Name = "cbQuanLy";
@@ -453,6 +445,15 @@
             this.cbQuanLy.TabIndex = 127;
             this.cbQuanLy.Text = "Quản lý";
             this.cbQuanLy.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.cbQuanLy);
+            this.panel6.Controls.Add(this.label14);
+            this.panel6.Location = new System.Drawing.Point(18, 544);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(292, 146);
+            this.panel6.TabIndex = 131;
             // 
             // FrmCapNhatTaiKhoan
             // 
@@ -539,9 +540,9 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnThemAnh;
         private System.Windows.Forms.PictureBox pbAnh;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnDoiMatKhau;
+        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.CheckBox cbQuanLy;
+        private System.Windows.Forms.Panel panel6;
     }
 }

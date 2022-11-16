@@ -103,8 +103,13 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.Diachi = this.txtDiaChi.Text;
             hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
             hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
+            String imagePath = "";
+            if (hoSoQuanLyDTO.Hinhanh != "")
+            {
+                imagePath  = @"/uploads/nhanVien/" + hoSoQuanLyDTO.Id + ".png";
 
-            String imagePath = @"E:\HCMUTE\School_Project\library_management\LibraryManagement\uploads\nhanVien\" + hoSoQuanLyDTO.Id + ".png";
+            }
+
             hoSoQuanLyDTO.Hinhanh = imagePath;
 
 
@@ -142,7 +147,7 @@ namespace LibraryManagement.GUI
 
                     image.Save(imagePath);
 
-
+                    Properties.Settings.Default.image = imagePath;
 
                 }
                 MessageBox.Show("Sửa thành công");
