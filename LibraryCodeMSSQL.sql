@@ -10,6 +10,7 @@ GO
 USE QuanLyThuVien
 GO
 
+
 --=============== DROP CONSTRAINTS IF EXITS ===============--
 
 IF (OBJECT_ID('dbo.FK_NhaXB_DauSach', 'F') IS NOT NULL)

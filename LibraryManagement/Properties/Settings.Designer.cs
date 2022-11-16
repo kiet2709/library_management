@@ -73,13 +73,19 @@ namespace LibraryManagement.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string password {
-            get {
+        public string password
+        {
+            get
+            {
                 return ((string)(this["password"]));
             }
-            set {
+            set
+            {
                 this["password"] = value;
-        [global::System.Configuration.DefaultSettingValueAttribute("-1")]
+            }
+        }
+
+            [global::System.Configuration.DefaultSettingValueAttribute("-1")]
         public int id {
             get {
                 return ((int)(this["id"]));
@@ -88,5 +94,6 @@ namespace LibraryManagement.Properties {
                 this["id"] = value;
             }
         }
+
     }
 }
