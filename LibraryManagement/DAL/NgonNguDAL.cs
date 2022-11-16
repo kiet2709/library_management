@@ -33,7 +33,6 @@ namespace LibraryManagement.DAL
             }
             catch
             {
-                Console.WriteLine(result.Rows[0][0]);
                 return 0;
             }
 

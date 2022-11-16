@@ -24,7 +24,6 @@ namespace LibraryManagement.DAL
                 return Convert.ToInt32(result.Rows[0][0]);
             } catch
             {
-                Console.WriteLine(result.Rows[0][0]);
                 return 0;
             }
             

@@ -43,8 +43,6 @@ namespace LibraryManagement.BUS
             DanhSachTacGiaDTO old = getAuthorOfBook(id);
             DanhSachTacGiaDTO del_list = old.OnlyThere(danhSachTacGia);
             DanhSachTacGiaDTO add_list = danhSachTacGia.OnlyThere(old);
-            Console.WriteLine(del_list.toString());
-            Console.WriteLine(add_list.toString());
             int del_size = del_list.ListTacGia.Count;
             int add_size = add_list.ListTacGia.Count;
             try

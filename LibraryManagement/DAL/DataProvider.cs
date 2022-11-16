@@ -11,7 +11,7 @@ namespace LibraryManagement.DAL
     {
         private static DataProvider instance;
 
-        private string strConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
+        private string strConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
         public string StrConnectionString {  set => strConnectionString = value; }
 
         public static DataProvider Instance
@@ -28,7 +28,6 @@ namespace LibraryManagement.DAL
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
-            Console.WriteLine(strConnectionString);
             try
             {
                 DataTable data = new DataTable();

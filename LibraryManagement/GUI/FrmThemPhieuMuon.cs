@@ -93,6 +93,11 @@ namespace LibraryManagement.GUI
                 MessageBox.Show("Không tìm thấy sinh viên");
                 return;
             }
+            if(docGia.Trangthai == 0)
+            {
+                MessageBox.Show("Sinh viên này bị cấm mượn sách");
+                return;
+            }
             txt_mssv.Text = docGia.Id.ToString();
             txt_khoa.Text = docGia.Khoa;
             txt_sinhVien.Text = docGia.Ten;
@@ -121,7 +126,12 @@ namespace LibraryManagement.GUI
             {
                 MessageBox.Show("Không tìm thấy sách");
                 return;
-            } else if (danhSachSachMuon.ListMuonSach.Contains(muonSach))
+            } else if (muonSach.DaMuon == 1)
+            {
+                MessageBox.Show("Sách đã có người mượn");
+                return;
+            } 
+            else if (danhSachSachMuon.ListMuonSach.Contains(muonSach))
             {
                 MessageBox.Show("Đã tồn tại");
                 return;
