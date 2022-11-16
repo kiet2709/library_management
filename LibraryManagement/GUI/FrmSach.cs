@@ -49,8 +49,8 @@ namespace LibraryManagement.GUI
             if (Properties.Settings.Default.role != null
                 && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Thủ thư")
             {
-                this.pbUser.Enabled = false;
-                this.btnFormTaiKhoan.Enabled = false;
+               this.pbUser.Enabled = false;
+               this.btnFormTaiKhoan.Enabled = false;
             }
 
             ArrayList sachs = sachBUS.getBook();

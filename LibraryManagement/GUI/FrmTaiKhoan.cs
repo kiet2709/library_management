@@ -33,11 +33,11 @@ namespace LibraryManagement.GUI
             if (Properties.Settings.Default.role != null
              && Properties.Settings.Default.role != "" && Properties.Settings.Default.role == "Thủ thư")
             {
-                MessageBox.Show("Bạn không có quyền truy cập vào mục này");
-                this.Close();
-                Thread thread = new Thread(OpenFrmSach);
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
+               MessageBox.Show("Bạn không có quyền truy cập vào mục này");
+               this.Close();
+               Thread thread = new Thread(OpenFrmSach);
+               thread.SetApartmentState(ApartmentState.STA);
+               thread.Start();
             }
 
             if (Properties.Settings.Default.image != null 
@@ -60,7 +60,11 @@ namespace LibraryManagement.GUI
             this.dtgvHoSo.Columns[8].FillWeight = 2;
             this.dtgvHoSo.Columns[9].FillWeight = 2;
             ArrayList hoso = hoSoBUS.getAllProfile();
-        
+            if (hoso.Count <= 0)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập vào đây");
+                this.Close();
+            }
             for (int i = 0; i < hoso.Count; i++)
             {
                 DataGridViewRow dr = new DataGridViewRow();

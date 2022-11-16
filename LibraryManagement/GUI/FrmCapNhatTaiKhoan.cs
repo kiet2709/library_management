@@ -113,13 +113,6 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.SoDT = this.txtSDT.Text;
             hoSoQuanLyDTO.Ngaysinh = this.dtpNgaySinh.Value;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(this.txtLuong.Text);
-
-           
-            hoSoQuanLyDTO.VaiTro = "Thủ thư";
-            if (this.cbQuanLy.Checked)
-            {
-                hoSoQuanLyDTO.VaiTro = "Quản lý";
-            }
             if (this.rbNam.Checked)
             {
                 hoSoQuanLyDTO.GioiTinh = 1;
@@ -177,22 +170,7 @@ namespace LibraryManagement.GUI
                 }
                 MessageBox.Show("Sửa thành công");
                 
-                // change role on authenticated user
-                if(this.cbQuanLy.Checked == false && hoSoQuanLyDTO.TenDangNhap == Properties.Settings.Default.username)
-                {
-                    Properties.Settings.Default.role = "Thủ thư";
-                    this.Close();
-                    Thread thread = new Thread(OpenFrmSach);
-                    thread.SetApartmentState(ApartmentState.STA);
-                    thread.Start();
-                }
-                else
-                {
-                    this.Close();
-                    Thread thread = new Thread(OpenFrmTaiKhoan);
-                    thread.SetApartmentState(ApartmentState.STA);
-                    thread.Start();
-                }
+               
                 
             }
         

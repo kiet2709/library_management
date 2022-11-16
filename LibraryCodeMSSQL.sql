@@ -6,7 +6,6 @@ DROP DATABASE IF EXISTS QuanLyThuVien
 GO
 CREATE DATABASE QuanLyThuVien
 GO
-SELECT * FROM DauSach WHERE id = 10
 
 USE QuanLyThuVien
 GO
@@ -514,6 +513,36 @@ CREATE OR ALTER VIEW THELOAI_VIEW AS
 SELECT *
 FROM TheLoai
 GO
+
+							--=============== Phân Quyền ===============--
+-- function gán quyền cho thủ thư
+CREATE OR ALTER PROC fn_Gan_Quyen_Nhan_Vien(
+@TENDANGNHAP VARCHAR(100))
+AS
+BEGIN
+	DECLARE @GRANT VARCHAR(200)
+	DECLARE @DENY VARCHAR(200)
+	SET @GRANT = 'GRANT EXEC, SELECT, INSERT, UPDATE, DELETE TO '+ @TENDANGNHAP
+	EXEC(@GRANT)
+
+	SET @DENY = 'DENY EXEC ON usp_Them_Thong_Tin_Nhan_Vien TO ' + @TENDANGNHAP
+	EXEC(@DENY)
+
+	SET @DENY = 'DENY EXEC ON usp_Quan_Ly_Doi_Mat_Khau TO ' + @TENDANGNHAP
+	EXEC(@DENY)
+
+	SET @DENY = 'DENY EXEC ON usp_Xem_Toan_Bo_Thong_Tin_Nhan_Vien TO ' + @TENDANGNHAP
+	EXEC(@DENY)
+
+	SET @DENY = 'DENY EXEC ON usp_Chuyen_Trang_Thai_Nhan_Vien TO ' + @TENDANGNHAP
+	EXEC(@DENY)
+
+	SET @DENY = 'DENY EXEC ON usp_Sua_Thong_Tin_Nhan_Vien TO ' + @TENDANGNHAP
+	EXEC(@DENY)
+
+END;
+GO
+
 
 							--=============== PROCEDURE ===============--
 
@@ -1102,10 +1131,7 @@ BEGIN
 END
 GO
 
-
-
 --============================================= NHÂN VIÊN =============================================--
-
 -- procedure Sửa thông tin nhân viên
 CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien  
 @ID INT,
@@ -1118,42 +1144,23 @@ CREATE OR ALTER PROC usp_Sua_Thong_Tin_Nhan_Vien
 @GIOITINH INT,
 @NGAYSINH DATE,
 @LUONG INT,
-@TRANGTHAI INT,
-@VAITRO INT
+@TRANGTHAI INT
 AS
 BEGIN
 	BEGIN TRY
 		BEGIN TRAN
+
 			DECLARE @MANV INT;
+			DECLARE @TENTK NVARCHAR(40);
+
 			SET @MANV = (SELECT id FROM NhanVien WHERE maHoSo = @ID)
+			SET @TENTK = (SELECT tenDangNhap FROM NhanVien WHERE maHoSo = @ID)
 
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
 
 			UPDATE NhanVien SET trangthai = @TRANGTHAI
 			WHERE id = @MANV
-
-			-- kiểm tra đã tồn tại role quản lý với mã tài khoản chưa
-			Declare @RESULT INT
-			SET @RESULT =  
-			CASE WHEN EXISTS(SELECT vaitro_nhanVien.maVaiTro FROM vaitro_nhanvien WHERE vaitro_nhanVien.maVaiTro = 1  AND vaitro_nhanVien.maNhanVien = @ID)
-                    THEN 1 ELSE 0
-            END
-
-			IF(@VAITRO = 1)
-			BEGIN
-			-- Nếu không có role quản lý
-				IF(@RESULT = 0)
-					INSERT INTO vaitro_nhanVien VALUES(@MANV,1);
-			END
-
-			IF(@VAITRO = 2)
-			BEGIN
-			-- Nếu có role quản lý
-				IF(@RESULT = 1)
-					DELETE FROM vaitro_nhanVien	WHERE vaitro_nhanVien.maVaiTro = 1   AND vaitro_nhanVien.maNhanVien = @MANV
-
-			END
 		COMMIT
 	END TRY
 		
@@ -1163,7 +1170,6 @@ BEGIN
 	END CATCH 
 END;
 GO
-
 
 -- procedure Thêm thông tin nhân viên
 CREATE OR ALTER PROC usp_Them_Thong_Tin_Nhan_Vien
@@ -1192,13 +1198,34 @@ BEGIN
 			SET @MAHS = SCOPE_IDENTITY();
 			INSERT INTO NhanVien VALUES(@TENTK, pwdencrypt(@MK), @TRANGTHAI, @MAHS);
 			SET @MANV = SCOPE_IDENTITY();
-			INSERT INTO vaitro_nhanVien VALUES (@MANV,2); -- 2 cho thủ thư
+
+			DECLARE @Login VARCHAR(100);
+			DECLARE @User VARCHAR(1000);
+			DECLARE @Permision VARCHAR(1000);
+			SET @Login = 'CREATE LOGIN ' + @TENTK + ' WITH PASSWORD = ''' + @MK +'''' 
+			SET @User = 'CREATE USER ' + @TENTK + ' FOR LOGIN ' + @TENTK
+
+			 -- Gán quyền thủ thư
+			INSERT INTO vaitro_nhanVien VALUES (@MANV,2);
+
+			 -- Gán quyền nhân viên quản lý ( vừa là quản lý, vừa thủ thư)
 			IF(@VAITRO = 1)
-			BEGIN 
-				INSERT INTO vaitro_nhanVien VALUES (@MANV,1); -- có quyền quản lý
-			END
-			
+				BEGIN 
+					INSERT INTO vaitro_nhanVien VALUES (@MANV,1);
+					SET @Permision = 'GRANT EXEC, SELECT, INSERT, UPDATE, DELETE TO ' + @TENTK
+					EXEC (@Login)
+					EXEC (@User)
+					EXEC (@Permision)
+					EXEC master..sp_addsrvrolemember @loginame = @TENTK, @rolename = N'sysadmin'
+				END
+			ELSE
+				BEGIN
+					EXEC (@Login)
+					EXEC (@User)
+					EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
+				END
 			SELECT @MAHS;
+
 		COMMIT 
 	END TRY
 
@@ -1209,6 +1236,7 @@ BEGIN
 	
 END;
 GO 
+
 -- procedure đổi mật khẩu nhân viên
 CREATE OR ALTER PROC usp_Doi_Mat_Khau 
 @MAHOSO INT,
@@ -1216,23 +1244,26 @@ CREATE OR ALTER PROC usp_Doi_Mat_Khau
 @MATKHAUMOI NVARCHAR(1000)
 AS
 BEGIN
-	
 	IF(LEN(@MATKHAUMOI) < 8 )
 	BEGIN 
 		RETURN
 	END
 
-
 	DECLARE @MKDB VARBINARY(128);
-	SET @MKDB = (SELECT matkhau FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO)
+	DECLARE @TENDANGNHAP VARCHAR(200)
+	SELECT @MKDB =  matkhau, @TENDANGNHAP = tenDangNhap FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
 	If(pwdcompare(@MATKHAUCU,@MKDB) = 1)
 	BEGIN
 		UPDATE NhanVien SET  matkhau = pwdencrypt(@MATKHAUMOI)  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+		
+		DECLARE @STATEMENT VARCHAR(200)
+		SET @STATEMENT = 'ALTER LOGIN ' + @TENDANGNHAP + ' WITH PASSWORD = ''' + @MATKHAUMOI +'''' + ' OLD_PASSWORD = ''' + @MATKHAUCU +''''
+		PRINT (@STATEMENT)
+		EXEC(@STATEMENT)
 	END
-
-
 END
 GO
+
 
 -- procedure đổi mật khẩu cho quản lý
 CREATE OR ALTER PROC usp_Quan_Ly_Doi_Mat_Khau 
@@ -1245,7 +1276,14 @@ BEGIN
 	BEGIN 
 		RETURN
 	END
+
+	DECLARE @TENDANGNHAP VARCHAR(200)
+
 	UPDATE NhanVien SET  matkhau = pwdencrypt(@MATKHAUMOI)  FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+	SELECT @TENDANGNHAP = tenDangNhap FROM NhanVien INNER JOIN HoSo ON NhanVien.maHoSo = HoSo.id WHERE HoSo.id = @MAHOSO
+	DECLARE @STATEMENT VARCHAR(200)
+	SET @STATEMENT = 'ALTER LOGIN ' + @TENDANGNHAP + ' WITH PASSWORD = ''' + @MATKHAUMOI +''''
+	EXEC(@STATEMENT)
 
 END
 GO
@@ -1446,6 +1484,8 @@ BEGIN
 	SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m
 END
 GO
+
+ 
 --================ Function ====================================
 
 -- function trả về tổng lương nhân viên
@@ -1571,6 +1611,8 @@ BEGIN
 	RETURN 1;
 END;
 GO
+
+
 --================ INSERT DATA ====================================
 
 INSERT INTO TheLoai VALUES(N'Công nghệ thông tin');					--1
@@ -1739,13 +1781,88 @@ INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'123 Y Vân, Đồ Chi�
 
 
 INSERT INTO NhanVien VALUES(N'khainguyen',pwdencrypt('12345678'),1,1);
+GO
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'khainguyen')
+BEGIN
+	CREATE LOGIN khainguyen WITH PASSWORD = '12345678'
+	CREATE USER khainguyen for LOGIN khainguyen
+	GRANT EXEC, SELECT, INSERT, UPDATE, DELETE TO khainguyen
+	EXEC master..sp_addsrvrolemember @loginame = khainguyen, @rolename = N'sysadmin'
+END
+
 INSERT INTO NhanVien VALUES(N'kietnguyen',pwdencrypt('12345678'),1,2);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'kietnguyen')
+BEGIN
+	CREATE LOGIN kietnguyen WITH PASSWORD = '12345678'
+	CREATE USER kietnguyen for LOGIN kietnguyen
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = kietnguyen
+END
+
 INSERT INTO NhanVien VALUES(N'vikhang',pwdencrypt('12345678'),1,3);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'vikhang')
+BEGIN
+	CREATE LOGIN vikhang WITH PASSWORD = '12345678'
+	CREATE USER vikhang for LOGIN vikhang
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = vikhang
+END
+
 INSERT INTO NhanVien VALUES(N'thinhNguyen',pwdencrypt('12345678'),1,4);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'thinhNguyen')
+BEGIN
+	CREATE LOGIN thinhNguyen WITH PASSWORD = '12345678'
+	CREATE USER thinhNguyen for LOGIN thinhNguyen
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhNguyen
+END
+
 INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12348756'),1,5);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'phucnguyen')
+BEGIN
+	CREATE LOGIN phucnguyen WITH PASSWORD = '12345678'
+	CREATE USER phucnguyen for LOGIN phucnguyen
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = phucnguyen
+
+END
+
 INSERT INTO NhanVien VALUES(N'hongducle',pwdencrypt('12342327'),1,6);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'hongducle')
+BEGIN
+	CREATE LOGIN hongducle WITH PASSWORD = '12345678'
+	CREATE USER hongducle for LOGIN hongducle
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = hongducle
+END
+
 INSERT INTO NhanVien VALUES(N'baochiluu',pwdencrypt('12343235'),1,7);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'baochiluu')
+BEGIN
+	CREATE LOGIN baochiluu WITH PASSWORD = '12345678'
+	CREATE USER baochiluu for LOGIN baochiluu
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = baochiluu
+END
+
 INSERT INTO NhanVien VALUES(N'dangnguyenle',pwdencrypt('12349263'),1,8);
+IF NOT EXISTS(SELECT name  
+     FROM master.sys.server_principals
+     WHERE name = 'dangnguyenle')
+BEGIN
+	CREATE LOGIN dangnguyenle WITH PASSWORD = '12345678'
+	CREATE USER dangnguyenle for LOGIN dangnguyenle
+	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = dangnguyenle
+END
+
 
 INSERT INTO Muon VALUES('10-14-2021',null,'10-14-2022',20000,2,2);
 INSERT INTO Muon VALUES('9-12-2021','9-10-2022','9-12-2022',25000,3,3);
@@ -1979,3 +2096,6 @@ INSERT INTO MuonSach VALUES(9,16,'Sách quăng góc', 0);
 INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
 INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
 INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);
+
+
+
