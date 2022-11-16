@@ -2,6 +2,7 @@
 using LibraryManagement.DAL;
 using LibraryManagement.DTO;
 using LibraryManagement.GUI;
+using LibraryManagement.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -47,11 +48,19 @@ namespace LibraryManagement
                 {
                     Properties.Settings.Default.role = "Thủ thư";
                 }
-                String image = dangNhapBUS.getImageByUsername(txtTenDangNhap.Text);
+                string image = dangNhapBUS.getImageByUsername(txtTenDangNhap.Text);
                 Properties.Settings.Default.username = txtTenDangNhap.Text;
                 Properties.Settings.Default.password = txtMatKhau.Text;
-                Properties.Settings.Default.image = image;
-
+                if (image != "")
+                {
+                    string fullImagePath = AppConstant.getFullDirectory(image);
+                    Properties.Settings.Default.image = fullImagePath;
+                }
+                else
+                {
+                    Properties.Settings.Default.image = "";
+                }
+                
                 Properties.Settings.Default.Save();
                 dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
                 this.Close();
