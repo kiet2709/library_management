@@ -1386,7 +1386,16 @@ CREATE OR ALTER PROC usp_Kiem_Tra_Dang_Nhap
 AS
 BEGIN
 	DECLARE @maNhanVien INT;
-	SELECT @maNhanVien = NhanVien.id FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
+	DECLARE @trangThai INT;
+	SELECT @maNhanVien = NhanVien.id, @trangThai = NhanVien.trangthai FROM NhanVien WHERE NhanVien.tenDangNhap = @tenDangNhap AND pwdcompare(@matKhau,NhanVien.matkhau) = 1
+	
+	-- Kiểm tra tài khoản có bị chặn không
+	IF(@trangThai = 0 )
+	BEGIN
+		SELECT -1
+			RETURN
+	END
+		
 	IF (@maNhanVien IS NOT NULL)
 		SELECT @maNhanVien 
 	ELSE
