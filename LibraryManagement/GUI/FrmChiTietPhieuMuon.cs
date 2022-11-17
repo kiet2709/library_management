@@ -19,6 +19,7 @@ namespace LibraryManagement.GUI
         private PhieuMuonDTO phieuMuon;
         private DanhSachSachMuonDTO danhSachSachMuon;
 
+        private DocGiaBUS docGiaBUS = new DocGiaBUS();
         private MuonBUS muonBUS = new MuonBUS();
         public FrmChiTietPhieuMuon(int id, Form backFrm)
         {
@@ -37,7 +38,7 @@ namespace LibraryManagement.GUI
         {
             phieuMuon = muonBUS.getBrrowing(id);
             txt_sinhVien.Text = phieuMuon.SinhVien;
-            txt_mssv.Text = phieuMuon.Mssv;
+            txt_mssv.Text = docGiaBUS.getDocGiaById(Convert.ToInt32(phieuMuon.Mssv)).Mssv;
             txt_khoa.Text = phieuMuon.Khoa;
             txt_thuThu.Text = phieuMuon.ThuThu;
             txt_tienPhat.Text = phieuMuon.TienPhat.ToString();

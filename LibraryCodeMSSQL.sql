@@ -618,6 +618,15 @@ BEGIN
 END
 GO
 
+CREATE OR ALTER PROCEDURE usp_Lay_ID_THEO_MSSV
+@MSSV NVARCHAR(10)
+AS
+BEGIN
+	SELECT id FROM DocGia
+	WHERE mssv = @MSSV;
+END
+GO
+
 --procedure sửa độc giả
 CREATE OR ALTER PROCEDURE usp_Sua_Doc_Gia
 @ID INT,
@@ -733,7 +742,7 @@ CREATE OR ALTER PROC usp_THONG_TIN_PHIEU_MUON
 @ID INT
 AS
 BEGIN
-	SELECT DocGia.ten, DocGia.mssv, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, DocGia.hinhAnh
+	SELECT DocGia.ten, DocGia.id, DocGia.khoa, HoSo.ten, Muon.ngaymuon, Muon.ngayhethan, Muon.ngaytra, Muon.tienphat, DocGia.hinhAnh
 		FROM Muon JOIN NhanVien ON maNhanVien=NhanVien.id
 					JOIN HoSo ON NhanVien.maHoSo=HoSo.id
 						JOIN DocGia ON maDocGia=DocGia.id

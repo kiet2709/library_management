@@ -49,5 +49,12 @@ namespace LibraryManagement.DAL
             string query = "usp_Sua_Hinh_Anh_Doc_Gia @ID , @HINHANH";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { Convert.ToInt32(id), hinhAnh });
         }
+
+        public DataTable getIdByMSSV(string mssv)
+        {
+            string query = "usp_Lay_ID_THEO_MSSV @MSSV";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { mssv });
+            return result;
+        }
     }
 }

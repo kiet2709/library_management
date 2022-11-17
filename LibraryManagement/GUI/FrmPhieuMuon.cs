@@ -64,7 +64,7 @@ namespace LibraryManagement.GUI
             {
                 rd_timSV.Checked = true;
                 pl_kiemTraSV.Enabled = true;
-                txt_mssv.Text = locPhieuMuon.Mssv.ToString();
+                txt_mssv.Text = docGiaBUS.getDocGiaById(locPhieuMuon.Mssv).Mssv;
                 lb_thongBao.Text = "Tìm thấy";
             }
 
@@ -258,8 +258,9 @@ namespace LibraryManagement.GUI
             {
                 thongBao = "Không tìm thấy";
             }
+            int id = docGiaBUS.getIdByMSSV(txt_mssv.Text);
             DocGia docGia = new DocGia();
-            docGia = docGiaBUS.getDocGiaById(mssv);
+            docGia = docGiaBUS.getDocGiaById(id);
             if(docGia == null)
             {
                 thongBao = "Không tìm thấy";
@@ -288,7 +289,7 @@ namespace LibraryManagement.GUI
             {
                 btn_kiemTra_Click(sender, e);
                 if(lb_thongBao.Text.CompareTo("Tìm thấy") == 0)
-                    locPhieuMuon.Mssv = Convert.ToInt32(txt_mssv.Text);
+                    locPhieuMuon.Mssv = docGiaBUS.getIdByMSSV(txt_mssv.Text);
                 else
                 {
                     MessageBox.Show("Không tìm thấy sinh viên");

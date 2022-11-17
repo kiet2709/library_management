@@ -35,6 +35,7 @@ namespace LibraryManagement.GUI
 
         private void loadVCGSachMuon()
         {
+            vcg_sachMuon.Rows.Clear();
             vcg_sachMuon = danhSachSachMuon.getDataSource(vcg_sachMuon);
         }
 
@@ -86,6 +87,12 @@ namespace LibraryManagement.GUI
                 MessageBox.Show("Không tìm thấy sinh viên");
                 return;
             }
+            id = docGiaBUS.getIdByMSSV(txt_mssv.Text);
+            if(id < 0)
+            {
+                MessageBox.Show("Không tìm thấy sinh viên");
+                return;
+            }
             docGia = docGiaBUS.getDocGiaById(id);
             if(docGia == null)
             {
@@ -97,7 +104,6 @@ namespace LibraryManagement.GUI
                 MessageBox.Show("Sinh viên này bị cấm mượn sách");
                 return;
             }
-            txt_mssv.Text = docGia.Id.ToString();
             txt_khoa.Text = docGia.Khoa;
             txt_sinhVien.Text = docGia.Ten;
         }
@@ -152,8 +158,14 @@ namespace LibraryManagement.GUI
                 phieuMuon.NgayTra = dtp_ngayTra.Value;
                 phieuMuon.HanTra = dtp_hanTra.Value;
                 phieuMuon.TienPhat = Convert.ToInt32(txt_tienPhat.Text);
-                phieuMuon.Mssv = txt_mssv.Text;
+                phieuMuon.Mssv = docGiaBUS.getIdByMSSV(txt_mssv.Text).ToString() ;
                 phieuMuon.MaThuThu = nhanVienBUS.getIdByName(Properties.Settings.Default.username);
+
+                for (int i = 0; i < vcg_sachMuon.Rows.Count; i++)
+                {
+                    danhSachSachMuon.ListMuonSach[i].Trangthai = Convert.ToBoolean(vcg_sachMuon.Rows[i].Cells[3].Value) ? 1 : 0;
+                    danhSachSachMuon.ListMuonSach[i].GhiChu = Convert.ToString(vcg_sachMuon.Rows[i].Cells[4].Value);
+                }
             }
             catch
             {

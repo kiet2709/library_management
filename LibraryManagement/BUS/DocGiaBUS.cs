@@ -42,6 +42,7 @@ namespace LibraryManagement.BUS
             DataTable result = docGiaDAO.getDocGiaById(id);
             DocGia docGia = new DocGia();
             if (result == null) return null;
+            if (result.Rows.Count == 0) return null;
             DataRow dr = result.Rows[0];
 
             docGia.Id = Convert.ToInt32(dr["id"]);
@@ -73,6 +74,15 @@ namespace LibraryManagement.BUS
         internal int updateDocGia(DocGia docgia)
         {
             return docGiaDAO.updateDocGia(docgia);
+        }
+
+        public int getIdByMSSV(string mssv)
+        {
+            DataTable result = docGiaDAO.getIdByMSSV(mssv);
+            if (result == null) return -1;
+            int id = Convert.ToInt32(result.Rows[0][0]);
+            if (id < 0) return -1;
+            return id;
         }
     }
 }
