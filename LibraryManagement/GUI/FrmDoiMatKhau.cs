@@ -71,8 +71,7 @@ namespace LibraryManagement.GUI
                         Properties.Settings.Default.password = txtMatKhauMoi.Text;
                         Properties.Settings.Default.Save();
                         DataProvider dataProvider = DataProvider.Instance;
-                        dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
-
+                        dataProvider.setStrConnectionString(Properties.Settings.Default.username, Properties.Settings.Default.password);
                     }
 
                     MessageBox.Show("Đổi mật khẩu thành công");
@@ -120,8 +119,7 @@ namespace LibraryManagement.GUI
                     Properties.Settings.Default.password = txtMatKhauMoi.Text;
                     Properties.Settings.Default.Save();
                     DataProvider dataProvider = DataProvider.Instance;
-                    dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
-
+                    dataProvider.setStrConnectionString(Properties.Settings.Default.username, Properties.Settings.Default.password);
                     MessageBox.Show("Đổi mật khẩu thành công");
                     this.Close();
                 }

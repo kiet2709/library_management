@@ -33,7 +33,7 @@ namespace LibraryManagement
 
 
             DataProvider dataProvider = DataProvider.Instance;
-            dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={txtTenDangNhap.Text}; Password={txtMatKhau.Text};";
+            dataProvider.setStrConnectionString(txtTenDangNhap.Text,txtMatKhau.Text);
             int result = dangNhapBUS.dangNhap(dangNhap);
             if (result == -1)
             {
@@ -62,7 +62,7 @@ namespace LibraryManagement
                 }
                 
                 Properties.Settings.Default.Save();
-                dataProvider.StrConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
+                dataProvider.setStrConnectionString(txtTenDangNhap.Text, txtMatKhau.Text);
                 this.Close();
                 Thread thread = new Thread(OpenFrmSach);
                 thread.SetApartmentState(ApartmentState.STA);

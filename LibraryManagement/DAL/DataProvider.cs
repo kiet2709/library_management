@@ -11,8 +11,11 @@ namespace LibraryManagement.DAL
     {
         private static DataProvider instance;
 
-        private string strConnectionString = $@"Data Source=LAPTOP-7A94G7MF\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={Properties.Settings.Default.username}; Password={Properties.Settings.Default.password};";
-        public string StrConnectionString {  set => strConnectionString = value; }
+        private string strConnectionString = "";
+        public void  setStrConnectionString(string username, string password)
+        {
+            this.strConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={username}; Password={password};";
+        }
 
         public static DataProvider Instance
         {
