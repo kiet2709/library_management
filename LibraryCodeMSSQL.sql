@@ -547,8 +547,8 @@ FROM TheLoai
 GO
 
 							--=============== Phân Quyền ===============--
--- function gán quyền cho thủ thư
-CREATE OR ALTER PROC fn_Gan_Quyen_Nhan_Vien(
+-- Procedure gán quyền cho thủ thư
+CREATE OR ALTER PROC usp_Gan_Quyen_Nhan_Vien(
 @TENDANGNHAP VARCHAR(100))
 AS
 BEGIN
@@ -1246,7 +1246,7 @@ BEGIN
 				BEGIN
 					EXEC (@Login)
 					EXEC (@User)
-					EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
+					EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
 				END
 			SELECT @MAHS;
 
@@ -1916,7 +1916,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN kietnguyen WITH PASSWORD = '12345678'
 	CREATE USER kietnguyen for LOGIN kietnguyen
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = kietnguyen
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = kietnguyen
 END
 
 INSERT INTO NhanVien VALUES(N'vikhang',pwdencrypt('12345678'),1,3);
@@ -1926,7 +1926,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN vikhang WITH PASSWORD = '12345678'
 	CREATE USER vikhang for LOGIN vikhang
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = vikhang
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = vikhang
 END
 
 INSERT INTO NhanVien VALUES(N'thinhnguyen',pwdencrypt('12345678'),1,4);
@@ -1936,7 +1936,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN thinhnguyen WITH PASSWORD = '12345678'
 	CREATE USER thinhnguyen for LOGIN thinhnguyen
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhnguyen
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhnguyen
 END
 
 INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12348756'),1,5);
@@ -1946,7 +1946,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN phucnguyen WITH PASSWORD = '12345678'
 	CREATE USER phucnguyen for LOGIN phucnguyen
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = phucnguyen
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = phucnguyen
 
 END
 
@@ -1957,7 +1957,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN hongducle WITH PASSWORD = '12345678'
 	CREATE USER hongducle for LOGIN hongducle
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = hongducle
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = hongducle
 END
 
 INSERT INTO NhanVien VALUES(N'baochiluu',pwdencrypt('12343235'),1,7);
@@ -1967,7 +1967,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN baochiluu WITH PASSWORD = '12345678'
 	CREATE USER baochiluu for LOGIN baochiluu
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = baochiluu
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = baochiluu
 END
 
 INSERT INTO NhanVien VALUES(N'dangnguyenle',pwdencrypt('12349263'),1,8);
@@ -1977,7 +1977,7 @@ IF NOT EXISTS(SELECT name
 BEGIN
 	CREATE LOGIN dangnguyenle WITH PASSWORD = '12345678'
 	CREATE USER dangnguyenle for LOGIN dangnguyenle
-	EXEC fn_Gan_Quyen_Nhan_Vien @TENDANGNHAP = dangnguyenle
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = dangnguyenle
 END
 
 
