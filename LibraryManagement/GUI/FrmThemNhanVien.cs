@@ -38,12 +38,7 @@ namespace LibraryManagement.GUI
             hoSoQuanLyDTO.SoDT = txtSDT.Text;
             hoSoQuanLyDTO.Luong = Convert.ToInt32(txtLuong.Text);
             hoSoQuanLyDTO.Ngaysinh = dtpNgaySinh.Value;
-            hoSoQuanLyDTO.VaiTro = "Thủ thư";
-            if (cbQuanLy.Checked)
-            {
-                hoSoQuanLyDTO.VaiTro = "Quản lý";
-            }
-
+            
             if (rbKhac.Checked)
             {
                 hoSoQuanLyDTO.GioiTinh = 0;

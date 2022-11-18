@@ -545,7 +545,6 @@ CREATE OR ALTER VIEW THELOAI_VIEW AS
 SELECT *
 FROM TheLoai
 GO
-
 							--=============== Phân Quyền ===============--
 -- Procedure gán quyền cho thủ thư
 CREATE OR ALTER PROC usp_Gan_Quyen_Nhan_Vien(
@@ -575,7 +574,35 @@ BEGIN
 END;
 GO
 
+-- Procedure gỡ quyền thủ thư
+CREATE OR ALTER PROC usp_Go_Quyen_Nhan_Vien(
+@TENDANGNHAP VARCHAR(100))
+AS
+BEGIN
+	-- Gỡ tất cả các quyền của thủ thư
+	DECLARE @DENY VARCHAR(200)
+	SET @DENY = 'DENY EXEC, SELECT, INSERT, UPDATE, DELETE TO ' + @TENDANGNHAP
+	EXEC(@DENY)
+END;
+GO
 
+
+-- Procedure cập nhật trạng thái tài khoản
+CREATE OR ALTER PROC usp_Cap_Nhat_Trang_Thai_Tai_khoan (
+@TENTK VARCHAR(100),
+@TRANGTHAI INT)
+AS
+BEGIN
+			
+		-- Nếu chặn tài khoản
+		IF @TRANGTHAI = 0  
+			EXEC usp_Go_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
+		-- Nếu gỡ chặn tài khoản
+		ELSE IF @TRANGTHAI = 1
+			EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
+
+END;
+GO
 							--=============== PROCEDURE ===============--
 
 
@@ -1181,10 +1208,15 @@ BEGIN
 		BEGIN TRAN
 			DECLARE @MANV INT;
 			DECLARE @TENTK NVARCHAR(40);
+			DECLARE @VAITRO INT;
+
 			SET @MANV = (SELECT id FROM NhanVien WHERE maHoSo = @ID)
 			SET @TENTK = (SELECT tenDangNhap FROM NhanVien WHERE maHoSo = @ID)
 			UPDATE HoSo SET ten=@TEN, ho=@HO, diachi=@DIACHI, soDT=@SODT, hinhanh=@HINHANH, email=@EMAIL, gioitinh = @GIOITINH, ngaysinh=@NGAYSINH, luong = @LUONG
 			WHERE id=@ID
+
+			EXEC  usp_Cap_Nhat_Trang_Thai_Tai_khoan @TENTK = @TENTK, @TRANGTHAI = @TRANGTHAI
+
 			UPDATE NhanVien SET trangthai = @TRANGTHAI
 			WHERE id = @MANV
 		COMMIT
@@ -1209,8 +1241,7 @@ CREATE OR ALTER PROC usp_Them_Thong_Tin_Nhan_Vien
 @LUONG INT,
 @TENTK NVARCHAR(30),
 @MK NVARCHAR(100),
-@TRANGTHAI INT,
-@VAITRO INT
+@TRANGTHAI INT
 AS
 BEGIN
 	BEGIN TRY
@@ -1232,22 +1263,11 @@ BEGIN
 
 			 -- Gán quyền thủ thư
 			INSERT INTO vaitro_nhanVien VALUES (@MANV,2);
-			 -- Gán quyền nhân viên quản lý ( vừa là quản lý, vừa thủ thư)
-			IF(@VAITRO = 1)
-				BEGIN 
-					INSERT INTO vaitro_nhanVien VALUES (@MANV,1);
-					SET @Permision = 'GRANT EXEC, SELECT, INSERT, UPDATE, DELETE TO ' + @TENTK
-					EXEC (@Login)
-					EXEC (@User)
-					EXEC (@Permision)
-					EXEC master..sp_addsrvrolemember @loginame = @TENTK, @rolename = N'sysadmin'
-				END
-			ELSE
-				BEGIN
-					EXEC (@Login)
-					EXEC (@User)
-					EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
-				END
+			 -- Gán quyền nhân viên thủ thư	
+			EXEC (@Login)
+			EXEC (@User)
+			EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = @TENTK
+
 			SELECT @MAHS;
 
 		COMMIT 
@@ -1887,7 +1907,7 @@ INSERT INTO DauSach VALUES(N'Tự Học Tiếng Nhật Cho Người Mới Bắt 
 INSERT INTO DauSach VALUES(N'Lịch Sử Do Thái', N'Lịch sử Do Thái của Paul Johnson bắt đầu bằng những sự kiện được viết trong Kinh Thánh và kết thúc khi thành lập Nhà nước Israel. ',275000,'02-02-2020','/uploads/dauSach/33.png',1,1,24,1,14);
 INSERT INTO DauSach VALUES(N'Atlat Địa Lí Việt Nam', N'Atlat Địa Lí Việt Nam - 2022',25000,'05-04-2022','/uploads/dauSach/34.png',0,1,19,1,14);
 
-INSERT INTO HoSo VALUES(N'Khai', N'Nguyen',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
+INSERT INTO HoSo VALUES(N'Khai', N'Nguyen',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','/uploads/nhanVien/1.png','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
 INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
 INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'N2 Quang Trung, Đông Nhì, Vĩnh Lộc, Đà Lạt','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'21 Trưng Vương, Bửu Lộc, Tăng Nhơn Phú A, TPHCM','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
@@ -1896,86 +1916,148 @@ INSERT INTO HoSo VALUES(N'Đức', N'Lê Hồng',N'252 Nguyễn Huệ, Bà Chi�
 INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'221 Nguyễn Đăng Quang, Hiệp Phú, Bình Hòa, Đồng Nai','0768454155','','20162326@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'123 Y Vân, Đồ Chiểu, Nhơn Hòa, Quy Nhơn','0786455451','','20132635@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 
+									----
 
 INSERT INTO NhanVien VALUES(N'khainguyen',pwdencrypt('12345678'),1,1);
 GO
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'khainguyen')
 BEGIN
 	CREATE LOGIN khainguyen WITH PASSWORD = '12345678'
+	
+END
+-- Check database user
+IF USER_ID('khainguyen') IS NULL
+BEGIN
 	CREATE USER khainguyen for LOGIN khainguyen
 	GRANT EXEC, SELECT, INSERT, UPDATE, DELETE TO khainguyen
 	EXEC master..sp_addsrvrolemember @loginame = khainguyen, @rolename = N'sysadmin'
 END
 
-INSERT INTO NhanVien VALUES(N'kietnguyen',pwdencrypt('12345678'),1,2);
+							----
+
+INSERT INTO NhanVien VALUES(N'kietnguyen',pwdencrypt('12345678'),1,2);		
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'kietnguyen')
 BEGIN
 	CREATE LOGIN kietnguyen WITH PASSWORD = '12345678'
+
+END
+-- Check database user
+IF USER_ID('kietnguyen') IS NULL
+BEGIN
 	CREATE USER kietnguyen for LOGIN kietnguyen
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = kietnguyen
 END
 
+							----
+
 INSERT INTO NhanVien VALUES(N'vikhang',pwdencrypt('12345678'),1,3);
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'vikhang')
 BEGIN
 	CREATE LOGIN vikhang WITH PASSWORD = '12345678'
+
+END
+-- Check database user
+IF USER_ID('vikhang') IS NULL
+BEGIN
 	CREATE USER vikhang for LOGIN vikhang
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = vikhang
 END
 
+							----
+
 INSERT INTO NhanVien VALUES(N'thinhnguyen',pwdencrypt('12345678'),1,4);
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'thinhnguyen')
 BEGIN
 	CREATE LOGIN thinhnguyen WITH PASSWORD = '12345678'
+
+END
+-- Check database user
+IF USER_ID('thinhnguyen') IS NULL
+BEGIN
 	CREATE USER thinhnguyen for LOGIN thinhnguyen
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhnguyen
 END
 
+							----
+
 INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12348756'),1,5);
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'phucnguyen')
 BEGIN
 	CREATE LOGIN phucnguyen WITH PASSWORD = '12345678'
-	CREATE USER phucnguyen for LOGIN phucnguyen
-	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = phucnguyen
 
 END
+-- Check database user
+IF USER_ID('phucnguyen') IS NULL
+BEGIN
+	CREATE USER phucnguyen for LOGIN phucnguyen
+	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = phucnguyen
+END
+
+							----
 
 INSERT INTO NhanVien VALUES(N'hongducle',pwdencrypt('12342327'),1,6);
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'hongducle')
 BEGIN
 	CREATE LOGIN hongducle WITH PASSWORD = '12345678'
+
+END
+-- Check database user
+IF USER_ID('hongducle') IS NULL
+BEGIN
 	CREATE USER hongducle for LOGIN hongducle
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = hongducle
 END
 
+							----
+
 INSERT INTO NhanVien VALUES(N'baochiluu',pwdencrypt('12343235'),1,7);
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'baochiluu')
 BEGIN
 	CREATE LOGIN baochiluu WITH PASSWORD = '12345678'
+
+END
+-- Check database user
+IF USER_ID('baochiluu') IS NULL
+BEGIN
 	CREATE USER baochiluu for LOGIN baochiluu
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = baochiluu
 END
 
+							----
+
 INSERT INTO NhanVien VALUES(N'dangnguyenle',pwdencrypt('12349263'),1,8);
+-- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
      WHERE name = 'dangnguyenle')
 BEGIN
 	CREATE LOGIN dangnguyenle WITH PASSWORD = '12345678'
+
+END
+-- Check database user
+IF USER_ID('dangnguyenle') IS NULL
+BEGIN
 	CREATE USER dangnguyenle for LOGIN dangnguyenle
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = dangnguyenle
 END
@@ -2213,6 +2295,3 @@ INSERT INTO MuonSach VALUES(9,16,'Sách quăng góc', 0);
 INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
 INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
 INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);
-
-BACKUP DATABASE QuanLyThuVien
-TO DISK = 'E:\HCMUTE\School_Project\library_management\QuanLyThuVien.bak';

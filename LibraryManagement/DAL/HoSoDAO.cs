@@ -45,13 +45,9 @@ namespace LibraryManagement.DAL
 
         public int saveInfo(HoSoQuanLyDTO hoSoQuanLyDTO)
         {
-            int maVaiTro = 0;
-            if(hoSoQuanLyDTO.VaiTro == "Quản lý")
-            {
-                maVaiTro = 1;
-            }
-            string query = "usp_Them_Thong_Tin_Nhan_Vien @TEN , @HO , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG , @TENTK , @MK , @TRANGTHAI , @VAITRO";
-            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email , hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh , hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.TenDangNhap, hoSoQuanLyDTO.MatKhau, hoSoQuanLyDTO.TrangThai, maVaiTro });
+
+            string query = "usp_Them_Thong_Tin_Nhan_Vien @TEN , @HO , @DIACHI , @SODT , @HINHANH , @EMAIL , @GIOITINH , @NGAYSINH , @LUONG , @TENTK , @MK , @TRANGTHAI ";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { hoSoQuanLyDTO.Ten, hoSoQuanLyDTO.Ho, hoSoQuanLyDTO.Diachi, hoSoQuanLyDTO.SoDT, hoSoQuanLyDTO.Hinhanh, hoSoQuanLyDTO.Email , hoSoQuanLyDTO.GioiTinh, hoSoQuanLyDTO.Ngaysinh , hoSoQuanLyDTO.Luong, hoSoQuanLyDTO.TenDangNhap, hoSoQuanLyDTO.MatKhau, hoSoQuanLyDTO.TrangThai});
             if(result!=null && result.Rows.Count > 0)
             {
                 return Convert.ToInt32(result.Rows[0][0]);

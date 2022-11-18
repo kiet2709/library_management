@@ -61,15 +61,11 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.pbAnh = new System.Windows.Forms.PictureBox();
             this.btnThemAnh = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbQuanLy = new System.Windows.Forms.CheckBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // rbKhac
@@ -391,42 +387,11 @@
             this.btnThemAnh.UseVisualStyleBackColor = false;
             this.btnThemAnh.Click += new System.EventHandler(this.btnThemAnh_Click);
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.cbQuanLy);
-            this.panel5.Controls.Add(this.label7);
-            this.panel5.Location = new System.Drawing.Point(12, 463);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(292, 146);
-            this.panel5.TabIndex = 129;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 59);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 35);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "Vai trò:";
-            // 
-            // cbQuanLy
-            // 
-            this.cbQuanLy.AutoSize = true;
-            this.cbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbQuanLy.Location = new System.Drawing.Point(129, 55);
-            this.cbQuanLy.Name = "cbQuanLy";
-            this.cbQuanLy.Size = new System.Drawing.Size(124, 39);
-            this.cbQuanLy.TabIndex = 131;
-            this.cbQuanLy.Text = "Quản lý";
-            this.cbQuanLy.UseVisualStyleBackColor = true;
-            // 
             // FrmThemNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1140, 808);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.btnThemAnh);
             this.Controls.Add(this.pbAnh);
             this.Controls.Add(this.rbKhac);
@@ -463,8 +428,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,8 +467,5 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button btnThemAnh;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox cbQuanLy;
     }
 }

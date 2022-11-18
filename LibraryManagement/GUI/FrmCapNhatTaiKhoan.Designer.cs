@@ -40,7 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtHo = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbTrangThai = new System.Windows.Forms.Label();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -63,15 +63,11 @@
             this.btnThemAnh = new System.Windows.Forms.Button();
             this.pbAnh = new System.Windows.Forms.PictureBox();
             this.btnDoiMatKhau = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.cbQuanLy = new System.Windows.Forms.CheckBox();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtDiaChi
@@ -173,15 +169,15 @@
             this.txtEmail.Size = new System.Drawing.Size(544, 42);
             this.txtEmail.TabIndex = 86;
             // 
-            // label7
+            // lbTrangThai
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(330, 510);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 35);
-            this.label7.TabIndex = 84;
-            this.label7.Text = "Trạng thái:";
+            this.lbTrangThai.AutoSize = true;
+            this.lbTrangThai.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTrangThai.Location = new System.Drawing.Point(330, 510);
+            this.lbTrangThai.Name = "lbTrangThai";
+            this.lbTrangThai.Size = new System.Drawing.Size(158, 35);
+            this.lbTrangThai.TabIndex = 84;
+            this.lbTrangThai.Text = "Trạng thái:";
             // 
             // dtpNgaySinh
             // 
@@ -424,44 +420,12 @@
             this.btnDoiMatKhau.UseVisualStyleBackColor = false;
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 59);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 35);
-            this.label14.TabIndex = 39;
-            this.label14.Text = "Vai trò:";
-            // 
-            // cbQuanLy
-            // 
-            this.cbQuanLy.AutoSize = true;
-            this.cbQuanLy.Enabled = false;
-            this.cbQuanLy.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbQuanLy.Location = new System.Drawing.Point(134, 55);
-            this.cbQuanLy.Name = "cbQuanLy";
-            this.cbQuanLy.Size = new System.Drawing.Size(124, 39);
-            this.cbQuanLy.TabIndex = 127;
-            this.cbQuanLy.Text = "Quản lý";
-            this.cbQuanLy.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.cbQuanLy);
-            this.panel6.Controls.Add(this.label14);
-            this.panel6.Location = new System.Drawing.Point(18, 544);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(292, 146);
-            this.panel6.TabIndex = 131;
-            // 
             // FrmCapNhatTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 853);
             this.Controls.Add(this.btnDoiMatKhau);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.btnThemAnh);
             this.Controls.Add(this.pbAnh);
             this.Controls.Add(this.panel5);
@@ -476,7 +440,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lbTrangThai);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.label9);
@@ -498,8 +462,6 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,7 +480,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtHo;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbTrangThai;
         private System.Windows.Forms.DateTimePicker dtpNgaySinh;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label label9;
@@ -541,8 +503,5 @@
         private System.Windows.Forms.Button btnThemAnh;
         private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button btnDoiMatKhau;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox cbQuanLy;
-        private System.Windows.Forms.Panel panel6;
     }
 }

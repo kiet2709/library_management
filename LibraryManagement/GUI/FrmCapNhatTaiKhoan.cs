@@ -40,13 +40,12 @@ namespace LibraryManagement.GUI
             this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
             this.txtLuong.Text = hoSoQuanLyDTO.Luong.ToString();
 
-
-            // set vai trò
-            if(hoSoQuanLyDTO.VaiTro.Contains("Quản lý"))
+            if(Properties.Settings.Default.role == "Quản lý")
             {
-                cbQuanLy.Checked = true;
+                this.lbTrangThai.Enabled = false;
+                this.rbHoatDong.Enabled = false;
+                this.rbKhongHoatDong.Enabled = false;
             }
-
             // set trangThai
             if (hoSoQuanLyDTO.TrangThai == 1)
             {
@@ -98,10 +97,6 @@ namespace LibraryManagement.GUI
         private void OpenFrmTaiKhoan()
         {
             Application.Run(new FrmTaiKhoan());
-        }
-        private void OpenFrmSach()
-        {
-            Application.Run(new FrmSach());
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
