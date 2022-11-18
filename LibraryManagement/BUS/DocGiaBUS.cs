@@ -79,7 +79,7 @@ namespace LibraryManagement.BUS
         public int getIdByMSSV(string mssv)
         {
             DataTable result = docGiaDAO.getIdByMSSV(mssv);
-            if (result == null) return -1;
+            if (result == null || result.Rows.Count == 0) return -1;
             int id = Convert.ToInt32(result.Rows[0][0]);
             if (id < 0) return -1;
             return id;

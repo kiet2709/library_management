@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -10,6 +11,7 @@ using System.Windows.Forms;
 using LibraryManagement.BUS;
 using LibraryManagement.DTO;
 using LibraryManagement.Model;
+using LibraryManagement.Utils;
 
 namespace LibraryManagement.GUI
 {
@@ -41,7 +43,7 @@ namespace LibraryManagement.GUI
 
         private void loadDataSV()
         {
-            pd_anh.Image = null;
+            pb_anh.Image = null;
             txt_khoa.Text = "";
             txt_sinhVien.Text = "";
         }
@@ -106,6 +108,16 @@ namespace LibraryManagement.GUI
             }
             txt_khoa.Text = docGia.Khoa;
             txt_sinhVien.Text = docGia.Ten;
+            if (docGia.HinhAnh != null && docGia.HinhAnh != "")
+            {
+
+                string fullImagePath = AppConstant.getFullDirectory(docGia.HinhAnh);
+                using (FileStream fs = new FileStream(fullImagePath, FileMode.Open))
+                {
+                    pb_anh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
         }
 
         private void txt_mssv_TextChanged(object sender, EventArgs e)

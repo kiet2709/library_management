@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using LibraryManagement.BUS;
 using LibraryManagement.DTO;
+using LibraryManagement.Utils;
 
 namespace LibraryManagement.GUI
 {
@@ -45,7 +47,16 @@ namespace LibraryManagement.GUI
             dtp_hanTra.Value = phieuMuon.HanTra;
             dtp_ngayMuon.Value = phieuMuon.NgayMuon;
             dtp_ngayTra.Value = phieuMuon.NgayTra;
+            if (phieuMuon.HinhAnh != null && phieuMuon.HinhAnh != "")
+            {
 
+                string fullImagePath = AppConstant.getFullDirectory(phieuMuon.HinhAnh);
+                using (FileStream fs = new FileStream(fullImagePath, FileMode.Open))
+                {
+                    pb_anh.Image = Image.FromStream(fs);
+                    fs.Close();
+                }
+            }
             danhSachSachMuon = muonBUS.getBrrowingBooks(id);
             vcg_phieuMuon.Rows.Clear();
             vcg_phieuMuon = danhSachSachMuon.getDataSource(vcg_phieuMuon);

@@ -31,8 +31,8 @@ namespace LibraryManagement.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThemPhieuMuon));
             this.label10 = new System.Windows.Forms.Label();
             this.txt_sinhVien = new System.Windows.Forms.TextBox();
@@ -56,7 +56,7 @@ namespace LibraryManagement.GUI
             this.txt_tienPhat = new System.Windows.Forms.TextBox();
             this.btn_huy = new System.Windows.Forms.Button();
             this.btn_luu = new System.Windows.Forms.Button();
-            this.pd_anh = new System.Windows.Forms.PictureBox();
+            this.pb_anh = new System.Windows.Forms.PictureBox();
             this.txt_mssv = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_themSach = new System.Windows.Forms.Button();
@@ -65,7 +65,7 @@ namespace LibraryManagement.GUI
             this.btn_timSV = new System.Windows.Forms.Button();
             this.btn_back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vcg_sachMuon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pd_anh)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).BeginInit();
             this.SuspendLayout();
             // 
             // label10
@@ -139,15 +139,15 @@ namespace LibraryManagement.GUI
             this.vcg_sachMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.vcg_sachMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.vcg_sachMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vcg_sachMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vcg_sachMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.vcg_sachMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vcg_sachMuon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
@@ -156,15 +156,15 @@ namespace LibraryManagement.GUI
             this.col_daTra,
             this.ghiChu,
             this.col_xoa});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vcg_sachMuon.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vcg_sachMuon.DefaultCellStyle = dataGridViewCellStyle4;
             this.vcg_sachMuon.EnableHeadersVisualStyles = false;
             this.vcg_sachMuon.GridColor = System.Drawing.Color.White;
             this.vcg_sachMuon.Location = new System.Drawing.Point(26, 363);
@@ -316,13 +316,15 @@ namespace LibraryManagement.GUI
             this.btn_luu.UseVisualStyleBackColor = false;
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
-            // pd_anh
+            // pb_anh
             // 
-            this.pd_anh.Location = new System.Drawing.Point(26, 124);
-            this.pd_anh.Name = "pd_anh";
-            this.pd_anh.Size = new System.Drawing.Size(200, 220);
-            this.pd_anh.TabIndex = 123;
-            this.pd_anh.TabStop = false;
+            this.pb_anh.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_anh.Location = new System.Drawing.Point(26, 124);
+            this.pb_anh.Name = "pb_anh";
+            this.pb_anh.Size = new System.Drawing.Size(200, 220);
+            this.pb_anh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_anh.TabIndex = 123;
+            this.pb_anh.TabStop = false;
             // 
             // txt_mssv
             // 
@@ -415,7 +417,7 @@ namespace LibraryManagement.GUI
             this.Controls.Add(this.btn_themSach);
             this.Controls.Add(this.txt_mssv);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pd_anh);
+            this.Controls.Add(this.pb_anh);
             this.Controls.Add(this.btn_huy);
             this.Controls.Add(this.btn_luu);
             this.Controls.Add(this.txt_tienPhat);
@@ -436,7 +438,7 @@ namespace LibraryManagement.GUI
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmChiTietPhieuMuon";
             ((System.ComponentModel.ISupportInitialize)(this.vcg_sachMuon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pd_anh)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_anh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,7 +461,7 @@ namespace LibraryManagement.GUI
         private System.Windows.Forms.TextBox txt_tienPhat;
         private System.Windows.Forms.Button btn_huy;
         private System.Windows.Forms.Button btn_luu;
-        private System.Windows.Forms.PictureBox pd_anh;
+        private System.Windows.Forms.PictureBox pb_anh;
         private System.Windows.Forms.TextBox txt_mssv;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_themSach;
