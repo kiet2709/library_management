@@ -237,5 +237,53 @@ namespace LibraryManagement.GUI
             FrmThongTinCaNhan frmThongTinCaNhan = new FrmThongTinCaNhan();
             frmThongTinCaNhan.ShowDialog();
         }
+
+        private void lblNgonNgu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNgonNgu);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblNhaXuatBan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmNhaXuatBan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblTacGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTacGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblDocGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmDocGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblTaiKhoan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblPhieuMuon_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmPhieuMuon);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
     }
 }
