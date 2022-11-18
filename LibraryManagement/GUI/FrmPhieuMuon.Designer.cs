@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPhieuMuon));
             this.panel10 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -54,19 +54,19 @@
             this.panel16 = new System.Windows.Forms.Panel();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.lblTacGia = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblPhieuMuon = new System.Windows.Forms.Label();
             this.btnFormTaiKhoan = new System.Windows.Forms.Panel();
             this.pbUser = new System.Windows.Forms.PictureBox();
             this.panel12 = new System.Windows.Forms.Panel();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblTaiKhoan = new System.Windows.Forms.Label();
             this.btnNgonNgu = new System.Windows.Forms.Panel();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.panel14 = new System.Windows.Forms.Panel();
@@ -78,13 +78,13 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDocGia = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel18 = new System.Windows.Forms.Panel();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblNhaXuatBan = new System.Windows.Forms.Label();
             this.btnFormSach = new System.Windows.Forms.Panel();
             this.picFormSach = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -186,15 +186,15 @@
             this.vcg_phieuMuon.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.vcg_phieuMuon.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.vcg_phieuMuon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vcg_phieuMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vcg_phieuMuon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.vcg_phieuMuon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.vcg_phieuMuon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
@@ -203,15 +203,15 @@
             this.status,
             this.fine,
             this.edit});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.vcg_phieuMuon.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.vcg_phieuMuon.DefaultCellStyle = dataGridViewCellStyle16;
             this.vcg_phieuMuon.EnableHeadersVisualStyles = false;
             this.vcg_phieuMuon.GridColor = System.Drawing.Color.White;
             this.vcg_phieuMuon.Location = new System.Drawing.Point(359, 514);
@@ -308,7 +308,7 @@
             this.label8.Location = new System.Drawing.Point(451, 57);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(109, 32);
+            this.label8.Size = new System.Drawing.Size(108, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
@@ -396,7 +396,7 @@
             // 
             this.panel15.Controls.Add(this.pictureBox14);
             this.panel15.Controls.Add(this.panel16);
-            this.panel15.Controls.Add(this.label16);
+            this.panel15.Controls.Add(this.lblTacGia);
             this.panel15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel15.Location = new System.Drawing.Point(4, 514);
             this.panel15.Margin = new System.Windows.Forms.Padding(4);
@@ -456,27 +456,28 @@
             this.label15.Text = "Sách";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label16
+            // lblTacGia
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(161, 29);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(108, 32);
-            this.label16.TabIndex = 30;
-            this.label16.Text = "Tác giả";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTacGia.AutoSize = true;
+            this.lblTacGia.BackColor = System.Drawing.Color.Transparent;
+            this.lblTacGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTacGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTacGia.ForeColor = System.Drawing.Color.White;
+            this.lblTacGia.Location = new System.Drawing.Point(161, 29);
+            this.lblTacGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTacGia.Name = "lblTacGia";
+            this.lblTacGia.Size = new System.Drawing.Size(107, 32);
+            this.lblTacGia.TabIndex = 30;
+            this.lblTacGia.Text = "Tác giả";
+            this.lblTacGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTacGia.Click += new System.EventHandler(this.lblTacGia_Click);
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.DimGray;
             this.panel7.Controls.Add(this.pictureBox7);
             this.panel7.Controls.Add(this.panel8);
-            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(this.lblPhieuMuon);
             this.panel7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel7.Location = new System.Drawing.Point(0, 811);
             this.panel7.Margin = new System.Windows.Forms.Padding(4);
@@ -535,27 +536,28 @@
             this.label6.Text = "Sách";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label7
+            // lblPhieuMuon
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(130, 29);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(167, 32);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Phiếu Mượn";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPhieuMuon.AutoSize = true;
+            this.lblPhieuMuon.BackColor = System.Drawing.Color.Transparent;
+            this.lblPhieuMuon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblPhieuMuon.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhieuMuon.ForeColor = System.Drawing.Color.White;
+            this.lblPhieuMuon.Location = new System.Drawing.Point(130, 29);
+            this.lblPhieuMuon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPhieuMuon.Name = "lblPhieuMuon";
+            this.lblPhieuMuon.Size = new System.Drawing.Size(166, 32);
+            this.lblPhieuMuon.TabIndex = 30;
+            this.lblPhieuMuon.Text = "Phiếu Mượn";
+            this.lblPhieuMuon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPhieuMuon.Click += new System.EventHandler(this.lblPhieuMuon_Click);
             // 
             // btnFormTaiKhoan
             // 
             this.btnFormTaiKhoan.BackColor = System.Drawing.Color.Transparent;
             this.btnFormTaiKhoan.Controls.Add(this.pbUser);
             this.btnFormTaiKhoan.Controls.Add(this.panel12);
-            this.btnFormTaiKhoan.Controls.Add(this.label13);
+            this.btnFormTaiKhoan.Controls.Add(this.lblTaiKhoan);
             this.btnFormTaiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFormTaiKhoan.Location = new System.Drawing.Point(0, 712);
             this.btnFormTaiKhoan.Margin = new System.Windows.Forms.Padding(4);
@@ -615,20 +617,21 @@
             this.label12.Text = "Sách";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label13
+            // lblTaiKhoan
             // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(149, 22);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(140, 32);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Tài khoản";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaiKhoan.AutoSize = true;
+            this.lblTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.lblTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblTaiKhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTaiKhoan.ForeColor = System.Drawing.Color.White;
+            this.lblTaiKhoan.Location = new System.Drawing.Point(149, 22);
+            this.lblTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTaiKhoan.Name = "lblTaiKhoan";
+            this.lblTaiKhoan.Size = new System.Drawing.Size(139, 32);
+            this.lblTaiKhoan.TabIndex = 30;
+            this.lblTaiKhoan.Text = "Tài khoản";
+            this.lblTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTaiKhoan.Click += new System.EventHandler(this.lblTaiKhoan_Click);
             // 
             // btnNgonNgu
             // 
@@ -705,17 +708,18 @@
             this.lblNgonNgu.Location = new System.Drawing.Point(147, 29);
             this.lblNgonNgu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNgonNgu.Name = "lblNgonNgu";
-            this.lblNgonNgu.Size = new System.Drawing.Size(138, 32);
+            this.lblNgonNgu.Size = new System.Drawing.Size(137, 32);
             this.lblNgonNgu.TabIndex = 30;
             this.lblNgonNgu.Text = "Ngôn ngữ";
             this.lblNgonNgu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNgonNgu.Click += new System.EventHandler(this.lblNgonNgu_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.panel4);
-            this.panel3.Controls.Add(this.label3);
+            this.panel3.Controls.Add(this.lblDocGia);
             this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Location = new System.Drawing.Point(4, 613);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -775,27 +779,28 @@
             this.label2.Text = "Sách";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // lblDocGia
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(158, 22);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 32);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Độc giả";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDocGia.AutoSize = true;
+            this.lblDocGia.BackColor = System.Drawing.Color.Transparent;
+            this.lblDocGia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblDocGia.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDocGia.ForeColor = System.Drawing.Color.White;
+            this.lblDocGia.Location = new System.Drawing.Point(158, 22);
+            this.lblDocGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDocGia.Name = "lblDocGia";
+            this.lblDocGia.Size = new System.Drawing.Size(110, 32);
+            this.lblDocGia.TabIndex = 30;
+            this.lblDocGia.Text = "Độc giả";
+            this.lblDocGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDocGia.Click += new System.EventHandler(this.lblDocGia_Click);
             // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.Transparent;
             this.panel17.Controls.Add(this.pictureBox6);
             this.panel17.Controls.Add(this.panel18);
-            this.panel17.Controls.Add(this.label18);
+            this.panel17.Controls.Add(this.lblNhaXuatBan);
             this.panel17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel17.Location = new System.Drawing.Point(4, 415);
             this.panel17.Margin = new System.Windows.Forms.Padding(4);
@@ -855,20 +860,21 @@
             this.label17.Text = "Sách";
             this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label18
+            // lblNhaXuatBan
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(126, 29);
-            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(183, 32);
-            this.label18.TabIndex = 30;
-            this.label18.Text = "Nhà xuất bản";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNhaXuatBan.AutoSize = true;
+            this.lblNhaXuatBan.BackColor = System.Drawing.Color.Transparent;
+            this.lblNhaXuatBan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblNhaXuatBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNhaXuatBan.ForeColor = System.Drawing.Color.White;
+            this.lblNhaXuatBan.Location = new System.Drawing.Point(126, 29);
+            this.lblNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNhaXuatBan.Name = "lblNhaXuatBan";
+            this.lblNhaXuatBan.Size = new System.Drawing.Size(182, 32);
+            this.lblNhaXuatBan.TabIndex = 30;
+            this.lblNhaXuatBan.Text = "Nhà xuất bản";
+            this.lblNhaXuatBan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNhaXuatBan.Click += new System.EventHandler(this.lblNhaXuatBan_Click);
             // 
             // btnFormSach
             // 
@@ -945,10 +951,11 @@
             this.lblFormSach.Location = new System.Drawing.Point(175, 30);
             this.lblFormSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormSach.Name = "lblFormSach";
-            this.lblFormSach.Size = new System.Drawing.Size(80, 32);
+            this.lblFormSach.Size = new System.Drawing.Size(79, 32);
             this.lblFormSach.TabIndex = 30;
             this.lblFormSach.Text = "Sách";
             this.lblFormSach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFormSach.Click += new System.EventHandler(this.lblFormSach_Click);
             // 
             // btnFormTheLoai
             // 
@@ -1025,10 +1032,11 @@
             this.lblFormTheLoai.Location = new System.Drawing.Point(164, 29);
             this.lblFormTheLoai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormTheLoai.Name = "lblFormTheLoai";
-            this.lblFormTheLoai.Size = new System.Drawing.Size(117, 32);
+            this.lblFormTheLoai.Size = new System.Drawing.Size(116, 32);
             this.lblFormTheLoai.TabIndex = 30;
             this.lblFormTheLoai.Text = "Thể loại";
             this.lblFormTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFormTheLoai.Click += new System.EventHandler(this.lblFormTheLoai_Click);
             // 
             // btn_themPhieuMuon
             // 
@@ -1302,19 +1310,19 @@
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblTacGia;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblPhieuMuon;
         private System.Windows.Forms.Panel btnFormTaiKhoan;
         private System.Windows.Forms.PictureBox pbUser;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox12;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblTaiKhoan;
         private System.Windows.Forms.Panel btnNgonNgu;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.Panel panel14;
@@ -1326,13 +1334,13 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDocGia;
         private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblNhaXuatBan;
         private System.Windows.Forms.Panel btnFormSach;
         private System.Windows.Forms.PictureBox picFormSach;
         private System.Windows.Forms.Panel panel2;

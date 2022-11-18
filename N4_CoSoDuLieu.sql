@@ -2293,3 +2293,4 @@ INSERT INTO MuonSach VALUES(9,16,'Sách quăng góc', 0);
 INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
 INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
 INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);
+

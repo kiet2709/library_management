@@ -258,5 +258,29 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmPhieuMuon());
         }
+
+        private void lblDocGia_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmDocGia);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblTaiKhoan_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmTaiKhoan);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void lblPhieuMuon_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmPhieuMuon);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
     }
 }
