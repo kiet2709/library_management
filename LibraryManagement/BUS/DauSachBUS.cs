@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Forms;
 using LibraryManagement.DAL;
 using LibraryManagement.DTO;
+using LibraryManagement.Model;
 
 namespace LibraryManagement.BUS
 {
@@ -106,6 +107,46 @@ namespace LibraryManagement.BUS
         internal void saveImage(string imagePath, int result)
         {
             dauSachDAL.saveImage(imagePath, result);
+        }
+
+        public DanhSachDauSachDTO getBookTitles()
+        {
+            DataTable result = dauSachDAL.getBookTitles();
+            if (result == null || result.Rows.Count == 0) return null;
+            DanhSachDauSachDTO danhSachDauSach = new DanhSachDauSachDTO();
+            danhSachDauSach.add(result);
+            return danhSachDauSach;
+        }
+
+        public DanhSachCuonSachDTO getBooksByIdTitle(int id)
+        {
+            DataTable result = dauSachDAL.getgetBooksByIdTitle(id);
+            if (result == null || result.Rows.Count == 0) return null;
+            DanhSachCuonSachDTO danhSachCuonSach = new DanhSachCuonSachDTO();
+            danhSachCuonSach.add(result);
+            return danhSachCuonSach;
+        }
+
+        public int insertBook(int idBookTitle, Sach sach)
+        {
+            return dauSachDAL.insertBook(idBookTitle, sach);
+        }
+
+        public int updateBooks(DanhSachCuonSachDTO danhSachCuonSach)
+        {
+            foreach(Sach sach in danhSachCuonSach.ListSach)
+            {
+                if(updateBook(sach) <= 0)
+                {
+                    return -1;
+                }
+            }
+            return 1;
+        }
+
+        public int updateBook(Sach sach)
+        {
+            return dauSachDAL.updateBook(sach);
         }
     }
 }

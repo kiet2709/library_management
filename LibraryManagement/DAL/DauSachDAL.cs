@@ -1,4 +1,5 @@
 ﻿using LibraryManagement.DTO;
+using LibraryManagement.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -58,6 +59,34 @@ namespace LibraryManagement.DAL
             string query = "usp_Sua_Hinh_Anh_Dau_Sach @ID , @HINHANH";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { Convert.ToInt32(id), imagePath });
 
+        }
+
+        public DataTable getBookTitles()
+        {
+            string query = "usp_Lay_Dau_Sach";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { });
+            return result;
+        }
+
+        public DataTable getgetBooksByIdTitle(int id)
+        {
+            string query = "usp_Lay_Cuon_Sach_Theo_Dau_Sach @id";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
+            return result;
+        }
+
+        public int insertBook(int idBookTitle, Sach sach)
+        {
+            string query = "usp_Them_Cuon_Sach @IDDAUSACH , @TRANGTHAI , @VITRI ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { idBookTitle, sach.TrangThai, sach.ViTri });
+            return result;
+        }
+
+        public int updateBook(Sach sach)
+        {
+            string query = "usp_Sua_Cuon_Sach @IDSACH , @TRANGTHAI , @VITRI ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { sach.Id, sach.TrangThai, sach.ViTri });
+            return result;
         }
     }
 }

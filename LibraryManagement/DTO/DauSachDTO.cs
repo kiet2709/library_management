@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
 
 namespace LibraryManagement.DTO
 {
@@ -21,6 +19,5 @@ namespace LibraryManagement.DTO
             id = Convert.ToInt32(row[0]);
             name = Convert.ToString(row[1]);
         }
-        
     }
 }
