@@ -311,10 +311,10 @@ CREATE TABLE HoSo
   id INT IDENTITY(1,1),
   ten NVARCHAR(200) NOT NULL,
   ho NVARCHAR(200) NOT NULL,
-  diachi NVARCHAR(2000),
+  diachi NVARCHAR(1000),
   soDT NVARCHAR(10),
   hinhanh NVARCHAR(1000),
-  email NVARCHAR(1000) NOT NULL UNIQUE,
+  email NVARCHAR(200) NOT NULL UNIQUE,
   gioitinh INT NOT NULL, -- 0: không rõ | 1: Nam | 2:Nữ
   ngaysinh Date,
   luong INT,
@@ -2214,3 +2214,5 @@ INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
 INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
 INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);
 
+BACKUP DATABASE QuanLyThuVien
+TO DISK = 'E:\HCMUTE\School_Project\library_management\QuanLyThuVien.bak';
