@@ -1853,11 +1853,11 @@ INSERT INTO VaiTro VALUES(N'Quản lý',N'Quản lý mọi thứ');
 INSERT INTO VaiTro VALUES(N'Thủ thư',N'Quản lý cho/nhận sách');
 
 
-INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'20110623',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','20110623@student.hcmute.edu.vn','');
-INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Đào tạo Chất lượng cao',1,1,'01-07-2002','0122544789','20110345@student.edu.vn','');
-INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0164246789','20110678@student.edu.vn','');
-INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Cơ khí Động lực',1,1,'01-04-2002','0125126789','20110912@student.edu.vn','');
-INSERT INTO DocGia VALUES(N'Nguyễn Văn Hải',N'20110722',N'Điện - Điện tử',1,1,'11-08-2002','0152421789','20110722@student.edu.vn','');
+INSERT INTO DocGia VALUES(N'Lê Hải Đăng',N'20110623',N'Công nghệ thông tin',1,1,'01-01-2002','0123456789','20110623@student.hcmute.edu.vn','/uploads/docGia/1.png');
+INSERT INTO DocGia VALUES(N'Hứa Lộc Sơn',N'20110345',N'Đào tạo Chất lượng cao',1,1,'01-07-2002','0122544789','20110345@student.edu.vn','/uploads/docGia/2.png');
+INSERT INTO DocGia VALUES(N'Lê Anh Kiệt',N'20110678',N'Công nghệ thông tin',1,1,'03-04-2002','0164246789','20110678@student.edu.vn','/uploads/docGia/3.png');
+INSERT INTO DocGia VALUES(N'Nguyễn Hưng Khang',N'20110912',N'Cơ khí Động lực',1,1,'01-04-2002','0125126789','20110912@student.edu.vn','/uploads/docGia/4.png');
+INSERT INTO DocGia VALUES(N'Nguyễn Văn Hải',N'20110722',N'Điện - Điện tử',1,1,'11-08-2002','0152421789','20110722@student.edu.vn','/uploads/docGia/5.png');
 INSERT INTO DocGia VALUES(N'Lưu Chí Bảo',N'20157625',N'Công nghệ Hóa học và Thực phẩm',1,1,'01-07-2002','0123425428','20157625@student.edu.vn','');
 INSERT INTO DocGia VALUES(N'Nguyễn Văn Tuấn',N'20156450',N'Xây dựng',1,1,'11-03-2002','0563465689','20156450@student.edu.vn','');
 INSERT INTO DocGia VALUES(N'Nguyễn Hưng Thịnh',N'20168573',N'Công nghệ Thông tin',1,1,'01-06-2002','0125242789','20168573@student.edu.vn','');
@@ -1908,13 +1908,13 @@ INSERT INTO DauSach VALUES(N'Lịch Sử Do Thái', N'Lịch sử Do Thái của
 INSERT INTO DauSach VALUES(N'Atlat Địa Lí Việt Nam', N'Atlat Địa Lí Việt Nam - 2022',25000,'05-04-2022','/uploads/dauSach/34.png',0,1,19,1,14);
 
 INSERT INTO HoSo VALUES(N'Khai', N'Nguyen',N'241 Nguyễn Trãi, Lái Thiêu, Thuận An, Bình Dương','0783511740','/uploads/nhanVien/1.png','20110655@student.hcmute.edu.vn',1,'06-06-2002',null);
-INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'N2 Quang Trung, Đông Nhì, Vĩnh Lộc, Đà Lạt','0767111345','','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'21 Trưng Vương, Bửu Lộc, Tăng Nhơn Phú A, TPHCM','0767223451','','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Phúc', N'Nguyễn',N'95 Nguyễn Văn Trỗi, Hà Đông, Hà Tây, Hà Nội','0783512345','','20123298@student.hcmute.edu.vn',1,'07-09-2002',2000000);
-INSERT INTO HoSo VALUES(N'Đức', N'Lê Hồng',N'252 Nguyễn Huệ, Bà Chiểu, Hà Linh, Nghệ An','0892651234','','20162974@student.hcmute.edu.vn',1,'09-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'221 Nguyễn Đăng Quang, Hiệp Phú, Bình Hòa, Đồng Nai','0768454155','','20162326@student.hcmute.edu.vn',1,'12-17-2002',2000000);
-INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'123 Y Vân, Đồ Chiểu, Nhơn Hòa, Quy Nhơn','0786455451','','20132635@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Tuấn Kiệt', N'Lê Nguyễn',N'241 Đông Ba, Đống Đa, Hà Tĩnh','0783511234','/uploads/nhanVien/2.png','20110234@student.hcmute.edu.vn',1,'09-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'N2 Quang Trung, Đông Nhì, Vĩnh Lộc, Đà Lạt','0767111345','/uploads/nhanVien/3.png','20110211@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'21 Trưng Vương, Bửu Lộc, Tăng Nhơn Phú A, TPHCM','0767223451','/uploads/nhanVien/4.png','201102221@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Phúc', N'Nguyễn',N'95 Nguyễn Văn Trỗi, Hà Đông, Hà Tây, Hà Nội','0783512345','/uploads/nhanVien/5.png','20123298@student.hcmute.edu.vn',1,'07-09-2002',2000000);
+INSERT INTO HoSo VALUES(N'Đức', N'Lê Hồng',N'252 Nguyễn Huệ, Bà Chiểu, Hà Linh, Nghệ An','0892651234','/uploads/nhanVien/6.png','20162974@student.hcmute.edu.vn',1,'09-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Hà', N'Vĩ Khang',N'221 Nguyễn Đăng Quang, Hiệp Phú, Bình Hòa, Đồng Nai','0768454155','/uploads/nhanVien/7.png','20162326@student.hcmute.edu.vn',1,'12-17-2002',2000000);
+INSERT INTO HoSo VALUES(N'Nguyễn', N'Đức Thịnh',N'123 Y Vân, Đồ Chiểu, Nhơn Hòa, Quy Nhơn','0786455451','/uploads/nhanVien/8.png','20132635@student.hcmute.edu.vn',1,'12-17-2002',2000000);
 
 									----
 
@@ -1990,9 +1990,8 @@ BEGIN
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = thinhnguyen
 END
 
-							----
 
-INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12348756'),1,5);
+INSERT INTO NhanVien VALUES(N'phucnguyen',pwdencrypt('12345678'),1,5);
 -- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
@@ -2010,7 +2009,8 @@ END
 
 							----
 
-INSERT INTO NhanVien VALUES(N'hongducle',pwdencrypt('12342327'),1,6);
+
+INSERT INTO NhanVien VALUES(N'hongducle',pwdencrypt('12345678'),1,6);
 -- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
@@ -2026,9 +2026,8 @@ BEGIN
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = hongducle
 END
 
-							----
 
-INSERT INTO NhanVien VALUES(N'baochiluu',pwdencrypt('12343235'),1,7);
+INSERT INTO NhanVien VALUES(N'baochiluu',pwdencrypt('12345678'),1,7);
 -- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
@@ -2044,9 +2043,8 @@ BEGIN
 	EXEC usp_Gan_Quyen_Nhan_Vien @TENDANGNHAP = baochiluu
 END
 
-							----
 
-INSERT INTO NhanVien VALUES(N'dangnguyenle',pwdencrypt('12349263'),1,8);
+INSERT INTO NhanVien VALUES(N'dangnguyenle',pwdencrypt('12345678'),1,8);
 -- Check login
 IF NOT EXISTS(SELECT name  
      FROM master.sys.server_principals
