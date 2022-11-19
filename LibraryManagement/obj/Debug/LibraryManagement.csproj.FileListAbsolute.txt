@@ -182,3 +182,4 @@ D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagemen
 D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemTheLoai.resources
 D:\daihoc\nam3\hệ quản trị csdl\CuoiKy\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThongTinCaNhan.resources
 C:\Users\TUANKIET\Desktop\New folder (4)\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmThemPhieuMuon.resources
+E:\HCMUTE\School_Project\library_management\LibraryManagement\obj\Debug\LibraryManagement.GUI.FrmCuonSach.resources

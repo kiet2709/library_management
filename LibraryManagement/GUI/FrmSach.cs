@@ -219,7 +219,10 @@ namespace LibraryManagement.GUI
         {
             Application.Run(new FrmThemDauSach(new FrmSach()));
         }
-
+        void OpenFrmCuonSach()
+        {
+            Application.Run(new FrmCuonSach());
+        }
         private void btnFormDocGia_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -279,6 +282,14 @@ namespace LibraryManagement.GUI
         {
             this.Close();
             Thread thread = new Thread(OpenFrmPhieuMuon);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+        }
+
+        private void btnFrmCuonSach_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Thread thread = new Thread(OpenFrmCuonSach);
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }

@@ -29,9 +29,9 @@ namespace LibraryManagement.GUI
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSach));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel9 = new System.Windows.Forms.Panel();
             this.lblTenDangNhap = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -101,6 +101,7 @@ namespace LibraryManagement.GUI
             this.backBtn = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnThemDauSach = new System.Windows.Forms.Button();
+            this.btnFrmCuonSach = new System.Windows.Forms.Button();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAnh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -314,15 +315,15 @@ namespace LibraryManagement.GUI
             this.dtgSach.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgSach.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtgSach.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgSach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgSach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgSach.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CAR_ID,
@@ -331,15 +332,15 @@ namespace LibraryManagement.GUI
             this.Price,
             this.Status,
             this.edit});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgSach.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgSach.DefaultCellStyle = dataGridViewCellStyle6;
             this.dtgSach.EnableHeadersVisualStyles = false;
             this.dtgSach.GridColor = System.Drawing.Color.White;
             this.dtgSach.Location = new System.Drawing.Point(359, 327);
@@ -397,11 +398,11 @@ namespace LibraryManagement.GUI
             // 
             // edit
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(5);
-            this.edit.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+            this.edit.DefaultCellStyle = dataGridViewCellStyle5;
             this.edit.FillWeight = 41.71122F;
             this.edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit.HeaderText = "Sửa";
@@ -1067,7 +1068,7 @@ namespace LibraryManagement.GUI
             this.btnThemDauSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
             this.btnThemDauSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemDauSach.ForeColor = System.Drawing.Color.White;
-            this.btnThemDauSach.Location = new System.Drawing.Point(1573, 217);
+            this.btnThemDauSach.Location = new System.Drawing.Point(1574, 257);
             this.btnThemDauSach.Name = "btnThemDauSach";
             this.btnThemDauSach.Size = new System.Drawing.Size(317, 49);
             this.btnThemDauSach.TabIndex = 63;
@@ -1075,12 +1076,26 @@ namespace LibraryManagement.GUI
             this.btnThemDauSach.UseVisualStyleBackColor = false;
             this.btnThemDauSach.Click += new System.EventHandler(this.btnThemDauSach_Click);
             // 
+            // btnFrmCuonSach
+            // 
+            this.btnFrmCuonSach.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            this.btnFrmCuonSach.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFrmCuonSach.ForeColor = System.Drawing.Color.White;
+            this.btnFrmCuonSach.Location = new System.Drawing.Point(1189, 259);
+            this.btnFrmCuonSach.Name = "btnFrmCuonSach";
+            this.btnFrmCuonSach.Size = new System.Drawing.Size(317, 49);
+            this.btnFrmCuonSach.TabIndex = 64;
+            this.btnFrmCuonSach.Text = "Thêm cuốn sách";
+            this.btnFrmCuonSach.UseVisualStyleBackColor = false;
+            this.btnFrmCuonSach.Click += new System.EventHandler(this.btnFrmCuonSach_Click);
+            // 
             // FrmSach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1924, 947);
+            this.Controls.Add(this.btnFrmCuonSach);
             this.Controls.Add(this.btnThemDauSach);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox10);
@@ -1224,5 +1239,6 @@ namespace LibraryManagement.GUI
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button btnThemDauSach;
+        private System.Windows.Forms.Button btnFrmCuonSach;
     }
 }
