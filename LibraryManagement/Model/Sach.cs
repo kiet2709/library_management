@@ -33,7 +33,7 @@ namespace LibraryManagement.Model
             ArrayList listTrangThai = new ArrayList();
             listTrangThai.AddRange(list);
             tbc.DataSource = listTrangThai;
-            tbc.Value = trangThai + 1; 
+            tbc.Value = list[trangThai + 1]; 
             dr.Cells[2].Value = viTri.ToString();
             return dr;
         }

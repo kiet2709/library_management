@@ -68,7 +68,7 @@ namespace LibraryManagement.DAL
             return result;
         }
 
-        public DataTable getgetBooksByIdTitle(int id)
+        public DataTable getBooksByIdTitle(int id)
         {
             string query = "usp_Lay_Cuon_Sach_Theo_Dau_Sach @id";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { id });

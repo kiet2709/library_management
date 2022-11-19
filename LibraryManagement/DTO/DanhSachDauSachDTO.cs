@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace LibraryManagement.DTO
 {
     public class DanhSachDauSachDTO
     {
-        private List<DauSachDTO> listDauSach;
+        private List<DauSachDTO> listDauSach = new List<DauSachDTO>();
 
         public List<DauSachDTO> ListDauSach { get => listDauSach; set => listDauSach = value; }
         public void add(DataTable dataTable)
@@ -20,6 +21,7 @@ namespace LibraryManagement.DTO
                 temp.addRow(row);
                 listDauSach.Add(temp);
             }
+
         }
 
         public ArrayList getDataSource()

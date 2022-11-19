@@ -221,7 +221,7 @@ namespace LibraryManagement.GUI
         }
         void OpenFrmCuonSach()
         {
-            Application.Run(new FrmCuonSach());
+            Application.Run(new FrmCuonSach(new FrmSach()));
         }
         private void btnFormDocGia_Click(object sender, EventArgs e)
         {

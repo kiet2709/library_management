@@ -112,17 +112,17 @@ namespace LibraryManagement.BUS
         public DanhSachDauSachDTO getBookTitles()
         {
             DataTable result = dauSachDAL.getBookTitles();
-            if (result == null || result.Rows.Count == 0) return null;
             DanhSachDauSachDTO danhSachDauSach = new DanhSachDauSachDTO();
+            if (result == null || result.Rows.Count == 0) return danhSachDauSach;
             danhSachDauSach.add(result);
             return danhSachDauSach;
         }
 
         public DanhSachCuonSachDTO getBooksByIdTitle(int id)
         {
-            DataTable result = dauSachDAL.getgetBooksByIdTitle(id);
-            if (result == null || result.Rows.Count == 0) return null;
+            DataTable result = dauSachDAL.getBooksByIdTitle(id);
             DanhSachCuonSachDTO danhSachCuonSach = new DanhSachCuonSachDTO();
+            if (result == null || result.Rows.Count == 0) return danhSachCuonSach;
             danhSachCuonSach.add(result);
             return danhSachCuonSach;
         }
