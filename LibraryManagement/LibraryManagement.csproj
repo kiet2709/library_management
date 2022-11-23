@@ -53,7 +53,7 @@
     <Compile Include="BUS\SachBUS.cs" />
     <Compile Include="BUS\TheLoaiBUS.cs" />
     <Compile Include="DAL\DocGiaDAO.cs" />
-    <Compile Include="DAL\DoiMatKhauDTO.cs" />
+    <Compile Include="DTO\DoiMatKhauDTO.cs" />
     <Compile Include="BUS\TacGiaBUS.cs" />
     <Compile Include="DAL\DataProvider.cs" />
     <Compile Include="DAL\DauSachDAL.cs" />

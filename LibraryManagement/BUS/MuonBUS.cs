@@ -20,11 +20,6 @@ namespace LibraryManagement.BUS
             return phieuMuon;
         }
 
-        public int updateBrrowing(int idMuon, PhieuMuonDTO phieuMuon)
-        {
-            return muonDAL.updateBrrowing(idMuon, phieuMuon);
-        }
-
         public int updateBrrowingBooks(int idMuon, MuonSachDTO muonSach)
         {
             return muonDAL.updateBrrowingBooks(idMuon, muonSach);
@@ -46,13 +41,11 @@ namespace LibraryManagement.BUS
 
         public int updateBrrowingDetail(int id, PhieuMuonDTO phieuMuon, DanhSachSachMuonDTO danhSachSachMuon)
         {
-            if (updateBrrowing(id, phieuMuon) == 0) return 0;
-            foreach(MuonSachDTO muonSach in danhSachSachMuon.ListMuonSach)
+            if (insertTempBrrowing(danhSachSachMuon) == 1)
             {
-                int result = updateBrrowingBooks(id, muonSach);
-                if (result == 0) return 0;
+                return muonDAL.updateBrrowing(id,phieuMuon);
             }
-            return 1;
+            return 0;
         }
 
         public int insertBrrowing(PhieuMuonDTO phieuMuon, DanhSachSachMuonDTO danhSachSachMuon)
@@ -73,6 +66,7 @@ namespace LibraryManagement.BUS
             }
             return 1;
         }
+
 
         public DanhSachPhieuMuonDTO getFilterListBrrowing(LocPhieuMuonDTO locPhieuMuon)
         {

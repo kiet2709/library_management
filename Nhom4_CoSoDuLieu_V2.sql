@@ -645,6 +645,7 @@ BEGIN
 END
 GO
 
+
 CREATE OR ALTER PROCEDURE usp_Lay_ID_THEO_MSSV
 @MSSV NVARCHAR(10)
 AS
@@ -1527,10 +1528,12 @@ GO
 
 CREATE OR ALTER PROC usp_THEM_TAM_SACH_TRONG_PHIEU_MUON
 @MASACH INT,
-@GHICHU NVARCHAR(50)
+@MAMUON INT,
+@GHICHU NVARCHAR(50),
+@TRANGTHAI INT
 AS
 BEGIN
-	INSERT INTO MuonSachTemp(maSach, ghiChu) VALUES(@MASACH, @GHICHU);	
+	INSERT INTO MuonSachTemp VALUES(@MASACH, @MAMUON, @GHICHU, @TRANGTHAI);	
 END
 GO
 
@@ -1580,8 +1583,25 @@ CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
 @TIENPHAT INT
 AS
 BEGIN
-	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
-			WHERE id=@ID		
+	BEGIN TRY
+		BEGIN TRAN
+			UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
+				WHERE id=@ID;
+			
+			UPDATE MuonSachTemp SET maMuon=@ID
+
+			UPDATE M SET M.ghiChu=T.ghiChu, M.trangthai=T.trangthai FROM MuonSach M INNER JOIN MuonSachTemp T 
+			ON M.maMuon=T.maMuon AND M.maSach=T.maMuon; 
+			
+		COMMIT
+	END TRY
+
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRAN;
+	END CATCH
+
+	DELETE FROM MuonSachTemp;	
 END;
 GO
 
@@ -2310,22 +2330,22 @@ INSERT INTO Sach VALUES(1,N'Kệ 10',34);
 INSERT INTO Sach VALUES(1,N'Kệ 10',34);
 
 
-INSERT INTO MuonSach VALUES(1,1,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(2,2,'Sách quăng góc', 1);
-INSERT INTO MuonSach VALUES(3,3,'Sách rách bìa', 0);
-INSERT INTO MuonSach VALUES(4,4,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(5,5,'Sách quăng góc', 1);
-INSERT INTO MuonSach VALUES(32,6,'Sách rách bìa', 0);
-INSERT INTO MuonSach VALUES(31,7,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(30,8,'Sách bình thường', 0);
-INSERT INTO MuonSach VALUES(20,9,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(22,10,'Sách quăng góc', 0);
-INSERT INTO MuonSach VALUES(21,11,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(23,12,'Sách rách bìa', 1);
-INSERT INTO MuonSach VALUES(15,13,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(16,14,'Sách bình thường', 0);
-INSERT INTO MuonSach VALUES(17,15,'Sách bình thường', 0);
-INSERT INTO MuonSach VALUES(9,16,'Sách quăng góc', 0);
-INSERT INTO MuonSach VALUES(10,17,'Sách bình thường', 1);
-INSERT INTO MuonSach VALUES(14,18,'Sách rách bìa', 0);
-INSERT INTO MuonSach VALUES(13,19,'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(1,1, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(2,2, N'Sách quăng góc', 1);
+INSERT INTO MuonSach VALUES(3,3, N'Sách rách bìa', 0);
+INSERT INTO MuonSach VALUES(4,4, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(5,5, N'Sách quăng góc', 1);
+INSERT INTO MuonSach VALUES(32,6, N'Sách rách bìa', 0);
+INSERT INTO MuonSach VALUES(31,7, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(30,8, N'Sách bình thường', 0);
+INSERT INTO MuonSach VALUES(20,9, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(22,10, N'Sách quăng góc', 0);
+INSERT INTO MuonSach VALUES(21,11, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(23,12, N'Sách rách bìa', 1);
+INSERT INTO MuonSach VALUES(15,13, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(16,14, N'Sách bình thường', 0);
+INSERT INTO MuonSach VALUES(17,15, N'Sách bình thường', 0);
+INSERT INTO MuonSach VALUES(9,16, N'Sách quăng góc', 0);
+INSERT INTO MuonSach VALUES(10,17, N'Sách bình thường', 1);
+INSERT INTO MuonSach VALUES(14,18, N'Sách rách bìa', 0);
+INSERT INTO MuonSach VALUES(13,19, N'Sách bình thường', 1);

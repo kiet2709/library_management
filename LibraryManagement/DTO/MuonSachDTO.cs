@@ -13,13 +13,15 @@ namespace LibraryManagement.DTO
         private string name;
         private int trangthai;
         private string ghiChu;
-        private int daMuon;
+        private int daMuon=0;
+        private int maMuon;
 
         public int Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public int Trangthai { get => trangthai; set => trangthai = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }
         public int DaMuon { get => daMuon; set => daMuon = value; }
+        public int MaMuon { get => maMuon; set => maMuon = value; }
 
         public void addRow(DataRow row)
         {
