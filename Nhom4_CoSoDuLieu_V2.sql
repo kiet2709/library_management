@@ -1578,7 +1578,7 @@ BEGIN
 			UPDATE MuonSachTemp SET maMuon=@ID
 
 			UPDATE M SET M.ghiChu=T.ghiChu, M.trangthai=T.trangthai FROM MuonSach M INNER JOIN MuonSachTemp T 
-			ON M.maMuon=T.maMuon AND M.maSach=T.maMuon; 
+			ON M.maMuon=T.maMuon AND M.maSach=T.maMuon WHERE M.maMuon=@ID; 
 			
 		COMMIT
 	END TRY
