@@ -103,7 +103,7 @@ namespace LibraryManagement.DAL
                     conn.Close();
 
                 }
-                return data;
+                return data==0 ? 0:1;
             }
             catch(Exception e)
             {

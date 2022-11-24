@@ -59,10 +59,15 @@ namespace LibraryManagement.BUS
 
         public int insertTempBrrowing(DanhSachSachMuonDTO danhSachSachMuon)
         {
+            if (muonDAL.deleteTempBrrowing() == 0) return 0;
             foreach(MuonSachDTO muonSach in danhSachSachMuon.ListMuonSach)
             {
+                Console.WriteLine(muonSach.Trangthai.ToString());
                 int result = muonDAL.insertTempBrrowing(muonSach);
-                if (result <= 0) return 0;
+                if (result <= 0) {
+                    muonDAL.deleteTempBrrowing();
+                    return 0;
+                }
             }
             return 1;
         }

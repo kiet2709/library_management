@@ -40,7 +40,7 @@ namespace LibraryManagement.GUI
         {
             phieuMuon = muonBUS.getBrrowing(id);
             txt_sinhVien.Text = phieuMuon.SinhVien;
-            txt_mssv.Text = docGiaBUS.getDocGiaById(Convert.ToInt32(phieuMuon.Mssv)).Mssv;
+            txt_mssv.Text = phieuMuon.Mssv;
             txt_khoa.Text = phieuMuon.Khoa;
             txt_thuThu.Text = phieuMuon.ThuThu;
             txt_tienPhat.Text = phieuMuon.TienPhat.ToString();

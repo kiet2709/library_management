@@ -430,7 +430,6 @@ CREATE TABLE MuonSachTemp
   maMuon INT,
   ghiChu NVARCHAR(50),
   trangthai INT, -- 1: Đang mượn | 0: Trả rồi
-  CONSTRAINT CHK_MuonSachTemp Check (trangthai = 0 OR trangthai =1)
 );
 GO
 								--=============== TRIGGER ===============--
@@ -813,18 +812,6 @@ BEGIN
 			WHERE Muon.id=@ID		
 END
 GO
-
-CREATE OR ALTER PROC usp_CAP_NHAT_THONG_TIN_PHIEU_MUON
-@ID INT,
-@NGAYTRA DATE,
-@TIENPHAT INT
-AS
-BEGIN
-	UPDATE Muon SET ngaytra=@NGAYTRA, tienphat=@TIENPHAT 
-			WHERE id=@ID		
-END
-GO
-
 
 -- procedure Xem thông tin đầu sách
 CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
@@ -1675,6 +1662,14 @@ BEGIN
 		ELSE SELECT id, ngaymuon, ngayhethan, dbo.fn_Trang_Thai_Phieu_Muon(m.id), tienphat FROM Muon m WHERE maDocGia=@MSSV AND dbo.fn_Trang_Thai_Phieu_Muon(m.id)=@TRANGTHAI;
 	END
 END
+GO
+
+CREATE OR ALTER PROC usp_XOA_BANG_TAM
+AS
+BEGIN
+	INSERT INTO MuonSachTemp VALUES(-1, -1, '', -1);
+	DELETE FROM MuonSachTemp;
+END;
 GO
 --================ Function ====================================
 

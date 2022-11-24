@@ -62,7 +62,14 @@ namespace LibraryManagement.DAL
         public int insertTempBrrowing(MuonSachDTO muonSach)
         {
             string query = "usp_THEM_TAM_SACH_TRONG_PHIEU_MUON @MAMUON , @MASACH , @GHICHU , @TRANGTHAI";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { muonSach.MaMuon, muonSach.Id, muonSach.GhiChu, muonSach.DaMuon});
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { muonSach.MaMuon, muonSach.Id, muonSach.GhiChu, muonSach.Trangthai});
+            return result;
+        }
+
+        public int deleteTempBrrowing()
+        {
+            string query = "usp_XOA_BANG_TAM";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { });
             return result;
         }
     }
