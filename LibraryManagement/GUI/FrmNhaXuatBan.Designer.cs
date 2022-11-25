@@ -28,18 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhaXuatBan));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtgNhaXuatBan = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sumOfBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.delete = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
             this.btnFormTacGia = new System.Windows.Forms.Panel();
@@ -101,6 +95,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btnThemNhaXuatBan = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumOfBook = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edit = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtgNhaXuatBan)).BeginInit();
             this.panel1.SuspendLayout();
             this.btnFormTacGia.SuspendLayout();
@@ -152,31 +150,30 @@
             this.dtgNhaXuatBan.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dtgNhaXuatBan.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dtgNhaXuatBan.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgNhaXuatBan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(74)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgNhaXuatBan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgNhaXuatBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgNhaXuatBan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.category,
             this.sumOfBook,
-            this.delete,
             this.edit});
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle44.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgNhaXuatBan.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgNhaXuatBan.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgNhaXuatBan.EnableHeadersVisualStyles = false;
             this.dtgNhaXuatBan.GridColor = System.Drawing.Color.White;
             this.dtgNhaXuatBan.Location = new System.Drawing.Point(363, 292);
@@ -184,14 +181,14 @@
             this.dtgNhaXuatBan.Name = "dtgNhaXuatBan";
             this.dtgNhaXuatBan.ReadOnly = true;
             this.dtgNhaXuatBan.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgNhaXuatBan.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgNhaXuatBan.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgNhaXuatBan.RowHeadersVisible = false;
             this.dtgNhaXuatBan.RowHeadersWidth = 51;
             this.dtgNhaXuatBan.RowTemplate.Height = 30;
@@ -200,57 +197,6 @@
             this.dtgNhaXuatBan.Size = new System.Drawing.Size(1560, 642);
             this.dtgNhaXuatBan.TabIndex = 61;
             this.dtgNhaXuatBan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgNhaXuatBan_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.FillWeight = 32.13578F;
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.FillWeight = 292.4029F;
-            this.category.HeaderText = "Nhà xuất bản";
-            this.category.MinimumWidth = 6;
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // sumOfBook
-            // 
-            this.sumOfBook.FillWeight = 89.4281F;
-            this.sumOfBook.HeaderText = "Tổng số sách";
-            this.sumOfBook.MinimumWidth = 6;
-            this.sumOfBook.Name = "sumOfBook";
-            this.sumOfBook.ReadOnly = true;
-            // 
-            // delete
-            // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle42.Padding = new System.Windows.Forms.Padding(5);
-            this.delete.DefaultCellStyle = dataGridViewCellStyle42;
-            this.delete.FillWeight = 43.25248F;
-            this.delete.HeaderText = "Xóa";
-            this.delete.MinimumWidth = 6;
-            this.delete.Name = "delete";
-            this.delete.ReadOnly = true;
-            this.delete.Text = "Xóa";
-            // 
-            // edit
-            // 
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle43.Padding = new System.Windows.Forms.Padding(5);
-            this.edit.DefaultCellStyle = dataGridViewCellStyle43;
-            this.edit.FillWeight = 42.78075F;
-            this.edit.HeaderText = "Sửa";
-            this.edit.MinimumWidth = 6;
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Text = "Sửa";
             // 
             // panel1
             // 
@@ -360,7 +306,7 @@
             this.lblTacGia.Location = new System.Drawing.Point(161, 29);
             this.lblTacGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTacGia.Name = "lblTacGia";
-            this.lblTacGia.Size = new System.Drawing.Size(107, 32);
+            this.lblTacGia.Size = new System.Drawing.Size(108, 32);
             this.lblTacGia.TabIndex = 30;
             this.lblTacGia.Text = "Tác giả";
             this.lblTacGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -441,7 +387,7 @@
             this.lblPhieuMuon.Location = new System.Drawing.Point(130, 29);
             this.lblPhieuMuon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhieuMuon.Name = "lblPhieuMuon";
-            this.lblPhieuMuon.Size = new System.Drawing.Size(166, 32);
+            this.lblPhieuMuon.Size = new System.Drawing.Size(167, 32);
             this.lblPhieuMuon.TabIndex = 30;
             this.lblPhieuMuon.Text = "Phiếu Mượn";
             this.lblPhieuMuon.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -522,7 +468,7 @@
             this.lblTaiKhoan.Location = new System.Drawing.Point(149, 22);
             this.lblTaiKhoan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTaiKhoan.Name = "lblTaiKhoan";
-            this.lblTaiKhoan.Size = new System.Drawing.Size(139, 32);
+            this.lblTaiKhoan.Size = new System.Drawing.Size(140, 32);
             this.lblTaiKhoan.TabIndex = 30;
             this.lblTaiKhoan.Text = "Tài khoản";
             this.lblTaiKhoan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -603,7 +549,7 @@
             this.lblNgonNgu.Location = new System.Drawing.Point(147, 29);
             this.lblNgonNgu.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNgonNgu.Name = "lblNgonNgu";
-            this.lblNgonNgu.Size = new System.Drawing.Size(137, 32);
+            this.lblNgonNgu.Size = new System.Drawing.Size(138, 32);
             this.lblNgonNgu.TabIndex = 30;
             this.lblNgonNgu.Text = "Ngôn ngữ";
             this.lblNgonNgu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -684,7 +630,7 @@
             this.lblDocGia.Location = new System.Drawing.Point(158, 22);
             this.lblDocGia.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDocGia.Name = "lblDocGia";
-            this.lblDocGia.Size = new System.Drawing.Size(110, 32);
+            this.lblDocGia.Size = new System.Drawing.Size(111, 32);
             this.lblDocGia.TabIndex = 30;
             this.lblDocGia.Text = "Độc giả";
             this.lblDocGia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -765,7 +711,7 @@
             this.lblFormNhaXuatBan.Location = new System.Drawing.Point(126, 29);
             this.lblFormNhaXuatBan.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormNhaXuatBan.Name = "lblFormNhaXuatBan";
-            this.lblFormNhaXuatBan.Size = new System.Drawing.Size(182, 32);
+            this.lblFormNhaXuatBan.Size = new System.Drawing.Size(183, 32);
             this.lblFormNhaXuatBan.TabIndex = 30;
             this.lblFormNhaXuatBan.Text = "Nhà xuất bản";
             this.lblFormNhaXuatBan.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -846,7 +792,7 @@
             this.lblFormSach.Location = new System.Drawing.Point(175, 30);
             this.lblFormSach.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormSach.Name = "lblFormSach";
-            this.lblFormSach.Size = new System.Drawing.Size(79, 32);
+            this.lblFormSach.Size = new System.Drawing.Size(80, 32);
             this.lblFormSach.TabIndex = 30;
             this.lblFormSach.Text = "Sách";
             this.lblFormSach.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -927,7 +873,7 @@
             this.lblFormTheLoai.Location = new System.Drawing.Point(164, 29);
             this.lblFormTheLoai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFormTheLoai.Name = "lblFormTheLoai";
-            this.lblFormTheLoai.Size = new System.Drawing.Size(116, 32);
+            this.lblFormTheLoai.Size = new System.Drawing.Size(117, 32);
             this.lblFormTheLoai.TabIndex = 30;
             this.lblFormTheLoai.Text = "Thể loại";
             this.lblFormTheLoai.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -988,7 +934,7 @@
             this.label8.Location = new System.Drawing.Point(668, 50);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 32);
+            this.label8.Size = new System.Drawing.Size(109, 32);
             this.label8.TabIndex = 28;
             this.label8.Text = "Quản lý";
             // 
@@ -1062,6 +1008,43 @@
             this.btnThemNhaXuatBan.Text = "Thêm nhà xuất bản";
             this.btnThemNhaXuatBan.UseVisualStyleBackColor = false;
             this.btnThemNhaXuatBan.Click += new System.EventHandler(this.btnThemNhaXuatBan_Click);
+            // 
+            // id
+            // 
+            this.id.FillWeight = 32.13578F;
+            this.id.HeaderText = "ID";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.FillWeight = 292.4029F;
+            this.category.HeaderText = "Nhà xuất bản";
+            this.category.MinimumWidth = 6;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // sumOfBook
+            // 
+            this.sumOfBook.FillWeight = 89.4281F;
+            this.sumOfBook.HeaderText = "Tổng số sách";
+            this.sumOfBook.MinimumWidth = 6;
+            this.sumOfBook.Name = "sumOfBook";
+            this.sumOfBook.ReadOnly = true;
+            // 
+            // edit
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            this.edit.DefaultCellStyle = dataGridViewCellStyle2;
+            this.edit.FillWeight = 42.78075F;
+            this.edit.HeaderText = "Sửa";
+            this.edit.MinimumWidth = 6;
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Text = "Sửa";
             // 
             // FrmNhaXuatBan
             // 
@@ -1198,15 +1181,14 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sumOfBook;
-        private System.Windows.Forms.DataGridViewButtonColumn delete;
-        private System.Windows.Forms.DataGridViewButtonColumn edit;
         private System.Windows.Forms.Button btnThemNhaXuatBan;
         private System.Windows.Forms.Label lblTenDangNhap;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.PictureBox pbAnh;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sumOfBook;
+        private System.Windows.Forms.DataGridViewButtonColumn edit;
     }
 }
