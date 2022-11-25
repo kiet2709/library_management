@@ -522,27 +522,40 @@ END
 GO
 
 							--=============== VIEW ===============--
---  view nhanvien
-CREATE OR ALTER VIEW NHANVIEN_VIEW AS
-
-SELECT HoSo.id,HoSo.ho AS [Họ] ,HoSo.ten AS [Tên], Hoso.email , HoSo.diachi AS [Địa chỉ],
-HoSo.gioitinh AS [Giới tính], HoSo.hinhanh AS [Hình ảnh], HoSo.luong AS [Lương],
-HoSo.soDT AS [SĐT], HoSo.ngaysinh AS [Ngày sinh]
-FROM HoSo INNER JOIN NhanVien ON HoSo.id=NhanVien.maHoSo 
-INNER JOIN vaitro_nhanVien ON NhanVien.id=vaitro_nhanVien.maNhanVien 
-	INNER JOIN VaiTro ON vaitro_nhanVien.maVaiTro=VaiTro.id
-WHERE VaiTro.ten='nhan vien'
-
-GO
 --  view nhaxuatban
-CREATE OR ALTER VIEW NXB_VIEW AS
-SELECT *
+CREATE OR ALTER VIEW view_nxb AS
+SELECT * 
 FROM NhaXuatBan 
 GO
 --  view theloai
-CREATE OR ALTER VIEW THELOAI_VIEW AS
+CREATE OR ALTER VIEW view_theloai AS
 SELECT *
 FROM TheLoai
+GO
+-- view dauSach
+CREATE OR ALTER VIEW view_dausach AS
+SELECT *
+FROM DauSach
+GO
+-- view HoSo
+CREATE OR ALTER VIEW view_hoso AS
+SELECT *
+FROM HoSo
+GO
+-- view Muon
+CREATE OR ALTER VIEW view_muon AS
+SELECT *
+FROM MUON
+GO
+-- view tacgia
+CREATE OR ALTER VIEW view_tacgia AS
+SELECT *
+FROM TACGIA
+GO
+-- view docgia
+CREATE OR ALTER VIEW view_docgia AS
+SELECT *
+FROM DOCGIA
 GO
 							--=============== Phân Quyền ===============--
 -- Procedure gán quyền cho thủ thư
@@ -616,10 +629,9 @@ GO
 CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Doc_gia
 AS
 BEGIN
-   SELECT * FROM DocGia;
+   SELECT * FROM view_docgia;
 END;
 GO
-
 -- procedure Thêm thông tin độc giả
 CREATE OR ALTER PROCEDURE usp_Them_Doc_Gia
 @Ten NVARCHAR(50),
@@ -644,11 +656,10 @@ CREATE OR ALTER PROCEDURE usp_Lay_Doc_Gia_Theo_Id
 @ID INT
 AS
 BEGIN
-	SELECT * FROM DocGia
+	SELECT * FROM view_docgia
 	WHERE id = @ID;
 END
 GO
-
 
 CREATE OR ALTER PROCEDURE usp_Lay_ID_THEO_MSSV
 @MSSV NVARCHAR(10)
@@ -757,7 +768,7 @@ GO
 CREATE OR ALTER PROCEDURE usp_Xem_The_Loai
 AS
 BEGIN
-   	SELECT * FROM TheLoai;
+   	SELECT * FROM view_theloai;
 END;
 GO
 
@@ -822,7 +833,7 @@ GO
 CREATE OR ALTER PROCEDURE usp_Xem_Dau_Sach
 AS
 BEGIN
-   SELECT * FROM DauSach;
+   SELECT * FROM view_dausach;
 END;
 GO
 
@@ -1177,7 +1188,7 @@ GO
 CREATE OR ALTER PROC usp_TAC_GIA_SACH
 AS
 	BEGIN
-		SELECT * FROM TacGia 
+		SELECT * FROM view_tacgia 
 	END
 GO
 
@@ -1549,7 +1560,7 @@ CREATE OR ALTER PROCEDURE usp_Xem_Thong_Tin_Phieu_Muon
 @id INT
 AS
 BEGIN
-   SELECT * FROM Muon
+   SELECT * FROM view_muon
    WHERE id = @id;
 END;
 GO

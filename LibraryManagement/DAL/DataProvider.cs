@@ -14,7 +14,7 @@ namespace LibraryManagement.DAL
         private string strConnectionString = "";
         public void  setStrConnectionString(string username, string password)
         {
-            this.strConnectionString = $@"Data Source=THINHDEPTRAIPRO\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={username}; Password={password};";
+            this.strConnectionString = $@"Data Source=ADMIN\SQLEXPRESS;Initial Catalog=QuanLyThuVien; User Id={username}; Password={password};";
         }
 
         public static DataProvider Instance
