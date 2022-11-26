@@ -40,7 +40,7 @@ namespace LibraryManagement.GUI
             this.txtSDT.Text = hoSoQuanLyDTO.SoDT;
             this.txtLuong.Text = hoSoQuanLyDTO.Luong.ToString();
 
-            if(Properties.Settings.Default.role == "Quản lý")
+            if(Properties.Settings.Default.role == "Thủ thư")
             {
                 this.lbTrangThai.Enabled = false;
                 this.rbHoatDong.Enabled = false;
